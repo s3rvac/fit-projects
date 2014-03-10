@@ -1,0 +1,44 @@
+                         IIS Exhibition Ground Information System
+                        Petr Zemek, xzemek02@stud.fit.vutbr.cz, 2007
+
+                               Installation and requirements
+
+Server requirements:
+    Web server - any
+    PHP5 - version: >= 5.2
+         - enabled modules: mysql, libxml, simplexml, mbstring, session
+         - enabled configuration: file_uploads on
+    MySQL - version: >= 4.0.27 (recommended version: >= 5.0)
+          - access to a database (utf8 character set)
+          - account with (at least) the following privileges:
+              DROP, CREATE, INDEX, INSERT, UPDATE, DELETE, SELECT, SHOW
+
+Client requirements:
+ - web browser with enabled cookies and javascript
+
+Installation:
+ - copy all the files and directories (excluding README, INSTALL and doc.html)
+   into some directory, which is accessible from the Internet via web browser
+   and handled by the web server (php scripts execution), e.g. ~/WWW/IIS/
+ - be sure that you have right permissions on that directory (so the
+   web content can be publicly viewable), e.g. "drwxr-xr-x"
+ - the following directories must be publicly writeable (drwxrwxrwx)
+    - ./logs
+    - ./web/templates/cache
+    - ./web/templates/templates_c
+ - edit the configuration file (./web/config.php) and set everything under
+     "// Database configuration", e.g.:
+     $db_host = 'localhost';     // MySQL server
+     $db_name = 'iis';           // Name of the database
+     $db_user = 'username';      // Username
+     $db_pass = 'password';      // Password
+     $db_table_prefix = 'iis_';  // Prefix of all tables - it is recommended
+                                    to keep this value, if you change it you
+                                    will have to change it also in the database
+                                    script (./sql/database.sql)
+ - load all the database tables and data by running:
+      mysql -p database_name < ./sql/database.sql
+ - that's all - now you can try to connect to the application via your
+   favorite web browser (e.g.: http://www.stud.fit.vutbr.cz/~xlogin00/IIS)
+ - if you encounter some problem, please let me know: xzemek02@stud.fit.vutbr.cz
+

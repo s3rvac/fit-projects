@@ -1,0 +1,86 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Project: FAV 2009
+% Authors:
+%     Ondrej Lengal, xlenga00@stud.fit.vutbr.cz
+%     Libor Polcak, xpolca03@stud.fit.vutbr.cz
+%     Petr Zemek, xzemek02@stud.fit.vutbr.cz
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Packages
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[plainpages=false,urlcolor=blue,pdftex]{hyperref}
+\usepackage{amsthm}
+\usepackage{latexsym}
+\usepackage{listings}
+
+% Listings package settings
+\lstset{
+	language=Promela,
+	numbers=left,
+	tabsize=2,
+	basicstyle=\small,
+	morecomment=[l]{//}
+}
+
+\pagestyle{plain}
+
+% Page margins
+\usepackage[left=2cm,text={17cm, 23cm},top=2cm]{geometry}
+
+% Paragraph formatting - no indents
+\setlength{\parskip}{1.3ex plus 0.2ex minus 0.2ex}
+\setlength{\parindent}{0pt}
+
+% Macros
+\newcommand{\bs}{$\backslash$}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Title page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\project}[1]{
+  \def\@projectname{#1}
+}
+\def\@university{Brno University of Technology}
+\def\@faculty{Faculty of Information Technology}
+\def\@year{\number\year}
+
+\renewcommand\maketitle{
+	\thispagestyle{empty}
+	\null
+	\begin{center}
+		\vspace{5mm}
+		{\LARGE \bf \sc \MakeUppercase{\@university} }\\[5mm]
+		{\Large \bf \sc \MakeUppercase{\@faculty} }\\[5mm]
+		\vspace{10mm}
+
+		\begin{figure}[h]
+			\begin{center}
+				\includegraphics[width=4cm,keepaspectratio]{include/logo}
+			\end{center}
+		\end{figure}
+
+		\vspace{15mm}
+
+		{\Huge \bfseries \@title}\\[10mm]
+		{\huge \@projectname}
+
+		\vspace{20mm}
+
+		{\Large \@author}
+
+		\vspace{20mm}
+
+		\vspace{20mm}
+		\Large{\bfseries \@year}
+
+		\end{center}
+	\clearpage
+
+	\setcounter{tocdepth}{2}
+	\addtocounter{page}{1}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vim: syntax=tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

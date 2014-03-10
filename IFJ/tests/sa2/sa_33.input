@@ -1,0 +1,14 @@
+//Funkce je volana se spatnym poctem arguemntu
+//Predpokladany vysledek: Funkce je volana se spatnym poctem argumentu
+void main();
+int intfce(int);
+
+void main()
+{
+intfce();
+}
+
+int intfce(int a)
+{
+return 1;
+}

@@ -1,0 +1,14 @@
+//Zastineni 4
+//Predpokladany vysledek: prom jiz existuje
+var int prom;
+
+void main();
+int prom();
+
+void main()
+{
+}
+
+int prom()
+{
+}

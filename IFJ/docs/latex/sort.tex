@@ -1,0 +1,28 @@
+\section{Řadící funkce a algoritmus Shellsort}
+
+\subsection{Zpracování dat k řazení}
+Po vstupu do funkce je jako první ošetřena situace, kdy je předaný řetězec prázdný - řazení je zbytečné.
+Vytvoříme kopie řetězce, který budeme upravovat (nelze upravovat vstupní řetězec přímo, protože se může jedna o konstantu).
+Zjistíme počet řetězců a vytvoříme pole ukazatelů, do kterých se budou ukládat počáteční adresy jednotlivých slov v řetězci (zrychlení řazení, budou se přesouvat jen ukazatele).
+V kopii vstupního řetězce nahradíme znak \$ (oddělovač) znakem konce řetězce (\bs0) - zde je nutné kontrolovat, zda se jedná o samostatný znak \$ a ne o tzv. \textit{escape sekvenci}.
+Následně tohoto využijeme při uložení adres počátků slov do pomocného pole ukazatelů.
+Provede se řazení metodou Shellsort (viz. dále) a seřazené řetězce se postupně nakopírují do výsledného řetězce a postupně se oddělují znakem '\$', aby byl zachován formát předepsaný zadáním - tento řetězec se vrátí jako výsledek.
+
+\subsection{Vlastní algoritmus Shellsort}
+
+Tento algoritmus byl navržen D.L.Shellem. Princip je založen na vkládání, ovšem na rozdíl od pomalých metod typu Bubblesort využívá větší krok. Základní myšlenkou je pak přeuspořádat pole řetězců tak, že když vezmeme každý $k$-tý řetězec, dostaneme seřazenou posloupnost řetězců.
+Při řazení s krokem $k$ můžeme přesunovat řetězce na větší vzdálenosti (nejméně $k$), a tak dosáhnout menšího počtu výměn při řazení s menším krokem.
+Nejdříve tedy seřadíme pole řetězců s krokem $k_{1}$, pak s krokem $k_{2} < k_{1}$ atd., až nakonec je seřadíme s krokem $1$ a dostaneme plně seřazenou posloupnost řetězců. Při každém z následujících průchodů seřazujeme část pole, která je již částečně seřazená, a proto celkové množství výměn relativně nízké číslo.
+
+Námi zvolený krok vychází z knížky Roberta Sedgewicka\footnote{Algorithms in C, Parts 1-4: Fundamentals, Data Structures, Sorting, Searching, 3rd Edition} a je definován následovně:
+
+$$k_{1} = 1, k_{i} = 3k_{i-1}+1, i \in \lbrace2,3,...\frac{P-1}{9}\rbrace$$
+
+kde $P$ je počet řetězců (zbytek po dělení zanedbán). Po každém průchodu polem řetězců je krok snížen o třetinu (začíná se nejvyšším krokem a ten se postupně snižuje).
+
+\begin{itemize}
+	\item algoritmus pracuje \textit{in-situ}
+	\item algoritmus není stabilní
+	\item průměrná složitost algoritmu je v našem případě $\Theta(N^{1,25})$, kde $N$ je počet řetězců
+\end{itemize}
+

@@ -1,0 +1,17 @@
+//Deklarace globalni promennych, vzdy pred deklaracemi a definicemi
+//Predpokladany vysledek: chyba, glob je na spatnem miste
+
+int f(int);
+void main();
+
+var int glob;
+
+int f(int a)
+{
+return a;
+} 
+
+void main()
+{
+return;
+}

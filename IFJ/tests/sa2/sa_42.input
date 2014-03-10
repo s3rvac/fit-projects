@@ -1,0 +1,15 @@
+//Zastineni 2
+//Predpokladany vysledek: OK
+var int prom;
+
+void main();
+int intfce(int);
+
+void main()
+{
+}
+
+int intfce(int prom)
+{
+prom := 2;
+}

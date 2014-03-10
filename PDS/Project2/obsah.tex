@@ -1,0 +1,470 @@
+%------------------------------------------------------------------------------
+% Sablona dokumentu pro projekt predmetu PDS
+% Autor: Petr Pospichal (xpospi45)
+% Upravil: Jaroslav Dytrych (xdytry00), Petr Zemek (xzemek02)
+%------------------------------------------------------------------------------
+%==============================================================================
+% Nazev projektu: Open SSH. Praktické pou¾ití.
+% Autor: Petr Zemek, xzemek02@stud.fit.vutbr.cz
+% Datum: 10.3.2009
+%==============================================================================
+
+\section{Úvod}
+
+Standardní konfigurace (pøednastavená výrobcem) mnohých softwareových produktù
+bývá zamìøena na univerzální a jednoduché pou¾ití, ale nebývá v¾dy ta
+nejbezpeènìj¹í. V~této práci jsou rozebrána ta nejdùle¾itìj¹í nastavení
+(z~pohledu zabezpeèení) otevøeného software pro ¹ifrovanou komunikaci
+-- Open SSH\footnote[1]{http://www.openssh.org/}. Jejich správným nastavením lze
+zlep¹it zabezpeèení serveru a sní¾it mno¾ství útokù. Uvedeny jsou i dal¹í
+u¾iteèné nástroje, které doká¾í úroveò zabezpeèení zlep¹it nad rámec
+standardních mo¾ností konfigurace Open SSH. Nastavením serveru a klienta
+se zabývá sekce \ref{section:Zabezpeceni}.
+Proto¾e nìkterá nastavení mohou znesnadnit práci s~klientskými aplikacemi,
+tak v~sekci \ref{section:ZjednoduseniPrace} je ukázáno nìkolik tipù pro
+usnadnìní práce s~Open SSH.
+
+\section{Zabezpeèení}
+\label{section:Zabezpeceni}
+
+Zabezpeèení se týká jak strany serveru (démon \texttt{sshd}), tak strany klienta
+(programy \texttt{ssh}, \texttt{scp} a \texttt{sftp}).
+Obì strany mají své konfiguraèní soubory \cite{ManSshd, ManSsh}, jejich¾ umístìní se li¹í systém od systému
+\cite{BezpecnostVLinuxu}, ale rozdìlení podle úèelu je v¹ude stejné.
+V~rámci tohoto èlánku budu uva¾ovat umístìní, které bývá èasté v~systémech unixového typu:
+
+\begin{itemize}
+	\item[] \texttt{/etc/ssh/sshd\_config} -- globální konfigurace serveru
+	\item[] \texttt{/etc/ssh/ssh\_config} -- globální konfigurace klienta
+	\item[] \texttt{\$HOME/.ssh/config} -- lokální (u¾ivatelská) konfigurace klienta
+\end{itemize}
+
+\noindent
+Globální konfigurace klienta se pou¾ije, pokud daný u¾ivatel nepou¾ívá svou
+vlastní konfiguraci v~domovském adresáøi nebo zde nemá nìkterá nastavení specifikované.
+Pro zmìny v~konfiguraèních souborech je tøeba mít pøíslu¹ná práva.
+
+V~rámci zaji¹»ování bezpeènosti je kromì samotného nastavení serveru
+nutná pravidelná kontrola záznamù (logù), a to i tehdy, pokud máte nainstalovány nástroje,
+které to dìlají automaticky. Dále je dùle¾ité sledování zji¹tìných bezpeènostních dìr
+v~pou¾ívané implementaci Open SSH a následná reflexe v~podobì instalace
+potøebných záplat èi zmìny nastavení serveru.
+
+Proto¾e nejslab¹í èlánek (z~hlediska bezpeènosti) bývá u¾ivatel \cite{UserWeakestLink},
+je vhodné v¹echny u¾ivatele, kteøí se budou na server pøipojovat, instruovat o~základních
+bezpeènostních pravidlech, pøedev¹ím co se týèe výbìru a uchování hesla
+pro pøístup na server èi k~soukromému klíèi pou¾ívaném pøi autentizaci.
+
+\subsection{Zabezpeèení na stranì serveru}
+
+Po zmìnì nastavení konfiguraèního nastavení serveru je tøeba restartovat
+démona \texttt{sshd}. Zpùsob, jak toho docílit, je opìt systémovì závislý,
+ale na systémech unixového typu se èasto pou¾ívá \texttt{/etc/initd/sshd restart}.
+V¹echna nastavení jsou popsána v~\cite{ManSshd}.
+
+\subsubsection{Zmìna portu}
+
+Open SSH server standardnì bì¾í na portu 22/tcp, který je v¹em známý a mnohé
+skripty pou¾ívané crackery s~tím mohou poèítat (postupnì prochází stroje a zkou¹í,
+zda je port 22 otevøený a v~pøípadì ¾e ano, zahájí pokus o~prùnik).
+Zmìna portu (napøíklad na 1689) se provede následovnì:
+
+\begin{itemize}
+	\item[] \texttt{Port 1689}
+\end{itemize}
+
+\noindent
+Aè je zmìna portu nìkterými pova¾ována za \uv{zabezpeèení pomocí obskurnosti}
+(security through obscurity) \cite{ChanPortSecByObsc}, tak tímto opatøením lze docílit sní¾ení pokusù
+o~automatizovaný útok \cite{ChanPortLowerRisk}.
+Toto opatøení nepomù¾e v~pøípadì, kdy cracker pou¾ije nástroj pro skenování portù.
+
+\subsubsection{Pou¾ívání pouze nové verze protokolu SSH}
+\label{subsubsection:PouzivatProtokolVerze2}
+
+SSH protokol existuje ve dvou verzích -- 1 a 2 \cite{SshKompletniPruvodce}.
+Nová verze je pova¾ována za bezpeènìj¹í ne¾ star¹í verze \cite{Protocol2MoreSecure},
+která pøestala být podporována v~roce 2003.
+Lze nastavit, aby server pou¾íval pouze verzi 2 -- takto:
+
+\begin{itemize}
+	\item[] \texttt{Protocol 2}
+\end{itemize}
+
+\subsubsection{Zablokování pøihla¹ování pod superu¾ivatelem}
+
+Jeliko¾ úèet superu¾ivatele (root) bývá prvním cílem crackerù pøi pokusu o~prùnik do
+systému (proto¾e bývá na vìt¹inì unixových systémù), tak zablokování mo¾nosti se vzdálenì
+pøihlásit pod úètem superu¾ivatele zvy¹uje bezpeènost systému, proto¾e
+útoèník musí nejdøíve získat heslo nìkoho jiného a a¾ z~tohoto úètu se mù¾e
+pokusit o~získání práv superu¾ivatele \cite{PracticalUnixSecurity}.
+Pokud budete chtít spravovat daný server vzdálenì, tak lze získat práva
+superu¾ivatele pomocí programù jako \texttt{su} èi \texttt{sudo}
+z~úètu bì¾ného u¾ivatele, pod kterým se k~serveru pøipojíte.
+Zamezení pøihla¹ování pod superu¾ivatelem se provede následovnì:
+
+\begin{itemize}
+	\item[] \texttt{PermitRootLogin no}
+\end{itemize}
+
+\subsubsection{Zamezení pøihla¹ování s~prázdným heslem}
+
+Úèty s~prázdným heslem by v~systému z~dùvodu bezpeènosti nemìly existovat.
+I~pøesto se mù¾e stát, ¾e se podaøí takový úèet náhodou vytvoøit a mù¾e se jednat
+o~bezpeènostní díru, proto je vhodné nepovolit pøihlá¹ení s~prázdným heslem.
+
+\begin{itemize}
+	\item[] \texttt{PermitEmptyPasswords no}
+\end{itemize}
+
+\subsubsection{Omezení poètu pokusù o~pøihlá¹ení}
+
+Pro omezení útokù hrubou silou je vhodné limitovat maximální poèet pokusù
+o~pøihlá¹ení v~rámci jednoho spojení. Po pøekroèení tohoto limitu dojde
+k~odpojení od serveru, tak¾e skript od crackera se musí znovu pøipojit k~serveru,
+co¾ zpomalí jeho postup.
+Pro trvalej¹í zablokování je nutno pou¾ít jiný nástroj, napøíklad
+\texttt{fail2ban}\footnote[2]{http://www.fail2ban.org/}.
+
+\begin{itemize}
+	\item[] \texttt{MaxAuthTries 3}
+\end{itemize}
+
+\subsubsection{Omezení doby neèinnosti pøi pøihla¹ování}
+
+Standardnì nastavená doba mù¾e být pøíli¹ dlouhá (napøíklad 2 minuty), co¾ mù¾e
+útoèník zneu¾ít pøi útoku typu \uv{odmítnutí slu¾by} (denial of service)
+\cite{LoginGraceTimeVulnerability}.
+Proto je vhodné nastavit hodnotu ni¾¹í, napøíklad 30 sekund.
+
+\begin{itemize}
+	\item[] \texttt{LoginGraceTime 30}
+\end{itemize}
+
+\subsubsection{Omezení maximálního poètu soubì¾ných neautorizovaných spojení}
+
+Pro omezení útokù hrubou silou je vhodné omezit maximální mno¾ství soubì¾ných
+spojení, která nejsou autorizovaná. Následující hodnota znamená, ¾e nové spojení
+(pøi dvou ji¾ otevøených a neautorizovaných spojeních) bude s~pravdìpodobností 75\%
+odmítnuto a tato pravdìpodobnost se lineárnì zvy¹uje a¾ do hodnoty 100\% pøi poètu
+10 spojení. Proto¾e je zde zahrnuta pravdìpodobnost, tak tímto zpùsobem lze naru¹it
+èasování v~automatizovaných skriptech útoèníka.
+
+\begin{itemize}
+	\item[] \texttt{MaxStartups 2:75:10}
+\end{itemize}
+
+\subsubsection{Povolení (èi zamezení) pøihlá¹ení jen urèitých u¾ivatelù}
+
+I~pøeto, ¾e v~systému na serveru existuje více u¾ivatelù, tak z~hlediska
+bezpeènosti je vhodné, aby se vzdálenì mohli pøihla¹ovat jen ti u¾ivatelé,
+kteøí opravdu musí. Lze nastavit seznam u¾ivatelù (a skupin), kteøí mají
+povoleno vzdálené pøihla¹ování pøes SSH.
+
+\begin{itemize}
+	\item[] \texttt{AllowUsers username1 username2}
+	\item[] \texttt{AllowGroups group1 group2}
+\end{itemize}
+
+\noindent
+Stejnì tak lze explicitnì nastavit, kteøí u¾ivatelé (a skupiny) se pøihlásit nesmí
+(ménì u¾iteèné ne¾ pøedchozí nastavení).
+
+\begin{itemize}
+	\item[] \texttt{DenyUsers username3}
+	\item[] \texttt{DenyGroups group3}
+\end{itemize}
+
+\subsubsection{Naslouchat pouze na urèitých rozhraních}
+
+SSH server standardnì naslouchá (a pøijímá spojení) na v¹ech lokálních rozhraních (adresách).
+Je ov¹em vhodné povolit opravdu jen ta rozhraní, která jsou potøeba (na serverech
+bývá nìkolik sí»ových adaptérù).
+To se provede nastavením \texttt{ListenAddress} na pouze urèité adresy.
+Napøíklad následující nastavení znamená, ¾e server má naslouchat pouze na adrese 192.168.1.2.
+
+\begin{itemize}
+	\item[] \texttt{ListenAddress 192.168.1.2}
+\end{itemize}
+
+\subsubsection{Povolit pøihla¹ování pouze z~urèitých adres}
+
+Toto nelze nastavit u~SSH serveru, ale na firewallu. Pokud víte, odkud se va¹i
+u¾ivatelé budou pøihla¹ovat, tak lze na firewallu nastavit povolení pøíchozích
+spojení pouze z~daných adres. Nastavení je závislé na firewallu, ale pro
+firewall \texttt{iptables}\footnote[3]{http://www.netfilter.org/} to lze provést takto:
+
+\begin{itemize}
+	\item[] \texttt{/sbin/iptables -A INPUT -m state --state NEW -p tcp -s 10.0.0.0/24 --dport 22 -j ACCEPT}
+\end{itemize}
+
+\noindent
+Toto nastavení povolí pøístup na port 22 (zde standardnì bì¾í SSH server) pouze
+ze sítì 10.0.0.0/24.
+
+\subsubsection{Zapnutí UsePrivilegeSeparation}
+
+Toto nastavení umo¾ní serveru, aby s~právy superu¾ivatele spou¹tìl pouze nezbytný
+kód a zbytek aby provádìl proces s~ménì privilegiemi.
+Proto by toto nastavení mìlo být zapnuto.
+
+\begin{itemize}
+	\item[] \texttt{UsePrivilegeSeparation yes}
+\end{itemize}
+
+\subsubsection{Zapnutí StrictModes}
+
+Toto nastavení øíká serveru, aby pøed povolením pøihlá¹ení zkontroloval oprávnìní
+u~jednotlivých souborù a domovského adresáøe u¾ivatele, který se pøihla¹uje.
+Jeliko¾ u¾ivatelé obèas omylem nechávají své soubory a adresáøe (napøíklad obsah adresáøe
+\texttt{\$HOME/.ssh/}) èitelný a zapisovatelný pro v¹echny \cite{ManSshd}, tak
+by toto nastavení mìlo být zapnuto.
+
+\begin{itemize}
+	\item[] \texttt{StrictModes yes}
+\end{itemize}
+
+\subsubsection{Vy¾adování existence reverzního záznamu u~klientù}
+
+Vy¾adováním existence reverzního záznamu (PTR) u~klientù mù¾e pøispìt ke
+zbý¹ení bezpeènosti, ale mù¾e také vzniknout problém, proto¾e nìkteøí
+poskytovatelé internetového pøipojení nevytváøí pro své klienty reverzní záznamy,
+tak¾e takoví klienti se nebudou moci pøipojit (stejnì jako nìkteøí crackeøi
+vyu¾ívající ke svým útokùm IP adresy bez existence reverzního záznamu).
+
+\begin{itemize}
+	\item[] \texttt{VerifyReverseMapping yes}
+\end{itemize}
+
+\subsubsection{Pou¾ívání autentizace pomocí klíèù}
+
+Standardní autentizace probíhá pouze na základì u¾ivatelského jména a hesla.
+Pro zvý¹ení bezpeènosti lze vynutit pou¾ívání autentizace pomocí soukromého
+a veøejného klíèe \cite{KeyBasedAuth}.
+U¾ivatel, který se chce pøihlásit pøes SSH na server musí mít u~sebe nejen svùj
+soukromý klíè, ale musí k~nìmu také znát heslo, tak¾e tímto zpùsobem lze
+výraznì omezit mo¾nosti útoèníka, proto¾e útok hrubou silou nelze v~tomto
+pøípadì pou¾ít. Nevýhodou tohoto postupu je to, ¾e u¾ivatel si pøed
+prvním pøihlá¹ením musí vygenerovat veøejný a soukromý klíè a umístit
+veøejný klíè na server.
+
+\begin{itemize}
+	\item[] \texttt{PubkeyAuthentication yes}
+	\item[] \texttt{PasswordAuthentication no}
+\end{itemize}
+
+\noindent
+Tímto povolíme autentizaci pomocí klíèù a zaká¾eme pou¾ití u¾ivatelského
+jména a hesla jako autentizaèní metodu.
+
+\begin{itemize}
+	\item[] \texttt{UsePAM no}
+\end{itemize}
+
+\noindent
+Jeliko¾ se nepou¾ívá autentizace pomocí u¾ivatelského jména a hesla, tak
+není nutné povolovat PAM (Pluggable Authentication Modules).
+
+\subsubsection{Vypnout autentizaci zalo¾enou na dùvìryhodnosti hostitelského poèítaèe}
+\label{subsubsection:HostbasedAuthentication}
+
+Tyto metody pøedpokládají, ¾e poèítaèùm na síti lze vìøit a povolují autentizaci
+na základì IP adresy èi doménového jména, co¾ je bezpeènostní riziko.
+
+\begin{itemize}
+	\item[] \texttt{HostbasedAuthentication no}
+	\item[] \texttt{IgnoreRhosts yes}
+	\item[] \texttt{RhostsAuthentication no}
+	\item[] \texttt{RhostsRSAAuthentication no}
+	\item[] \texttt{IgnoreUserKnownHosts yes}
+\end{itemize}
+
+\noindent
+Proto¾e jak \texttt{HostbasedAuthentication}, tak \texttt{RhostsAuthentication}
+je vypnuté, tak není ¾ádný dùvod nastavovat \texttt{IgnoreUserKnownHosts} na
+\texttt{no}.
+
+\subsubsection{Místo TCPKeepAlive pou¾ívat zabezpeèenou alternativu}
+
+Místo slu¾by TCP protokolu keep-alive \cite{RFC1122}, která je nezabezpeèená
+(probíhá na TCP vrstvì), lze vyu¾ít zabezpeèenou alternativu, která funguje
+na aplikaèní vrstvì a zasílá zprávy na ¹ifrovaném SSH kanálu \cite{ManSshd}.
+
+\begin{itemize}
+	\item[] \texttt{TCPKeepAlive no}
+	\item[] \texttt{ClientAliveInterval 60}
+	\item[] \texttt{ClientAliveCountMax 3}
+\end{itemize}
+
+\noindent
+\texttt{TCPKeepAlive no} vypne slu¾bu TCP protokolu keep-alive.
+Zbylá dvì nastavení znamenají, ¾e po 60 sekundách (\texttt{ClientAliveCountMax})
+dojde k~poslání zprávy klientovi s~oèekáváním odpovìdi a pokud odpovìï nepøijde
+ani po zaslání tøetího po¾adavku o~odpovìï (\texttt{ClientAliveInterval}),
+dojde k~odpojení klienta.
+
+\subsubsection{Vypnout nepotøebné slu¾by}
+
+Pokud nìkterou slu¾bu nepotøebuji, pak není dùvod ji nechávat zapnutou.
+V~pøípadì, ¾e nepotøebujete pøipojení pøes IPv6 a staèí vám IPv4, pak
+nastavte hodnotu \texttt{AddressFamily} na \texttt{inet}.
+
+\begin{itemize}
+	\item[] \texttt{AddressFamily inet}
+\end{itemize}
+
+\noindent
+Pokud nepotøebuji, aby u¾ivatelé mìli mo¾nost pøesmìrovávat TCP provoz,
+pak tuto mo¾nost lze vypnout\footnote[4]{Podle \cite{ManSshd} toto
+nastavení nemá vliv na zabezpeèení, pokud souèasnì nezru¹íme danému u¾ivateli
+pøístup k~shellu, proto¾e u¾ivatel si mù¾e po pøihlá¹ení nainstalovat své
+vlastní pøeposílaèe (forwardery).}.
+
+\begin{itemize}
+	\item[] \texttt{AllowTcpForwarding no}
+\end{itemize}
+
+\noindent
+Obdobnì lze vypnout\footnotemark[4] slu¾bu pøeposílání grafického (X11) provozu.
+
+\begin{itemize}
+	\item[] \texttt{X11Forwarding no}
+\end{itemize}
+
+\subsubsection{Zablokování útoèníkù v~pøípadì útoku}
+
+Pomocí programù jako \texttt{DenyHosts}\footnote[5]{http://denyhosts.sourceforge.net/}
+èi \texttt{fail2ban}\footnote[6]{http://www.fail2ban.org/} lze automatizovanì v~pøípadì
+útokù na server zablokovat útoèníky.
+
+\subsection{Zabezpeèení na stranì klienta}
+
+Mno¾ství nastavení, která se týkají zabezpeèení a dají se provést na klientovi,
+je vzhledem k~mo¾nostem nastavení serveru výraznì men¹í. I~tak ale existují nìkterá
+dùle¾itá nastavení. V¹echna nastavení jsou popsána v~\cite{ManSsh}.
+Postup konfigurace je uveden v~sekci \ref{subsubsection:NastaveniKonfiguraceKlient}.
+
+\subsubsection{Pou¾ívání pøednostnì nové verze protokolu SSH}
+
+Jak bylo uvedeno v~sekci \ref{subsubsection:PouzivatProtokolVerze2}, tak
+protokol verze 2 je bezpeènìj¹í ne¾ star¹í verze, proto by se mìla pøednostnì pou¾ívat
+tato nová verze, co¾ zajistíme následujícím nastavením.
+
+\begin{itemize}
+	\item[] \texttt{Protocol 2,1}
+\end{itemize}
+
+\noindent
+V~pøípadì, ¾e server nebude podporovat verzi 2, tak se pou¾ije verze 1.
+
+\subsubsection{Povolit kontrolu IP adresy serveru a klíèe}
+
+Z~dùvodù detekce mo¾ného útoku typu DNS spoofing (bez pøekladu) by
+klient mìl zkontrolovat, zda IP adresy serveru a klíè sedí s~údaji uvedenými
+v~souboru \texttt{known\_hosts} \cite{SshClientSecurity, ManSsh}.
+
+\begin{itemize}
+	\item[] \texttt{CheckHostIP yes}
+	\item[] \texttt{StrictHostKeyChecking ask}
+\end{itemize}
+
+\subsubsection{Zakázat autentizaci zalo¾enou na dùvìryhodnosti serveru}
+
+Ze stejného dùvodu, jako byl uveden v~sekci \ref{subsubsection:HostbasedAuthentication},
+by autentizace zalo¾ená na dùvìryhodnosti serveru nemìla být pou¾ívána \cite{SshClientSecurity}.
+
+\begin{itemize}
+	\item[] \texttt{HostbasedAuthentication no}
+	\item[] \texttt{RhostsRSAAuthentication no}
+\end{itemize}
+
+\subsubsection{Zakázat mo¾nost pøipojení vzdálených poèítaèù na pøesmìrované porty}
+
+Z~dùvodù mo¾ného zneu¾ití IP adresy klienta by mìla být mo¾nost pøipojení na
+pøesmìrované porty klienta vzdálenými poèítaèi zakázana \cite{SshClientSecurity}.
+
+\begin{itemize}
+	\item[] \texttt{GatewayPorts no}
+\end{itemize}
+
+\subsubsection{Nepou¾ívat nepotøebné slu¾by}
+
+Pokud nìkterou slu¾bu nevyu¾iju, pak není dùvod ji nechávat zapnutou.
+Pokud nepotøebujete vzdálenì pracovat s~grafickými aplikacemi, pak vypnìte
+slu¾bu pøeposílání grafického (X11) provozu.
+
+\begin{itemize}
+	\item[] \texttt{ForwardX11 no}
+	\item[] \texttt{ForwardX11Trusted no}
+\end{itemize}
+
+\noindent
+Volbu \texttt{ForwardX11Trusted} je doporuèeno nastavit na \texttt{no},
+kvùli potenciálním útokùm typu zachycování stisknutých kláves útoèníkem
+\cite{XSessionsSshSecurity, ManSsh}.
+
+\section{Usnadnìní práce s~Open SSH}
+\label{section:ZjednoduseniPrace}
+
+Proto¾e nìkterá bezpeènostní opatøení sni¾ují u¾ivatelský komfort, existují
+nastavení a programy pro zjednodu¹ení u¾ivatelské práce s~Open SSH.
+
+\subsection{Nastavení specifické konfigurace pøipojení k~jednotlivým serverùm}
+\label{subsubsection:NastaveniKonfiguraceKlient}
+
+Ke ka¾dému serveru lze v~lokálním konfiguraèním souboru (na unixových systémech
+standardnì \texttt{\$HOME/.ssh/config}) specifikovat konkrétní nastavení,
+které se uplatní pouze pøi pøipojování na daný server \cite{ElevenSshTricks}.
+Tato nastavení lze zadat i v~shellu èi na pøíkazové øádce, ale mnohem pohodlnìj¹í je vyu¾ít
+konfiguraèní soubor. V¹echna nastavení jsou popsána v~\cite{ManSsh}.
+
+Sekce týkající se konkrétního serveru je uvozena volbou \texttt{Host} se jménem serveru,
+které pak lze pou¾ít pro zkrácené pøihla¹ování. Pokud uvedete \texttt{Host *},
+budou se dal¹í nastavení týkat v¹ech serverù. Následuje pøíklad nastavení
+parametrù pro konkrétní server:
+
+\begin{itemize}
+	\item[] \texttt{Host merkur}
+	\item[] \begin{itemize}
+				\item[] \texttt{HostName merkur.ufg.co.uk}
+				\item[] \texttt{Port 1493}
+				\item[] \texttt{User jgrunel}
+				\item[] \texttt{Protocol 2}
+				\item[] \texttt{ForwardX11 yes}
+				\item[] \texttt{Compression yes}
+			\end{itemize}
+\end{itemize}
+
+\noindent
+\texttt{HostName} udává kompletní doménové jméno serveru, ke kterému se budete
+pøihla¹ovat pou¾itím aliasu \texttt{merkur}. V~pøípadì, ¾e Open SSH server
+bì¾í na jiném ne¾ standardním portu, tak pomocí volby \texttt{Port} lze
+specifikovat èíslo portu.
+Volba \texttt{User} udává u¾ivatelské jméno, pod kterým se budete k~serveru
+pøihla¹ovat (bez tohoto nastavení se standardnì pøi pøipojování bere aktuální
+u¾ivatelské jméno, pod kterým jste pøihlá¹ení v~systému, odkud se vzdálenì
+pøihla¹ujete na server). \texttt{Protocol 2} vynutí pou¾ívání SSH protokolu verze
+2. \texttt{ForwardX11} povolí zobrazování grafických aplikací pøes SSH kanál
+a \texttt{Compression yes} zapíná kompresi pøi pøenosu dat (mù¾e zrychlit
+odezvu pøi pøenosu vìt¹ího mno¾ství dat, napøíklad pøi pou¾ívání vzdálených
+grafických aplikací \cite{ElevenSshTricks}).
+
+\subsection{ssh-agent}
+
+V~pøípadì, ¾e pou¾íváme autentizaci pomocí veøejného a soukromého klíèe,
+tak pomocí programu \texttt{ssh-agent} lze zaøídit, ¾e pøi prvním
+pøipojení a zadání hesla k~soukromému klíèi dojde k~jeho zapamatování a ulo¾ení
+v~pamìti a pøi pøí¹tích pøipojeních s~tímto soukromým klíèem se pou¾ije
+zapamatovaná hodnota, tak¾e nebude tøeba znova zadávat heslo \cite{ElevenSshTricks}.
+Popis pou¾ití programu je k~dispozici v~\cite{UsingSshAgent} a v~manuálovách
+stránkách programu \cite{ManSshAgent}.
+
+\section{Závìr}
+
+Vhodným nastavením Open SSH serveru lze zvý¹it bezpeènost serveru a sní¾it
+mno¾ství útokù vedených na server. Kromì samotného zabezpeèení serveru je
+nutná pravidelná kontrola záznamù a nalezených bezpeènostních chyb v~Open SSH.
+V~pøípadì klienta je mno¾ství mo¾ných bezpeènostních nastavení výraznì men¹í
+ne¾ v~pøípadì serveru, ale i~tak existují nìkterá dùle¾itá nastavení.
+Jeliko¾ nìkterá bezpeènostní opatøení sni¾ují u¾ivatelský komfort, existují
+nastavení a programy pro zjednodu¹ení u¾ivatelské práce s~Open SSH.

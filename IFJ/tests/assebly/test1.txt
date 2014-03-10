@@ -1,0 +1,16 @@
+Komentář
+[0x805f670]            MOV[int:  -1] [int:  -1 dbl: 2.121996e-314 ptr:0xffffffff] [int:   0]
+(návratová hodnota funkce f() zůstává na místě -1)
+Vyreseno
+
+
+40.[0x805f8e8]            MOV[int:  -1] [int:  -1 dbl: 2.121996e-314 ptr:0xffffffff] [int:   0]
+(návratová hodnota funkce f() přepisuje místo -1, bylo stejně mezitím přepsáno v ní)
+Vyreseno
+
+
+42.[0x805f988]        MUL_DBL[int:   7] [int:  -1 dbl: 2.121996e-314 ptr:0xffffffff] [int:   6]
+(s -1 se pracuje jako s hodnotou vrácenou funkcí f() - momentálně OK)
+
+44.[0x805f690]        ADD_DBL[int:   9] [int:  -1 dbl: 2.121996e-314 ptr:0xffffffff] [int:   8]
+(s -1 se pracuje jako s hodnotou vrácenou funkcí g(), ta už tam ale dávno není)

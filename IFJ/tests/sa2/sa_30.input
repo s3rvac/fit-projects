@@ -1,0 +1,14 @@
+//Funkce ma neco vracet ale nevraci nic.
+//Predpokladany vysledek: Chyba, spatny navratovy typ
+void main();
+int intfce();
+
+void main()
+{
+
+}
+
+int intfce()
+{
+	return; // Petr - zde pridan return;, aby to mohla SA kontrolovat
+}

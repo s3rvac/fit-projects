@@ -1,0 +1,80 @@
+%------------------------------------------------------------------------------
+% Sablona dokumentu pro projekt predmetu PDS
+% Autor: Petr Pospichal (xpospi45)
+% Upravil: Jaroslav Dytrych (xdytry00), Petr Zemek (xzemek02)
+%------------------------------------------------------------------------------
+%==============================================================================
+% Nazev projektu: Open SSH. Praktické pou¾ití.
+% Autor: Petr Zemek, xzemek02@stud.fit.vutbr.cz
+% Datum: 10.3.2009
+%==============================================================================
+
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[czech]{babel}
+\usepackage[latin2]{inputenc}
+\usepackage{url}
+\DeclareUrlCommand\url{\def\UrlLeft{<}\def\UrlRight{>} \urlstyle{tt}}
+\newcommand\uv[1]{\quotedblbase #1\textquotedblleft}%
+
+\setlength{\hoffset}{-2.9cm}
+\setlength{\voffset}{-2.54cm}
+\setlength{\textheight}{24.2cm}
+\setlength{\textwidth}{18.0cm}
+
+\ifx\pdfoutput\undefined  % nejedeme pod pdftexem
+  \usepackage{graphics}
+  \usepackage{epsfig}
+\else % je to pdftex !
+  \usepackage[pdftex]{graphicx}
+\fi
+
+%-----------------------------------------------------------------------------
+
+\begin{document}
+
+
+  % ---------------------------- uvodni hlavicka ---------------------------
+  \begin{center}
+    \textbf{{\huge Open SSH. Praktické pou¾ití.}} \\
+    \bigskip
+
+     {\large \hfill Petr Zemek} \\
+      \smallskip
+     {\large \hfill xzemek02@stud.fit.vutbr.cz}
+  \end{center}
+   \hfill \today
+  \bigskip
+
+  % --------------------------- konec hlavicky ----------------------------
+
+  \section*{Abstrakt}
+  Tato práce se zabývá praktickým zabezpeèením Open SSH serveru
+  a klienta pomocí konfiguraèních souborù a jiných nástrojù.
+  U~nastavení jsou uvedeny dùvody jeho zmìny a mo¾ná rizika, která mohou
+  hrozit v~pøípadì zvolení ¹patné hodnoty èi ponechání hodnoty standardní.
+  Také jsou v~textu uvedeny dal¹í u¾iteèné nástroje, které doká¾í úroveò zabezpeèení
+  zlep¹it nad rámec standardních mo¾ností konfigurace Open SSH.
+  Proto¾e nìkterá nastavení mohou znesnadnit práci s~klientskými aplikacemi,
+  tak je ukázáno nìkolik tipù pro usnadnìní práce s~Open SSH.
+
+  \section*{Klíèová slova}
+  SSH, Open SSH, ¹ifrovaná komunikace, konfigurace, zabezpeèení, usnadnìní práce.
+
+  % ----------------------------------------------
+  % Obsah je v separatnim souboru obsah.tex
+  % ----------------------------------------------
+
+  \input{obsah}
+
+  % ----------------------------------------------
+  % Literatura
+  % ----------------------------------------------
+  \bibliographystyle{./czechiso} % bibliografie podle CR normy od Ing. Martinka
+  \begin{flushleft}
+  \renewcommand{\bibname}{Literatura}
+  \renewcommand\refname{Literatura}
+  \bibliography{literatura}
+  \end{flushleft}
+
+\end{document}

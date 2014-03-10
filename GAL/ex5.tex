@@ -1,0 +1,135 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Project: GAL 2009
+% Authors:
+%     Radim Kapavik, xkapav01@stud.fit.vutbr.cz
+%     Ondrej Lengal, xlenga00@stud.fit.vutbr.cz
+%     Vojtech Storek, xstore02@stud.fit.vutbr.cz
+%     Vit Triska, xtrisk01@stud.fit.vutbr.cz
+%     Petr Zemek, xzemek02@stud.fit.vutbr.cz
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Exercise 5}
+\label{sec:Ex5}
+
+\subsection*{Assignment}
+
+The \textit{\textbf{square}} of a directed graph $G = (V, E)$ is the graph
+$G^{2} = (V, E^{2})$ such that $(u, w) \in E^{2}$ if and only if for some $v
+\in V$, both $(u, v) \in E$ and $(v, w) \in E$. That is, $G^{2}$ contains an
+edge between $u$ and $w$ whenever $G$ contains a path with exactly two edges
+between $u$ and $w$. Describe efficient algorithms for computing $G^{2}$ from
+$G$ for both the adjacency-list and adjacency-matrix representations of $G$.
+Analyze the running times of your algorithms.
+
+\subsection*{Solution}
+
+For a graph $G = (V, E)$, let $n = |V|$ and $m = |E|$. For an adjacency-matrix
+representation $A$ of a graph $G$, let $a_{ij}$ denote the element in the $i$th
+row and $j$th column of the matrix.
+
+\textit{Describe an efficient algorithm for computing $G^{2}$ from $G$ for the
+adjacency-list representation of $G$. Analyze the running time of your
+algorithm.}
+
+\textbf{Main idea}
+
+For each vertex $u \in V$, go through its adjacency list $Adj[u]$ and for every
+vertex $v \in Adj[u]$ (these are vertices which the vertex $u$ is directly
+connected to), add every vertex $w \in Adj[v]$ into $Adj^{2}[u]$ (from the
+definition of a square of a graph: if $u$ is connected to $v$ and $v$ is
+connected to $w$, then $u$ will become connected to $w$). However, this is not
+enough, since $u$ can get connected to $w$ via more than one vertex, so there
+would be more than one edge $(u, w)$ in the resulting adjacency-list for vertex
+$u$, so one needs to keep track if $u$ was already connected to $w$ and if so,
+do not connect it to $w$ again. This is done using the same procedure as in
+\nameref{sec:Ex4}; see the main idea of this exercise for more information (the
+only difference here is that no duplicities are created at all --- they are all
+handled instantly, without the need of a temporary adjacency-list).
+
+\textbf{Algorithm}
+
+\begin{algorithm}[H]
+	\KwIn{Adjacency-list $Adj$ for each vertex of a directed graph $G = (V, E)$.}
+	\KwOut{Adjacency-list $Adj^{2}$ for each vertex of a square of $G$, that is
+	for a directed graph $G^{2} = (V, E^{2})$.}
+
+	\ForEach{$u \in V$}{
+		$WasConnTo[u] := null$\;
+		$Adj^{2}[u] := []$\;
+	}
+	\ForEach{$u \in V$}{
+		\ForEach{$v \in Adj[u]$}{
+			\ForEach{$w \in Adj[v]$}{
+				\If{$WasConnTo[w] \neq u$}{
+					$WasConnTo[w] := u$\;
+					$\mathrm{append}(Adj^{2}[u], w)$\;
+				}
+			}
+		}
+	}
+\end{algorithm}
+
+\pagebreak
+\textbf{Complexity analysis}
+
+Again, we assume that appending to a list is a $O(1)$ operation (see
+\nameref{sec:Ex3}). The initialization part takes $n$ steps. Then, for each
+vertex $u \in V$, the adjacency-list for that vertex is passed through and for
+every connected vertex $v$, its adjacency-list is passed through, which gives
+us $O(m^{2})$. Thus the total time complexity of this algorithm is $O(n) +
+O(m^{2}) = O(n + m^2)$.
+
+\textit{Describe an efficient algorithm for computing $G^{2}$ from $G$ for the
+adjacency-matrix representation of $G$. Analyze the running time of your
+algorithm.}
+
+\textbf{Main idea}
+
+For each matrix element $a_{ij}$, if there is a path from the vertex numbered
+$i$ to the vertex numbered $j$ ($a_{ij}$ is $1$) and a path from the vertex
+numbered $j$ to the vertex numbered $k$ ($a_{jk}$ is $1$), then there is a path
+from the vertex numbered $i$ to the vertex numbered $k$ in the square of the
+original graph.
+
+\textbf{Algorithm}
+
+\begin{algorithm}[H]
+	\KwIn{Adjacency-matrix $A = (a_{ij})$ for a directed graph $G = (V, E)$.}
+	\KwOut{Adjacency-matrix $A^{2} = (a^{2}_{ij})$ for a square of $G$, that is
+	a directed graph $G^{2} = (V, E^{2})$.}
+
+	\ForEach{$i \in \{1,2,\dots,n\}$}{
+		\ForEach{$j \in \{1,2,\dots,n\}$}{
+			$a^{2}_{ij} := 0$\;
+		}
+	}
+	\ForEach{$i \in \{1,2,\dots,n\}$}{
+		\ForEach{$j \in \{1,2,\dots,n\}$}{
+			\ForEach{$k \in \{1,2,\dots,n\}$}{
+				\If{$a_{ij} = 1$ and $a_{jk} = 1$}{
+					$a^{2}_{ik} := 1$\;
+				}
+			}
+		}
+	}
+\end{algorithm}
+
+\textbf{Complexity analysis}
+
+The initialization part takes $n^{2}$ steps (all elements are initialized to
+zero). Then, for every element $a_{ij}$, every other vertex --- let us number
+it with $k$ --- needs to be checked whether there is a two-edge-long path from
+vertex numbered $i$ to vertex numbered $k$ via vertex numbered $j$, which takes
+$n^{2}n = n^{3}$ steps. Both parts are done sequentially, so the total time
+complexity of the algorithm is $O(n^{2} + n^{3}) = O(n^{3})$.
+
+There is a possible time complexity improvement --- if you look closely on the
+previous algorithm, you can note that, in fact, there is a (very naive) matrix
+multiplication going on. If the resulting matrix $A^{2} = AA$ is computed via
+some efficient matrix multiplication algorithm (with some modifications), the
+time complexity of the second part of the algorithm can be reduced to
+$O(n^{2.376})$ (Coppersmith-Winograd algorithm).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vim: syntax=tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

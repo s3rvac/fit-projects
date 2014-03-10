@@ -1,0 +1,2 @@
+//Jmeno navesti nemuze zastinit lokalni promennou
+int f(int lab){lab: return 1;} void main(){}

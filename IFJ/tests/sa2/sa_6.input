@@ -1,0 +1,2 @@
+//Na stejne urovni nemuzou byt 2 identifikatory se stejnym nazevem (globalni a funkce)
+var int f; void f(); void main(){}

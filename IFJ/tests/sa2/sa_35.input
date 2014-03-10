@@ -1,0 +1,18 @@
+//Globalni identifikatory (glob. prom, nazvy fci, vestavene fce) jsou
+//pristupne v telech vsech fci
+//Predpokladany vysledek: OK
+var int glob;
+
+void main();
+int intfce(int);
+
+void main()
+{
+glob := 1;
+}
+
+int intfce(int a)
+{
+glob := 2+3;
+return 1;
+}

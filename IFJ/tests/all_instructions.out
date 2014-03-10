@@ -1,0 +1,24 @@
+Test vypisu neinicializovane hodnoty: 0 0 
+Goto OK
+Cyklus 531-1
+If true: OK
+If true (vyraz): OK
+If false: OK1 OK2 OK3
+If false (vyraz): OK1 OK2 OK3
+Volani funkci: 1 1 abcd
+Volani funkce z funkce z funkce: abcdef
+Zavorky: 1
+Scitani: 7 140 1234567890987654321
+Konkatenace: ..... OK
+Odcitani: 39 -300
+Nasobeni: 20 3
+Deleni (divint): 3
+Deleni: 1.25 3333.33
+Mocnina: 512 8
+Porovnani (int): 1 1 0 0 0 1 1 1 1
+Porovnani (double): 1 1 0 0 0 1 1 1 1
+Porovnani (string): 1 0 0 1 1 0 1 1 1
+Priority: 8 4 2 10
+Slozeny vyraz (zavorky): 12 -0.5 0 9
+Prirazeni: 1 0 -1 -2 4 
+Volani funkce s vice parametry: 36

@@ -1,0 +1,431 @@
+//
+// Project: PRL - Pipeline Merge Sort
+// Author:  Petr Zemek, xzemek02@stud.fit.vutbr.cz
+//
+program pms;
+
+// Debugging (0 - off, 1 - on).
+const debug = 0;
+
+// Number of items to be sorted.
+sharedvar n: word;
+// Input unsorted array.
+sharedvar input: array[1] of word;
+// Queues for all processors.
+sharedvar upperQ: array[1] of word;
+sharedvar lowerQ: array[1] of word;
+// Where is currently the end of a queue.
+sharedvar upperQEnd: array[1] of word;
+sharedvar lowerQEnd: array[1] of word;
+// Currently used output queue (0 for upper, 1 for lower).
+sharedvar currOutQ: array[1]  of word;
+// How many items were read from the queues (in one sequence).
+sharedvar readUpperQ: array[1]  of word;
+sharedvar readLowerQ: array[1]  of word;
+// How many items were read from all queues (total).
+sharedvar totalReadQ: array[1]  of word;
+// Number of processed items for each processor.
+sharedvar numProcVals: array[1] of word;
+// Current index to the input queue.
+sharedvar currInputIdx: word;
+// Can the processor start reading?
+sharedvar canRead: array[1] of boolean;
+
+//
+// Initialization procedure.
+//
+procedure init;
+var i, nP: word;
+begin
+	// Read the number of items in the input
+	read(n);
+
+	// Number of processors
+	// (becase the number of input items must not necessary me a power of 2,
+	// we have to ceil n to the nearest power of 2)
+	nP := 2;
+	while nP < n do
+		nP := 2 * nP;
+	end;
+	P := log(nP) + 1;
+
+	// Read the input
+	for i := 1 to n do
+		read(input[i]);
+	end;
+
+	// Initialize all queues
+	for i := 1 to (P * n) do
+		upperQ[i] := 0;
+		lowerQ[i] := 0;
+	end;
+
+	// Initialize all indexes and other stuff
+	for i := 1 to P do
+		readUpperQ[i] := 0;
+		readLowerQ[i] := 0;
+		totalReadQ[i] := 0;
+		currOutQ[i] := 0;
+		upperQEnd[i] := 0;
+		lowerQEnd[i] := 0;
+		numProcVals[i] := 0;
+		canRead[i] := false;
+	end;
+	currInputIdx := 1;
+end init;
+
+//
+// Finish procedure.
+//
+procedure finish;
+var pI, i: word;
+begin
+	// Write the sorted array
+	pI := (P - 1) * n + 1; // Can't use getProcQIdx() here
+	for i := 1 to n do
+		write(upperQ[pI + i - 1]);
+		chwrite(32); // Space
+	end;
+	writeln;
+
+	// Debug
+	if (debug = 1) then
+		for i := 1 to (P * n) do
+			write(upperQ[i]);
+			chwrite(32); // Space
+		end;
+		writeln;
+		for i := 1 to (P * n) do
+			write(lowerQ[i]);
+			chwrite(32); // Space
+		end;
+		writeln;
+	end;
+end finish;
+
+//
+// Raises the selected number n to the selected power p (i.e. returns n^p).
+// Preconditions:
+//     n > 0
+//     p >= 0
+//
+procedure pow(n, p: word): word;
+var i, r: word;
+begin
+	// To avoid useless multiplication by 1, return 1 immediately in this case
+	if (n = 1) then
+		return 1;
+	end;
+
+	// Power computation
+	r := 1;
+	for i := 1 to p do
+		r := r * n;
+	end;
+
+	return r;
+end pow;
+
+//
+// Compute the starting index into a queue for the selected processor number.
+//
+procedure getProcQIdx(p: word): word;
+begin
+	return (p - 1) * n + 1;
+end getProcQIdx;
+
+//
+// Returns true if the selected queue (qI = 0 for upper queue, qI = 1 for lower
+// queue) is full, false otherwise. P is the processor number.
+//
+procedure isFullQ(qI, p: word): boolean;
+var vI: word;
+var res: boolean;
+begin
+	// Queue is full if the current index of processor p in the queue
+	// is the first index of the p+1th processor
+	if (qI = 0) then
+		vI := getProcQIdx(p) + upperQEnd[p];
+		res := vI >= getProcQIdx(p + 1);
+	else
+		vI := getProcQIdx(p) + lowerQEnd[p];
+		res := vI >= getProcQIdx(p + 1);
+	end;
+
+	return res;
+end isFullQ;
+
+//
+// Returns true if the selected queue (qI = 0 for upper queue, qI = 1 for lower
+// queue) is empty, false otherwise. P is the processor number.
+//
+procedure isEmptyQ(qI, p: word): boolean;
+var res: boolean;
+begin
+	if (qI = 0) then
+		res := upperQEnd[p] = 0;
+	else
+		res := lowerQEnd[p] = 0;
+	end;
+
+	return res;
+end isEmptyQ;
+
+//
+// If qi is 0, puts the selected value v to the upper front of processor with
+// number p. Otherwise the value will be put into the lower queue.
+// If there is no room for that value, nothing will happen.
+// Returns true if the item was added, false otherwise.
+//
+procedure putValueToQ(v, qI, p: word): boolean;
+var vI: word;
+var res: boolean;
+begin
+	res := false;
+
+	if (qI = 0) then
+		// Check whether the queue is not full
+		if (not isFullQ(qI, p)) then
+			// It is not full -> insert the value
+			vI := getProcQIdx(p) + upperQEnd[p];
+			upperQ[vI] := v;
+			upperQEnd[p] := upperQEnd[p] + 1;
+			res := true;
+		end;
+	else
+		// Check whether the queue is not full
+		if (not isFullQ(qI, p)) then
+			// It is not full -> insert the value
+			vI := getProcQIdx(p) + lowerQEnd[p];
+			lowerQ[vI] := v;
+			lowerQEnd[p] := lowerQEnd[p] + 1;
+			res := true;
+		end;
+	end;
+
+	return res;
+end putValueToQ;
+
+//
+// Returns the front item from the selected queue (qI = 0 for upper queue,
+// qI = 1 for lower queue). P is the processor number.
+// The selected queue must NOT be empty. It does not remove the front
+// item from the queue
+//
+procedure getFrontItemQ(qI, p: word): word;
+var res: word;
+begin
+	if (qI = 0) then
+		res := upperQ[getProcQIdx(p)];
+	else
+		res := lowerQ[getProcQIdx(p)];
+	end;
+
+	return res;
+end getFrontItemQ;
+
+//
+// Removes the front item from the selected queue (qI = 0 for upper queue,
+// qI = 1 for lower queue). P is the processor number.
+// If the selected queue is empty, nothing will happen.
+//
+procedure removeFrontItemQ(qI, p: word);
+var pI, i, numItems: word;
+begin
+	if (not isEmptyQ(qI, p)) then
+		if (qI = 0) then
+			pI := getProcQIdx(p);
+			numItems := upperQEnd[p] - 1;
+			for i := 0 to (numItems - 1) do
+				upperQ[pI + i] := upperQ[pI + i + 1];
+			end;
+			upperQEnd[p] := upperQEnd[p] - 1;
+
+			// Debug
+			if (debug = 1) then
+				upperQ[pI + upperQEnd[p]] := -1;
+			end;
+		else
+			pI := getProcQIdx(p);
+			numItems := lowerQEnd[p] - 1;
+			for i := 0 to (numItems - 1) do
+				lowerQ[pI + i] := lowerQ[pI + i + 1];
+			end;
+			lowerQEnd[p] := lowerQEnd[p] - 1;
+
+			// Debug
+			if (debug = 1) then
+				lowerQ[pI + lowerQEnd[p]] := -1;
+			end;
+		end;
+	end;
+end removeFrontItemQ;
+
+//
+// Swaps the output queue for the selected processor p.
+//
+procedure swapOutQ(p: word);
+begin
+	if (currOutQ[p] = 0) then
+		currOutQ[p] := 1;
+	else
+		currOutQ[p] := 0;
+	end;
+end swapOutQ;
+
+//
+// Execution code for the first processor.
+//
+procedure firstProc();
+var res: boolean;
+begin
+	if (currInputIdx <= n) then
+		// Put the next input value to the queue
+		res := putValueToQ(input[currInputIdx], currOutQ[1], 1);
+		if (res) then
+			swapOutQ(1);
+			currInputIdx := currInputIdx + 1;
+		end;
+	end;
+end firstProc;
+
+//
+// Execution code for other than the first proc
+// P is the processor number.
+//
+procedure notFirstProc(p: word);
+var val, val1, val2, getFromQ, totalToRead: word;
+begin
+	totalToRead := pow(2, p - 1);
+
+	if (not canRead[p]) then
+		if ((n - totalReadQ[p]) < totalToRead) then
+			// The last sequence of numbers (n was not a power of 2)
+			// Start reading when there is a complete subsequence
+			// in one queue (or if there is only one item to be read)
+			if ((n - totalReadQ[p]) >= 2) then
+				if (upperQEnd[p - 1] >= (n - totalReadQ[p])) then
+					canRead[p] := true;
+				elsif (lowerQEnd[p - 1] >= (n - totalReadQ[p])) then
+					canRead[p] := true;
+				elsif (upperQEnd[p - 1] >= (totalToRead / 2)) then
+					if (lowerQEnd[p - 1] >= 1) then
+						canRead[p] := true;
+					end;
+				elsif (lowerQEnd[p - 1] >= (totalToRead / 2)) then
+					if (upperQEnd[p - 1] >= 1) then
+						canRead[p] := true;
+					end;
+				end;
+			else
+				canRead[p] := true;
+			end;
+		else
+			// Normal sequence
+			// Start reading when there is a complete subsequence
+			// in one queue and at least one item in the other queue
+			if (upperQEnd[p - 1] >= (totalToRead / 2)) then
+				if (lowerQEnd[p - 1] >= 1) then
+					canRead[p] := true;
+				end;
+			elsif (lowerQEnd[p - 1] >= (totalToRead / 2)) then
+				if (upperQEnd[p - 1] >= 1) then
+					canRead[p] := true;
+				end;
+			end;
+ 		end;
+	end;
+
+	// Get the queue from which the next value should be read
+	getFromQ := -1;
+	if (canRead[p]) then
+		if (not isEmptyQ(0, p - 1)) then
+			if (not isEmptyQ(1, p - 1)) then
+				// Both queues contains some items
+				if (readUpperQ[p] = (totalToRead / 2)) then
+					// We have already read all values from the upper
+					// queue, so read values from the lower queue
+					getFromQ := 1;
+				elsif (readLowerQ[p] = (totalToRead / 2)) then
+					// We have already read all values from the lower
+					// queue, so read values from the upper queue
+					getFromQ := 0;
+				else
+					val1 := getFrontItemQ(0, p - 1);
+					val2 := getFrontItemQ(1, p - 1);
+					if (val1 <= val2) then
+						getFromQ := 0;
+					else
+						getFromQ := 1;
+					end;
+				end;
+			else
+				// Only the upper queue contains items
+				getFromQ := 0;
+			end;
+		elsif (not isEmptyQ(1, p - 1)) then
+			// Only the lower queue contains items
+			getFromQ := 1;
+		end;
+	end;
+
+	if (getFromQ <> -1) then
+		// Get the item from that queue and put it into the output queue
+		val := getFrontItemQ(getFromQ, p - 1);
+		removeFrontItemQ(getFromQ, p - 1);
+		putValueToQ(val, currOutQ[p], p);
+		numProcVals[p] := numProcVals[p] + 1;
+		if (getFromQ = 0) then
+			readUpperQ[p] := readUpperQ[p] + 1;
+		else
+			readLowerQ[p] := readLowerQ[p] + 1;
+		end;
+		totalReadQ[p] := totalReadQ[p] + 1;
+
+		if (numProcVals[p] = totalToRead) then
+			// We have read everything, so swap the output queue
+			// and set properly other variables
+			readUpperQ[p] := 0;
+			readLowerQ[p] := 0;
+			swapOutQ(p);
+			numProcVals[p] := 0;
+			canRead[p] := false;
+		end;
+	end;
+end notFirstProc;
+
+//
+// Main.
+//
+var nN, i, j: word;
+begin
+	// Compute the number of loops (becase the number of input items must not
+	// necessary be a power of 2, we have to ceil n to the nearest power of 2)
+	nN := 2;
+	while nN < n do
+		nN := nN * 2;
+	end;
+	for i:= 1 to (2*nN + log(nN) - 1) do
+		// For synchronization purposes, in each loop first all odd processors
+		// are working and after then all even processors are working
+		synchronize;
+		// Odd processors
+		par j := 1 to P do
+			if (j mod 2 <> 0) then
+				if (j = 1) then
+					firstProc();
+				else
+					notFirstProc(j);
+				end;
+			end;
+		end;
+
+		synchronize;
+		// Even procesors
+		par j := 2 to P do
+			if (j mod 2 = 0) then
+				notFirstProc(j);
+			end;
+		end;
+	end;
+end pms.

@@ -1,0 +1,96 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Project: GAL 2009
+% Authors:
+%     Radim Kapavik, xkapav01@stud.fit.vutbr.cz
+%     Ondrej Lengal, xlenga00@stud.fit.vutbr.cz
+%     Vojtech Storek, xstore02@stud.fit.vutbr.cz
+%     Vit Triska, xtrisk01@stud.fit.vutbr.cz
+%     Petr Zemek, xzemek02@stud.fit.vutbr.cz
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Exercise 3}
+\label{sec:Ex3}
+
+\subsection*{Assignment}
+
+The \textit{\textbf{transpose}} of a directed graph $G = (V, E)$ is the graph
+$G^{T} = (V, E^{T})$, where $E^{T} = \{(v, u) \in V \times V \colon (u, v) \in
+E\}$. Thus, $G^{T}$ is $G$ with all its edges reversed. Describe efficient
+algorithms for computing $G^{T}$ from $G$, for both the adjacency-list and
+adjacency-matrix representations of $G$. Analyze the running times of your
+algorithms.
+
+\subsection*{Solution}
+
+For a graph $G = (V, E)$, let $n = |V|$ and $m = |E|$. For an adjacency-matrix
+representation $A$ of a graph $G$, let $a_{ij}$ denote the element in the $i$th
+row and $j$th column of the matrix.
+
+\textit{Describe efficient algorithm for computing $G^{T}$ from $G$ for the
+adjacency-list representation of $G$ and analyze its running time.}
+
+\textbf{Main idea}
+
+To create an adjacency-list $Adj^{T}$ for a transposition of a directed graph
+$G = (V, E)$, which is represented by an adjacency-list $Adj$, it is necessary
+to go through all edges $(u, v) \in E$ and for each edge, append $u$ into
+$Adj^{T}[v]$ (change the direction of all edges).
+
+\textbf{Algorithm}
+
+\begin{algorithm}[H]
+	\KwIn{Adjacency-list $Adj$ for a directed graph $G = (V, E)$.}
+	\KwOut{Adjacency-list $Adj^{T}$ for the transposition of $G$.}
+
+	\tcp{Initialization}
+	\ForEach{$u \in V$}{
+		$Adj^{T}[u] := []$\;
+	}
+
+	\ForEach{$u \in V$}{
+		\ForEach{$v \in Adj[u]$}{
+			$\mathrm{append}(Adj^{T}[v], u)$\;
+		}
+	}
+\end{algorithm}
+
+\textbf{Complexity analysis}
+
+Assuming that appending to a list is a $O(1)$ operation (as pointer to the last
+element of the list may be stored), in order to compute the transposition of
+a directed graph, one needs to go through all vertices (to initialize their
+adjacency lists to an empty list) and then through all edges (to change the
+direction of each edge), which takes $n + m$ steps. The total time complexity
+is thus $O(n + m)$.
+
+\textit{Describe efficient algorithm for computing $G^{T}$ from $G$ for the
+adjacency-matrix representation of $G$ and analyze its running time.}
+
+\textbf{Main idea}
+
+To compute the transposition of a directed graph from its adjacency-matrix
+representation, one needs to swap each $a_{ij}$ with $a_{ji}$ for all $i, j \in
+\{1,2,\dots,n\}$ (change the direction of all edges).
+
+\textbf{Algorithm}
+
+\begin{algorithm}[H]
+	\KwIn{Adjacency-matrix $A = (a_{ij})$ for a directed graph $G = (V, E)$.}
+	\KwOut{Adjacency-matrix $A^{T} = (a^{T}_{ij})$ for the transposition of $G$.}
+
+	\ForEach{$i \in \{1,2,\dots,n\}$}{
+		\ForEach{$j \in \{1,2,\dots,n\}$}{
+			$a^{T}_{ji} := a_{ij}$\;
+		}
+	}
+\end{algorithm}
+
+\textbf{Complexity analysis}
+
+To compute the transposition, one needs to go through all elements of the
+adjacency-matrix. That takes $n^{2}$ steps, which gives us the total time
+complexity $O(n^{2})$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vim: syntax=tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

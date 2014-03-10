@@ -1,0 +1,42 @@
+//
+// Testovaci program pro prediktivni SA - pouze deklaracni cast
+//
+
+// Deklarace globalnich promennych
+var double epsilon,
+    int screen_width,
+    int screen_height,
+    double x_min,
+    double x_max,
+    double y_min,
+    double y_max;
+
+// Deklarace funkce
+double abs(double);
+
+// Definice funkce
+double sin(double f)
+var
+  double result,
+  double new_result,
+  double iteration,
+  int i;
+{
+
+}
+
+// Dalsi definice funkce
+string vykresli()
+var int x,
+    int y,
+    string char,
+    int fx,
+    double vfx;
+{
+
+}
+
+// Main
+void main()
+{
+}

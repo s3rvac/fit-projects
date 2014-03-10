@@ -1,0 +1,9 @@
+//2 globalni identifikatory stejneho nazvu
+//Predpokladany vysledek: identifikator jiz existuje
+var int glob, int glob;
+
+void main();
+
+void main()
+{
+}

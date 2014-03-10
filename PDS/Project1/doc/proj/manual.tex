@@ -1,0 +1,75 @@
+%------------------------------------------------------------------------------
+% Sablona dokumentu pro projekt predmetu PDS
+% Autor: Petr Pospichal (xpospi45)
+% Upravil: Jaroslav Dytrych (xdytry00), Petr Zemek (xzemek02)
+%------------------------------------------------------------------------------
+%==============================================================================
+% Nazev projektu: Serial-TCP/IP bridge
+% Autor: Petr Zemek, xzemek02@stud.fit.vutbr.cz
+% Datum: 6.3.2009
+%==============================================================================
+
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\DeclareUrlCommand\url{\def\UrlLeft{<}\def\UrlRight{>} \urlstyle{tt}}
+
+\setlength{\hoffset}{-2.9cm}
+\setlength{\voffset}{-2.54cm}
+\setlength{\textheight}{24.2cm}
+\setlength{\textwidth}{18.0cm}
+
+\ifx\pdfoutput\undefined  % nejedeme pod pdftexem
+  \usepackage{graphics}
+  \usepackage{epsfig}
+\else % je to pdftex !
+  \usepackage[pdftex]{graphicx}
+\fi
+
+%-----------------------------------------------------------------------------
+
+\begin{document}
+
+
+  % ---------------------------- uvodni hlavicka ---------------------------
+  \begin{center}
+    \textbf{{\huge Serial-TCP/IP bridge}} \\
+    \bigskip
+
+     {\large \hfill Petr Zemek} \\
+      \smallskip
+     {\large \hfill xzemek02@stud.fit.vutbr.cz}
+  \end{center}
+   \hfill 2009-03-06
+  \bigskip
+
+  % --------------------------- konec hlavicky ----------------------------
+
+  \section*{Abstract}
+  This document describes design and implementation of a serial-TCP/IP bridge,
+  implemented for our school course named ``Data Communications,
+  Computer Networks and Protocols''. It is a concurrent TCP/IP server written
+  in C++ that accepts incoming client connections and resends received messages
+  (text/binary) to the serial port. It also resends messages from the serial
+  port to all connected clients. The bridge is fully configurable via a simple
+  text configuration file.
+
+  \section*{Keywords}
+  Serial port, TCP/IP, bridge, concurrent server, C++.
+
+  % ----------------------------------------------
+  % Obsah je v separatnim souboru obsah.tex
+  % ----------------------------------------------
+
+  \input{obsah}
+
+  % ----------------------------------------------
+  % Literatura
+  % ----------------------------------------------
+  \bibliographystyle{./czechiso} % bibliografie podle CR normy od Ing. Martinka
+  \begin{flushleft}
+  \bibliography{literatura}
+  \end{flushleft}
+
+\end{document}

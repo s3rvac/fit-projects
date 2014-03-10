@@ -1,0 +1,2 @@
+//Neureceny datovy typ lokalni promenne
+void func(int i) var abc {} void main(){}

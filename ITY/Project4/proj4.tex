@@ -1,0 +1,69 @@
+%==============================================================================
+% Encoding: latin2
+% Project:  ITY - Project 4
+% Author:   Petr Zemek, xzemek02@stud.fit.vutbr.cz
+%==============================================================================
+
+\documentclass[12pt,a4paper]{article}
+
+% Packages
+\usepackage[latin2]{inputenc}
+\usepackage{czech}
+\usepackage{url}
+\usepackage[left=2cm,text={17cm, 24cm},top=3cm]{geometry}
+
+% Commands
+\DeclareUrlCommand\url{\def\UrlLeft{<}\def\UrlRight{>} \urlstyle{tt}} % Needed for URLs in czechiso.bst
+
+% Disable paragraph indetion
+\setlength{\parskip}{1.3ex plus 0.2ex minus 0.2ex}
+\setlength{\parindent}{0pt}
+
+% Project information
+\title{\textbf{Jak a proè na \LaTeX} \\ 4. projekt do pøedmìtu ITY}
+\author{Petr Zemek}
+
+\begin{document}
+
+\maketitle
+
+V~úvodu bych chtìl popsat, co to ten {\LaTeX} vlastnì je a k~èemu se vyu¾ívá. K~tomu vyu¾iji definici
+uvedenou v~encyklopedii Wikipedia \cite{WikiLatex08}:
+\begin{quote}
+	{\LaTeX} (vyslovuje se \uv{latech}), je balík maker programu \TeX, který umo¾nuje autorùm textù sázet
+	a tisknout svá díla v~nejvy¹¹í mo¾né typografické kvalitì, prièem¾ autor pou¾ívá profesionály
+	pøeddefinovaných vzhledù dokumentu.
+\end{quote}
+
+Tento sázecí systém se li¹í od obvyklých kanceláøských programù tím, ¾e pøi psaní dokumentu nevidíte
+výsledný text. Ve svém oblíbeném textovém editoru (pro zjednodu¹ení práce doporuèuji napø. program
+Kile \cite{SoftwareKile08}) vkládáte mezi text speciální pøíkazy, které definují výsledné formátování
+dokumentu. Po pøekladu tohoto zdrojového souboru dostanete výsledný soubor ve zvoleném formátu,
+napø. PDF. Jako referenci a literaturu pro práci s~tímto systémem lze vyu¾ít výbornou kní¾ku
+Jiøího Rybièky \cite{Rybicka03} èi knihu pøímo od autora tohoto balíku maker, Leslieho Lamporta
+\cite{Lamport85}. Na Internetu lze také najít spousty zajímavých dokumentù, zde zmíním napø.
+\textit{\LaTeX{}ové speciality} \cite{Martinek08} od Davida Martinka. Poøádají se také rùzné konference
+a semináøe, napø. èeský semináø SLT o~Linuxu a \TeX{}u \cite{Slt01}. Jako poslední zdroj zmíním
+rùzné èlánky z~konferencí týkající se sazby dokumentù, napø. \cite{SalzbergMurphy05} a \cite{Sojka99}.
+
+Mezi hlavní dùvody, proè vyu¾ít tento systém místo klasického OpenOffice.org Writer èi MS Word, patøí
+profesionální sazba dokumentù (pokud dodr¾íte typografická pravidla), efektivní psaní matematických vzorcù,
+automatické èíslování objektù (obrázky, tabulky, \dots) i s~odkazy na nì, mo¾nost vyu¾ití rùzných
+¹ablon, stylù a pøídavných balíèkù (napø. kreslení obrázkù) a zobrazovací pøesnost (kdy¾ v~dokumentu
+specifikujete, ¾e mezi dvìma slovy má být mezera 1 centimetr, mù¾ete si být jisti, ¾e po vyti¹tìní bude
+na papíøe mezera pøesnì takto ¹iroká \cite{Martinek08}).
+
+S~vyu¾itím \LaTeX{}u budete schopni kvalitnì vysázet nejen své bakaláøské, diplomové a disertaèní práce
+(jako pøíklad uvedu \cite{Lipowski07} a \cite{Masopust07}), ale také své èlánky v~konferencích, manuály,
+prezentace a knihy.
+
+% References
+\newpage
+\bibliographystyle{czechiso}
+\begin{flushleft}
+	\bibliography{proj4}
+\end{flushleft}
+
+\end{document}
+
+% End of file

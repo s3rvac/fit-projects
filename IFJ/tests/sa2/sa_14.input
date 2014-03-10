@@ -1,0 +1,2 @@
+//Datovy typ parametru/globalni promenne nemuze byt void (testovan jen parametr
+string g(int i) var void null {} void main(){}

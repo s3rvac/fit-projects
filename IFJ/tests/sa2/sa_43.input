@@ -1,0 +1,16 @@
+//Zastineni 3
+//Predpokladany vysledek: prom jiz existuje
+var int prom;
+
+void main();
+int intfce(int);
+
+void main()
+{
+}
+
+int intfce(int prom)
+var int prom;
+{
+prom := 2;
+}

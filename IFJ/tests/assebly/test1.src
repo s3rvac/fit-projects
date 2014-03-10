@@ -1,0 +1,26 @@
+var int i;
+
+int f(int);
+double g(double; int);
+
+void main()
+var double a,
+    string b;
+{
+	b:= "bla";
+	a:= g(2.0, f(1)) + f(2) * 3;
+	i:= double2int(a) div 5;
+}
+
+int f(int f1)
+{
+	return double2int(f1^3^2);
+}
+
+double g(double d; int i)
+var double tmp;
+{
+	d := 5 * 15.0;
+	tmp := (i * d)+32;
+	return tmp / 2;
+}

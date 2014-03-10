@@ -1,0 +1,34 @@
+// Komentare /* */ - rozsireni
+
+/* Jednoradkovy komentar */
+
+/*
+ * Viceradkovy komentar
+ */
+
+/*
+Viz newsy - R.L.
+// radkovy komentar se ignoruje do konce /* radku
+*/
+
+/********************************************************************/
+
+/* /* Vnoreny komentar*/ */
+
+/*
+/*
+/*
+/* */ Mnohonasobne vnoreny komentar
+*/
+*/ /* */
+*/
+
+/*
+ *
+ *
+ */
+/*/*/*/* 4
+/*/* */*/ 4
+/**/ 4
+/*/*/**/*/ 5
+*/*/*/*/*/

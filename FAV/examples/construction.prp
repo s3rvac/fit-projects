@@ -1,0 +1,1 @@
+!([](left_request -> <>left_green) && [](right_request -> <>right_green) && [](!((going_to_right && right_green) || (going_to_left && left_green))) && [](!(going_to_left && going_to_right)))

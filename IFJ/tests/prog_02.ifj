@@ -1,0 +1,97 @@
+     /////////////////////////////////////
+    // VYKRESLENI PRUBEHU FUNKCE SINUS //
+   //          Jazyk: IFJ06           //
+  //       Autor: Ivo Skalicky       //
+ //    xskali03@stud.fit.vutbr.cz   //
+/////////////////////////////////////
+
+
+var double epsilon,
+    int screen_width,
+    int screen_height,
+    double x_min,
+    double x_max,
+    double y_min,
+    double y_max;
+
+// definice funkce abs
+double abs(double x) {
+  if (x<0.0) goto prevrat;
+  return x;
+  prevrat:
+  return 0.0-x;
+}
+
+// definice funkce sinus
+double sin(double x) 
+var
+  double result,
+  double new_result,
+  double iteration,
+  int i;
+{
+  i:=1;
+  iteration:=x;
+  new_result:=0.0;
+
+  start:
+    result:=new_result;
+    new_result:=result+iteration;
+    i:=i+2;
+    iteration:=iteration*((0.0-x)*x/(i-1)/i);
+  if (abs(new_result-result)>epsilon) goto start;
+  return result;
+}
+
+// vykreslovaci funkce
+void vykresli() 
+var int x,
+    int y,
+    string char,
+    int fx,
+    double vfx;
+{
+  y:=0;
+  y_loop:
+  x:=0;
+  x_loop:
+  
+  vfx:=0-sin(x_min+x*(x_max-x_min)/screen_width);
+  fx:=double2int((vfx-y_min)*screen_height/(y_max-y_min));
+  
+  char:="#";
+  if (y==fx) goto draw_point;
+  char:=" ";
+  draw_point:  
+  printstring(char);
+  //printint(fx);
+  //printstring("\n");
+  x:=x+1;
+  if (x<=screen_width) goto x_loop;
+  y:=y+1;
+  printstring("\n");
+  if (y<=screen_height) goto y_loop;
+  
+}
+
+
+void main() {
+  
+  printstring("\n");
+   
+  // nastaveni presnosti
+  epsilon:=1.0e-6;
+  
+  // rozmer obrazovky
+  screen_width:=78;
+  screen_height:=20;
+  
+  // velikost okna
+  x_min:=0-3.14;
+  x_max:=3.14;
+  y_min:=0-1.0;
+  y_max:=1.0;
+  
+  vykresli();
+
+}

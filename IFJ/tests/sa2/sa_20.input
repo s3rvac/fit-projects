@@ -1,0 +1,41 @@
+//Deklarace a definice 2 - slozitejsi pripady
+//Predpokladany vysledek: OK
+void main();
+
+void voidfce(int;double;string);
+int intfce(int;double;string);
+double doublefce(int;double;string);
+string stringfce(int;double;string);
+
+void main()
+{
+voidfce(2,2.2,"cau");
+intfce(2,2.2,"cau");
+doublefce(2,2.2,"cau");
+stringfce(2,2.2,"cau");
+return;
+}
+
+void voidfce(int a; double b; string c)
+var int aa, double bb, string cc;
+{
+return;
+}
+
+int intfce(int a; double b; string c)
+var int aa, double bb, string cc;
+{
+return aa;
+}
+
+double doublefce(int a; double b; string c)
+var int aa, double bb, string cc;
+{
+return bb;
+}
+
+string stringfce(int a; double b; string c)
+var int aa, double bb, string cc;
+{
+return cc;
+}

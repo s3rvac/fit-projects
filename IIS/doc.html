@@ -1,0 +1,517 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="author" content="Petr Zemek, http://www.stud.fit.vutbr.cz/~xzemek02/">
+	<meta name="copyright" content="Petr Zemek, http://www.stud.fit.vutbr.cz/~xzemek02/">
+	<meta name="description" content="IIS Exhibition ground Information System Documentation">
+	<meta name="keywords" content="IIS, exhibition ground, project, information system, documentation">
+	<link rel="icon" type="image/gif" href="./web/templates/icons/favicon.gif">
+	<link rel="shortcut icon" type="image/gif" href="./web/templates/icons/favicon.gif">
+	<title>Dokumentace k IIS</title>
+	<style type="text/css">
+	* {
+		padding: 0;
+		border: 0;
+	}
+
+	body {
+		color: #000000;
+		background: #ffffff;
+		font: 12px arial,verdana,sans-serif;
+		text-align: left;
+	}
+
+	#main {
+		width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 30pt;
+		margin-bottom: 60pt;
+	}
+
+	/* Headers */
+	h1 {
+		color: #022580;
+		background: #ffffff;
+		font: 2.2em arial,verdana,sans-serif;
+	}
+
+	h2 {
+		color: #022580;
+		background: #ffffff;
+		font: 1.5em arial,verdana,sans-serif;
+		margin-top: 1.5em;
+		margin-bottom: 1.2em;
+	}
+
+	h3 {
+		color: #284aa2;
+		background: #ffffff;
+		font: 1.2em arial,verdana,sans-serif;
+		margin-top: 1.5em;
+		margin-bottom: 1.2em;
+	}
+
+	p {
+		text-align: justify;
+		text-indent: 2em;
+	}
+
+	p.footer {
+		text-align: right;
+		text-indent: 0;
+	}
+
+	.contents {
+		color: #284aa2;
+		background: #ffffff;
+		font: 1.2em arial,verdana,sans-serif;
+		margin-top: 1.0em;
+	}
+
+	/* Links */
+	a:link, a:visited, a:active {
+		color: #022580;
+		font-weight: normal;
+	}
+
+	a:hover {
+		font-weight: normal;
+	}
+
+	/* Lists */
+	li {
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+		margin-left: 2.5em;
+	}
+
+	/* Tables */
+	.normal_table {
+		border-style: none;
+	}
+
+	.centered_table {
+		margin: auto;
+		border-style: none;
+	}
+
+	.wide_table {
+		width: 100%;
+		border-style: none;
+	}
+
+	td {
+		font: 12px arial,verdana,sans-serif;
+		vertical-align: top;
+		padding: 0.2em;
+		text-align: left;
+	}
+	</style>
+	<script type="text/javascript">
+	/***************************************************************************
+	* Internet Explorer Margin Fix
+	* Copyright 2002-2004 by David Schontzler | www.stilleye.com
+	* Free to use under GNU General Public License as long as this message
+	*  remains intact.
+	* Description:  This script will fix the horizontal margin support in IE5/6
+	* URI: http://www.stilleye.com/projects/dhtml/marginfix/
+	* Additional Credits:
+	* - Bibek Sahu (BS) | http://www.dodds.net/~scorpio/
+	***************************************************************************
+	* Version: 2.2.0
+	***************************************************************************/
+	if(!Array.prototype.push) {
+		Array.prototype.push =  function() {
+			var i, j;
+			for(i=0; j=arguments[i]; i++) this[this.length] = j;
+			return this.length;
+		}
+	};
+
+	IEmarginFix = {
+		list : new Array,
+
+		ss : null,
+
+		init : function() {
+			var ua = navigator.userAgent.toLowerCase();
+			if( (ua.indexOf("msie 5.") != -1 || ua.indexOf("msie 6.") != -1)
+			&& ua.indexOf('mac') == -1 && document.compatMode != "CSS1Compat"
+			&& window.attachEvent && document.styleSheets.length > 0 ) {
+				this.ss = document.styleSheets;
+				var auto, lop, list, s, i, a;
+				auto = new Array;
+				lop = new Array;
+				list = new Array;
+				s = this.getRules();
+				for(i=0; i<s.length; i++) {
+					if( this.checkMargin(s[i][1]) )
+						auto.push(s[i][0]);
+					else if( this.checkLopsided(s[i][1]) )
+						lop.push(s[i][0]);
+				}
+				for(i=0; a = auto[i]; i++)
+					this.ss[this.ss.length-1].addRule(a, "margin-left : expression( IEmarginFix.autoFix(this) );");
+				for(i=0; a = lop[i]; i++)
+					this.ss[this.ss.length-1].addRule(a, "margin-left : expression( IEmarginFix.lopsidedFix(this) );");
+				this.list = auto.length > 0 ? lop.length > 0 ? auto.concat(lop) : auto : lop;
+				window.attachEvent("onload", IEmarginFix.checkInline);
+			}
+		},
+
+		autoFix : function(elm) {
+			var rslt = "auto", w = elm.currentStyle.width;
+			var id = elm.id ? "#" + elm.id : elm.className ? elm.tagName + "." + elm.className : elm.tagName; // Credit: BS
+			if(w.indexOf("%") != -1) {
+				rslt = ( 100 - parseInt(w) )/2 + "%";
+				IEmarginFix.ss[IEmarginFix.ss.length-1].addRule(id, "margin-left : " + rslt + "; margin-right : " + rslt + "; width : 100%");
+			} else
+				IEmarginFix.ss[IEmarginFix.ss.length-1].addRule(id, "margin-left : expression( IEmarginFix.pxAutoFix(this) );");
+			return rslt;
+		},
+
+		// so we don't have to go through the if...else all over again!
+		pxAutoFix : function(elm) {
+			var rslt, par = elm.parentNode;
+			rslt = par.clientWidth > 0 ? par.clientWidth : par.scrollWidth;
+			rslt = (rslt - elm.offsetWidth) / 2;
+			return Math.max(rslt, 0);
+		},
+
+		lopsidedFix : function(elm) {
+			var par = elm.parentNode, parWidth, rslt;
+			parWidth = par.clientWidth > 0 ? par.clientWidth : par.scrollWidth;
+			rslt = parWidth - elm.offsetWidth;
+			if( elm.currentStyle.marginRight.indexOf("px") != -1 )
+				rslt -= parseInt( elm.currentStyle.marginRight );
+			else if( elm.currentStyle.marginRight.indexOf("%") != -1 )
+				rslt -= parseInt(elm.currentStyle.marginRight) * 0.01 * parWidth;
+			rslt -= ( parseInt(par.currentStyle.paddingLeft) + parseInt(par.currentStyle.paddingRight) );
+			return rslt;
+		},
+
+		checkInline : function() {
+			var i, a, elm, blk, list = new Array, auto = IEmarginFix.list;
+			for(i=0; a = auto[i]; i++) {
+				if( a.indexOf(".") != -1 ) // classes
+					list = list.concat( IEmarginFix.getClass( a.substring(a.indexOf(".")+1) ) );
+				else if( a.charAt(0) == '#' ) // ids
+					list.push( document.all[a.substring(1)] );
+				else { // tags
+					elm = document.getElementsByTagName(a);
+					if(elm.length > 0)
+						for(i=0; i < elm.length; i++)
+							list = list.concat( elm.item(i) );
+				}
+			}
+			for(i=0; i<list.length; i++) {
+				elm = list[i];
+				if(elm && elm.style) {
+					blk = IEmarginFix.getStyle(elm, "display");
+					if(blk != "block" && ( IEmarginFix.ie50 ? !IEmarginFix.ie50check(elm.tagName) : blk != "list-item" ) ) {
+						elm.style.margin = 0;
+					}
+				}
+			}
+		},
+
+		checkMargin : function(str) {
+			return ( str.search(/position\s*:\s*absolute/i) == -1 && (
+				str.match(/margin\s*:\s*auto(;|$)/i) || str.match(/margin\s*:\s*\S+\s+auto(;|$)/i)
+				|| ( str.match(/margin-left\s*:\s*auto/i) && str.match(/margin-right\s*:\s*auto/i) )
+				|| str.match(/margin\s*:\s*\S+\s+auto\s+\S+(;|$)/i) || str.match(/margin\s*:\s*\S+\s+auto\s+\S+\s+auto/i)
+				)
+			);
+		},
+
+		checkLopsided : function(str) {
+			return ( str.search(/position\s*:\s*absolute/i) == -1 && (
+					str.match(/margin-left\s*:\s*auto/i) && str.match(/margin-right\s*:\s*\d+(px|%)?/i)
+					|| str.match(/margin-left\s*:\s*auto/i) && !str.match(/margin-right/i)
+				)
+			);
+		},
+
+		// these next few methods are basically for IE 5.0's bad interpretation of the "display" property (always returning "inline" unless explicitly set, even for block elements!)
+		ie50 : navigator.appVersion.toLowerCase().indexOf("msie 5.0") != -1,
+
+		ie50check : function(tag) {
+			var i, r = false;
+			tag = tag.toUpperCase();
+			for(i=0; i<this.blockElms.length; i++)
+				if(tag == this.blockElms[i])
+					r = true;
+			return r;
+		},
+
+		blockElms : new Array("ADDRESS", "BLOCKQUOTE", "BODY", "CENTER", "COL", "COLGROUP", "DD", "DIR", "DIV", "DL", "DT", "FIELDSET", "FORM", "FRAME", "HN", "HR", "IFRAME", "LEGEND", "LI", "LISTING", "MARQUEE", "MENU", "OL", "P", "PLAINTEXT", "PRE", "TABLE", "TBODY", "TD", "TFOOT", "TH", "THEAD", "TR", "UL", "XMP"),
+		// end IE5.0 detect
+
+		getClass : function(cls) {
+			var el, r, i;
+			el = document.all ? document.all : document.getElementsByTagName('*');
+			r = new Array;
+			for(i=0; el[i]; i++) if(el[i].className == cls) r.push(el[i]);
+			if(r.length==0) r = null;
+			return r;
+		},
+
+		getRules : function(wh) {
+			var s = null;
+			if(document.styleSheets && document.styleSheets.length) {
+				var i, j, k, m, x, y, is = true, screen = true;
+				s = new Array;
+				for(i=0; i < document.styleSheets.length; i++) {
+					j = document.styleSheets.item(i);
+					if(wh) is = (j.title || j.id) == wh;
+					if( typeof j.media == "string" && j.media.length > 0 && !j.media.match(/^(screen)|(media)$/i) )
+						screen = false;
+					else
+						screen = true;
+					if(!j.disabled && screen && is) {
+						if(j.rules) {
+							if(j.imports && j.imports.length) {
+								for(k=0; k < j.imports.length; k++)
+									for(x=0; y = j.imports[k].rules[x]; x++)
+										s.push([y.selectorText, y.style.cssText]);
+							}
+							for(k=0; m = j.rules[k]; k++)
+									s.push([m.selectorText, m.style.cssText]);
+						} else {
+							return null;
+						}
+					}
+					if(wh && is) break;
+					else is = true;
+				}
+			}
+			return s;
+		},
+
+		getStyle : function(obj,sty) {
+			var sty2 = IEmarginFix.compactStyle(sty);
+			var r = obj.style[sty2];
+			if(r=='') {
+				if(document.defaultView) r = document.defaultView.getComputedStyle(obj,'').getPropertyValue(sty);
+				else r = obj.currentStyle[sty2];
+			}
+			if(!r) r = null;
+			return r;
+		},
+
+		compactStyle : function(str) {
+			var s = str.split('-');	var o = [s[0]];
+			for(i=1;(j=s[i]);i++) { o[o.length] = j.charAt(0).toUpperCase(); o[o.length] = j.substring(1) };
+			return o.join('');
+		}
+	};
+	IEmarginFix.init();
+	</script>
+</head>
+<body>
+<div id="main">
+
+<h1>Dokumentace k implementaci informačního systému do předmětu IIS</h1>
+
+<ul class="contents">
+	<li><a href="#technologies" title="Použité technologie, knihovny a techniky">Použité technologie, knihovny a techniky</a></li>
+	<li><a href="#advantages" title="Přednosti aplikace a implementace">Přednosti aplikace a implementace</a></li>
+	<li><a href="#client" title="Přístup k aplikaci ze strany klienta">Přístup k aplikaci ze strany klienta</a></li>
+	<li><a href="#scripts" title="Scripty implementující případy použití">Scripty implementující případy použití</a></li>
+	<li><a href="#changes" title="Změny v návrhu a odůvodnění">Změny v návrhu a odůvodnění</a></li>
+	<li><a href="#todo" title="Co by v aplikaci šlo vylepšit">Co by v aplikaci šlo vylepšit</a></li>
+	<li><a href="#about" title="O autorovi">O autorovi</a></li>
+</ul>
+
+<h2 id="technologies">Použité technologie, knihovny a techniky</h2>
+<ul>
+	<li>
+		Programovací jazyky na straně serveru
+		<ul>
+			<li>Pro naše účely se mi jako nejvhodnější jevilo <strong><a href="http://php.net/">PHP 5</a></strong>.
+			Využil jsem pokročilých aspektů tohoto jazyka jako je objektová orientace,
+			výjimky, funkce pro práci s databázovým serverem, správa uživatelské relace a pro
+			import/export dat ve formátu XML jsem použil <strong><a href="http://cz2.php.net/manual/en/ref.simplexml.php">SimpleXML</a></strong> (součást PHP5).</li>
+		</ul>
+	</li>
+	<li>
+		Databázový server
+		<ul>
+			<li>Jako systém pro řízení báze dat byl zvolen <strong><a href="http://www.mysql.com/">MySQL</a></strong>.
+			Jelikož jsem nemohl využít enginu InnoDB tabulek a vymožeností nejvyšší verze MySQL,
+			tak je veškerá kontrola referenční integrity prováděna pomocí PHP.
+			Databázové triggery a úložné procedury jsem nevyužíval, opět
+			jsem vše řešil pomocí PHP a databázi používal pouze jako úložiště dat.</li>
+		</ul>
+	</li>
+	<li>
+		Šablonovací systém
+		<ul>
+			<li>Využil jsem systém <strong><a href="http://smarty.php.net/">Smarty</a></strong> - oddělením aplikační logiky od zobrazení došlo k dosáhnutí větší pružnosti aplikace
+			(lze nezávisle modifikovat aplikační logiku a vnější vzhled stránek), jasnějšího a přehlednějšího kódu a možnost
+			opětovného použití kódu pro zobrazení. Celá knihovna je přibalena k aplikace, takže není třeba nic instalovat.</li>
+		</ul>
+	</li>
+	<li>
+		Programovací jazyky na straně klienta
+		<ul>
+			<li>Výsledný kód určený k zobrazení v prohlížeči je tvořen kombinací validního <strong><a href="http://www.w3.org/TR/xhtml11/">XHTML 1.1</a></strong>
+			a <strong><a href="http://www.w3.org/Style/CSS/">CSS</a></strong>,
+			k implemetaci jednodušších scriptů byl využit <strong><a href="http://www.w3schools.com/jsref/default.asp">JavaScript</a></strong>.</li>
+		</ul>
+	</li>
+</ul>
+
+<p>
+	Při tvorbě aplikace byl kladen důraz na použitelnost, rozšiřitelnost, bezpečnost, kvalitu kódu a nezávislost na typu uživatelského prohlížeče.
+</p>
+
+<h2 id="advantages">Přednosti aplikace a implementace</h2>
+<ul>
+	<li>využití objektové orientace PHP a návrhových vzorů, aplikování modelu MVC (model-view-controller)</li>
+	<li>vícejazyčnost (angličtina a čeština) a snadné přidání další jazykové verze</li>
+	<li>zabezpečení všech vstupů proti útokům typu SQL Injection a XSS</li>
+	<li>kontrola vstupních dat a jejich sémantiky, kontrola referenční integrity</li>
+	<li>smysluplná chybová hlášení</li>
+	<li>odhlašování po určité době nečinnosti</li>
+	<li>zabezpečení uživatelské relace proti různým útokům typu session hijacking, speciálně session fixation</li>
+	<li>důsledná autorizace a nepovolení akcí, k nimž nemá uživatel práva</li>
+</ul>
+
+<h2 id="client">Přístup k aplikaci ze strany klienta</h2>
+<p>
+	Pro přístup k aplikaci lze použít libovolný webový prohlížeč, ve kterém jsou povoleny cookies a javascript.
+	Aplikace byla úspěšně otestována na následujících prohlížečích:
+</p>
+<ul>
+	<li>Mozilla Firefox 2.0</li>
+	<li>Microsoft Internet Explorer 6.0, 7.0</li>
+	<li>Opera 9.24</li>
+	<li>Konqueror 3.5.8</li>
+	<li>Seamonkey 1.1.6</li>
+	<li>Mozilla 1.7.13</li>
+</ul>
+
+<h2 id="scripts">Scripty implementující případy použití</h2>
+<p>
+	Veškeré níže uvedené scripty využívají další scripty (většinou funkce z adresáře ./web/includes/functions/).
+</p>
+<table class="centered_table">
+	<tr>
+		<th>Případ použití</th>
+		<th>Script</th>
+	</tr>
+	<tr>
+		<td>Vyhledávání</td>
+		<td>./web/includes/modules/m_search.php</td>
+	</tr>
+	<tr>
+		<td>Zobrazení statistik</td>
+		<td>./web/includes/modules/m_stats.php</td>
+	</tr>
+	<tr>
+		<td>Prohlížení smlouvy</td>
+		<td>./web/includes/modules/m_contracts.php</td>
+	</tr>
+	<tr>
+		<td>Změna popisu/oboru expozice</td>
+		<td>./web/includes/modules/m_expositions.php</td>
+	</tr>
+	<tr>
+		<td>Vyhledat/upomenout dlužníky</td>
+		<td>./web/includes/modules/m_debtors.php</td>
+	</tr>
+	<tr>
+		<td>Registrace/editace/zrušení uživatele</td>
+		<td>./web/includes/modules/m_users.php</td>
+	</tr>
+	<tr>
+		<td>Registrace/editace/zrušení firmy</td>
+		<td>./web/includes/modules/m_companies.php</td>
+	</tr>
+	<tr>
+		<td>Uzavření/editace/zrušení smlouvy</td>
+		<td>./web/includes/modules/m_contracts.php</td>
+	</tr>
+	<tr>
+		<td>Přidání/editace/zrušení výstavy</td>
+		<td>./web/includes/modules/m_exhibitions.php</td>
+	</tr>
+	<tr>
+		<td>Přidání/editace/zrušení expozice</td>
+		<td>./web/includes/modules/m_exposition.php</td>
+	</tr>
+	<tr>
+		<td>Přidání/editace/zrušení oboru</td>
+		<td>./web/includes/modules/m_branches</td>
+	</tr>
+	<tr>
+		<td>Přidání/editace/zrušení cenové kategorie</td>
+		<td>./web/includes/modules/m_price_categories.php</td>
+	</tr>
+	<tr>
+		<td>Přidání/editace/zrušení pavilónu</td>
+		<td>./web/includes/modules/m_pavilions.php</td>
+	</tr>
+	<tr>
+		<td>Přidání/editace/zrušení místa</td>
+		<td>./web/includes/modules/m_places.php</td>
+	</tr>
+</table>
+
+<h2 id="changes">Změny v návrhu a odůvodnění</h2>
+<ul>
+	<li>
+		<strong>Vypuštění práv uživatele a editace skupin</strong>.
+		Při implemetaci jsem zjistil, že původní práva nebudou mít takový smysl, v jaký jsem při návrhu doufal,
+		takže došlo k jejich odstranění. Při určování, zda může uživatel provádět určitou akci
+		se řídím pouze podle skupiny, do které patří (návštěvník, člen firmy a správce výstaviště).
+		Také jsem zrušil možnost editace skupin, protože jiné, než výše vyjmenované, nebudou třeba.
+	</li>
+	<li>
+		<strong>Jednotný systém primarních klíčů tabulek</strong>.
+		V původním návrhu se vyskytovaly složené klíče a klíče jiných datových typů, než je celé číslo.
+		Nicméně, kvůli zjednodušení práce s tabulkami (spojování tabulek, kontrola integritního omezení atd.) a umožnění editace některých původně primárních klíčů
+		jsem pro všechny tabulky zvolil jednotný formát, kde je primární klíč celé nezáporné číslo.
+	</li>
+	<li>
+		<strong>Přidání některých dalších (nejen administračních) akcí</strong>.
+		Během vývoje mě napadlo několik vylepšení, které se v originálním návrhu nevyskytovaly, ale považoval jsem
+		je za přínosné a tudíž jsem je implementoval. Patří mezi ně zobrazování detailů nejbližší výstavy,
+		možnost zrušení pavilónu, míst v pavilonu, výstav a uživatelů.
+		Také byla přidána možnost importu/exportu dat ve formátu XML (dle požadavku v zadání).
+	</li>
+</ul>
+
+<h2 id="todo">Co by v aplikaci šlo vylepšit</h2>
+<p>
+	Vlivem časové náročnosti projektu se vyskytlo několik věcí, které jsem nestačil implementovat v takové míře,
+	v jaké bych si představoval. Za toto se tímto omlouvám. Zde je krátký seznam většiny z nich.
+</p>
+<ul>
+	<li>automatické odstraňování neplatných položek ve formulářích pomocí AJAXu, např. při přidávání smlouvy a výběru firmy
+	by se zobrazili jen ti uživatelé, kteří zastupují danou firmu</li>
+	<li>zobrazení více detailů v určitých částech systému, např. možnost zobrazení všech expozici na každé výstavě,
+	ne jen na té aktuální/nadcházející</li>
+	<li>reálné odesílání upozornění dlužníkům výstaviště, např. na jejich email</li>
+	<li>více statistik</li>
+</ul>
+
+<h2 id="about">O autorovi</h2>
+<p>
+	Petr Zemek, <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#120;&#122;&#101;&#109;&#101;&#107;&#48;&#50;&#64;&#115;&#116;&#117;&#100;&#46;&#102;&#105;&#116;&#46;&#118;&#117;&#116;&#98;&#114;&#46;&#99;&#122;">&#120;<!-- > -->&#122;<!-- > -->&#101;<!-- > -->&#109;<!-- @ -->&#101;<!-- > -->&#107;<!-- > -->&#48;<!-- > -->&#50;<!-- > -->&#64;<!-- @ -->&#115;<!-- @ -->&#116;<!-- > -->&#117;<!-- > -->&#100;<!-- @ -->&#46;<!-- > -->&#102;<!-- @ -->&#105;<!-- @ -->&#116;<!-- @ -->&#46;<!-- @ -->&#118;<!-- @ -->&#117;<!-- @ -->&#116;<!-- > -->&#98;<!-- > -->&#114;<!-- @ -->&#46;<!-- @ -->&#99;<!-- > -->&#122;<!-- @ --></a>
+	- student 3. ročníku bakalářského studia na Fakultě Informačních Technologií, Vysoké Učení Technické, Brno.
+</p>
+
+<br />
+
+<p class="footer">
+	Tento projekt byl vytvořen do předmětu <a href="https://www.fit.vutbr.cz/study/courses/IIS/">Informační Systémy</a>.
+	<br>
+	Dokumentace je validní dle HTML 4.01 Strict a CSS.
+</p>
+
+</div>
+</body>
+</html>

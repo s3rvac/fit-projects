@@ -1,0 +1,25 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Project: FAV 2009
+% Authors:
+%     Ondrej Lengal, xlenga00@stud.fit.vutbr.cz
+%     Libor Polcak, xpolca03@stud.fit.vutbr.cz
+%     Petr Zemek, xzemek02@stud.fit.vutbr.cz
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Experience}
+\label{sec:experience}
+
+While being a widely acclaimed program, Spin in not easy to harness. One thing that we found quite extraordinary was that the user cannot specify the output name of the verifier: the default one is \texttt{pan.c} (short for \emph{Protocol Analyzer}, Pan is Spin's predecessor). Another drawback of this program is that although LTL formulae to be checked in a model can be passed in a file, only a single formula can be used and Spin tries to find it only at the very first line of the file. We expected that multiple formulae could be checked and that the file with formulae could also include comments for different formulae. In Spin, if multiple formulae needs to be verified, they must be transformed into a single one. Although any hacker deals with these issues quickly, this does not speak well about the sophistication level of the tool. \emph{Good} Makefile is necessary for any serious work.
+
+The program violates the \emph{Rule of Silence: When a program has nothing surprising to say, it should say nothing}\footnote{Eric Steven Raymond. \textit{The Art of Unix Programming}. 2003. Available at URL: \url{http://www.catb.org/~esr/writings/taoup/html/}}. The verifier output is rather too verbose and provides much information that is \emph{not needed} in a non-verbose mode, such as memory usage statistics.
+
+During our examination of Spin sources, we felt like Alice in Wonderland. For instance, we found out that Spin does not handle well longer input LTL formulae. If the formula is in a file, only the beginning of the first line of the file is read (4096 characters for Spin 5.2.2) without letting the user know that the input was truncated. In case a longer formula is passed to the program using command line arguments, the user is informed using the \emph{segmentation fault} message that something is not all right. The overall code quality is quite low: neither functions nor function parameters are documented, poor variables and function parameters names, a lot of magic constants, absence of comments, etc.
+
+In spite of the abovementioned issues, Spin appears to be working: when verifying our use case, Spin always gave us a valid counterexample. However, our trust in the tool decreased significantly after we examined sources of Spin. We found out that the tool does not always terminate with a correct answer and can give false negatives. Consider the following LTL formula stored in a file: \texttt{!(true) Z || !(false)}, where \texttt{Z} is either \textit{(i)} a single space, or \textit{(ii)} 4096 spaces. For the former case, Spin terminates with \texttt{pan: claim violated! (at depth 3)} error message while for the latter case, Spin does not report an error (provided there is no other error in the checked program), although the semantics of the formula did not change at all.
+
+The ability to run random/guided simulation appears to be a useful feature of Spin. Although verification gives the answer whether the model conforms to given constraints, the simulation let us evaluate that the model behaves similarly to the real system. In this case, the environment of the system needs to be modelled.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vim: syntax=tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

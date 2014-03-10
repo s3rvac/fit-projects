@@ -1,0 +1,832 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+
+<head profile="http://gmpg.org/xfn/11">
+	<title>Publications | Tony Abou-Assaleh</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="generator" content="WordPress 2.3.3" />
+	<meta name="template" content="K2 RC4" />
+ 	<meta name="description" content="" />
+  
+	<link rel="stylesheet" type="text/css" media="screen" href="http://tony.abou-assaleh.net/wp-content/themes/k2/style.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="http://tony.abou-assaleh.net/wp-content/themes/k2/css/rollingarchives.css.php" />
+			<link rel="stylesheet" type="text/css" href="http://tony.abou-assaleh.net/wp-content/themes/k2/styles/taa/taa.css" />
+	
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://tony.abou-assaleh.net/feed" />
+	<link rel="alternate" type="text/xml" title="RSS .92" href="http://tony.abou-assaleh.net/feed/rss" />
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://tony.abou-assaleh.net/feed/atom" />
+
+		<link rel="pingback" href="http://tony.abou-assaleh.net/xmlrpc.php" />
+	
+		<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://tony.abou-assaleh.net/xmlrpc.php?rsd" />
+ <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://tony.abou-assaleh.net/wp-includes/wlwmanifest.xml" /> <script type='text/javascript' src='http://tony.abou-assaleh.net/wp-content/themes/k2/js/jquery.js.php?ver=1.2.1'></script>
+<script type='text/javascript' src='http://tony.abou-assaleh.net/wp-content/plugins/bib2html/js/bib2html.js?ver=0.7'></script>
+<script type='text/javascript' src='http://tony.abou-assaleh.net/wp-content/themes/k2/js/k2.functions.js.php?ver=1.0'></script>
+<script type='text/javascript' src='http://tony.abou-assaleh.net/wp-content/themes/k2/js/k2.slider.js.php?ver=1.0'></script>
+<script type='text/javascript' src='http://tony.abou-assaleh.net/wp-content/themes/k2/js/k2.trimmer.js.php?ver=1.0'></script>
+<script type='text/javascript' src='http://tony.abou-assaleh.net/wp-content/themes/k2/js/k2.rollingarchives.js.php?ver=1.0'></script>
+<script type='text/javascript' src='http://tony.abou-assaleh.net/wp-content/themes/k2/js/k2.livesearch.js.php?ver=1.0'></script>
+<script type='text/javascript' src='http://tony.abou-assaleh.net/wp-content/themes/k2/js/k2.comments.js.php?ver=1.0'></script>
+
+<!-- all in one seo pack 1.4.6.1 [-1,-1] -->
+<meta name="description" content="Formatting of the display is being revised. Some properties are not displayed properly. See the BiBTeX entries for full details. Books [bibtex" />
+<!-- /all in one seo pack -->
+<style type="text/css">
+
+div.bibtex {
+    display: none;
+}</style><style type="text/css">
+
+ a[href$=".pdf"], a[href$=".txt"], a[href$=".mp3"], a[href$=".aiff"], a[href$=".wav"], a[href$=".ogg"], a[href$=".wma"], a[href$=".zip"], a[href$=".rar"], a[href$=".ace"], a[href$=".tar.gz"], a[href$=".tgz"], a[href$=".mpg"], a[href$=".mpeg"], a[href$=".avi"], a[href$=".mv2"], a[href$=".mov"], a[href$=".mp4"], a[href$=".wmv"], a[href$=".swf"], a[href$=".xls"], a[href$=".doc"], a[href*="trackback"], a[href*="@"], a[href*="rss2"], a[href*="feed"], a[href*="postcomment"], a[href*="respond"], a[href*="action=edit"], a[href$=".png"], a[href$=".ppt"], a[href$=".ps"], a[href="http://validator.w3.org/check?uri=referer"]
+{
+		padding-bottom:2px;
+		padding-left:22px;
+		padding-top:2px;
+		background:transparent;
+	}
+ a[href$=".pdf"]
+		{
+			background: url(http://tony.abou-assaleh.net/wp-content/plugins/file-icons/icons/silkicons/page_white_acrobat.png) no-repeat scroll left center;
+		}
+ a[href$=".txt"]
+		{
+			background: url(http://tony.abou-assaleh.net/wp-content/plugins/file-icons/icons/silkicons/page_white_text.png) no-repeat scroll left center;
+		}
+ a[href$=".mp3"], a[href$=".aiff"], a[href$=".wav"], a[href$=".ogg"], a[href$=".wma"]
+		{
+			background: url(http://tony.abou-assaleh.net/wp-content/plugins/file-icons/icons/silkicons/music.png) no-repeat scroll left center;
+		}
+ a[href$=".zip"], a[href$=".rar"], a[href$=".ace"], a[href$=".tar.gz"], a[href$=".tgz"]
+		{
+			background: url(http://tony.abou-assaleh.net/wp-content/plugins/file-icons/icons/silkicons/page_white_compressed.png) no-repeat scroll left center;
+		}
+ a[href$=".mpg"], a[href$=".mpeg"], a[href$=".avi"], a[href$=".mv2"], a[href$=".mov"], a[href$=".mp4"], a[href$=".wmv"]
+		{
+			background: url(http://tony.abou-assaleh.net/wp-content/plugins/file-icons/icons/silkicons/film.png) no-repeat scroll left center;
+		}
+ a[href$=".swf"]
+		{
+			background: url(http://tony.abou-assaleh.net/wp-content/plugins/file-icons/icons/silkicons/page_white_flash.png) no-repeat scroll left center;
+		}
+ a[href$=".xls"]
+		{
+			background: url(http://tony.abou-assaleh.net/wp-content/plugins/file-icons/icons/silkicons/page_white_excel.png) no-repeat scroll left center;
+		}
+ a[href$=".doc"]
+		{
+			background: url(http://tony.abou-assaleh.net/wp-content/plugins/file-icons/icons/silkicons/page_white_word.png) no-repeat scroll left center;
+		}
+ a[href*="trackback"]
+		{
+			background: url(http://tony.abou-assaleh.net/wp-content/plugins/file-icons/icons/silkicons/link.png) no-repeat scroll left center;
+		}
+ a[href*="@"]
+		{
+			background: url(http://tony.abou-assaleh.net/wp-content/plugins/file-icons/icons/silkicons/email.png) no-repeat scroll left center;
+		}
+ a[href*="rss2"], a[href*="feed"]
+		{
+			background: url(http://tony.abou-assaleh.net/wp-content/plugins/file-icons/icons/silkicons/rss.png) no-repeat scroll left center;
+		}
+ a[href*="postcomment"], a[href*="respond"]
+		{
+			background: url(http://tony.abou-assaleh.net/wp-content/plugins/file-icons/icons/silkicons/comment.png) no-repeat scroll left center;
+		}
+ a[href*="action=edit"]
+		{
+			background: url(http://tony.abou-assaleh.net/wp-content/plugins/file-icons/icons/silkicons/page_white_edit.png) no-repeat scroll left center;
+		}
+ a[href$=".png"]
+		{
+			background: url(http://tony.abou-assaleh.net/wp-content/plugins/file-icons/icons/silkicons/picture.png) no-repeat scroll left center;
+		}
+ a[href$=".ppt"]
+		{
+			background: url(http://tony.abou-assaleh.net/wp-content/plugins/file-icons/icons/silkicons/page_white_powerpoint.png) no-repeat scroll left center;
+		}
+ a[href$=".ps"]
+		{
+			background: url(http://tony.abou-assaleh.net/wp-content/plugins/file-icons/icons/silkicons/page_white.png) no-repeat scroll left center;
+		}
+ a[href="http://validator.w3.org/check?uri=referer"]
+		{
+			background: url(http://tony.abou-assaleh.net/wp-content/plugins/file-icons/icons/silkicons/xhtml_valid.png) no-repeat scroll left center;
+		}
+</style><!-- You need to configure the Google Analytics plugin under Options / Google Analytics -->
+<style type="text/css">#wpcf fieldset { padding: 10px; border: 1px solid #666666; width: 400px; margin: auto }
+#wpcf legend { font-weight: bold: border: 1px solid #666666; padding: 3px }
+#wpcf label { display: block; float: left; text-align: right; width: 100px; padding-right: 10px; font-size: 90%  }
+#wpcf p { margin: 0 0 5px 0 }
+#wpcf .field { width: 250px; padding: 0; margin: 0 }
+#wpcf p.button { text-align: right; padding: 0 35px 0 0; }
+#wpcf textarea { width: 250px; height: 50px }
+#wpcf .error { background-color: #FFFF00 }
+#wpcf .alert { color:#FF0000; font-weight: 700; text-align: center; padding: 0 0 10px 0 }</style>		<style type="text/css">
+										#header h1 a, #header .description {
+				color: #ffffff;
+			}
+							</style>
+		
+	<script type="text/javascript">
+	//<![CDATA[
+		K2.columns = 2;
+
+		if (K2.columns > 1) {
+			jQuery(document).ready(dynamicColumns);
+			jQuery(window).resize(dynamicColumns);
+		}
+
+		
+		jQuery(document).ready(function(){
+						K2.LiveSearch = new LiveSearch(
+				"http://tony.abou-assaleh.net/wp-content/themes/k2/rollingarchive.php",
+				"Type and Wait to Search"
+			);
+			
+						K2.RollingArchives = new RollingArchives(
+				"http://tony.abou-assaleh.net/wp-content/themes/k2/theloop.php",
+				"Page %1$d of %2$d"
+			);
+					});
+
+		
+					K2.ajaxCommentsURL = "http://tony.abou-assaleh.net/wp-content/themes/k2/comments-ajax.php";
+		
+	//]]>
+	</script>
+
+		<link rel='archives' title='March 2008' href='http://tony.abou-assaleh.net/2008/03' />
+	<link rel='archives' title='February 2008' href='http://tony.abou-assaleh.net/2008/02' />
+</head>
+
+<body class="wordpress k2 y2008 m04 d01 h12 page pageid-6 page-author-taa columns-two lang-en" id='publications'>
+
+<a class="skiplink" href="#startcontent" accesskey="2">Skip to content</a>
+
+<div id="page">
+
+	<div id="header">
+
+		<h1><a href="http://tony.abou-assaleh.net/" accesskey="1">Tony Abou-Assaleh</a></h1>
+		<p class="description"></p>
+
+		<ul class="menu">
+						<li class="page_item"><a href="http://tony.abou-assaleh.net/" title="Home">Home</a></li>
+						<li class="page_item page-item-2"><a href="http://tony.abou-assaleh.net/about" title="About">About</a></li>
+<li class="page_item page-item-4"><a href="http://tony.abou-assaleh.net/contact" title="Contact">Contact</a></li>
+<li class="page_item page-item-6 current_page_item "><a href="http://tony.abou-assaleh.net/publications" title="Publications">Publications</a></li>
+					</ul>
+
+	</div>
+
+		<hr />
+<div class="content">
+	<div id="primary">
+		<div id="notices"></div>
+		<a name="startcontent" id="startcontent"></a>
+
+		<div id="current-content" class="hfeed">
+
+					<div id="post-6" class="hentry p1 page publish author-taa category-uncategorized tag- y2008 m02 d29 h04 alt">
+
+				<div class="page-head">
+									</div>
+	
+				<div class="entry-content">
+					<p>Formatting of the display is being revised. Some properties are not displayed properly. See the BiBTeX entries for full details.</p>
+<h3>Books</h3>
+<ol start="1">
+<li>
+<div>(2004). <em>Proceedings of the 3rd Dalhousie Computer Science In-house Conference (DCSI&#8217;04)</em>. Dalhousie University, Halifax, Nova Scotia, Canada.<br />
+    [<a href="#Abou-Assaleh2004d" class="toggle">bibtex</a>]   [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_dcsi04_proceedings.pdf" title="Proceedings of the 3rd Dalhousie Computer Science In-house Conference (DCSI'04)">Proceedings</a>]</div>
+<div class="bibtex" id="Abou-Assaleh2004d">
+         <code>@PROCEEDINGS{Abou-Assaleh2004d, title = {Proceedings of the 3rd Dalhousie Computer Science In-house Conference (DCSI'04)}, <br />
+ &nbsp; year = {2004}, <br />
+ &nbsp; editor = {Tony Abou-Assaleh}, <br />
+ &nbsp; address = {Dalhousie University, Halifax, Nova Scotia, Canada}, <br />
+ &nbsp; month = {October}, <br />
+ &nbsp; file = {Proceedings:/papers/abou-assaleh_dcsi04_proceedings.pdf:PDF}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+</ol>
+<h3>Journal Papers and Articles</h3>
+<ol start="2">
+<li>
+<div>Abou-Assaleh, T., &amp; Das, T. (2008). Combating Spamdexing: Incorporating Heuristics in Link-Based Ranking. In W. Aiello, A. Broder &amp; J. Janssen &amp; E. Milios (Eds.), (Vol. 4936, pp. 97-106). Berlin Heidelberg: Springer-Verlag.<br />
+    [<a href="#Abou-Assaleh2008" class="toggle">bibtex</a>]  </div>
+<div class="bibtex" id="Abou-Assaleh2008">
+         <code>@INCOLLECTION{Abou-Assaleh2008, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Tapajyoti Das}, <br />
+ &nbsp; title = {Combating Spamdexing: Incorporating Heuristics in Link-Based Ranking}, <br />
+ &nbsp; booktitle = {Algorithms and Models for the Web-Graph: Fourth International Workshop, WAW 2006, Banff, Canada, November 30 - December 1, 2006, Revised Papers}, <br />
+ &nbsp; publisher = {Springer-Verlag}, <br />
+ &nbsp; year = {2008}, <br />
+ &nbsp; editor = {Aiello, William and Broder, Andrei and Janssen, Jeannette and Milios, Evangelos}, <br />
+ &nbsp; volume = {4936}, <br />
+ &nbsp; series = {Lecture Notes in Computer Science}, <br />
+ &nbsp; pages = {97&#8211;106}, <br />
+ &nbsp; address = {Berlin Heidelberg}, <br />
+ &nbsp; month = {May}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.05}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T., &amp; Cercone, N. (2003). Relaxed Unification &#8212; Proposal. <em>Applied Mathematics Letters</em>, 16(5), 747-751.<br />
+    [<a href="#Abou-Assaleh2003" class="toggle">bibtex</a>]   [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_aml.ps" title="Relaxed Unification -- Proposal">Article</a>]</div>
+<div class="bibtex" id="Abou-Assaleh2003">
+         <code>@ARTICLE{Abou-Assaleh2003, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Nick Cercone}, <br />
+ &nbsp; title = {Relaxed Unification &#8212; Proposal}, <br />
+ &nbsp; journal = {Applied Mathematics Letters}, <br />
+ &nbsp; year = {2003}, <br />
+ &nbsp; volume = {16}, <br />
+ &nbsp; pages = {747-751}, <br />
+ &nbsp; number = {5}, <br />
+ &nbsp; month = {July}, <br />
+ &nbsp; note = {Accepted May 2002}, <br />
+ &nbsp; file = {Article:/papers/abou-assaleh_aml.ps:PostScript}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; publisher = {New York, NY: Elsevier Science}<br />
+}</code>
+    </div>
+</li>
+</ol>
+<h3>Conferences</h3>
+<ol start="4">
+<li>
+<div>Abou-Assaleh, T., &amp; Gao, W. (2007). <em>Geographic ranking for a local search engine</em>. In SIGIR &#8216;07: Proceedings of the 30th annual international ACM SIGIR conference on Research and development in information retrieval, New York, NY, USA.<br />
+    [<a href="#Abou-Assaleh2007a" class="toggle">bibtex</a>]   [<a href='http://doi.acm.org/10.1145/1277741.1277979' title='Go to document'>Source <img src='http://tony.abou-assaleh.net/wp-content/plugins/bib2html/external.png' width='10' height='10' alt='Go to document' /></a>]</div>
+<div class="bibtex" id="Abou-Assaleh2007a">
+         <code>@INPROCEEDINGS{Abou-Assaleh2007a, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Weizheng Gao}, <br />
+ &nbsp; title = {Geographic ranking for a local search engine}, <br />
+ &nbsp; booktitle = {SIGIR &#8216;07: Proceedings of the 30th annual international ACM SIGIR conference on Research and development in information retrieval}, <br />
+ &nbsp; year = {2007}, <br />
+ &nbsp; pages = {911&#8211;911}, <br />
+ &nbsp; address = {New York, NY, USA}, <br />
+ &nbsp; month = {July 23-27}, <br />
+ &nbsp; organization = {SIGIR}, <br />
+ &nbsp; publisher = {ACM}, <br />
+ &nbsp; doi = {http://doi.acm.org/10.1145/1277741.1277979}, <br />
+ &nbsp; isbn = {978-1-59593-597-7}, <br />
+ &nbsp; location = {Amsterdam, The Netherlands}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.05}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>O&#8217;Brien, P., &amp; Abou-Assaleh, T. (2007). <em>Focused ranking in a vertical search engine</em>. In SIGIR &#8216;07: Proceedings of the 30th annual international ACM SIGIR conference on Research and development in information retrieval, New York, NY, USA.<br />
+    [<a href="#O'Brien2007" class="toggle">bibtex</a>]   [<a href='http://doi.acm.org/10.1145/1277741.1277980' title='Go to document'>Source <img src='http://tony.abou-assaleh.net/wp-content/plugins/bib2html/external.png' width='10' height='10' alt='Go to document' /></a>]</div>
+<div class="bibtex" id="O'Brien2007">
+         <code>@INPROCEEDINGS{O'Brien2007, <br />
+ &nbsp;&nbsp;author = {Philip O&#8217;Brien and Tony Abou-Assaleh}, <br />
+ &nbsp; title = {Focused ranking in a vertical search engine}, <br />
+ &nbsp; booktitle = {SIGIR &#8216;07: Proceedings of the 30th annual international ACM SIGIR conference on Research and development in information retrieval}, <br />
+ &nbsp; year = {2007}, <br />
+ &nbsp; pages = {912&#8211;912}, <br />
+ &nbsp; address = {New York, NY, USA}, <br />
+ &nbsp; month = {July 23-27}, <br />
+ &nbsp; organization = {SIGIR}, <br />
+ &nbsp; publisher = {ACM}, <br />
+ &nbsp; doi = {http://doi.acm.org/10.1145/1277741.1277980}, <br />
+ &nbsp; isbn = {978-1-59593-597-7}, <br />
+ &nbsp; location = {Amsterdam, The Netherlands}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T., Das, T., Gao, W., Miao, Y., O&#8217;Brien, P., &amp; Zhen, Z. (2007). <em>A Link-Based Ranking Scheme for Focused Search</em>. In Proceedings of the 16th international conference on World Wide Web (WWW2007), New York, NY, USA.<br />
+    [<a href="#Abou-Assaleh2007" class="toggle">bibtex</a>]   [<a href='http://doi.acm.org/10.1145/1242572.1242727' title='Go to document'>Source <img src='http://tony.abou-assaleh.net/wp-content/plugins/bib2html/external.png' width='10' height='10' alt='Go to document' /></a>]</div>
+<div class="bibtex" id="Abou-Assaleh2007">
+         <code>@INPROCEEDINGS{Abou-Assaleh2007, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Tapajyoti Das and Weizheng Gao and Yingbo Miao and Philip O’Brien and Zhen Zhen}, <br />
+ &nbsp; title = {A Link-Based Ranking Scheme for Focused Search}, <br />
+ &nbsp; booktitle = {Proceedings of the 16th international conference on World Wide Web (WWW2007)}, <br />
+ &nbsp; year = {2007}, <br />
+ &nbsp; pages = {1125&#8211;1126}, <br />
+ &nbsp; address = {New York, NY, USA}, <br />
+ &nbsp; month = {May 8-12}, <br />
+ &nbsp; publisher = {ACM}, <br />
+ &nbsp; doi = {http://doi.acm.org/10.1145/1242572.1242727}, <br />
+ &nbsp; isbn = {978-1-59593-654-7}, <br />
+ &nbsp; location = {Banff, Alberta, Canada}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.05}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T., Cercone, N., Doyle, J., Ke&#353;elj, V., &amp; Whidden, C. (2005). <em>DalTREC 2005 QA System Jellyfish: Mark-and-Match Approach to Question Answering</em>. In Proceedings of the Fourtheenth Text REtrieval Conference (TREC 2005), Gaithersburg, Maryland.<br />
+    [<a href="#Abou-Assaleh2005d" class="toggle">bibtex</a>]  </div>
+<div class="bibtex" id="Abou-Assaleh2005d">
+         <code>@INPROCEEDINGS{Abou-Assaleh2005d, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Nick Cercone and Jon Doyle and Vlado Kešelj and Chris Whidden}, <br />
+ &nbsp; title = {DalTREC 2005 QA System Jellyfish: Mark-and-Match Approach to Question Answering}, <br />
+ &nbsp; booktitle = {Proceedings of the Fourtheenth Text REtrieval Conference (TREC 2005)}, <br />
+ &nbsp; year = {2005}, <br />
+ &nbsp; address = {Gaithersburg, Maryland}, <br />
+ &nbsp; month = {November}, <br />
+ &nbsp; organization = {National Institute of Standards and Technology (NIST)}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T., Cercone, N., &amp; Ke&#353;elj, V. (2005). <em>A Probabilistic Evaluation Function for Relaxed Unification</em>. In Proceedings of the 29th IEEE Annual International Computer Software and Applications Conference, COMPSAC 2005, Edinburgh, Scotland.<br />
+    [<a href="#Abou-Assaleh2005c" class="toggle">bibtex</a>]   [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_compsac2005.pdf" title="A Probabilistic Evaluation Function for Relaxed Unification">Paper</a>]</div>
+<div class="bibtex" id="Abou-Assaleh2005c">
+         <code>@INPROCEEDINGS{Abou-Assaleh2005c, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Nick Cercone and Vlado Kešelj}, <br />
+ &nbsp; title = {A Probabilistic Evaluation Function for Relaxed Unification}, <br />
+ &nbsp; booktitle = {Proceedings of the 29th IEEE Annual International Computer Software and Applications Conference, COMPSAC 2005}, <br />
+ &nbsp; year = {2005}, <br />
+ &nbsp; address = {Edinburgh, Scotland}, <br />
+ &nbsp; month = {July 25-28}, <br />
+ &nbsp; file = {Paper:/papers/abou-assaleh_compsac2005.pdf:PDF}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T., Cercone, N., &amp; Ke&#353;elj, V. (2005). <em>Question-Answering with Relaxed Unification</em>. In Proceedings of the Conference of the Pacific Association for Computational Linguistics, PACLING&#8217;05, Tokyo, Japan.<br />
+    [<a href="#Abou-Assaleh2005b" class="toggle">bibtex</a>]   [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_pacling05.pdf" title="Question-Answering with Relaxed Unification">Paper</a>]</div>
+<div class="bibtex" id="Abou-Assaleh2005b">
+         <code>@INPROCEEDINGS{Abou-Assaleh2005b, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Nick Cercone and Vlado Kešelj}, <br />
+ &nbsp; title = {Question-Answering with Relaxed Unification}, <br />
+ &nbsp; booktitle = {Proceedings of the Conference of the Pacific Association for Computational Linguistics, PACLING&#8217;05}, <br />
+ &nbsp; year = {2005}, <br />
+ &nbsp; address = {Tokyo, Japan}, <br />
+ &nbsp; month = {August 24-27}, <br />
+ &nbsp; file = {Paper:/papers/abou-assaleh_pacling05.pdf:PDF}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T., Cercone, N., &amp; Ke&#353;elj, V. (2004). <em>Applying HPSG with Relaxed Unification to Question Answering</em>. In MITACS 5th Annual Conference and Atlantic Interchange, Halifax, Nova Scotia, Canada.<br />
+    [<a href="#Abou-Assaleh2004f" class="toggle">bibtex</a>]   [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_mitacs04.ppt" title="Applying HPSG with Relaxed Unification to Question Answering">Slides</a>] [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_mitacs04.png" title="Applying HPSG with Relaxed Unification to Question Answering">Photo</a>]</div>
+<div class="bibtex" id="Abou-Assaleh2004f">
+         <code>@INPROCEEDINGS{Abou-Assaleh2004f, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Nick Cercone and Vlado Kešelj}, <br />
+ &nbsp; title = {Applying HPSG with Relaxed Unification to Question Answering}, <br />
+ &nbsp; booktitle = {MITACS 5th Annual Conference and Atlantic Interchange}, <br />
+ &nbsp; year = {2004}, <br />
+ &nbsp; address = {Halifax, Nova Scotia, Canada}, <br />
+ &nbsp; month = {June}, <br />
+ &nbsp; organization = {Dalhousie University}, <br />
+ &nbsp; note = {Second Place Award in the Poster Competition}, <br />
+ &nbsp; file = {Slides:/papers/abou-assaleh_mitacs04.ppt:PowerPoint;Photo:/papers/abou-assaleh_mitacs04.png:PNG}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T., Cercone, N., &amp; Ke&#353;elj, V. (2004). <em>Applying HPSG with Relaxed Unification to Question Answering</em>. In Proceedings of the Third Dalhousie Computer Science In-house Conference (DCSI&#8217;04), Halifax, Nova Scotia, Canada.<br />
+    [<a href="#Abou-Assaleh2004e" class="toggle">bibtex</a>]  </div>
+<div class="bibtex" id="Abou-Assaleh2004e">
+         <code>@INPROCEEDINGS{Abou-Assaleh2004e, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Nick Cercone and Vlado Kešelj}, <br />
+ &nbsp; title = {Applying HPSG with Relaxed Unification to Question Answering}, <br />
+ &nbsp; booktitle = {Proceedings of the Third Dalhousie Computer Science In-house Conference (DCSI&#8217;04)}, <br />
+ &nbsp; year = {2004}, <br />
+ &nbsp; address = {Halifax, Nova Scotia, Canada}, <br />
+ &nbsp; month = {October}, <br />
+ &nbsp; organization = {Dalhousie University}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Cox, A., Abou-Assaleh, T., Ai, W., &amp; Ke&#353;elj, V. (2004). <em>Lexical Source-Code Transformation</em>. In Proceedings of the Software Transformation Systems Workshop (STSW&#8217;04) at the Third International Conference on Generative Programming and Component Engineering (GPCE&#8217;04), Vancouver, British Colombia, Canada.<br />
+    [<a href="#Cox2004" class="toggle">bibtex</a>]   [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_stsw04.pdf" title="Lexical Source-Code Transformation">Paper</a>]</div>
+<div class="bibtex" id="Cox2004">
+         <code>@INPROCEEDINGS{Cox2004, <br />
+ &nbsp;&nbsp;author = {Anthony Cox and Tony Abou-Assaleh and Wei Ai and Vlado Kešelj}, <br />
+ &nbsp; title = {Lexical Source-Code Transformation}, <br />
+ &nbsp; booktitle = {Proceedings of the Software Transformation Systems Workshop (STSW&#8217;04) at the Third International Conference on Generative Programming and Component Engineering (GPCE&#8217;04)}, <br />
+ &nbsp; year = {2004}, <br />
+ &nbsp; address = {Vancouver, British Colombia, Canada}, <br />
+ &nbsp; month = {October}, <br />
+ &nbsp; file = {Paper:/papers/abou-assaleh_stsw04.pdf:PDF}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T., Cercone, N., Ke&#353;elj, V., &amp; Sweidan, R. (2004). <em>N-gram-based Detection of New Malicious Code</em>. In Proceedings of the 28th IEEE Annual International Computer Software and Applications Conference, COMPSAC 2004, Hong Kong.<br />
+    [<a href="#Abou-Assaleh2004c" class="toggle">bibtex</a>]   [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_compsac2004.pdf" title="N-gram-based Detection of New Malicious Code">Paper</a>]</div>
+<div class="bibtex" id="Abou-Assaleh2004c">
+         <code>@INPROCEEDINGS{Abou-Assaleh2004c, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Nick Cercone and Vlado Kešelj and Ray Sweidan}, <br />
+ &nbsp; title = {N-gram-based Detection of New Malicious Code}, <br />
+ &nbsp; booktitle = {Proceedings of the 28th IEEE Annual International Computer Software and Applications Conference, COMPSAC 2004}, <br />
+ &nbsp; year = {2004}, <br />
+ &nbsp; address = {Hong Kong}, <br />
+ &nbsp; month = {September 28-30}, <br />
+ &nbsp; file = {Paper:/papers/abou-assaleh_compsac2004.pdf:PDF}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T., Cercone, N., Ke&#353;elj, V., &amp; Sweidan, R. (2004). <em>Detection of New Malicious Code Using N-grams Signatures</em>. In Proceedings of the Second Annual Conference on Privacy, Security and Trust (PST&#8217;04), Fredericton, New Brunswick, Canada.<br />
+    [<a href="#Abou-Assaleh2004b" class="toggle">bibtex</a>]   [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_pst04.ppt" title="Detection of New Malicious Code Using N-grams Signatures">Slides</a>] [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_pst04.pdf" title="Detection of New Malicious Code Using N-grams Signatures">Paper</a>]</div>
+<div class="bibtex" id="Abou-Assaleh2004b">
+         <code>@INPROCEEDINGS{Abou-Assaleh2004b, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Nick Cercone and Vlado Kešelj and Ray Sweidan}, <br />
+ &nbsp; title = {Detection of New Malicious Code Using N-grams Signatures}, <br />
+ &nbsp; booktitle = {Proceedings of the Second Annual Conference on Privacy, Security and Trust (PST&#8217;04)}, <br />
+ &nbsp; year = {2004}, <br />
+ &nbsp; pages = {193&#8211;196}, <br />
+ &nbsp; address = {Fredericton, New Brunswick, Canada}, <br />
+ &nbsp; month = {October 13-15}, <br />
+ &nbsp; file = {Slides:/papers/abou-assaleh_pst04.ppt:PowerPoint;Paper:/papers/abou-assaleh_pst04.pdf:PDF}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T., Cercone, N., &amp; Ke&#353;elj, V. (2003). <em>An Overview of the Theory of Relaxed Unification</em>. In Proceedings of the International Conference on Advances in the Internet, Processing, Systems, Interdisciplinary Research, IPSI-2003, Sveti Stefan, Montenegro, Former Yugoslavia.<br />
+    [<a href="#Abou-Assaleh2003a" class="toggle">bibtex</a>]   [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_ipsi03-ru.ppt" title="An Overview of the Theory of Relaxed Unification">Slides</a>] [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_ipsi03-ru.pdf" title="An Overview of the Theory of Relaxed Unification">Paper</a>]</div>
+<div class="bibtex" id="Abou-Assaleh2003a">
+         <code>@INPROCEEDINGS{Abou-Assaleh2003a, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Nick Cercone and Vlado Kešelj}, <br />
+ &nbsp; title = {An Overview of the Theory of Relaxed Unification}, <br />
+ &nbsp; booktitle = {Proceedings of the International Conference on Advances in the Internet, Processing, Systems, Interdisciplinary Research, IPSI-2003}, <br />
+ &nbsp; year = {2003}, <br />
+ &nbsp; address = {Sveti Stefan, Montenegro, Former Yugoslavia}, <br />
+ &nbsp; month = {October 5-11}, <br />
+ &nbsp; file = {Slides:/papers/abou-assaleh_ipsi03-ru.ppt:PowerPoint;Paper:/papers/abou-assaleh_ipsi03-ru.pdf:PDF}, <br />
+ &nbsp; owner = {taa}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Tanta-ngai, H., Abou-Assaleh, T., Jiampojamarn, S., &amp; Cercone, N. (2003). <em>Secure Mail Transfer Protocol (SecMTP)</em>. In Proceedings of the International Conference on Advances in the Internet, Processing, Systems, and Interdisciplinary Research, IPSI-2003, Sveti Stefan, Montenegro, Former Yugoslavia.<br />
+    [<a href="#Tanta-ngai2003" class="toggle">bibtex</a>]   [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_ipsi03-secmtp.ppt" title="Secure Mail Transfer Protocol (SecMTP)">Slides</a>] [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_ipsi03-secmtp.pdf" title="Secure Mail Transfer Protocol (SecMTP)">Paper</a>]</div>
+<div class="bibtex" id="Tanta-ngai2003">
+         <code>@INPROCEEDINGS{Tanta-ngai2003, <br />
+ &nbsp;&nbsp;author = {Hathai Tanta-ngai and Tony Abou-Assaleh and Sittichai Jiampojamarn and Nick Cercone}, <br />
+ &nbsp; title = {Secure Mail Transfer Protocol (SecMTP)}, <br />
+ &nbsp; booktitle = {Proceedings of the International Conference on Advances in the Internet, Processing, Systems, and Interdisciplinary Research, IPSI-2003}, <br />
+ &nbsp; year = {2003}, <br />
+ &nbsp; address = {Sveti Stefan, Montenegro, Former Yugoslavia}, <br />
+ &nbsp; month = {October 5-11}, <br />
+ &nbsp; file = {Slides:/papers/abou-assaleh_ipsi03-secmtp.ppt:PowerPoint;Paper:/papers/abou-assaleh_ipsi03-secmtp.pdf:PDF:}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T., Cercone, N., &amp; Ke&#353;elj, V. (2003). <em>Towards the Theory of Relaxed Unification</em>. In Proceedings of the 14th International Symposium on Methodologies for Intelligent Systems, ISMIS 2003, Maebashi City, Japan.<br />
+    [<a href="#Abou-Assaleh2003b" class="toggle">bibtex</a>]   [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_ismis03.pdf" title="Towards the Theory of Relaxed Unification">Paper</a>]</div>
+<div class="bibtex" id="Abou-Assaleh2003b">
+         <code>@INPROCEEDINGS{Abou-Assaleh2003b, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Nick Cercone and Vlado Kešelj}, <br />
+ &nbsp; title = {Towards the Theory of Relaxed Unification}, <br />
+ &nbsp; booktitle = {Proceedings of the 14th International Symposium on Methodologies for Intelligent Systems, ISMIS 2003}, <br />
+ &nbsp; year = {2003}, <br />
+ &nbsp; address = {Maebashi City, Japan}, <br />
+ &nbsp; month = {October 28-31}, <br />
+ &nbsp; file = {Paper:/papers/abou-assaleh_ismis03.pdf:PDF}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T., Cercone, N., &amp; Ke&#353;elj, V. (2003). <em>Expressing Probabilistic Context-Free Grammars in the Relaxed Unification Formalism</em>. In Proceedings of the Conference of the Pacific Association for Computational Linguistics, PACLING&#8217;03, Halifax, Nova Scotia, Canada.<br />
+    [<a href="#Abou-Assaleh2003c" class="toggle">bibtex</a>]   [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_pacling03.ppt" title="Expressing Probabilistic Context-Free Grammars in the Relaxed Unification Formalism">Slides</a>] [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_pacling03.pdf" title="Expressing Probabilistic Context-Free Grammars in the Relaxed Unification Formalism">Paper</a>]</div>
+<div class="bibtex" id="Abou-Assaleh2003c">
+         <code>@INPROCEEDINGS{Abou-Assaleh2003c, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Nick Cercone and Vlado Kešelj}, <br />
+ &nbsp; title = {Expressing Probabilistic Context-Free Grammars in the Relaxed Unification Formalism}, <br />
+ &nbsp; booktitle = {Proceedings of the Conference of the Pacific Association for Computational Linguistics, PACLING&#8217;03}, <br />
+ &nbsp; year = {2003}, <br />
+ &nbsp; address = {Halifax, Nova Scotia, Canada}, <br />
+ &nbsp; month = {August 22-25}, <br />
+ &nbsp; organization = {Dalhousie University}, <br />
+ &nbsp; file = {Slides:/papers/abou-assaleh_pacling03.ppt:PowerPoint;Paper:/papers/abou-assaleh_pacling03.pdf:PDF}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T., Zhang, J., &amp; Cercone, N. (2001). <em>Evolution of Recurrent Neural Networks to Control Autonomous Life Agents</em>. In Proceedings of 2001 Genetic and Evolutionary Computation Conference Workshop Program: Graduate Student Workshop, San Francisco, California.<br />
+    [<a href="#Abou-Assaleh2001b" class="toggle">bibtex</a>]   [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_gecco01-gsw.pdf" title="Evolution of Recurrent Neural Networks to Control Autonomous Life Agents">Paper</a>]</div>
+<div class="bibtex" id="Abou-Assaleh2001b">
+         <code>@INPROCEEDINGS{Abou-Assaleh2001b, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Jianna Zhang and Nick Cercone}, <br />
+ &nbsp; title = {Evolution of Recurrent Neural Networks to Control Autonomous Life Agents}, <br />
+ &nbsp; booktitle = {Proceedings of 2001 Genetic and Evolutionary Computation Conference Workshop Program: Graduate Student Workshop}, <br />
+ &nbsp; year = {2001}, <br />
+ &nbsp; editor = {L. Spector and E. Goodman and A. Wu and W.B. Langdon and H.-M. Voigt and M. Gen and S. Sen and M. Dorigo and S. Pezeshk and M. Garzon and E. Burke}, <br />
+ &nbsp; pages = { 385&#8211;388}, <br />
+ &nbsp; address = {San Francisco, California}, <br />
+ &nbsp; month = {July 7-11}, <br />
+ &nbsp; file = {Paper:/papers/abou-assaleh_gecco01-gsw.pdf:PDF:}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T., Zhang, J., &amp; Cercone, N. (2001). <em>Evolution of Recurrent Neural Networks to Control Autonomous Life Agents</em>. In Proceedings of the Genetic and Evolutionary Computation Conference, GECCO-2001, San Francisco, California.<br />
+    [<a href="#Abou-Assaleh2001a" class="toggle">bibtex</a>]   [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_gecco01.pdf" title="Evolution of Recurrent Neural Networks to Control Autonomous Life Agents">Paper</a>]</div>
+<div class="bibtex" id="Abou-Assaleh2001a">
+         <code>@INPROCEEDINGS{Abou-Assaleh2001a, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Jianna Zhang and Nick Cercone}, <br />
+ &nbsp; title = {Evolution of Recurrent Neural Networks to Control Autonomous Life Agents}, <br />
+ &nbsp; booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference, GECCO-2001}, <br />
+ &nbsp; year = {2001}, <br />
+ &nbsp; editor = {L. Spector and E. Goodman and A. Wu and W.B. Langdon and H.-M. Voigt and M. Gen and S. Sen and M. Dorigo and S. Pezeshk and M. Garzon and E. Burke}, <br />
+ &nbsp; pages = {903}, <br />
+ &nbsp; address = {San Francisco, California}, <br />
+ &nbsp; month = {July 7-11}, <br />
+ &nbsp; publisher = {Morgan Kaufmann Publishers}, <br />
+ &nbsp; file = {Paper:/papers/abou-assaleh_gecco01.pdf:PDF:}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T., &amp; Zhang, J. (2000). <em>Autonomous Life Agent Using Recurrent Neural Networks and Genetic Algorithms</em>. In Proceedings of Late Breaking Papers at the Genetic and Evolutionary Computation Conference, GECCO-2000, Las Vegas, Nevada, USA.<br />
+    [<a href="#Abou-Assaleh2000a" class="toggle">bibtex</a>]  </div>
+<div class="bibtex" id="Abou-Assaleh2000a">
+         <code>@INPROCEEDINGS{Abou-Assaleh2000a, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Jianna Zhang}, <br />
+ &nbsp; title = {Autonomous Life Agent Using Recurrent Neural Networks and Genetic Algorithms}, <br />
+ &nbsp; booktitle = {Proceedings of Late Breaking Papers at the Genetic and Evolutionary Computation Conference, GECCO-2000}, <br />
+ &nbsp; year = {2000}, <br />
+ &nbsp; pages = {1&#8211;5}, <br />
+ &nbsp; address = {Las Vegas, Nevada, USA}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+</ol>
+<h3>Theses</h3>
+<ol start="22">
+<li>
+<div>Abou-Assaleh, T. ((2005). <em>Applying Head-driven Phrase Structure Grammar With Relaxed Unification to Question Answering</em>.). Unpublished PhD Thesis , Halifax, Nova Scotia, Canada.<br />
+    [<a href="#Abou-Assaleh2005" class="toggle">bibtex</a>]   [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_phd-proposal05.ppt" title="Applying Head-driven Phrase Structure Grammar With Relaxed Unification to Question Answering">Slides</a>]</div>
+<div class="bibtex" id="Abou-Assaleh2005">
+         <code>@PHDTHESIS{Abou-Assaleh2005, <br />
+ &nbsp;&nbsp;author = {Abou-Assaleh, Tony}, <br />
+ &nbsp; title = {Applying Head-driven Phrase Structure Grammar With Relaxed Unification to Question Answering}, <br />
+ &nbsp; school = {Faculty of Computer Science, Dalhousie University}, <br />
+ &nbsp; year = {2005}, <br />
+ &nbsp; type = {Ph.D. Thesis Proposal}, <br />
+ &nbsp; address = {Halifax, Nova Scotia, Canada}, <br />
+ &nbsp; month = {April}, <br />
+ &nbsp; file = {Slides:/papers/abou-assaleh_phd-proposal05.ppt:PowerPoint}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T. ((2002). <em>Theory of Relaxed Unification &#8212; Proposal</em>.). Unpublished Master&#8217;s Dissertation , Waterloo, Ontario, Canada.<br />
+    [<a href="#Abou-Assaleh2002" class="toggle">bibtex</a>]   [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_master_thesis.ps" title="Theory of Relaxed Unification -- Proposal">Thesis</a>]</div>
+<div class="bibtex" id="Abou-Assaleh2002">
+         <code>@MASTERSTHESIS{Abou-Assaleh2002, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh}, <br />
+ &nbsp; title = {Theory of Relaxed Unification &#8212; Proposal}, <br />
+ &nbsp; school = {School of Computer Science, University of Waterloo}, <br />
+ &nbsp; year = {2002}, <br />
+ &nbsp; type = {Master&#8217;s Thesis}, <br />
+ &nbsp; address = {Waterloo, Ontario, Canada}, <br />
+ &nbsp; month = {December}, <br />
+ &nbsp; file = {Thesis:/papers/abou-assaleh_master_thesis.ps:PostScript:}, <br />
+ &nbsp; owner = {taa}<br />
+}</code>
+    </div>
+</li>
+</ol>
+<h3>Other Contributions</h3>
+<ol start="24">
+<li>
+<div>Abou-Assaleh, T. (2006). <em>Building a Web Search Engine</em> (Invited presentation). Chonburi, Thailand: Burapha University.<br />
+    [<a href="#Abou-Assaleh2006" class="toggle">bibtex</a>]  </div>
+<div class="bibtex" id="Abou-Assaleh2006">
+         <code>@TECHREPORT{Abou-Assaleh2006, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh}, <br />
+ &nbsp; title = {Building a Web Search Engine}, <br />
+ &nbsp; institution = {Burapha University}, <br />
+ &nbsp; year = {2006}, <br />
+ &nbsp; type = {Invited presentation}, <br />
+ &nbsp; address = {Chonburi, Thailand}, <br />
+ &nbsp; month = {December}, <br />
+ &nbsp; note = {Invited Presentation}, <br />
+ &nbsp; howpublished = {Invited presentation, Burapha University, Chonburi, Thailand}, <br />
+ &nbsp; organization = {Burapha University}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T. (2006). <em>Grep and Regular Expressions</em> (Invited Presentation). Toronto, Ontario: Toronto Linux User Group (TLUG).<br />
+    [<a href="#Abou-Assaleh2006a" class="toggle">bibtex</a>]  </div>
+<div class="bibtex" id="Abou-Assaleh2006a">
+         <code>@TECHREPORT{Abou-Assaleh2006a, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh}, <br />
+ &nbsp; title = {Grep and Regular Expressions}, <br />
+ &nbsp; institution = {Toronto Linux User Group (TLUG)}, <br />
+ &nbsp; year = {2006}, <br />
+ &nbsp; type = {Invited Presentation}, <br />
+ &nbsp; address = {Toronto, Ontario}, <br />
+ &nbsp; month = {March}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.02}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T., Baltzer, O., Jordan, C., O&#8217;Brien, P., &amp; and Tanta-ngai, H. (2005). <em>Collaborative, Distributed Information Management and Retrieval Architecture for the Enterprises</em> (Technical Report No. CS2005-13). Halifax, Nova Scotia, Canada: Faculty of Computer Science, Dalhousie University.<br />
+    [<a href="#Abou-Assaleh2005a" class="toggle">bibtex</a>]   [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_CS-2005-13.pdf" title="Collaborative, Distributed Information Management and Retrieval Architecture for the Enterprises">Report</a>]</div>
+<div class="bibtex" id="Abou-Assaleh2005a">
+         <code>@TECHREPORT{Abou-Assaleh2005a, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Oliver Baltzer and Chris Jordan and Philip O&#8217;Brien and and Hathai Tanta-ngai}, <br />
+ &nbsp; title = {Collaborative, Distributed Information Management and Retrieval Architecture for the Enterprises}, <br />
+ &nbsp; institution = {Faculty of Computer Science, Dalhousie University}, <br />
+ &nbsp; year = {2005}, <br />
+ &nbsp; type = {Technical Report}, <br />
+ &nbsp; number = {CS2005-13}, <br />
+ &nbsp; address = {Halifax, Nova Scotia, Canada}, <br />
+ &nbsp; month = {August}, <br />
+ &nbsp; file = {Report:/papers/abou-assaleh_CS-2005-13.pdf:PDF:}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T., &amp; Ai, W. (2004). <em>Survey of Global Regular Expression Print (GREP) Tools</em> (Topics in Program Comprehension (CSCI 6306)). Halifax, Nova Scotia, Canada: Faculty of Computer Science, Dalhousie University.<br />
+    [<a href="#Abou-Assaleh2004" class="toggle">bibtex</a>]  </div>
+<div class="bibtex" id="Abou-Assaleh2004">
+         <code>@TECHREPORT{Abou-Assaleh2004, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Wei Ai}, <br />
+ &nbsp; title = {Survey of Global Regular Expression Print (GREP) Tools}, <br />
+ &nbsp; institution = {Faculty of Computer Science, Dalhousie University}, <br />
+ &nbsp; year = {2004}, <br />
+ &nbsp; type = {Topics in Program Comprehension (CSCI 6306)}, <br />
+ &nbsp; address = {Halifax, Nova Scotia, Canada}, <br />
+ &nbsp; month = {March}, <br />
+ &nbsp; edition = {Topics in Program Comprehension (CSCI 6306)}, <br />
+ &nbsp; howpublished = {Topics in Program Comprehension (CSCI 6306)}, <br />
+ &nbsp; organization = {Faculty of Computer Science, Dalhousie University}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T., &amp; Ai, W. (2004). <em>Enhancing GNU grep</em> (Final Project Report, Topics in Program Comprehension (CSCI 6306)). Halifax, Nova Scotia, Canada: Faculty of Computer Science, Dalhousie University.<br />
+    [<a href="#Abou-Assaleh2004a" class="toggle">bibtex</a>]  </div>
+<div class="bibtex" id="Abou-Assaleh2004a">
+         <code>@TECHREPORT{Abou-Assaleh2004a, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Wei Ai}, <br />
+ &nbsp; title = {Enhancing GNU grep}, <br />
+ &nbsp; institution = {Faculty of Computer Science, Dalhousie University}, <br />
+ &nbsp; year = {2004}, <br />
+ &nbsp; type = {Final Project Report, Topics in Program Comprehension (CSCI 6306)}, <br />
+ &nbsp; address = {Halifax, Nova Scotia, Canada}, <br />
+ &nbsp; month = {April}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T. (2001). <em>Evolution of Recurrent Neural Networks to Control Autonomous Life Agents</em> (Technical Report No. CS-2001-22). Waterloo, Ontario, Canada: Department of Computer Science, University of Waterloo.<br />
+    [<a href="#Abou-Assaleh2001" class="toggle">bibtex</a>]   [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_CS-2001-22.pdf" title="Evolution of Recurrent Neural Networks to Control Autonomous Life Agents">Report</a>]</div>
+<div class="bibtex" id="Abou-Assaleh2001">
+         <code>@TECHREPORT{Abou-Assaleh2001, <br />
+ &nbsp;&nbsp;author = {Abou-Assaleh, Tony}, <br />
+ &nbsp; title = {Evolution of Recurrent Neural Networks to Control Autonomous Life Agents}, <br />
+ &nbsp; institution = {Department of Computer Science, University of Waterloo}, <br />
+ &nbsp; year = {2001}, <br />
+ &nbsp; type = {Technical Report}, <br />
+ &nbsp; number = {CS-2001-22}, <br />
+ &nbsp; address = {Waterloo, Ontario, Canada}, <br />
+ &nbsp; month = {October}, <br />
+ &nbsp; file = {Report:/papers/abou-assaleh_CS-2001-22.pdf:PDF:}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+<li>
+<div>Abou-Assaleh, T., &amp; Zhang, J. (2000). <em>Autonomous Life Agent Using Recurrent Neural Networks and Genetic Algorithms</em> (Technical Report No. CS-00-03). St. Catharines, Ontario, Canada: Department of Computer Science, Brock University.<br />
+    [<a href="#Abou-Assaleh2000" class="toggle">bibtex</a>]   [<a href="http://tony.abou-assaleh.net/papers/abou-assaleh_cs0003.pdf" title="Autonomous Life Agent Using Recurrent Neural Networks and Genetic Algorithms">Report</a>]</div>
+<div class="bibtex" id="Abou-Assaleh2000">
+         <code>@TECHREPORT{Abou-Assaleh2000, <br />
+ &nbsp;&nbsp;author = {Tony Abou-Assaleh and Jianna Zhang}, <br />
+ &nbsp; title = {Autonomous Life Agent Using Recurrent Neural Networks and Genetic Algorithms}, <br />
+ &nbsp; institution = {Department of Computer Science, Brock University}, <br />
+ &nbsp; year = {2000}, <br />
+ &nbsp; type = {Technical Report}, <br />
+ &nbsp; number = {CS-00-03}, <br />
+ &nbsp; address = {St. Catharines, Ontario, Canada}, <br />
+ &nbsp; month = {November}, <br />
+ &nbsp; file = {Report:/papers/abou-assaleh_cs0003.pdf:PDF:}, <br />
+ &nbsp; owner = {taa}, <br />
+ &nbsp; timestamp = {2008.03.01}<br />
+}</code>
+    </div>
+</li>
+</ol>
+
+									</div>
+
+			</div> <!-- #post-ID -->
+		
+		</div> <!-- #current-content -->
+
+		<div id="dynamic-content"></div>
+	</div> <!-- #primary -->
+
+	<hr />
+<div id="sidebar-main" class="secondary">
+<div id="search" class="widget module module1 sb-search alt"><h4>Search</h4><form method="get" id="searchform" action="http://tony.abou-assaleh.net">
+	<input type="text" id="s" name="s" value="" accesskey="4" />
+	<input type="submit" id="searchsubmit" value="go" />
+</form>
+</div><div id="old-website" class="widget module module2 sb-php"><h4>Old Website</h4>The old website will be available for a while at <a href="http://oldstuff.tony.abou-assaleh.net/" rel="nofollow">http://oldstuff.tony.abou-assaleh.net/</a></div><div id="section-list" class="widget module module3 sb-categories alt"><h4>Section List</h4>	<ul>
+			<li class="cat-item cat-item-4"><a href="http://tony.abou-assaleh.net/section/driving-racing" title="View all posts filed under Driving &amp; Racing">Driving &amp; Racing</a> (1)
+</li>
+	<li class="cat-item cat-item-5"><a href="http://tony.abou-assaleh.net/section/genieknows" title="View all posts filed under GenieKnows">GenieKnows</a> (2)
+</li>
+	<li class="cat-item cat-item-3"><a href="http://tony.abou-assaleh.net/section/news" title="View all posts filed under News">News</a> (2)
+</li>
+	</ul>
+	</div><div id="latest-articles" class="widget module module4 sb-latest"><h4>Latest Articles</h4>	<a href="http://tony.abou-assaleh.net/feed" title="RSS Feed for Blog Entries" class="feedlink"><span>RSS</span></a>
+		<ul>
+					<li><a href="http://tony.abou-assaleh.net/genieknows/genieknows-local-updates-to-version-11" title="GenieKnows Local Updates to version 1.1">GenieKnows Local Updates to version 1.1</a></li>
+					<li><a href="http://tony.abou-assaleh.net/genieknows/genieknows-local-version-10-is-live" title="GenieKnows Local Version 1.0 is Live!">GenieKnows Local Version 1.0 is Live!</a></li>
+					<li><a href="http://tony.abou-assaleh.net/news/registered-in-one-lap-of-america" title="Registered in One Lap of America">Registered in One Lap of America</a></li>
+					<li><a href="http://tony.abou-assaleh.net/news/new-look-and-backend" title="New Look and Backend">New Look and Backend</a></li>
+				</ul>
+	</div><div id="latest-comments" class="widget module module5 sb-comments alt"><h4>Latest Comments</h4>	<a href="http://tony.abou-assaleh.net/comments/feed" title="RSS Feed for all Comments" class="feedlink"><span>RSS</span></a>
+
+			<ul>
+							<li><a href='http://tony.abou-assaleh.net/genieknows/genieknows-local-updates-to-version-11' rel='external nofollow'>GenieKnows Local Updates to version 1.1 | Tony Abou-Assaleh</a> on the post <a href="http://tony.abou-assaleh.net/genieknows/genieknows-local-version-10-is-live#comment-6">GenieKnows Local Version 1.0 is Live!</a></li>
+							<li><a href='http://altsearchengines.com/2008/03/06/genieknows-local-version-10-is-live/' rel='external nofollow'>Alt Search Engines &raquo; Blog Archive &raquo; GenieKnows Local Version 1.0 is Live!</a> on the post <a href="http://tony.abou-assaleh.net/genieknows/genieknows-local-version-10-is-live#comment-5">GenieKnows Local Version 1.0 is Live!</a></li>
+							<li><a href='http://tony.abou-assaleh.net' rel='external nofollow'>taa</a> on the post <a href="http://tony.abou-assaleh.net/genieknows/genieknows-local-version-10-is-live#comment-4">GenieKnows Local Version 1.0 is Live!</a></li>
+							<li><a href='http://tony.abou-assaleh.net' rel='external nofollow'>taa</a> on the post <a href="http://tony.abou-assaleh.net/genieknows/genieknows-local-version-10-is-live#comment-3">GenieKnows Local Version 1.0 is Live!</a></li>
+							<li><a href='http://tony.abou-assaleh.net' rel='external nofollow'>taa</a> on the post <a href="http://tony.abou-assaleh.net/news/new-look-and-backend#comment-2">New Look and Backend</a></li>
+					</ul>
+		</div></div> <!-- #sidebar-main -->
+
+<hr />
+<div id="sidebar-alt" class="secondary">
+
+</div> <!-- #sidebar-alt -->
+
+<div class="clear"></div>
+
+</div> <!-- .content -->
+	
+	<div class="clear"></div>
+
+</div> <!-- Close Page -->
+
+<hr />
+
+<div id="footer">
+
+
+	<p>
+		Copyright &copy; 1997-2008 Tony Abou-Assaleh, Halifax, Nova Scotia, Canada.<br />
+		Verbatim copying and distribution of this entire article are permitted worldwide, without royalty, in any medium, provided this notice, and the copyright notice, are preserved.
+	</p>
+	<p class="footerpoweredby">
+		Powered by <a href="http://wordpress.org/">WordPress</a> and 
+		<a href="http://getk2.com/">K2</a>.
+		Valid <a href="http://validator.w3.org/check?uri=referer">XHTML</a>.
+	</p>
+</div>
+
+
+</body>
+</html> 

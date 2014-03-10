@@ -1,0 +1,109 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% IFJ.sty - styl pro dokumentaci k projektu do IFJ + IAL   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% základní balíky %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{czech}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+%%% makra %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bs}{$\backslash$}
+
+
+%\def\tisk{color}%
+\def\bw{bw}%
+\def\color{color}
+
+%%% Písmo Computer Modern Sans Serif %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\rmdefault}{cmr}
+\renewcommand{\sfdefault}{cmr}
+\renewcommand{\ttdefault}{cmr}
+
+%%% definice barev %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{color}
+\ifx\tisk\bw % barvy pro tisk - cerne
+\definecolor{zvyrazni}{rgb}{0,0,0}
+\definecolor{section}{rgb}{0,0,0}
+\definecolor{subsection}{rgb}{0,0,0}
+\definecolor{subsubsection}{rgb}{0,0,0}
+\else % barvy pro el. podobu - modre
+\definecolor{zvyrazni}{rgb}{0,0.5703125,0.875}
+\definecolor{section}{rgb}{0,0.5703125,0.875}
+\definecolor{subsection}{rgb}{0,0.5703125,0.875}
+\definecolor{subsubsection}{rgb}{0,0.5703125,0.875}
+\fi
+
+
+%%% okraje stránky %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[a4paper, top=2.2cm, bottom=2.2cm, right=2.2cm, left=2.2cm, nohead]{geometry}
+
+%%% vlastní titulní strana %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\varianta}[1]{
+  \def\@projecttype{#1}
+}
+\newcommand{\rozsireni}[1]{
+  \def\@extra{#1}
+}
+
+\def\@vutname{Vysoké učení technické v Brně}
+\def\@fitname{Fakulta informačních technologií}
+\def\@year{\number\year}
+
+\renewcommand\maketitle{%
+  \pagestyle{empty}
+  \null
+  \begin{center}%
+  \vspace{5mm}
+    {\LARGE \bf \sc \MakeUppercase{\@vutname} }\\[5mm]%
+    {\Large \bf \sc \MakeUppercase{\@fitname} }\\[5mm]%
+    %{\Large \bf \sc \MakeUppercase{\@departmentname} }%
+    \vspace{10mm}
+
+    \begin{figure}[h]
+      \begin{center}
+        \includegraphics[width=3cm,keepaspectratio]{include/vut_fit}
+      \end{center}
+    \end{figure}
+
+    \vspace{20mm}
+
+    {\Huge \bfseries \color{zvyrazni} \@title}\\[5mm]
+    {\huge \@projecttype}
+
+    \vspace{20mm}
+
+    {\Large \@author}
+
+    \vspace{20mm}
+
+    {\Large Rozšíření: \begin{tabular}[t]{l}\@extra\end{tabular} }
+
+    \vfill
+    \Large{\bfseries \@year}
+
+  \end{center}%
+  \clearpage
+
+  \setcounter{tocdepth}{2}
+
+\addtocounter{page}{1}
+}
+
+%%% nadpisy %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\normalfont\Large\bfseries\color{section}}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                                   {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                   {1.5ex \@plus .2ex}%
+                                   {\normalfont\large\bfseries\color{subsection}}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+                           {-3.25ex\@plus -1ex \@minus -.2ex}%
+                           {1.5ex \@plus .2ex}%
+                           {\normalfont\normalsize\bfseries\color{subsubsection}}}
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+                                    {3.25ex \@plus1ex \@minus.2ex}%
+                                    {-1em}%
+                                    {\normalfont\normalsize\bfseries}}

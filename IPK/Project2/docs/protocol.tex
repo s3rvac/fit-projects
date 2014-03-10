@@ -1,0 +1,123 @@
+% Configuration
+\documentclass[11pt,a4paper]{article}
+\usepackage[a4paper, top=2.0cm, bottom=2.0cm, right=2.0cm, left=2.0cm, nohead]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+
+% Disables some warning messages
+\sloppy
+\hbadness 10000
+
+% Macros
+\newcommand{\bs}{$\backslash$}
+
+% Basic document information
+\title{IPK - Project 2 - protocol description}
+\author{Petr Zemek, xzemek02@stud.fit.vutbr.cz}
+
+\begin{document}
+
+% Page numbering
+\pagestyle{empty}
+
+% Header
+\noindent
+\begin{small}Computer Communications and Networks, 2nd project \\ \today\end{small} \\
+
+% Title
+\begin{center}
+	\begin{large}\textbf{Client-server communication protocol}\end{large} \\
+	\vspace{0.4cm}
+	Petr Zemek \\
+	\textit{xzemek02@stud.fit.vutbr.cz} \\
+	\textit{Faculty of Information Technology, Brno} \\
+\end{center}
+
+\noindent
+\begin{abstract}
+	\noindent
+	This paper describes communication protocol between client and server in
+	my simple file transfer program. Using this protocol you
+	are able to download files from the server, upload files to the server,
+	delete files from the server and get file lists from the server, everything
+	by using the client part of the program.
+\end{abstract}
+
+\subsection*{1 Application part}
+
+Programs communicate by sending and recieving text messages (except binary files transfer).
+Each message is in the following form (\texttt{code} means a request or an answer code,
+\texttt{data} can be either text or binary (e.g. content of a file)): \\
+
+\par
+\begingroup
+\leftskip=0.8cm
+\noindent
+\texttt{code} \texttt{text}\bs \texttt{r}\bs \texttt{n} \\
+\texttt{data}
+\par
+\endgroup
+
+\subsubsection*{1.1 Request codes}
+Each request code is followed by a file name (\textit{text} part of the message). \\
+
+\par
+\begingroup
+\leftskip=0.6cm
+\noindent
+\begin{tabular}{ll}
+	GET &\ request to download selected file from the server \\
+	PUT &\ request to upload selected file to the server \\
+	DEL &\ request to delete selected file from the server \\
+	LST &\ request for the file list (or one particular file) from the server\\
+\end{tabular}
+\par
+\endgroup
+
+\subsubsection*{1.2 Answer codes}
+\par
+\begingroup
+\leftskip=0.8cm
+\begin{multicols}{2}
+	\noindent
+	100 \quad error, requested file was not found \\
+	101 \quad error, invalid filename \\
+	102 \quad error, can not operate directories \\
+	103 \quad error during transmission \\
+
+	\noindent
+	104 \quad server error \\
+	200 \quad ok, sending file \\
+	201 \quad ok, sending only text info
+	\\
+	\\
+\end{multicols}
+\par
+\endgroup
+
+\vspace{-0.8cm}
+
+\subsection*{2 Transport part}
+
+This has nothing to do with used transport protocol (e.g. TCP/UDP), but it is only the internal
+way how to manage message length in the recieving process.
+Before the message is send (request/answer), message size is placed before the message itself,
+and after recieving this piece of information is removed from the message. \\
+
+\par
+\begingroup
+\leftskip=0.8cm
+\noindent
+\texttt{message\_length}$_{(10)}$\bs \texttt{r}\bs \texttt{n} \\
+\texttt{message}
+\par
+\endgroup
+
+\subsection*{3 Conclusion}
+
+The protocol was created to provide an effective way of communication for this program.
+The biggest advantage is in the text format, which can be easily understand and use by end user.
+It is partially based on the ftp protocol (see rfc959), but it implements only necessary operations.
+However, more functions can be added (e.g. download more files in one request).
+
+\end{document}

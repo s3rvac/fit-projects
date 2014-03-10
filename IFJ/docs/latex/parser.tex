@@ -1,0 +1,33 @@
+\section {Syntaktická a sémantická analýza}
+
+Syntaktická analýza (dále jen SA) je \uv{srdcem} našeho programu a skládá se ze dvou částí: \textbf{prediktivní SA} (použita pro kontrolu deklarací/definic, těla funkcí a volání funkce)
+a \textbf{precedenční SA} (analýza výrazů). Principem je křížové volání těchto dvou částí v průběhu analýzy. Ze sémantických důvodů bylo nutné SA rozdělit na dvě fáze, a to deklarace (funkcí a globálních proměnných) a definice (tělo funkce, její parametry a lokální proměnné).
+
+SA spolupracuje s lexikální analýzou a tabulkou symbolů (dále jen TS). Byla vytvořena speciální funkce, která volá lexikální analyzátor, provádí část sémantické kontroly a spolupracuje s TS (číst zdrojový text je nutné ve více částech SA).
+
+Obě analýzy používají shodné struktury, které jsou implementovány dostatečně obecně. Pravá strana pravidel je implementována jako pole, usnadňuje to převrácení pravidla při vkládání na zásobník v prediktivní SA a kontrolu při redukci v precedenční SA.
+
+\subsection{Prediktivní SA}
+
+Tato metoda je založena na LL tabulce (která navíc obsahuje speciální pravidlo, které značí, že následuje výraz a tudíž budeme volat precedenční SA na jeho zpracování).
+Volání funkce řeší právě tato metoda - proto není např. nutné v tělě funkce kontrolovat, zda příkaz začíná voláním funkce (normálně by se musela volat precedenční SA), nebo se jedná o výraz (syntaktická chyba)
+
+Vlastní algoritmus používá zásobník na terminály a non-terminály se standardními operacemi (push, top, pop, ...) - implementován jednosměrně vázaným seznamem.
+
+Je nutné uchovávat některé údaje, např. poslední použité pravidlo, poslední načtený identifikátor, jeho datový typ a index na datovém zásobníku při interpretaci (protože prediktivní SA při nalezení shody terminálu na zásobníku s aktuálně vráceným tokenem provádí odstranění tohoto terminálu ze zásobníku, což pro nás znamená ztrátu informace).
+
+Při volání funkce se ve spolupráci s TS kontroluje, zda sedí datové typy argumentů s deklarací funkce. Generování příslušných instrukcí probíhá v průběhu SA podle použitých pravidel a posloupnosti načtených tokenů.
+
+\subsection{Precedenční SA}
+
+Hlavní část této analýzy je precedenční tabulka, která obsahuje (podobně jako prediktivní metoda) speciální pravilo, které značí volání funkce (a tudíž volání prediktivní SA na zpracování) - z tohoto důvodu nám stačí pouze jeden non-terminál a nemusíme zavádět speciální pravidla pro \uv{nový operátor čárka} (použitý při volání funkce jako oddělovač argumentů).
+
+V algoritmu je použit speciálně upravený zásobník pro potřeby této analýzy (implementován obousměrně vázaným seznamem), který obsahuje (mimo základní operace nad zásobníkem) tyto operace:
+\begin{itemize}
+\item vrať terminál nejblíže vrcholu zásobníku
+\item vrať non-terminál nejblíže vrcholu zásobníku (při návratu z analýzy má tento non-terminál atributy výsledku - vrácen do prediktivní SA, kde jsou tyto údaje následně využity při sémentické kontrole a nagenerování instrukcí)
+\item \uv{shift} - vložení pomocné položky před nejvrchnější terminál (analogie $<$ z přednášek)
+\item \uv{redukce} - záměna pravé strany pravidla (tzv. handle) na zásobníku (analogie $>$ z přednášek)
+\end{itemize}
+
+Non-terminály obsahují atributy - datový typ a index na datovém zásobníku, který bude použit při interpretaci. Toho je využíváno při generování instrukcí (k tomu dochází při redukci na zásobníku), protože interpret již nezná konkrétní datové typy a řídí se pouze indexy. Při sémantické kontrole dochází ke kontrole typů a případným konverzím (podle typu operace).

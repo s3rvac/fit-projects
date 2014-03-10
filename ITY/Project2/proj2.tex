@@ -1,0 +1,150 @@
+%==============================================================================
+% Encoding: utf8
+% Project:  ITY - Project 2
+% Author:   Petr Zemek, xzemek02@stud.fit.vutbr.cz
+%==============================================================================
+
+\documentclass[10pt]{proc}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{czech}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+
+% Definitions, algorithms, ...
+\newtheoremstyle{ity}{\topsep}{\topsep}{}{}{\bfseries}{}{ }{\thmname{#1}\thmnumber{ #2}\thmnote{ #3}}
+\theoremstyle{ity}
+\newtheorem{thdef}[subsection]{Definice}
+\newtheorem{thalg}[subsection]{Algoritmus}
+
+\begin{document}
+
+% Disable page numbering
+\pagestyle{empty}
+
+% Document information
+\title{\textbf{Zadání projektu 2 do předmětu ITY} \\ Sazba matematických vzorců a textu}
+\author{Petr Zemek}
+
+\maketitle
+
+\section*{Úvod}
+
+Nyní si procvičíme sazbu matematických vzorců, využití matematických prostředí a textových struktur obvyklých
+pro technicky zaměřené texty (například viz rovnice (\ref{eq:factorial}) nebo definice \ref{def:cfg} na
+straně \pageref{def:cfg}).
+
+\section{Matematický text}
+
+Pro množinu $Q$ označuje $\mathrm{card}(Q)$ kardinalitu $Q$. Konečnou neprázdnou množinu nazýváme
+\emph{abeceda}. Pro abecedu $V$ reprezentuje $V^{*}$ volný monoid generovaný touto abecedou $V$ s~operací
+konkatenace. Prvek identity ve volném monoidu $V^{*}$ značíme symbolem $\varepsilon$.
+Nechť $V^{+} = V^{*} - \{\varepsilon\}$. Algebraicky je tedy $V^{+}$ volná pologrupa generovaná množinou $V$
+s~operací konkatenace. Pro $w \in V^{*}$ označuje $|w|$ délku řetězce $w$.
+Pro $W \subseteq V$ označuje $\mathrm{occur}(w, W)$ počet výskytů symbolů z~$W$ v~řetězci $w$ a
+$\mathrm{sym}(w, i)$ určuje $i$-tý symbol řetězce $w$; například $\mathrm{sym}(abcd, 3) = c$.
+
+\begin{thdef}
+	\label{def:cfg}
+	\emph{Bezkontextová gramatika} je čtveřice $G = (V, T, P, S)$, kde $V$ je totální abeceda,
+	$T \subseteq V$ je abeceda terminálů, $S \in (V - T)$ je startující symbol a $P$ je konečná množina
+	\emph{pravidel}	tvaru $q \colon A \rightarrow \alpha$, kde $A \in (V - T)$, $\alpha \in V^{*}$ a $q$ je
+	návěští tohoto pravidla. Nechť $N = V - T$ značí abecedu neterminálů.
+	Pokud $q \colon A \rightarrow \alpha \in P$, $\gamma, \delta \in V^{*}$, $G$ provádí derivační krok
+	z~$\gamma A \delta$ do $\gamma \alpha \delta$ podle pravidla $q \colon A \rightarrow \alpha$, symbolicky
+	píšeme $\gamma A \delta \Rightarrow \gamma \alpha \delta \ [q \colon A \rightarrow \alpha]$ nebo
+	zjednodušeně $\gamma A \delta \Rightarrow \gamma \alpha \delta$.
+	Standardním způsobem definujeme $\Rightarrow^{m}$, kde $m \geq 0$. Dále definujeme tranzitivní uzávěr
+	$\Rightarrow^{+}$ a tranzitivně-reflexivní uzávěr $\Rightarrow^{*}$.
+\end{thdef}
+
+\begin{thalg}
+	Algoritmus pro ověření bezkontextovosti gramatiky.
+	Mějme gramatiku $G = (N, T, P, S)$.
+	\begin{enumerate}
+		\item \label{item:cfalg1} Pro každé pravidlo $p \in P$ proveď test, zda $p$ na levé straně obsahuje
+			právě jeden symbol z~$N$.
+		\item Pokud všechna pravidla splňují podmínku z~kroku \ref{item:cfalg1}, tak je gramatika $G$
+			bezkontextová.
+	\end{enumerate}
+\end{thalg}
+
+\begin{thdef}
+	\emph{Jazyk} definovaný gramatikou $G$ definujeme jako $L(G) = \{w \in T^{*}\ |\ S \Rightarrow^{*} w \}$.
+\end{thdef}
+
+\section{Rovnice a odkazy}
+
+$$\sqrt[x^{2}]{y_{0}^{3}} \quad \mathbb{N} = \{1, 2, 3, \dots\} \quad x^{y^{y}} \neq x^{yy} \quad z_{i_{j}}
+\not\equiv z_{ij}$$
+
+V~rovnici (\ref{eq:brackets}) jsou využity tři typy závorek s~různou explicitně definovanou velikostí.
+
+\begin{eqnarray}
+	\label{eq:factorial} n! & = & \underbrace{n \cdot (n - 1) \cdot \cdots \cdot 2 \cdot 1}_{n} \\
+	\label{eq:brackets} - \biggl{\{}\Bigl{[}\bigl{(}a + b\bigr{)} * c\Bigr{]}^{d}\biggr{\}} & = & 0 \\
+	\lim_{x \rightarrow 0}\frac{\sin{3x}}{x} & = & 3 \nonumber
+\end{eqnarray}
+
+V~této větě vidíme, jak vypadá implicitní vysázení limity $\lim_{n \rightarrow \infty}f(n)$ v~normálním
+odstavci textu. Podobně je to i s~dalšími symboly jako $\sum_{1}^{n}$ či $\bigcup_{A \in \mathcal{B}}$.
+V~případě vzorce $\lim\limits_{x \rightarrow 0}\frac{\sin{x}}{x} = 1$ jsme si vynutili méně úspornou sazbu.
+
+\begin{eqnarray}
+	\int\limits_{a}^{b}f(x)\,\mathrm{d}x & = & - \int_{b}^{a}f(x)\,\mathrm{d}x \\
+	\Bigl{(}\sqrt[5]{x^{4}}\Bigr{)}' = \Bigl{(}x^{\frac{4}{5}}\Bigr{)}' & = & \frac{4}{5}x^{-\frac{1}{5}}
+		= \frac{4}{5\sqrt[5]{x}} \\
+	\overline{\overline{A \vee B}} & = & \overline{\overline{A} \wedge \overline{B}}
+\end{eqnarray}
+
+$$\binom{n}{k} =
+\left\{
+	\begin{array}{ll}
+		\frac{n!}{k!(n - k)!} & \quad \mathrm{pro} \ 0 \leq k \leq n \\
+		0 & \quad \mathrm{pro} \ k < 0 \ \mathrm{nebo} \ k > n
+	\end{array}
+\right.$$
+
+\section{Matice}
+
+Pro sázení matic se velmi často používají dvě konstrukce:
+(a) konstrukce levé a pravé závorky ($\verb!\left!$, $\verb!\right!$) a
+samotná matice hodnot sázených pomocí prostředí $\verb!array!$, jehož základní vlastnosti jsou podobné
+prostředí $\verb!tabular!$.
+
+$$\left(
+	\begin{array}{c c}
+		\hat{a}\heartsuit\aleph & \vec{b} \circ \vec{\imath}\\
+		\widehat{c + d} & \vec{b} \\
+		\hat{a} & \overrightarrow{AC} \\
+		\tilde{\Theta} & \bar{\eta}
+	\end{array}
+\right)$$
+
+$$\left|
+	\begin{array}{c c}
+		t & u \\
+		v & w
+	\end{array}
+\right| = tw - uv$$
+
+$$\mathbf{A} = \left\lVert
+	\begin{array}{c c c c}
+		 a_{11} & a_{12} & \dots & a_{1n} \\
+		 a_{21} & a_{22} & \dots & a_{2n} \\
+		 \vdots & \vdots & \ddots & \vdots \\
+		 a_{m1} & a_{m2} & \dots & a_{mn}
+	\end{array}
+\right\rVert$$
+
+\section{Závěrem}
+V~případě, že budete potřebovat vyjádřit matematickou konstrukci nebo symbol a nebude se Vám dařit jej
+nalézt v~samotném \LaTeX{u}, doporučuji prostudovat možnosti balíku maker \AmS-\LaTeX.
+Analogická poučka platí obecně pro jakoukoli konstrukci v~\TeX{u}.
+
+\end{document}
+
+% End of file

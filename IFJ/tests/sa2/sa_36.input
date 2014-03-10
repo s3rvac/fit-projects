@@ -1,0 +1,18 @@
+//Lokalni identifikatory (lok prom a parametry) pristupne jen v tele.
+//Predpokladany vysledek: OK
+var int glob;
+
+void main();
+int intfce(int);
+
+void main()
+{
+}
+
+int intfce(int a)
+var int b;
+{
+a := 2;
+b := 3;
+return 1;
+}

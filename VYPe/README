@@ -1,0 +1,27 @@
+              Conversion from regular expressions to finite automata
+
+                 Libor Polčák, xpolca03@stud.fit.vutbr.cz, 2009
+                  Petr Zemek, xzemek02@stud.fit.vutbr.cz, 2009
+
+Description:
+  Demonstration program on conversion from regular expressions to finite
+  automata. You can input some regular expression and the program will generate
+  automata for each of that regular expression part (for example, if you enter
+  "a+b", then you will see an automaton which accepts "a", then an automaton
+  which accepts "b" and then a union of these two automata).
+
+Requirements:
+ - python >= 2.5 (http://www.python.org/)
+ - wxPython >= 2.8 (http://www.wxpython.org/)
+ - graphviz >= 2.20 (http://www.graphviz.org/)
+
+Installation:
+  No special procedure is required, just unpack all files from the archive
+  to some directory.
+
+Usage:
+  Just run `python vype.py` and the main application window will popup. Then,
+  enter some regular expression to the input field on the upper left side of
+  the window and press "Process RegExp". By pressing "Previous step" and "Next
+  step", you can iterate over all of the created automata for each part of the
+  regular expression.

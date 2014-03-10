@@ -1,0 +1,43 @@
+                         IIS Exhibition Ground Information System
+                        Petr Zemek, xzemek02@stud.fit.vutbr.cz, 2007
+
+                                          Readme
+
+Completely working application URL:
+
+    http://www.stud.fit.vutbr.cz/~xzemek02/IIS/
+
+
+All groups/accounts and authentication data (for testing purposes):
+
+* Visitor:
+    -
+
+* Exhibition ground administrator:
+    Username: tvrdik
+    Password: 944bcb
+
+* Company members:
+    Username: sobota
+    Password: 352de8
+
+    Username: truhlik
+    Password: febd74
+
+    Username: datlo
+    Password: e3599e
+
+    Username: skorepka
+    Password: 2fbb85
+
+    Username: plasil
+    Password: 374347
+
+    Username: modrava
+    Password: 4e6a54
+
+    Username: polak
+    Password: 2b735e
+
+    Username: oslava
+    Password: sf3238

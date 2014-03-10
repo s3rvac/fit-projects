@@ -1,0 +1,19 @@
+var int i, double d, string s;
+
+void main()
+{
+  i := readint();
+  d := readdouble();
+  s := readstring();
+  printint(i);
+  printdouble(d);
+  printstring(s);
+  
+  i := readint();
+  d := readdouble();
+  s := readstring();
+  printint(i);
+  printdouble(d);
+  printstring(s);
+  
+}

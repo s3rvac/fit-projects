@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
+	<meta name="author" content="Petr Zemek">
+	<meta name="description" content="Dynamická tabulka (WAP 2009 projekt) - návod k použití">
+	<meta name="keywords" content="WAP, dynamická tabulka, návod k použití">
+	<title>Dynamická tabulka - návod k použití</title>
+</head>
+<body>
+
+<h1>Dynamická tabulka - návod k použití</h1>
+
+<h2>Vlastnosti</h2>
+<ul>
+	<li>Přidá k zadané tabulce do každého sloupce pole pro filtraci obsahu
+		(zobrazí se pouze ty řádky, ve kterých se vyskytuje zadaný řetězec)
+		a pro seřazení řádků podle hodnot v daném sloupci (algoritmus
+		<a href="http://cs.wikipedia.org/wiki/Shell_sort">shell sort</a>;
+		není <a href="http://cs.wikipedia.org/wiki/Stabiln%C3%AD_%C5%99azen%C3%AD">stabilní</a>).</li>
+	<li>Filtrování je case-insensitive (nebere ohled na malá/velká písmena)</li>
+	<li>Porovnání při seřazování řetězců je lexikografické, čísla se řadí
+		pomocí standardních relací &lt; a &gt; definovaných nad příslušným číselným oborem.</li>
+	<li>Vzhled filtrovacího pole a ikon lze měnit v přiloženém css souboru</li>
+</ul>
+
+<h2>Požadavky na prohlížeč</h2>
+<ul>
+	<li>
+		Webový prohlížeč s podporou HTML4.0, CSS a JavaScriptu.
+		Script byl úspěšně otestován na následujících prohlížečích:
+		<ul>
+			<li>Mozilla Firefox 3.0</li>
+			<li>Opera 9.63</li>
+			<li>Microsoft Internet Explorer 6 a 7</li>
+			<li>Google Chrome 1.0</li>
+			<li>Apple Safari 4</li>
+			<li>Konqueror 3.5</li>
+			<li>SeaMonkey 1.1</li>
+		</ul>
+	</li>
+</ul>
+
+<h2>Požadavky na tabulku a omezení</h2>
+<ul>
+	<li>Struktura tabulky musí odpovídat specifikaci HTML 4.0.</li>
+	<li>Tabulka musí mít alepoň jeden řádek (hlavičku nebo tělo).</li>
+	<li>V elementu tBody nesmí být elementy th (viz fórum ve WISu k předmětu).</li>
+	<li>Atributy colspan and rowspan musí být 1 (viz fórum ve WISu k předmětu).</li>
+	<li>Řazení řetězců probíhá podle anglické abecedy (viz fórum ve WISu k předmětu).</li>
+</ul>
+
+<h2>Instalace a použití</h2>
+<ol>
+	<li>V HTML souboru (element <em>head</em>) specifikujte skriptovací jazyk ovladačů událostí vložením:<br>
+		<code>&lt;meta http-equiv="content-script-type" content="text/javascript"&gt;</code></li>
+	<li>Do HTML souboru (element <em>head</em>) vložte odkaz na script <em>dynamic_table.js</em>:<br>
+		<code>&lt;script src="dynamic_table.js" type="text/javascript"&gt;&lt;/script&gt;</code></li>
+	<li>Do HTML souboru (element <em>head</em>) vložte odkaz na CSS styl <em>dynamic_table.css</em> (lze použít i vlastní upravený CSS styl):<br>
+		<code>&lt;link rel="stylesheet" type="text/css" media="screen, projection" href="dynamic_table.css"&gt;</code></li>
+	<li>Do atributu <em>onload</em> elementu <em>body</em> vložte <em>DT.makeTableDynamic(id);</em>, kde <em>id</em> je unikátní ID tabulky. Např.<br>
+		<code>&lt;body onload="DT.makeTableDynamic('example');"&gt;</code></li>
+</ol>
+
+</body>
+</html>

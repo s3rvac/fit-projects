@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Projekt PIS</title>
+    <style type="text/css">
+    	table { border-collapse: collapse; }
+    	td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+    	dt { font-weight: bold; margin-top: 0.5em; }
+    </style>
+</head>
+<body>
+
+<!-- Nahraďte prosím názvem tématu -->
+<h1>Výstaviště</h1>
+
+<!-- Jména autorů a jejich činnost -->
+<dl>
+	<dt>Autoři</dt>
+	<dd>Libor Polčák
+	    <a href="mailto:xpolca03@stud.fit.vutbr.cz">xpolca03@stud.fit.vutbr.cz</a> -
+		databázové schéma, modelová vrstva (backing beans), část řídící vrstvy (managed beans)
+	</dd>
+	<dd>Boris Procházka
+	<a href="mailto:xproch63@stud.fit.vutbr.cz">xproch63@stud.fit.vutbr.cz</a> -
+		prezentační vrstva (layout aplikace, styl a funkcionalita grafického uživatelského rozhraní)
+	</dd>
+	<dd>Petr Zemek
+	    <a href="mailto:xzemek02@stud.fit.vutbr.cz">xzemek02@stud.fit.vutbr.cz</a> -
+		vojevůdce, lokalizace, autentizace a authorizace, druhá část řídící vrstvy (managed beans)
+	</dd>
+</dl>
+
+<!-- uživatelské účty -->
+<h2>Uživatelé systému pro testování</h2>
+<table>
+<tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
+<tr><td>tvrdik</td><td>tvrdik</td><td>Vedoucí výstaviště</td></tr>
+<tr><td>plasil</td><td>plasil</td><td>Zaměstnanec výstaviště</td></tr>
+<tr><td>sobota</td><td>sobota</td><td>Představitel firmy</td></tr>
+</table>
+
+<!-- vyžadované knihovny i s verzemi, pouze pro Java EE -->
+<h2>Vyžadované knihovny</h2>
+
+<ul>
+	<li><a href="https://www.fit.vutbr.cz/study/courses/PIS/private/cviceni/pis_lib_2010_rich.zip">balíček knihoven ze stránek předmětu (zahrnující richfaces)</a></li>
+	<li><a href="https://facelets.dev.java.net/">facelets</a> (<a href="https://facelets.dev.java.net/files/documents/3448/144240/facelets-1.1.15-jsf1.2.zip">facelets-1.1.15-jsf1.2</a>)</li>
+	<li><a href="http://www.jenia.org">jenia4faces</a> (<a href="http://sourceforge.net/projects/jenia4faces/files/jenia4faces/jenia4faces_1.2.3/jenia4faces_1.2.3.jar/download">jenia4faces_1.2.3</a>)</li>
+	<li><a href="http://www.jfree.org/jfreechart/">jfreechart</a> (<a href="http://sourceforge.net/projects/jfreechart/files/1.%20JFreeChart/1.0.13/jfreechart-1.0.13.zip/download">jfreechart-1.0.13</a>)</li>
+</ul>
+
+Pro jistotu uvádíme kompletní seznam souborů v <code>WEB-INF/lib</code>:
+<div style="white-space: pre;">
+antlr-2.7.6.jar
+commons-beanutils-1.8.0.jar
+commons-beanutils-bean-collections-1.8.0.jar
+commons-beanutils-core-1.8.0.jar
+commons-collections-3.1.jar
+commons-collections-3.2.1.jar
+commons-collections-testframework-3.2.1.jar
+commons-digester-1.8.jar
+commons-fileupload-1.2.1.jar
+commons-logging-1.1.1.jar
+darkX-3.2.2.SR1.jar
+dom4j-1.6.1.jar
+dom4j.jar
+ejb3-persistence.jar
+glassX-3.2.2.SR1.jar
+hibernate3.jar
+hibernate-annotations.jar
+hibernate-commons-annotations.jar
+hibernate-core.jar
+hibernate-entitymanager.jar
+hibernate-validator-4.0.2.GA.jar
+html_basic.tld
+javassist-3.9.0.GA.jar
+javassist.jar
+jcommon-1.0.16.jar
+jenia4faces_1.2.3.jar
+jfreechart-1.0.13.jar
+jsf-api.jar
+jsf_core.tld
+jsf-facelets.jar
+jsf-impl.jar
+jstl.jar
+jta-1.1.jar
+jta.jar
+laguna-3.2.2.SR1.jar
+log4j-1.2.14.jar
+mysql-connector-java-5.1.12-bin.jar
+richfaces-api-3.2.2.SR1.jar
+richfaces-impl-3.2.2.SR1.jar
+richfaces-ui-3.2.2.SR1.jar
+slf4j-api-1.5.6.jar
+slf4j-api.jar
+slf4j-log4j12-1.5.6.jar
+standard.jar
+validation-api-1.0.0.GA.jar
+web-facesconfig_1_0.dtd
+web-facesconfig_1_1.dtd
+XMLSchema.dtd
+</div>
+
+<h2>Prohlášení</h2>
+Jako XHTML/CSS šablona našeho IS byla použita volně dostupná XHTML/CSS šablona pod open-source licencí; copyright je uveden ve zdrojových kódech (WebContent/header.jsp). Texty v informacích o výstavišti byly, čistě pro studijní účely, převzaty ze stránek http://www.bvv.cz.
+
+</body>
+</html>

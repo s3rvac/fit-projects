@@ -1,0 +1,39 @@
+
+var double x,
+    double epsilon,
+    double odmocnina,
+    double pocatecni,
+    double clen,
+    double staryclen,
+    double abs;
+
+
+void main()
+{
+  x := 9456.0;
+  epsilon := 0.001;
+  odmocnina := 0.0;
+
+  if x<=0 goto end;
+    pocatecni := x;
+    staryclen := pocatecni;
+    clen := 0.5 * (pocatecni / staryclen + staryclen);
+
+    while_start:
+    if clen>staryclen goto vetsi;
+      abs := staryclen - clen;
+      goto test;
+    vetsi:
+      abs := clen - staryclen;
+    test:
+    if abs<=epsilon*0.1 goto while_end;
+      staryclen := clen;
+      clen := 0.5 * (pocatecni / staryclen + staryclen);
+    goto while_start;
+    while_end:
+
+    odmocnina := clen;
+  end:
+
+  printdouble(odmocnina);
+}

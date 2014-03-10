@@ -1,0 +1,81 @@
+-------------------------------------------------------------------------------
+Client/server file transfer
+Petr Zemek, xzemek02@stud.fit.vutbr.cz
+1.3.2007
+-------------------------------------------------------------------------------
+
+Simple file transfer program, similar to the ftp. You can download files from
+the server, upload files to the server, delete files from the server and
+get file lists from the server. For detailed information about used
+protocol see 'protocol.pdf'.
+
+This program consists of two separate programs - client and server.
+Once you have started the server you will be able to perform varius
+transfer operations by client program (see descriptions).
+
+Both programs don't read anything from the standard input and print information
+to the standard output. Error messages are printed to the standard error.
+
+Compilation and usage:
+-------------------------------------------------------------------------------
+To compile both programs simply run `make` or `./test.sh`, respectively,
+which will also run some basic tests (examples of usage).
+There are two preview directories - '_client' and '_server',
+from which you can try this program yourself by running `./server`
+and/or `./client` (after compilation). There are also some testing files.
+
+Server program description:
+-------------------------------------------------------------------------------
+Name:
+    server
+Synopsis:
+    server port
+Description:
+	Starts concurrent file server from which are clients available
+	to download and/or upload files, delete files and get file lists.
+
+	If some error appears during server startup, server will be shut down
+	and error message will be shown. If there is an error during service,
+	only error message will be shown, but server will continue working.
+
+	You can shut down the server manually by sending SIGTERM or SIGKILL signal
+	to the server process. Another signals will be blocked or ignored.
+
+	port  Port on which the server will be listening (1024-65535)
+Example:
+    server 10000
+      Starts server listening on the port 10000.
+
+Client program description:
+-------------------------------------------------------------------------------
+Name:
+    client
+Synopsis:
+    client -h hostname -p port [-d|u|e|l] file_name
+Description:
+    Uploads/downloads/deletes selected file to/from the selected server
+    or gets file list.
+
+    -h  Server's hostname
+    -p  Port on which the server is listening (1024-65535)
+    -d  Downloads selected file from the server
+    -u  Uploads selected file to the server
+    -e  Deletes selected file from the server
+    -l  Prints files that are currently on the server (set file_name
+        to . for all files or to file_name when interested only
+        if this particular file is on the server)
+Example:
+    client -h eva.fit.vutbr.cz -p 10000 -u test.txt
+      Uploads file test.txt from the current client's directory
+      to the actual server's working directory.
+
+Restrictions:
+-------------------------------------------------------------------------------
+- file name (in download/list mode) must be without absolute or relative path
+- you can only download/list files that are in the current server's working
+  directory (again without absolute or relative path)
+- transmission doesn't preserve file permissions
+- you can't download/upload/delete directories
+- you can't download/upload/delete files named "server"
+- there is no way how to shut down the server but sending
+  SIGTERM or SIGKILL signal to the server process

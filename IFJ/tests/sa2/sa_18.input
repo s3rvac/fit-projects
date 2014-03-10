@@ -1,0 +1,17 @@
+//Vsechny typy glob promennych
+//Predpokladany vysledek: OK
+
+var int a, double b, string c, double d, string e, int g, double h;
+
+int f(int);
+
+int f(int a)
+{
+return a;
+} 
+
+void main()
+{
+f(1);
+return;
+}

@@ -1,0 +1,16 @@
+\section{Generátor kódu}
+
+Generátor kódu jsme implementovali pouze jako rozhraní pro parser, které zapouzdřuje vkládání instrukcí do kódu. Toto rozhraní je také použito při vkládání vestavěných funkcí.
+\subsection{Forma kódu}
+
+Jednotlivé příkazy jsou spojené do jednosměrně vázaného seznamu. Na začátku jsou umístěna těla vestavěných funkcí, pak se doplňují těla ostatních funkcí. Protože na začátku kódu není známo umístění funkce main, rozhodli jsme se první instrukci programu zařadit na konec kódu. Tato instrukce provede inicializaci\footnote{vyhrazení paměti a nastavení ukazatelů na NULL} globálních proměnných a zavolání funkce main.
+%Při postupném generování kódu je problém se skokem na návěští, které ještě nebylo definováno. Proto při prvním odkazu na návěští vygenerujeme jeho instrukci a umístíme ji pouze do tabulky symbolů (tzn. nezařadíme ji do kódu). Každý skok pak může použít adresu této instrukce a pak, jakmile dojdeme k definici náveští, jednoduše instrukci zařadíme do kódu. Obdobně jsou řešena i volání funcí. U funkcí je pouze nutné po překladu celé definice upravit její první instrukci, protože ta musí obsahovat počet lokálních a pomocných proměnných\footnote{instrukce pro alokování paměti pro funkci}.
+Na konci každé procedury se automaticky generuje příkaz pro návrat (return) a na konci funkcí se generuje příkaz pro vyvolání chyby (funkce nesmí skončit bez provedení return)
+
+\subsection{Formát instrukcí}
+
+Pro instrukce jsme použili 3-adresný kód. Pro úsporu paměti neobsahují instrukce informaci o typu proměnné. Aritmetické instrukce musí mít oba operandy stejného typu a případné přetypování zajistí parser vygenerováním příslušné instrukce. Typ obou operandů je pak určen typem instrukce. Argumentem aritmetické instrukce je většinou index proměnné (kladný pro lokální a záporný pro globální), výjimku tvoří načítání konstant.
+
+\section{Interpret}
+Vlastní interpret pouze volá funkci pro provedení aktuální instrukce a pak přechází na další instrukci. To mimo jiné znamená, že první instrukce funkce se nikdy neprovede (stejně jako se neprovede instrukce návěští po skoku). V této instrukci jsou tedy informace důležité pro inicializaci funkce - počet lokálních proměnných a počet argumentů funkce. Při volání funkce se podle těchto údajů vyhradí místo na datovém zásobníku a přepočítá se pomocný index (BP), který vždy ukazuje na první argument funkce\footnote{pomocí něj se tedy indexují argumenty i lokální a pomocné proměnné}. Zároveň se na druhý pomocný zásobník uloží pomocný index předchozí funkce, návratová adresa (adresa instrukce call) a počet lokálních dat funkce (argumenty + lokální a pomocné proměnné). Zásobníky jsou oddělené pro snazší implementaci (jednoduché indexování dat) a při \uv{přetečení} se dynamicky zvětšují.
+Interpretace končí pouze tehdy, pokud některá instrukce vyvolá chybu. Návrat z funkce main tedy také vyvolá chybu, ale podle prázdného zásobníku volaných funkcí zjistíme, že jde o ukončení programu

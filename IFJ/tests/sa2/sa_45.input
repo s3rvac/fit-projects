@@ -1,0 +1,74 @@
+//Legalni vyrazy
+//Predpokladany vysledek: OK
+
+void main();
+
+void main()
+var int inttmp, double doubletmp, string stringtmp;
+{
+doubletmp := 1 ^ 1;
+doubletmp := 1.0 ^ 1;
+doubletmp := 1 ^ 1.0;
+doubletmp := 1.0 ^ 1.0;
+
+inttmp := 1 + 1;
+doubletmp := 1 + 1.0;
+doubletmp := 1.0 + 1;
+doubletmp := 1.0 + 1.0;
+
+inttmp := 1 - 1;
+doubletmp := 1 - 1.0;
+doubletmp := 1.0 - 1;
+doubletmp := 1.0 - 1.0;
+
+inttmp := 1 * 1;
+doubletmp := 1 * 1.0;
+doubletmp := 1.0 * 1;
+doubletmp := 1.0 * 1.0;
+
+stringtmp := "abc" + "abc";
+
+doubletmp := 1 / 1;
+doubletmp := 1 / 1.0;
+doubletmp := 1.0 / 1;
+doubletmp := 1.0 / 1.0;
+
+inttmp := 1 div 1;
+
+inttmp := 1 < 1;
+inttmp := 1.0 < 1;
+inttmp := 1 < 1.0;
+inttmp := 1.0 < 1.0;
+inttmp := "ahoj" < "ahoj";
+
+inttmp := 1 > 1;
+inttmp := 1.0 > 1;
+inttmp := 1 > 1.0;
+inttmp := 1.0 > 1.0;
+inttmp := "ahoj" > "ahoj";
+
+inttmp := 1 <= 1;
+inttmp := 1.0 <= 1;
+inttmp := 1 <= 1.0;
+inttmp := 1.0 <= 1.0;
+inttmp := "ahoj" <= "ahoj";
+
+inttmp := 1 >= 1;
+inttmp := 1.0 >= 1;
+inttmp := 1 >= 1.0;
+inttmp := 1.0 >= 1.0;
+inttmp := "ahoj" >= "ahoj";
+
+inttmp := 1 == 1;
+inttmp := 1.0 == 1;
+inttmp := 1 == 1.0;
+inttmp := 1.0 == 1.0;
+inttmp := "ahoj" == "ahoj";
+
+inttmp := 1 != 1;
+inttmp := 1.0 != 1;
+inttmp := 1 != 1.0;
+inttmp := 1.0 != 1.0;
+inttmp := "ahoj" != "ahoj";
+
+}

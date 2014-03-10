@@ -1,0 +1,39 @@
+/*
+	Encoding: utf8
+	Project:  ITW (2nd project)
+	Author:   Petr Zemek, xzemek02@stud.fit.vutbr.cz
+*/
+
+@media print {
+	body {
+		color: #000000;
+		background: #ffffff;
+		font-size: 10pt;
+		font-family: serif;
+	}
+
+	h1, h2, h3 {
+		page-break-after: avoid;
+	}
+
+	#logo, #greeting, #location, #menu, #footer {
+		display: none;
+	}
+
+	hr {
+		display: none;
+	}
+
+	a, a:visited {
+		color: #000000;
+		text-decoration: underline;
+	}
+
+	.float_left {
+		float: left;
+	}
+
+	.float_right {
+		float: right;
+	}
+}

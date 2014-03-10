@@ -1,0 +1,94 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Project: GAL 2009
+% Authors:
+%     Radim Kapavik, xkapav01@stud.fit.vutbr.cz
+%     Ondrej Lengal, xlenga00@stud.fit.vutbr.cz
+%     Vojtech Storek, xstore02@stud.fit.vutbr.cz
+%     Vit Triska, xtrisk01@stud.fit.vutbr.cz
+%     Petr Zemek, xzemek02@stud.fit.vutbr.cz
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Exercise 1}
+\label{sec:Ex1}
+
+\subsection*{Assignment}
+
+Given an adjacency-list representation of a directed graph, how long does it
+take to compute the out-degree of every vertex? How long does it take to
+compute the in-degrees?
+
+\subsection*{Solution}
+
+For a graph $G = (V, E)$, let $n = |V|$ and $m = |E|$.
+
+\textit{How long does it take to compute the out-degree of every vertex?}
+
+\textbf{Main idea}
+
+To compute the out-degree of vertex $u$, one needs to go through the adjacency
+list of this vertex ($Adj[u]$) and add $1$ for each found vertex. This has to
+be done for all vertices.
+
+\textbf{Algorithm}
+
+\begin{algorithm}[H]
+	\KwIn{Adjacency-list representation of a directed graph $G = (V, E)$.}
+	\KwOut{$OutDegree[u]$ (out-degree of vertex $u$) for each vertex $u \in V$.}
+
+	\tcp{Initialization}
+	\ForEach{$u \in V$}{
+		$OutDegree[u] := 0$\;
+	}
+	\ForEach{$u \in V$}{
+		\ForEach{$v \in Adj[u]$}{
+			$OutDegree[u] := OutDegree[u] + 1$\;
+		}
+	}
+\end{algorithm}
+
+\textbf{Complexity analysis}
+
+To compute the out-degree of all vertices in a directed graph, one needs to go
+through all vertices (initialization to zero) and all graph edges, thus needing
+$n + m$ steps. This gives us the total time complexity $O(n + m)$.
+
+There is a possible time complexity improvement --- if the number of elements
+in the adjacency-list is stored somewhere for each vertex, one can reduce the
+time complexity to $O(n)$, because one will not need to go through all edges.
+
+\textit{How long does it take to compute the in-degrees?}
+
+\textbf{Main idea}
+
+To compute the in-degree of vertex $u$, one needs to go through all adjacency
+lists of all vertices and add $1$ for every occurrence of $u$, so every edge
+must be checked. This has to be done for all vertices, but only one pass
+through all edges suffices.
+
+\textbf{Algorithm}
+
+\begin{algorithm}[H]
+	\KwIn{Adjacency-list representation of a directed graph $G = (V, E)$.}
+	\KwOut{$InDegree[u]$ (in-degree of vertex $u$) for each vertex $u \in V$.}
+
+	\tcp{Initialization}
+	\ForEach{$u \in V$}{
+		$InDegree[u] := 0$\;
+	}
+	\ForEach{$u \in V$}{
+		\ForEach{$v \in Adj[u]$}{
+			$InDegree[v] := InDegree[v] + 1$\;
+		}
+	}
+\end{algorithm}
+
+\textbf{Complexity analysis}
+
+As in the out-degree computation, one needs to go through all of the graph
+vertices (initizalization to zero) and edges as well, thus needing $n + m$
+steps. This gives us the total time complexity $O(n + m)$, which is the same as
+in the out-degree computation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vim: syntax=tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

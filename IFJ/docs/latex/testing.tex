@@ -1,0 +1,11 @@
+\section{Testování a správa paměti}
+
+Při vývoji projektu jsme kladli velký důraz právě na testování. Zaměřili jsme se především na samostatné moduly, tzv. \uv{unit testing}, protože to usnadňuje pozdější propojení jednotlivých částí do programu jako celku (i ladění se provádí snadněji).
+
+Jednotlivé moduly byly testovány metodami \uv{white box} (autor modulu) a \uv{black box} (kolektiv), celek pak především automatickým scriptem provádějícím regresní testy - což usnadňuje pozdější refaktoring a změny v programu. K ladění při vývoji jsme využívali program DDD\footnote{http://www.gnu.org/software/ddd/}.
+
+\subsection{Správa paměti}
+
+Řádná práce s pamětí a korektní uvolňování by se mohla zdát jako zbytečnost, ale umožňuje to nespoléhat se na to, že operační systém vždy paměť korektně uvolní a při delším běhu programu je to nezanedbatelná výhoda, protože se používá jen tolik paměti, kolik je v danou chvíli opravdu potřeba.
+
+K ukládání řetězců se využívá speciální zásobník, který je na konci programu zrušen a paměť je uvolněna. Ke kontrole, zda v programu nedochází k únikům paměti, jsme využívali program Valgrind\footnote{http://valgrind.org/}.

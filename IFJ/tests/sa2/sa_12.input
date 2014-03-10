@@ -1,0 +1,2 @@
+//Neurceny datovy typ globalni promenne
+var id; void main(){}

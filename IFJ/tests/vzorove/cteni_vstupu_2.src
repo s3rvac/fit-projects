@@ -1,0 +1,26 @@
+var string s1, string s2, string s3, string nl;
+
+void main()
+{
+  nl := "\n";
+
+  s1 := readstring();
+  printstring(s1);
+
+  s2 := readstring();
+  printstring(s2);
+
+  s3 := readstring();
+  printstring(s3);
+  printstring(nl);
+  printstring(sort(s3));
+  
+  printstring(nl);
+  printstring(nl);
+  printint(strlen(s1));
+  printstring(nl);
+  printint(strlen(s2));
+  printstring(nl);
+  printint(strlen(s3));
+  printstring(nl);
+}

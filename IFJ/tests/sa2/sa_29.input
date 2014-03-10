@@ -1,0 +1,9 @@
+//Skok na chybejici navesti
+//Predpokladany vysledek: Navesti neni definovane
+void main();
+
+void main()
+{
+navesti:
+goto neexistujicinavesti;
+}

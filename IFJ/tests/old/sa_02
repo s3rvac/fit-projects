@@ -1,0 +1,58 @@
+//
+// Testovaci program pro prediktivni SA - pouze deklaracni cast (dalsi testy)
+//
+
+// Globalni promenne
+var int id,
+	double sum,
+	string mystring ,
+	string mystring2,
+	int id2,
+	int id3,
+	double sum2;
+
+// Deklarace funkce bez parametru
+int func1();
+double func2();
+string func3();
+
+// Definice funkce bez parametru s lok. promennyma
+int func4()
+var int a, int b, double sum, string str; {}
+double func5()
+var int a, int b, double sum, string str; {}
+double func6()
+var int a, int b, double sum, string str; {}
+
+// Definice funkce vracejici void
+void func6()
+var int a, int b, double sum, string str; {}
+
+// Deklarace funkce s parametry
+int func7(int);
+double func8(double);
+string func9(string);
+
+// Definice funkci s vice parametry a s lok.prom.
+int func13(int a; double b; double c; int i2)
+var string str, int i; {}
+double func14(double a; double b; string str2)
+var string str, int i; {}
+string func15(string a; double b; double b; double c)
+var string str, int i; {}
+
+// Definice funkce bez parametru
+int func16() {}
+double func17() {}
+string func18() {}
+
+// Kombinace deklaraci/definici
+int func19()
+var string str, int i; {}
+double func20()
+var string str, int i; {}
+int func21();
+string func22() {}
+
+// Main
+void main() {}

@@ -1,0 +1,54 @@
+/*
+ * File: print.css
+ * Authors:  Ondrej Lengal,   xlenga00@stud.fit.vutbr.cz
+ *           Libor Polcak,    xpolca03@stud.fit.vutbr.cz
+ *           Boris Prochazka, xproch63@stud.fit.vutbr.cz
+ *           Petr Zemek,      xzemek02@stud.fit.vutbr.cz
+ * Date: 14.12.2008
+ * Description: CSS style for printing
+ */
+
+h1, h2, h3, h4, h5, h6 {
+	page-break-after: avoid;
+}
+
+@media print {
+	body {
+		color: #000000;
+		background: #ffffff;
+		font-size: 12pt;
+		font-family: serif;
+	}
+
+	p {
+		text-align: justify;
+		text-indent: 2em;
+	}
+
+	.go_back_links {
+		display: none;
+	}
+
+	.example {
+		white-space: pre;
+	}
+
+	/* Links */
+	a:link, a:visited, a:active {
+		color: #022580;
+		font-weight: normal;
+	}
+
+	a:hover {
+		font-weight: normal;
+	}
+
+	/* Images */
+	.app_screen {
+		display: block;
+		text-align: center;
+		margin: auto;
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+}

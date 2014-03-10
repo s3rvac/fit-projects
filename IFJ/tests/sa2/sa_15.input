@@ -1,0 +1,16 @@
+//Kazda fce musi byt definovana prave jednou, deklarovana muze byt nekolikrat
+//Predpokladany vysledek: OK
+int f(int);
+int f(int);
+
+int f(int a)
+{
+return a;
+} 
+
+int f(int);
+
+void main()
+{
+return;
+}

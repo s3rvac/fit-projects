@@ -1,0 +1,27 @@
+\section{Tabulka symbolů}
+
+\subsection{Hashovací tabulka}
+
+Základ naší tabulky symbolů tvoří hashovací tabulka. Jde o speciální abstraktní datový typ určený pro rychlé vyhledávání a vkládání položek pracující na index-sekvenčním principu. Tabulce symbolů poskytuje základní operace, jako je vkládání, vyhledávání, rušení atd.
+
+Každá položka obsahuje speciální atribut nazývaný klíč, který je unikátní mezi všemi polžkami v tabulce. Tento klíč se hashovací funkcí převede na celé číslo z intervalu $<$0; velikost tabulky - 1$>$. Na toto místo se položka při ukládání vloží a při hledání se začne hledat.
+
+Problém nastane, když dvě položky dostanou stejný index - tzv. \uv{kolize}. V tom případě se na daném indexu vytvoří jednosměrně vázaný seznam a vkládání a vyhledávání probíhá sekvenčním postupem. Ideální by bylo, aby v tabulce nedošlo k žádné kolizi, proto je důležitá použitá hashovací funkce. My jsme využili už osvědčenou, která nám byla doporučena v předmětu IJC.
+
+Dalším důležitým parametrem hashovací tabulky, který ovlivňuje pravděpodobnost kolize, je její velikost. My jsme se snažili o této problematice zjistit více a nalezli jsme internetovou stránku, která se tomuto problému věnuje\footnote{http://planetmath.org/?op=getobj\&from=objects\&id=3327}. Základní myšlenkou je, aby velikost tabulky byla prvočíslo, které je zhruba uprostřed intervalu s okrajovými body odpovídajícími mocninám čísla dva. Nakonec jsme zvolili velikost 1543, abychom co nejvíce minimalizovali pravděpodobnost kolize a zároveň tabulka nezabírala moc paměti.
+
+\subsection{Vlastní tabulka symbolů}
+
+Tabulku symbolů pak máme implementovanou jako speciální strukturu, jejíž jedna položka je právě hashovací tabulka. Dále jsou v ní umístěny i informace o právě zpracovávané funkci, jako je ukazatel na odpovídající položku v hashovací tabulce, počet parametrů a lokálních proměnných a první volný index pro proměnnou, který ji bude reprezentovat později v interpretu. Součástí tabulky symbolů je i informace, zda se funkce právě vkládá a zda jde o její definici. Kvůli volání funkcí obsahuje i speciální zásobník.
+
+Toto uspořádání jsme zvolili, protože velká část funkcí poskytovaných tabulkou symbolů potřebuje znát tyto informace a zbytečně by rostl počet předávaných parametrů. To by bylo jednak pomalejší a také by to snížilo čitelnost zdrojového kódu.
+
+Tabulku symbolů a hashovací tabulku nemáme implementovány v jednom nedílném celku, protože kdyby se jednalo o skutečný projekt a my ho plánovali několik let udržovat, snadno bychom mohli hashovací tabulku využít i pro jiné účely než jen tabulka symbolů. A zároveň, pokud by například zákazník požadoval pro řešení tabulky symbolů jinou datovou strukturu, stačilo by implementovat jen potřebné operace, které jsou jasně odděleny.
+
+Tabulka symbolů úzce spolupracuje se syntaktickou analýzou a provádí některé sémantické kontroly, jako je například kontrola typů proměnných, kontrola návratového typu funkce a typů parametrů. Také spolupracuje s generátorem a využívá některé jeho funkce určené pro práci s návěstími a funkcemi.
+
+Pokud syntaktická a sémantická analýza narazí na dříve nedeklarovanou funkci, tabulka symbolů si automaticky, bez ohledu na to zda jde o deklaraci nebo definici, vytvoří mikroinstrukci cíle skoku. Podobně tabulka postupuje i u návěstí. Kontrola, zda byl cíl skoku skutečně zařazen do výsledného toku mikroinstrukcí, je prováděna před vyprázdněním tabulky. U lokální tabulky to je u konce definice funkce, u tabulky globální pak při dokončení zpracovávání zdrojového souboru. Když se dojde na konec definice funkce, je ještě nutné upravit její první instrukci, protože ta musí obsahovat počet lokálních a pomocných proměnných, aby později mohl interpret vyhradit odpovídající místo na zásobníku.
+
+Při inicializaci globální tabulky symbolů se do ní vkládá deklarace funkce main a zároveň stejnou cestou jako ostatní funkce i definice vestavěných funkcí. Pouze se nastaví jejich příznak tak, aby tabulka později poznala, že nemá povolit novou deklaraci těchto funkcí.
+
+Pokud syntaktická analýza narazí na volání funkce, přidá ji tabulka symbolů na vrchol speciálního zásobníku. Pokud jsou zkontrolovány typy všech parametrů této volané funkce, je ze zásobníku odstraněna. Zásobník je potřebný, protože uvnitř volání jedné funkce může být volání funkce jiné. Na vrcholu zásobníku je tedy nejlevější nejvíce vnořená volaná funkce, jejíž parametry ještě nebyly zkontrolovány.

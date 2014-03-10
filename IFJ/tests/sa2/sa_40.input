@@ -1,0 +1,9 @@
+//2 lokalni identifikatory stejneho nazvu
+//Predpokladany vysledek: identifikator jiz existuje
+
+void main();
+
+void main()
+var int lok, int lok;
+{
+}

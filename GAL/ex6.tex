@@ -1,0 +1,169 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Project: GAL 2009
+% Authors:
+%     Radim Kapavik, xkapav01@stud.fit.vutbr.cz
+%     Ondrej Lengal, xlenga00@stud.fit.vutbr.cz
+%     Vojtech Storek, xstore02@stud.fit.vutbr.cz
+%     Vit Triska, xtrisk01@stud.fit.vutbr.cz
+%     Petr Zemek, xzemek02@stud.fit.vutbr.cz
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem{theorem}{Theorem}
+
+\section*{Exercise 6}
+\label{sec:Ex6}
+
+\subsection*{Assignment} When an adjacency-matrix representation is used, most
+graph algorithms require time $\Omega(V^2)$, but there are some exceptions.
+Show that determining whether a directed graph G contains
+a \textit{\textbf{universal sink}} --- a vertex with in-degree $|V| - 1$ and
+out-degree 0 --- can be determined in time $O(V)$, given an adjacency matrix
+for $G$.
+
+\subsection*{Solution}
+
+For a graph $G = (V, E)$, let $n = |V|$ and $m = |E|$.
+
+\textbf{Main idea}
+
+Start in the top left-hand corner of the adjacency-matrix $A$ of $G$ and move
+according to the following rules: if you are in a cell with $0$ go right, if
+you are in a cell with $1$, go down. If you go down from the bottommost row,
+there is not a universal sink in $G$; if you go right from the rightmost
+column, the index $i$ of current row is a possible universal sink. In the
+latter case, it needs to be verified that the vertex really is a universal sink
+by checking that all elements in the $i$-th row are $0$s (i.e.~no edge leaves
+the universal sink) and all elements, except the $i$-th one, in the $i$-th
+column are $1$s (i.e.~there is an edge from all other vertices leading to the
+universal sink).
+
+
+\textbf{Algorithm}
+
+\begin{algorithm}[H]
+  \KwIn{Adjacency-matrix $A = (a_{ij})$ for a directed graph $G = (V, E)$.}
+  \KwOut{\textbf{TRUE} if $G$ contains a universal sink, \textbf{FALSE}
+  otherwise.}
+
+  \tcp{Initialization}
+  $i := 1$\;
+  $j := 1$\;
+
+  \tcp{Traverse the matrix}
+  \While{$i \le n$ and $j \le n$}{
+    \eIf(\tcp*[h]{go to next column}){$a_{ij} = 0$}{
+      $j := j + 1$\;
+    } ( \tcp*[h]{go to next row}) {
+      $i := i + 1$\;
+    }
+  }
+
+  \tcp{Evaluate the result}
+  \eIf{$i > n$}{
+    \Return \textbf{FALSE}\;
+  } {
+    \tcp{Check whether the $i$-th vertex really is a universal sink}
+    \For{$k := 1$ \KwTo $n$}{
+      \If(\tcp*[h]{edge leading from universal sink}){$a_{ik} = 1$}{
+        \Return \textbf{FALSE}\;
+      }
+
+      \If{$k \ne i$}{
+        \If(\tcp*[h]{no edge leading to universal sink}){$a_{ki} = 0$}{
+          \Return \textbf{FALSE}\;
+        }
+      }
+    }
+    \Return \textbf{TRUE}\;
+  }
+\end{algorithm}
+
+\textbf{Complexity analysis}
+
+The initialization part of the algorithm is done in $O(1)$. The body of matrix
+traversal loop ensures that either $i$ or $j$ is incremented by one in every
+iteration. Due to the terminating condition of the loop ($i \le n$ and $j \le
+n$), the loop body is done at most $n + n = 2n$ times. Verification that the
+found vertex (if any) is a universal sink takes $n$ steps (while $k$ iterates
+from $1$ to $n$). The resulting time complexity is therefore $O(1 + 2n + n)
+= O(n)$.
+
+\textbf{Correctness proof}
+
+
+\begin{theorem}
+The algorithm always terminates.
+\end{theorem}
+
+\begin{proof}
+According to the \textit{Complexity analysis}, the time complexity of the
+algorithm is $O(n)$ $\to$ the algorithm always terminates in $O(n)$ time.
+\end{proof}
+
+\pagebreak
+\begin{theorem}\label{theorem_correct}
+The algorithm terminates with \textbf{TRUE} $\Leftrightarrow$ there is
+a universal sink in $G$.
+\end{theorem}
+
+\begin{proof}
+Assume without loss of generality that $V = \{1, 2, \dots, n\}$. Let us
+decompose the theorem into two cases:
+
+\begin{itemize}
+
+  \item[``$\Rightarrow$'':] The algorithm terminates with \textbf{TRUE} only
+  after it verifies that vertex $i$ really is a universal sink ($(\forall j \in
+  V : a_{ij} = 0) \wedge (\forall j \in V \setminus \{i\} : a_{ji} = 1)$).
+
+  \item[``$\Leftarrow$'':] (Proof by contradiction.) Assume that there is a
+  universal sink $u$ in $G = (V, E)$ and the algorithm terminates with
+  \textbf{FALSE}. According to the algorithm, this can happen in two cases:
+
+  \begin{enumerate}
+
+    \item At the end of matrix traversal $i > n$. Because $i$ only changes by
+    1, it must have been assigned all values from $\{1, 2, \dots, n\}$,
+    therefore at one point being assigned $u$. However, because the $u$-th row
+    contains all $0$s ($\forall x \in V : a_{ux} = 0$), according to the
+    condition in matrix traversal loop, upon $i$ reaching $u$, $j$ must have
+    been incremented until it reached the rightmost column of the matrix ($j
+    > n$). Therefore $i > n$ cannot happen.
+
+    \item At the end of matrix traversal $j > n$ but $i$ is not the universal
+    sink, let us denote it as $z$ ($z \ne u$). Two cases are possible:
+
+    \begin{enumerate}
+
+      \item $z > u$. This means that $i$ must have been assigned all values
+      from $\{1, 2, \dots, z\}$, including $u$ (because $z > u$). However,
+      because the $u$-th row contains all $0$s ($\forall x \in V : a_{ux}
+      = 0$), according to the condition in matrix traversal loop, upon $i$
+      reaching $u$, $j$ must have been incremented until it reached the
+      rightmost column of the matrix ($j > n$) terminating the loop with $i
+      = u$. Because $z > u$, this cannot happen.
+
+      \item $z < u$. This means that $j$ must have been assigned all values
+      from $\{1, 2, \dots, n\}$, including $u$. Upon $j$ reaching $u$, because
+      the $u$-th column of the matrix contains all $1$s except the $u$-th
+      element ($\forall j \in V \setminus \{u\} : a_{ju} = 1$), according to
+      the condition in matrix traversal loop, $i$ had to be incremented until
+      it reached $u$. Due to the fact that the $u$-th row contains all $0$s
+      ($\forall x \in V : a_{ux} = 0$), according to the condition in matrix
+      traversal loop, $j$ must have been incremented until it reached the
+      rightmost column of the matrix ($j > n$) terminating the loop with $i
+      = u$. Because $z < u$, this cannot happen.
+
+    \end{enumerate}
+
+  \end{enumerate}
+
+  All cases contradict.
+
+\end{itemize}
+
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vim: syntax=tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

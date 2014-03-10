@@ -1,0 +1,8 @@
+//Fce main je typ void a nema zadny parametr
+//Predpokladany vysledek: jinak deklarace/definice nez void main()
+int main();
+
+int main()
+{
+return 1;
+}

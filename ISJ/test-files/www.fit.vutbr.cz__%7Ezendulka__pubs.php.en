@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="/common/style.css" type="text/css">
+<link type="application/rss+xml" rel="alternate" title="FIT News" href="http://www.fit.vutbr.cz/news/news-rss.php">
+<meta name="googlebot" content="noarchive">
+<TITLE>Doc. Ing. Jaroslav Zendulka, CSc.</TITLE>
+<script type="text/javascript">
+<!--
+
+function mouseOver(el)
+{
+    el.style.padding = 0;
+    el.style.borderStyle = 'solid';
+    el.style.borderWidth = '1px';
+    el.style.borderColor = "#0063A5";
+    el.style.backgroundColor = "#7ebde0";
+    el.style.cursor = "pointer";
+}
+
+function mouseOut(el)
+{
+    el.style.padding = '1px';
+    el.style.borderStyle = 'solid';
+    el.style.borderWidth = 0;
+    el.style.backgroundColor = "#8ECDF0";
+    el.style.borderColor = "#8ECDF0";
+}
+
+function mouseDown(uri)
+{
+    window.location = uri;
+}
+
+function noenter()
+{
+  return !(window.event && window.event.keyCode == 13);
+}
+// -->
+</script>
+<base target="_top">
+</head>
+<body bgcolor="#FFFFFF" link="#0000FF" vlink="#0063A5"
+alink="#FF0000" marginwidth="0" marginheight="0">
+<form class=nopad action="/cgi-bin/search.cgi.en" method="get">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr class=noprint><!--noindex-->
+    <td valign="middle" bgcolor="#0063A5" width="100%">
+	<a href="/.en"><img class="FITlogo" src="/common/img/fit_en.gif" 
+	alt="Faculty of Information Technology" border="0" height="24"></a>
+    </td>
+<td nowrap valign=middle bgcolor="#0063A5"><font color=white><u>S</u>earch:&nbsp;</font><input type="text" class=noprint style="font-size: 8pt; border: 0px" size="16" name="q" id="wordsid" value="">&nbsp;</td>
+    <td valign="middle" bgcolor="#0063A5" width="20"><a href="/cgi-bin/codepage"><img class="FITlogo" src="/common/img/globus.gif" 
+    alt="Language/Codepage" height="20" width="20" border="0"></a></td>
+<!--/noindex--><td valign="middle" bgcolor="#0063A5" width="26"><a href="/~zendulka/pubs.php.cs"><img class="FITlogo" src="/common/img/flag2_cz.gif" alt="" border="0" width="26" height="20"></a>
+</td>
+</tr>
+</table></form>
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+<tr>
+<td style="border-right: 1px solid #0063A5" valign="top" width="150" bgcolor="#8ECDF0"><img class=FITlogo src="/common/img/staff2.gif" width="150" height="225" alt="">
+<!--noindex--><table class=nav cellpadding=1 cellspacing=0>
+    <tr>
+	<td valign="top" width="12">
+	    <img src="/common/img/blue_home.gif" width="12" height="14" alt="">
+	</td>
+	<td valign="top" width="135" onMouseDown="mouseDown('/.en')" onMouseOver="mouseOver(this)" onMouseOut="mouseOut(this)">
+	    <font size="2" face="Geneva, Arial, Sans-Serif">
+	    <b><a class=bar href="/.en">Home page</a></b>
+	    </font>
+	</td>
+    </tr>
+    <tr>
+	<td valign="top" width="12">
+	    <img src="/common/img/blue_bul.gif" width="12" height="14" alt="">
+	</td>
+	<td valign="top" width="135" onMouseDown="mouseDown('/FIT/.en')" onMouseOver="mouseOver(this)" onMouseOut="mouseOut(this)">
+	    <font size="2" face="Geneva, Arial, Sans-Serif">
+	    <b><a class=bar href="/FIT/.en">Faculty</a></b>
+	    </font>
+	</td>
+    </tr>
+    <tr>
+	<td valign="top" width="12">
+	    <img src="/common/img/blue_bul.gif" width="12" height="14" alt="">
+	</td>
+	<td valign="top" width="135" onMouseDown="mouseDown('/units/.en')" onMouseOver="mouseOver(this)" onMouseOut="mouseOut(this)">
+	    <font size="2" face="Geneva, Arial, Sans-Serif">
+	    <b><a class=bar href="/units/.en">Departments</a></b>
+	    </font>
+	</td>
+    </tr>
+    <tr>
+	<td valign="top" width="12">
+	    <img src="/common/img/blue_buld.gif" width="12" height="14" alt="">
+	</td>
+	<td valign="top" width="135" onMouseDown="mouseDown('/homes/.en')" onMouseOver="mouseOver(this)" onMouseOut="mouseOut(this)">
+	    <font size="2" face="Geneva, Arial, Sans-Serif">
+	    <b><a class=bar href="/homes/.en">Staff and students</a></b>
+	    </font>
+	</td>
+    </tr>
+    <tr>
+	<td>&nbsp;</td>
+	<td valign="top" width="135" onMouseDown="mouseDown('/~zendulka/.en')" onMouseOver="mouseOver(this)" onMouseOut="mouseOut(this)">
+	    <img src="/common/img/blue_bulfe.gif" width="12" height="14" alt="">
+	    <font size="2" face="Geneva, Arial, Sans-Serif">
+	    <a class=bar href="/~zendulka/.en">Doc. Ing. Jaroslav Zendulka, CSc.</a>
+    </td></tr>
+    <tr>
+	<td valign="top" width="12">
+	    <img src="/common/img/blue_bul.gif" width="12" height="14" alt="">
+	</td>
+	<td valign="top" width="135" onMouseDown="mouseDown('/info/.en')" onMouseOver="mouseOver(this)" onMouseOut="mouseOut(this)">
+	    <font size="2" face="Geneva, Arial, Sans-Serif">
+	    <b><a class=bar href="/info/.en">Official Documents</a></b>
+	    </font>
+	</td>
+    </tr>
+    <tr>
+	<td valign="top" width="12">
+	    <img src="/common/img/blue_bul.gif" width="12" height="14" alt="">
+	</td>
+	<td valign="top" width="135" onMouseDown="mouseDown('/study/.en')" onMouseOver="mouseOver(this)" onMouseOut="mouseOut(this)">
+	    <font size="2" face="Geneva, Arial, Sans-Serif">
+	    <b><a class=bar href="/study/.en">Study</a></b>
+	    </font>
+	</td>
+    </tr>
+    <tr>
+	<td valign="top" width="12">
+	    <img src="/common/img/blue_bul.gif" width="12" height="14" alt="">
+	</td>
+	<td valign="top" width="135" onMouseDown="mouseDown('/research/.en')" onMouseOver="mouseOver(this)" onMouseOut="mouseOut(this)">
+	    <font size="2" face="Geneva, Arial, Sans-Serif">
+	    <b><a class=bar href="/research/.en">Research</a></b>
+	    </font>
+	</td>
+    </tr>
+    <tr>
+	<td valign="top" width="12">
+	    <img src="/common/img/blue_bul.gif" width="12" height="14" alt="">
+	</td>
+	<td valign="top" width="135" onMouseDown="mouseDown('/CVT/.en')" onMouseOver="mouseOver(this)" onMouseOut="mouseOut(this)">
+	    <font size="2" face="Geneva, Arial, Sans-Serif">
+	    <b><a class=bar href="/CVT/.en">Computer Centre</a></b>
+	    </font>
+	</td>
+    </tr>
+    <tr>
+	<td valign="top" width="12">
+	    <img src="/common/img/blue_bul.gif" width="12" height="14" alt="">
+	</td>
+	<td valign="top" width="135" onMouseDown="mouseDown('/lib/.en')" onMouseOver="mouseOver(this)" onMouseOut="mouseOut(this)">
+	    <font size="2" face="Geneva, Arial, Sans-Serif">
+	    <b><a class=bar href="/lib/.en">Library</a></b>
+	    </font>
+	</td>
+    </tr>
+    <tr>
+	<td valign="top" width="12">
+	    <img src="/common/img/blue_bul.gif" width="12" height="14" alt="">
+	</td>
+	<td valign="top" width="135" onMouseDown="mouseDown('/events/.en')" onMouseOver="mouseOver(this)" onMouseOut="mouseOut(this)">
+	    <font size="2" face="Geneva, Arial, Sans-Serif">
+	    <b><a class=bar href="/events/.en">Events</a></b>
+	    </font>
+	</td>
+    </tr>
+    <tr>
+	<td valign="top" width="12">
+	    <img src="/common/img/blue_bul.gif" width="12" height="14" alt="">
+	</td>
+	<td valign="top" width="135" onMouseDown="mouseDown('/news/.en')" onMouseOver="mouseOver(this)" onMouseOut="mouseOut(this)">
+	    <font size="2" face="Geneva, Arial, Sans-Serif">
+	    <b><a class=bar href="/news/.en">News</a></b>
+	    </font>
+&nbsp;&nbsp;<a href="http://www.fit.vutbr.cz/news/news-rss.php"><img src="/images/rss.gif" alt="[rss]" align=top border=0></a>
+	</td>
+    </tr>
+    <tr>
+	<td valign="top" width="12">
+	    <img src="/common/img/blue_bul.gif" width="12" height="14" alt="">
+	</td>
+	<td valign="top" width="135" onMouseDown="mouseDown('/links/.en')" onMouseOver="mouseOver(this)" onMouseOut="mouseOut(this)">
+	    <font size="2" face="Geneva, Arial, Sans-Serif">
+	    <b><a class=bar href="/links/.en">Links</a></b>
+	    </font>
+	</td>
+    </tr>
+<!-- language selection -->
+    </table>
+    <hr size="1" color="#0063A5">
+    <table class=nav cellpadding=1 border="0" cellspacing="0">
+    <tr>
+	<td valign="top" width="12">
+	    <img src="/common/img/blue_bul.gif" width="12" height="14" alt="">
+	</td>
+        <td valign="top" width="135" onMouseDown="mouseDown('/cgi-bin/codepage')" onMouseOver="mouseOver(this)" onMouseOut="mouseOut(this)">
+	    <font size="2" face="Geneva, Arial, Sans-Serif"><a class=bar href="/cgi-bin/codepage">Výbìr jazyka<br>Select Language</a></font>
+	</td>
+    </tr>
+    <tr>
+	<td valign="top" width="12">
+	    <img src="/common/img/blue_bul.gif" width="12" height="14" alt="">
+	</td>
+        <td valign="top" width="135" onMouseDown="mouseDown('/search.html.en')" onMouseOver="mouseOver(this)" onMouseOut="mouseOut(this)">
+	    <font size="2" face="Geneva, Arial, Sans-Serif"><a class=bar href="/search.html.en">Search</a></font>
+	</td>
+    </tr>
+    <tr>
+	<td valign="top" width="12">
+	    <img src="/common/img/blue_bul.gif" width="12" height="14" alt="">
+	</td>
+        <td valign="top" width="135" onMouseDown="mouseDown('/stats/.en')" onMouseOver="mouseOver(this)" onMouseOut="mouseOut(this)">
+	    <font size="2" face="Geneva, Arial, Sans-Serif"><a class=bar href="/stats/.en">Web Stats</a></font>
+	</td>
+    </tr>
+    </table><!--/noindex-->
+</td>
+<td valign="top" width="10">&nbsp;</td>
+<!-- end of the main navigation bar -->
+<td valign="top" width="100%">
+<table width="100%" border=1 bordercolor="#638cbd" cellpadding=2 cellspacing=0>
+    <tr bgcolor="#0063a5"><th style="cursor: pointer" onMouseDown="mouseDown('index.php.en')"><a style="color: white; background-color: #0063a5; text-decoration: none" href="index.php.en"><font size=2 face="Arial">Contact</font></a></th>
+<th style="cursor: pointer" onMouseDown="mouseDown('curriculum.php.en')"><a style="color: white; background-color: #0063a5; text-decoration: none" href="curriculum.php.en"><font size=2 face="Arial">Curriculum</font></a></th>
+<th style="cursor: pointer" onMouseDown="mouseDown('courses.php.en')"><a style="color: white; background-color: #0063a5; text-decoration: none" href="courses.php.en"><font size=2 face="Arial">Teaching</font></a></th>
+<th style="cursor: pointer" onMouseDown="mouseDown('pubs.php.en')"><a style="color: #8ecdf0; background-color: #0063a5; text-decoration: none" href="pubs.php.en"><font size=2 face="Arial">Publications</font></a></th>
+<th style="cursor: pointer" onMouseDown="mouseDown('grants.php.en')"><a style="color: white; background-color: #0063a5; text-decoration: none" href="grants.php.en"><font size=2 face="Arial">Projects</font></a></th>
+</tr></table>
+<h1>Doc. Ing. Jaroslav Zendulka, CSc.</h1>
+<h2>Publications</h2>
+<table border=0 cellspacing=0 cellpadding=2><tr><td valign=top><b>2007</b></td><td><b>Chmelaø Petr, Zendulka Jaroslav</b>: <a href="/research/view_pub.php.en?id=8425">Distributed Visual Sensor Network Fusion</a>, 4th Joint Workshop on Multimodal Interaction and Related Machine Learning Algorithms, Brno, CZ, 2007, <nobr>p.&nbsp;2</nobr></td></tr>
+<tr><td>&nbsp;</td><td><b>Chmelaø Petr, Zendulka Jaroslav</b>: <a href="/research/view_pub.php.en?id=8426">Visual Surveillance Metadata Management</a>, In: Eighteenth International Workshop on Database and Expert Systems Applications, Regensburg, DE, ICSP, 2007, <nobr>p.&nbsp;79-83</nobr>, <nobr>ISBN 978-0-7695-2932-5</nobr></td></tr>
+<tr><td>&nbsp;</td><td><b>Weiss Petr, Zendulka Jaroslav</b>: <a href="/research/view_pub.php.en?id=8311">Modeling of Services and Service Collaboration in UML 2.0</a>, In: Information Systems and Formal Models, Opava, CZ, SU, 2007, <nobr>p.&nbsp;29-36</nobr>, <nobr>ISBN 80-7248-006-7</nobr></td></tr>
+<tr><td valign=top><b>2006</b></td><td><b>Opr¹al Zdenìk, Fiedler Zdenìk, Zendulka Jaroslav</b>: <a href="/research/view_pub.php.en?id=8254">Jak získávat a uplatòovat znalosti pøi rozvoji IS</a>, In: DATAKON 2006 Proceedings of the Annual Database conference, Brno, CZ, MUNI, 2006, <nobr>p.&nbsp;149-158</nobr>, <nobr>ISBN 80-210-4102-1</nobr></td></tr>
+<tr><td>&nbsp;</td><td><b>Rudolfová Ivana, Zendulka Jaroslav</b>: <a href="/research/view_pub.php.en?id=8058">Clustering of Protein Sequences</a>, In: Proceedings of 1st International Workshop WFM'06, Pøerov, CZ, MARQ, 2006, <nobr>p.&nbsp;71-78</nobr>, <nobr>ISBN 80-86840-20-4</nobr></td></tr>
+<tr><td>&nbsp;</td><td><b>Rychlý Marek, Zendulka Jaroslav</b>: <a href="/research/view_pub.php.en?id=8195">Distributed Information System as a System of Asynchronous Concurrent Processes</a>, In: MEMICS 2006 Second Doctoral Workshop on Mathematical and Engineering Methods in Computer Science, Mikulov, CZ, FIT VUT, 2006, <nobr>p.&nbsp;206-213</nobr>, <nobr>ISBN 80-214-3287-X</nobr></td></tr>
+<tr><td>&nbsp;</td><td><b>Zendulka Jaroslav (editor)</b>: <a href="/research/view_pub.php.en?id=8255">Proceedings of 9th International Conference ISIM'06</a>, Ostrava, CZ, MARQ, 2006, <nobr>p.&nbsp;192</nobr>, <nobr>ISBN 80-86840-19-0</nobr></td></tr>
+<tr><td valign=top><b>2005</b></td><td><b>Zendulka Jaroslav (editor)</b>: <a href="/research/view_pub.php.en?id=7788">Proceedings of 8th Spring International Conference ISIM'05</a>, Ostrava, CZ, MARQ, 2005, <nobr>p.&nbsp;303</nobr>, <nobr>ISBN 80-86840-09-02</nobr></td></tr>
+<tr><td>&nbsp;</td><td><b>Zendulka Jaroslav</b>: <a href="/research/view_pub.php.en?id=7786">API Standardization Efforts for Data Mining</a>, Encyclopedia of Data Warehousing and Mining, Hershey, US, IDEA, 2005, <nobr>p.&nbsp;39-43</nobr>, <nobr>ISBN 1-59140-557-2</nobr></td></tr>
+<tr><td>&nbsp;</td><td><b>Zendulka Jaroslav</b>: <a href="/research/view_pub.php.en?id=7671">Object-Relational Modeling in the UML</a>, Encyclopedia of Database Technologies and Applications, Hershey, US, IDEA, 2005, <nobr>p.&nbsp;421-426</nobr>, <nobr>ISBN 1-59140-560-2</nobr></td></tr>
+<tr><td>&nbsp;</td><td><b>Zendulka Jaroslav</b>: <a href="/research/view_pub.php.en?id=7819">Using Standard APIs for Data Mining in Prediction</a>, Encyclopedia of Data Warehousing and Mining, Hershey, US, IDEA, 2005, <nobr>p.&nbsp;1171-1174</nobr>, <nobr>ISBN 1-59140-557-2</nobr></td></tr>
+</table><p class=noprint align=center><a href="/research/view_pub.php.en?uperson=10&years=99"><i>Show all publications</i></a></p><!--end of view_pub-->
+<hr size="1" color="#0063A5">
+<!--noindex--><address>
+<font color="#7f7f7f" size="2" face="Arial, Helvetica, Sans-Serif">&copy; Faculty of Information Technology, BUT, Bo¾etìchova&nbsp;2,<br> 612 66 Brno, Czech Republic<br>Tel.: +420 54114 1144, Fax: +420 54114 1270<br>
+E-mail: <a href="mailto:info@fit.vutbr.cz">info@fit.vutbr.cz</a>,
+Web: <a href="http://www.fit.vutbr.cz/.en">http://www.fit.vutbr.cz/</a></font>
+    </address><!--/noindex-->
+    </td>
+    <td width="8">&nbsp;</td>
+</tr>
+</table>
+</body>
+</html>

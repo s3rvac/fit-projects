@@ -1,0 +1,2 @@
+//Parametry funkce mohou mit ve vice funkcich stejne nazvy
+int f(int a){} int g(int a) {} void main(){}

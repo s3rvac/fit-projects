@@ -1,0 +1,64 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% File: documentation.sty
+% Encoding: utf8
+% Project: VYPe - Conversion from regular expressions to finite automata
+% Authors:
+%     Libor Polčák, xpolca03@stud.fit.vutbr.cz
+%     Petr Zemek, xzemek02@stud.fit.vutbr.cz
+% Description: Style for the project documentation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Packages
+\usepackage{czech}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{indentfirst}
+\usepackage{a4wide}
+\usepackage[plainpages=false,urlcolor=blue]{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Title page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\project}[1]{
+	\def\@projectname{#1}
+}
+\def\@university{Vysoké učení technické v Brně}
+\def\@faculty{Fakulta informačních technologií}
+\def\@year{\number\year}
+
+\renewcommand\maketitle{
+	\thispagestyle{empty}
+	\null
+	\begin{center}
+		\vspace{5mm}
+		{\LARGE \bf \sc \MakeUppercase{\@university} }\\[5mm]
+		{\Large \bf \sc \MakeUppercase{\@faculty} }\\[5mm]
+		\vspace{10mm}
+
+		\begin{figure}[h]
+			\begin{center}
+				\includegraphics[width=4cm,keepaspectratio]{include/logo}
+			\end{center}
+		\end{figure}
+
+		\vspace{15mm}
+
+		{\Huge \bfseries \@title}\\[10mm]
+		{\huge \@projectname}
+
+		\vspace{20mm}
+
+		{\Large \@author}
+
+		\vspace{40mm}
+		\Large{\bfseries \@year}
+
+		\end{center}
+	\clearpage
+
+	\setcounter{tocdepth}{2}
+	\addtocounter{page}{1}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vim: syntax=tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

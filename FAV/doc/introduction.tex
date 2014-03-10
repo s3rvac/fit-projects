@@ -1,0 +1,25 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Project: FAV 2009
+% Authors:
+%     Ondrej Lengal, xlenga00@stud.fit.vutbr.cz
+%     Libor Polcak, xpolca03@stud.fit.vutbr.cz
+%     Petr Zemek, xzemek02@stud.fit.vutbr.cz
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Introduction}
+\label{sec:introduction}
+
+Spin is an open-source tool for the formal verification of distributed software systems. The development of Spin started at Bell Labs in 1980 with the original purpose of verification of communication protocols and since 1991 the tool is freely available. Gerard J. Holzmann, the author of Spin, was awarded the ACM Software Systems Award for Spin development in 2001\footnote{Mardechai Ben-Ari. \textit{Principles of the Spin Model Checker}. Springer, 2008}. Spin supports description of system in \emph{PROMELA}, which is a C-like programming language that supports non-determinism as an inherent property of real-world systems. Verification with Spin is based on \emph{model checking}, which is an algorithmic approach of checking whether certain formulae hold in a given system using systematic search of the state space, which is given by the combination of all possible states of all processes.
+
+Spin is extensively used for verification of communication protocols and synchronization algorithms. It can also be used to run \emph{random simulation} of a system and, due to language support of non-determinism, it can also be used to implement non-deterministic structures, such as \emph{non-deterministic finite state automata}.
+
+In Spin there are two major means of verification. Firstly, Spin can verify that invariants of the system (based on \emph{Hoare logic})---inserted in the code as C-like assertions---hold for all runs of the system. Secondly, properties of the system may be given using LTL (\emph{Linear Temporal Logic}) formula. It is transformed into B\"{u}chi automaton, which is expressed as \emph{never claims} in PROMELA: processes which are during verification searched in parallel with the PROMELA program (after each step of the program a never claim is checked). The formula must be given in its \emph{negated} form: this tells the program to try to find a state in which the negated formula holds. If such case is found, the path to the state is the counterexample to the original formula. If such a state is not found, it means that no state satisfies the negated formula and therefore the original formula holds. If a counterexample is found, a trail file is generated and this can be used to run a \emph{guided simulation}.
+
+Spin uses depth-first search to traverse the state space and during this it can also check for presence of deadlocks and non-progress cycles and enables weak fairness enforcement. There are also means that simplify modelling of parallel systems in PROMELA. Some of these are \emph{atomic} sections that represent sequence of commands that are to be executed atomically and \emph{channels} for communication between processes; there are two kinds of channels: \emph{rendezvous} channels (unbuffered) or \emph{buffered} channels. The channels may also be either blocking for a process that wishes to write a message into a channel with no free space, or non-blocking, in which case the message is lost.
+
+When used for verification, Spin transforms the PROMELA program into an ANSI C source code which can be later compiled using arbitrary ANSI C compiler into an executable verifier. The verifier uses several optimizations, such as storing states into hash tables (which yields fast state look-ups), state vector compression (which trades smaller memory requirements for longer execution run) and partial order reduction (a method that avoids searching of all possible processes's sequences and chooses only those, which may affect other processes).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vim: syntax=tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

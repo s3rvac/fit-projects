@@ -1,0 +1,289 @@
+/*
+	Encoding: utf8
+	Project:  ITW (2nd project)
+	Author:   Petr Zemek, xzemek02@stud.fit.vutbr.cz
+*/
+
+* {
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	text-align: center;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 1.0em;
+	background-color: #edc776;
+}
+
+#page {
+	width: 800px;
+	margin: auto;
+	text-align: left;
+}
+
+#logo {
+	height: 15.5em;
+	width: 800px;
+	position: relative;
+	background-image: url('../images/logo2.jpg');
+	background-color: #ffa500;
+	background-repeat: no-repeat;
+	border: 1px solid #000000;
+}
+
+#location {
+  	width: 800px;
+	min-height: 1.5em;
+	margin-top: -1px;
+	text-align: left;
+	background-color: #ffa500;
+	border: 1px solid #000000;
+}
+
+#menu {
+	width: 800px;
+	position: absolute;
+	top: 10em;
+	background-color: #ffa500;
+	border: 1px solid #000000;
+}
+
+#menu h2 {
+	display: none;
+}
+
+#menu ul {
+	width: 800px;
+	list-style: none;
+}
+
+#menu ul li {
+	display: inline;
+	padding: 0px 5px 0px 5px;
+	text-align: center;
+	border-left: 1px solid #000000;
+	border-right: 1px solid #000000;
+}
+
+#menu ul li a {
+}
+
+#menu ul li a:hover {
+	background-color: #edc776;
+}
+
+#menu ul li ul {
+	width: auto;
+	position: absolute;
+	top: 2.7em;
+	left: 50px;
+	float: none;
+	text-align: center;
+	background-color: #ffa500;
+	border: 1px solid #000000;
+}
+
+#menu ul li ul li {
+	width: auto;
+	float: left;
+	text-align: center;
+	background-color: #ffa500;
+}
+
+#greeting {
+	width: 800px;
+	min-height: 1.5em;
+	position: absolute;
+	top: 0px;
+	background-color: #ffa500;
+  	border: 1px solid #000000;
+  	text-align: right;
+}
+
+#content {
+}
+
+#cleaner {
+	clear: both;
+}
+
+#footer {
+	width: 800px;
+	height: 1.5em;
+	margin-top: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+	background-color: #ffa500;
+	border: 1px solid #000000;
+}
+
+/* Headers */
+h1, h2, h3 {
+	clear: both;
+}
+
+h1 {
+ 	width: 498px;
+  	height: 45px;
+	position: absolute;
+	top: 1.5em;
+	margin-left: 150px;
+	padding: 5px;
+	background-image: url('../images/header2.jpg');
+	background-color: #edc776;
+	background-repeat: no-repeat;
+	border: 1px solid #000000;
+}
+
+h1 span {
+	display: none;
+}
+
+h1 a {
+	color: #000000;
+	text-decoration: none;
+}
+
+h2 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+h3 {
+	clear: both;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+p {
+ 	clear: both;
+	text-align: justify;
+	margin: 10px 0px 10px 0px;
+}
+
+/* Definition lists */
+dl {
+	padding-left: 20px;
+}
+
+dl dt {
+	padding-left: 4px;
+	font-size: 110%;
+	font-weight: bold;
+}
+
+dl dd {
+	padding-left: 1.6em;
+	margin-bottom: 10px;
+	text-align: justify;
+}
+
+dl dd ul {
+	padding-left: 1.6em;
+}
+
+/* Ankers */
+a, a:hover, a:visited {
+	color: #000000;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+/* Images */
+.image {
+	margin: 4px 10px 2px 10px;
+	border: 1px solid #000000;
+}
+
+/* Floats */
+.float_left {
+	float: left;
+}
+
+.float_right {
+	float: right;
+}
+
+/* Forms */
+form {
+	width: 600px;
+	margin: 10px;
+}
+
+form br {
+	display: none;
+}
+
+form p {
+	margin: 0px 5px 8px 5px;
+}
+
+fieldset {
+	border: 1px solid #000000;
+}
+
+legend {
+	margin-left: 5px;
+	font-weight: bold;
+}
+
+input {
+	margin: 2px 2px 2px 5px;
+	padding: 2px;
+	display: inline;
+}
+
+.text_input {
+	border: 1px solid #000000;
+}
+
+input.button {
+	height: 1.6em;
+	padding: 2px;
+	border: 1px outset #000000;
+}
+
+/* Web map */
+#web_map {
+	padding-left: 30px;
+}
+
+#web_map li ul {
+	padding-left: 30px;
+}
+
+/* Links */
+#links {
+	list-style: none;
+	padding-left: 20px;
+}
+
+/* Validation */
+.validation {
+	width: 88px;
+	height: 31px;
+	display: block;
+	margin: 0px 0px 10px 10px;
+}
+
+.validation img {
+	display: none;
+}
+
+#valid_xhtml {
+	background-image: url('../images/valid-xhtml10.png');
+}
+
+#valid_css {
+	background-image: url('../images/valid-css.png');
+}
+
+/* Misc */
+hr {
+	display: none;
+}

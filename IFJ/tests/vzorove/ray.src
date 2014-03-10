@@ -1,0 +1,244 @@
+var string text,
+    string pixel,
+
+    int n,
+
+    double tar_x,
+    double tar_y,
+    double tar_z,
+    double ray_x,
+    double ray_y,
+    double ray_z,
+    double lightness,
+
+    double res_x,
+    double res_y,
+    double pos_x,
+    double pos_y,
+    double pos_z,
+    double sphere_x,
+    double sphere_y,
+    double sphere_z,
+    double sphere_radius,
+    double sphere_radius2,
+    double light_x,
+    double light_y,
+    double light_z,
+    double oc_x,
+    double oc_y,
+    double oc_z,
+
+    double y_i_plus_1,
+    double y_i,
+    double delta,
+    double t,
+    double intersection_x,
+    double intersection_y,
+    double intersection_z,
+
+    double normal_x,
+    double normal_y,
+    double normal_z,
+
+    double to_light_x,
+    double to_light_y,
+    double to_light_z,
+
+    double a,
+    double b,
+    double c,
+    double d,
+    double x,
+    double y,
+    double z;
+
+
+void main()
+{
+  text := "ifj5-raytracer, predelano z pashtraceru!\n" +
+          "chvili cekejte, nakresli vam to scenu se trema\n" +
+          "koulema a jednim svetlem pomoci raytracingu!\n" +
+          "    -tHE SWINe-\n\n\n";
+  printstring(text);
+
+  res_x := 70.0;
+  res_y := 60.0;
+
+  pos_x := 0.0;
+  pos_y := 0.0;
+  pos_z := 0.0-20.0;
+
+  sphere_x := 0.0;
+  sphere_y := 0.0;
+  sphere_z := 0.0;
+  sphere_radius := 4.0;
+
+  light_x := 0.0-5.0;
+  light_y := 5.0;
+  light_z := 0.0-11.0;
+
+  text := "+";
+  printstring(text);
+  text := "-";
+  x := 0.0;
+  for_xram:
+    printstring(text);
+    x := x + 1;
+  if x < res_x goto for_xram;
+  text := "+\n";
+  printstring(text);
+
+  y := 3.0;
+  for_y:
+
+    text := "|";
+    printstring(text);
+
+    x := 0.0;
+    for_x:
+      tar_x := (1.0 - (x * 2.0) / res_x) * 7.0;
+      tar_y := (1.0 - (y * 2.0) / res_y) * 5.0;
+      tar_z := 0.0;
+
+      ray_x := tar_x - pos_x;
+      ray_y := tar_y - pos_y;
+      ray_z := tar_z - pos_z;
+
+      n := 0;
+      z := 9999.0;
+      pixel := " ";
+
+      for_n:
+        if n == 1 goto koule2;
+        if n == 2 goto koule3;
+        sphere_x := 0.0-3.0;
+        sphere_y := 0.0-3.0;
+        sphere_z := 6.0;
+        sphere_radius := 3.0;
+        goto end_koule;
+
+        koule2:
+        sphere_x := 0.0;
+        sphere_y := 0.0;
+        sphere_z := 10.0;
+        sphere_radius := 5.0;
+        goto end_koule;
+
+        koule3:
+        sphere_x := 0.0;
+        sphere_y := 0.0-10000.0;
+        sphere_z := 0.0;
+        sphere_radius := 9995.0;
+        goto end_koule;
+
+        end_koule:
+        sphere_radius2 := sphere_radius * sphere_radius;
+
+        oc_x := pos_x - sphere_x;
+        oc_y := pos_y - sphere_y;
+        oc_z := pos_z - sphere_z;
+
+        a := ray_x * ray_x + ray_y * ray_y + ray_z * ray_z;
+        b := 2.0 * (ray_x * oc_x + ray_y * oc_y + ray_z * oc_z);
+        c := oc_x * oc_x + oc_y * oc_y + oc_z * oc_z - sphere_radius2;
+
+        d := b * b - 4.0 * a * c;
+
+        if d <= 0.0 goto nemame_prusecik;
+
+          y_i := d;
+          odmocnovaci_smycka:
+            y_i_plus_1 := 0.5 * (d / y_i + y_i);
+
+            delta := y_i_plus_1 - y_i;
+
+            if delta > 0.0 goto abs;
+            delta := 0.0 - delta;
+            abs:
+
+            y_i := y_i_plus_1;
+          if delta > 1.0e-4 goto odmocnovaci_smycka;
+
+
+          d := y_i;
+
+          t := (0.0 - b - d) / (2.0 * a);
+
+          if t <= 0.0 goto nemame_prusecik;
+          if t > z goto nemame_prusecik;
+          z := t;
+
+          intersection_x := ray_x * t + pos_x;
+          intersection_y := ray_y * t + pos_y;
+          intersection_z := ray_z * t + pos_z;
+
+          normal_x := (intersection_x - sphere_x) / sphere_radius;
+          normal_y := (intersection_y - sphere_y) / sphere_radius;
+          normal_z := (intersection_z - sphere_z) / sphere_radius;
+
+          to_light_x := light_x - intersection_x;
+          to_light_y := light_y - intersection_y;
+          to_light_z := light_z - intersection_z;
+
+          d := to_light_x * to_light_x + to_light_y * to_light_y + to_light_z
+  * to_light_z;
+
+          y_i := d;
+          odmocnovaci_smycka2:
+            y_i_plus_1 := 0.5 * (d / y_i + y_i);
+
+            delta := y_i_plus_1 - y_i;
+
+            if delta > 0.0 goto abs2;
+            delta := 0.0 - delta;
+            abs2:
+
+            y_i := y_i_plus_1;
+          if delta > 1.0e-4 goto odmocnovaci_smycka2;
+
+          d := y_i;
+
+          lightness := (normal_x * to_light_x + normal_y * to_light_y +
+  normal_z * to_light_z) / d;
+
+          pixel := "#";
+          if lightness > 0.9 goto hotovo;
+          pixel := "*";
+          if lightness > 0.7 goto hotovo;
+          pixel := "+";
+          if lightness > 0.5 goto hotovo;
+          pixel := "-";
+          if lightness > 0.3 goto hotovo;
+          pixel := ".";
+          if lightness > 0.1 goto hotovo;
+
+        goto hotovo;
+
+        nemame_prusecik:
+        hotovo:
+
+        n := n + 1;
+      if n < 3 goto for_n;
+
+      printstring(pixel);
+
+      x := x + 1.0;
+    if x < res_x goto for_x;
+
+    text := "|\n";
+    printstring(text);
+
+    y := y + 1.0;
+  if y < res_y goto for_y;
+
+  text := "+";
+  printstring(text);
+  text := "-";
+  x := 0.0;
+  for_xram_bott:
+    printstring(text);
+    x := x + 1.0;
+  if x < res_x goto for_xram_bott;
+  text := "+\n";
+  printstring(text);
+}

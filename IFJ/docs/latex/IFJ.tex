@@ -1,0 +1,72 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% IFJ.tex - dokumentace k projektu z predmetu IFJ a IAL 2006 %%
+%% Kodovani: ISO_8859-2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt, notitlepage]{article}
+
+%% import vlastniho stylu a potrebnych baliku
+\usepackage{IFJ}
+
+%%% informace o dokumentu %%%
+
+\title{Interpret imperativního jazyka IFJ06}
+
+\varianta{Projekt z předmětů IFJ a IAL 2006 \\
+          varianta zadání d/3, tým 6}
+
+\author{
+Lukáš Maršík, xmarsi03    (20\%\,bodů) \\
+Libor Polčák, xpolca03    (20\%\,bodů) \\
+Boris Procházka, xproch63 (20\%\,bodů) \\
+Martin Tomec, xtomec05    (20\%\,bodů) \\
+Petr Zemek,   xzemek02    (20\%\,bodů) \\
+}
+\def\@fitname{Fakulta informačních technologií}
+\rozsireni{prediktivní syntaktická analýza \\
+   víceřádkové komentáře /* */}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%% titulni strana
+\maketitle
+
+
+%% cislovani stran FIXME
+\pagestyle{plain}
+\setcounter{page}{2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Vlastni text
+
+\section{Úvod}
+Tato dokumentace popisuje návrh a implementaci interpretu imperativního jazyka IFJ06. Naše varianta byla d/3, takže tabulka symbolů byla implementována hashovací tabulkou a k řazení byl použit algoritmus Shellsort.
+
+Následuje stručný popis jednotlivých součástí našeho programu a metod použitých při vývoji.
+
+\input{teamwork.tex}
+
+\input{scanner.tex}
+
+\input{parser.tex}
+
+\input{ts.tex}
+
+\input{generator.tex}
+
+\newpage % odsazeni nadpisu na dalsi stranku
+\input{sort.tex}
+
+\input{testing.tex}
+
+\input{doc.tex} % aneb blabol od Martina ... :)
+
+\input{ending.tex}
+
+\end{document}
+
+
+
+

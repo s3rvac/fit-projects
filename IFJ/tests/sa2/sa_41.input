@@ -1,0 +1,11 @@
+//Zastineni 1
+//Predpokladany vysledek: OK
+var int prom;
+
+void main();
+
+void main()
+var int prom;
+{
+prom := 1;
+}

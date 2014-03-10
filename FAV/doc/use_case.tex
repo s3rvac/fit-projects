@@ -1,0 +1,176 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Project: FAV 2009
+% Authors:
+%     Ondrej Lengal, xlenga00@stud.fit.vutbr.cz
+%     Libor Polcak, xpolca03@stud.fit.vutbr.cz
+%     Petr Zemek, xzemek02@stud.fit.vutbr.cz
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Use case}
+\label{sec:use_case}
+
+Our main goal of this project was to try to implement a synchronization problem in PROMELA and verify the solution. Every time concurrent systems are being implemented it is necessary to specify correct behaviour and find all possible problems with synchronization. LTL formulae are well-suited for this task.
+
+We have decided to implement a problem of a narrow tunnel. There is a tunnel at a two-lane road where the road converges into a single lane. All cars that want to pass the tunnel need to wait for the green light on the semaphore placed just before the entrance to the tunnel. When a car approaches the tunnel and the red light is on, the car has to wait for the green light. When the green light lits up, the car is allowed to enter the tunnel and it has to be guaranteed that no car is allowed to enter the tunnel from the other direction until all cars leave the tunnel.
+
+At the beginning we have specified LTL formulae that have to hold in our system.
+
+\begin{eqnarray}
+\Box(\mathrm{left\_request} \rightarrow \Diamond \mathrm{left\_green})
+\label{formula:liveness1} \\
+\Box(\mathrm{right\_request} \rightarrow \Diamond \mathrm{right\_green})
+\label{formula:liveness2} \\
+\Box(\neg((\mathrm{going\_to\_right} \wedge \mathrm{right\_green}) \vee
+(\mathrm{going\_to\_left} \wedge \mathrm{left\_green})))
+\label{formula:other_semaphore} \\
+\Box(\neg(\mathrm{going\_to\_left} \wedge \mathrm{going\_to\_right}))
+\label{formula:no_accident}
+\end{eqnarray}
+
+We used six atomic propositions in our formulae. $\mathrm{left\_request}$ is true when a car is waiting in front of the left semaphore. $\mathrm{left\_green}$ is true every time the green light is lit up on the left semaphore. $\mathrm{going\_to\_right}$ is true when a car has entered the tunnel from the left side and has not left the tunnel yet. Atomic propositions $\mathrm{right\_request}$, $\mathrm{rigth\_green}$ and $\mathrm{going\_to\_left}$ have the same meaning, but they refer to the right entrance of the tunnel.
+
+Formulae \ref{formula:liveness1} and \ref{formula:liveness2} prove liveness of the system. When a car arrives in front of the tunnel, it is guaranteed that it will eventually be allowed to go to the other side.
+
+Formula \ref{formula:other_semaphore} holds when it is guaranteed that the green light is not shown to a car when other cars are approaching from the other side of the tunnel. Formula \ref{formula:no_accident} refers to the similar property of the system --- it verifies that no accident can happen. Accident would happen every time two cars were in the tunnel and each of them would go in opposite direction.
+
+We have implemented the system as follows:
+
+\begin{lstlisting}[name=construction]
+#define QUEUE_SIZE 4
+#define TUNNEL_SIZE 4
+
+// queues in front of semaphores
+chan left_queue = [QUEUE_SIZE] of { byte };
+chan right_queue = [QUEUE_SIZE] of { byte };
+
+// tunnel
+bool tunnel_entered = true;
+byte cars_in_tunnel = 0;
+\end{lstlisting}
+
+It is possible to define the maximum numbers of cars that are allowed to be queued up in front of the semaphores and how many of them are allowed to be in the tunnel at a single moment. Both numbers are initially set to 4. Left and right queues are implemented as channels using the embedded \verb|chan| type.
+
+The tunnel is represented by variables \verb|tunnel_entered| and \verb|cars_in_tunnel|. The former is set to true when at least one car entered the tunnel after the corresponding semaphore showed the green light. The latter represents the number of cars that are travelling through the tunnel.
+
+The initial state of the system is that the tunnel is empty and a car ran through it so it is possible to change the light on the other semaphore. Further discussion about the initial state of the model will be presented later.
+
+\begin{lstlisting}[name=construction]
+// semaphore lights
+bool left_green = true;
+bool right_green = false;
+
+// a car wants to enter the tunnel
+bool left_request = false;
+bool right_request = false;
+
+// car(s) are going to the left/right
+bool going_to_left = false;
+bool going_to_right = false;
+\end{lstlisting}
+
+Six boolean variables are defined in order to represent atomic propositions used in LTL formulae \ref{formula:liveness1}, \ref{formula:liveness2}, \ref{formula:other_semaphore} and \ref{formula:no_accident}.
+
+\begin{lstlisting}[name=construction]
+active proctype CarGenerator()
+{
+	do
+	:: left_queue ! 0;
+	:: right_queue ! 1;
+	od;
+}
+\end{lstlisting}
+
+A special process that non-deterministically generates cars that arrive to the system is used.
+
+\begin{lstlisting}[name=construction]
+active proctype LeftSemaphore()
+{
+	byte car;
+
+	do
+	::
+		left_queue ? car;
+		left_request = true;
+		cars_in_tunnel < TUNNEL_SIZE;
+		atomic
+		{
+			left_green;
+			tunnel_entered = true;
+			going_to_right = true;
+			cars_in_tunnel++;
+			left_request = false;
+		}
+
+	od;
+}
+\end{lstlisting}
+
+Both semaphores are modeled by two processes. Only the left one is shown above because the right one is identical but uses corresponding side variables.
+
+The semaphore works in a loop. When a car arrives, \verb|left_request| is set to true and it is checked that there is room for the car in the tunnel. When the green is lit up, the car enters the tunnel and the request is satisfied.
+
+\begin{lstlisting}[name=construction]
+active proctype SemaphoreCommander()
+{
+	do
+	:: left_green && right_request && tunnel_entered ->
+		left_green = false;
+		cars_in_tunnel == 0;
+		atomic
+		{
+			right_green = true;
+			tunnel_entered = false;
+		}
+	:: right_green && left_request && tunnel_entered ->
+		right_green = false;
+		cars_in_tunnel == 0;
+		atomic
+		{
+			left_green = true;
+			tunnel_entered = false;
+		}
+	od;
+}
+\end{lstlisting}
+
+Both semaphores are controlled by a special process called \emph{SemaphoreCommander}. It is ensured that when a car is waiting on the red light and at least one car has gone through the tunnel, the green light on the other side is turned off and when all cars leave the tunnel, the green light is lit up on the side of the waiting car.
+
+One can see that the change of the semaphore's state can be done only when at least one car has already entered the tunnel. To guarantee liveness of the system, it is necessary to allow to change the state of the semaphores right at the beginning of the simulation of the system. That can be done by initialization of the \verb|tunnel_entered| variable to \emph{true}.
+
+\begin{lstlisting}[name=construction]
+active proctype TunnelEnd()
+{
+	do
+	:: going_to_right ->
+		atomic
+		{
+			assert (cars_in_tunnel > 0);
+			cars_in_tunnel--;
+			if
+			:: cars_in_tunnel == 0 ->
+				going_to_right = false;
+			:: else ->
+			fi;
+		}
+	:: going_to_left ->
+		atomic
+		{
+			assert (cars_in_tunnel > 0);
+			cars_in_tunnel--;
+			if
+			:: cars_in_tunnel == 0 ->
+				going_to_left = false;
+			:: else ->
+			fi;
+		}
+	od;
+}
+\end{lstlisting}
+
+There is also the process listed above that is designed to simulate that a car has left the tunnel.
+
+The implemented system shown above was successfully verified against proposed formulae. The created system works correctly which was also checked through simulation when the source code was enriched by debug messages corresponding to events that happened in the model.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vim: syntax=tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,119 @@
+%==============================================================================
+% Encoding: utf8
+% Project:  ISJ - project presentation
+% Author:   Petr Zemek, xzemek02@stud.fit.vutbr.cz
+%==============================================================================
+
+\documentclass{beamer}
+
+\mode<presentation>
+{
+	\usetheme{Warsaw}
+	\setbeamercovered{transparent}
+}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{czech}
+
+% Presentation information
+\title[Jak jsem řešil projekt do předmětu ISJ \hspace*{7em} \insertframenumber/
+\inserttotalframenumber]{Převod webových stránek s publikacemi do formátu BibTeXML}
+
+\author[Petr Zemek]
+{
+	Petr Zemek
+}
+
+\institute
+{
+	Aneb jak jsem řešil projekt do předmětu ISJ...
+}
+
+\date{25.4.2008}
+
+% Faculty logo
+\pgfdeclareimage[height=0.5cm]{fit-logo}{fig/fit-logo}
+\logo{\pgfuseimage{fit-logo}}
+
+% Presentation
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\section{Zpracování vstupu}
+
+\begin{frame}[fragile]{Zpracování vstupu}
+\begin{itemize}
+	\item získání vstupních dat ze zadaného URL (\verb!urllib!)
+	\item překódování do unicode (utf-8)
+	\item uložení autora z \verb!<title>! a \verb!<h1>!
+	\item \uv{vykousnutí} publikací ze stránky
+		\begin{itemize}
+			\item BibTEX
+			\item HTML
+				\begin{itemize}
+					\item \verb!<p>!, \verb!<td>!, \verb!<li>!
+					\item \verb!<tag1>! \dots autor \dots rok \dots \verb!<tag2>!
+				\end{itemize}
+			\item Text bez HTML značek - oddělovač \verb!\n\n!
+		\end{itemize}
+	\item výstupem je seznam řetězců obsahujících (zřejmě) publikace
+\end{itemize}
+\end{frame}
+
+\section{Parsing publikací}
+
+\begin{frame}[fragile]{Parsing publikací}
+\begin{itemize}
+	\item \uv{rozkouskování} řetězce podle obvyklých oddělovačů (\verb!,;:"'!)
+		a HTML značek (\verb!<b>D., T., Cabrero</b>!)
+	\item převod HTML entit na dané znaky (\verb!BeautifulSoup!)
+	\item postupné procházení seznamu částí rozděleného řetězce
+		\begin{itemize}
+			\item pořadí údajů (autor, titulek, místo publikace, \dots)
+			\item formát (isbn, issn, počet stránek, rok, \dots)
+			\item klíčová slova (autor, seznam zemí, měsíců, \dots)
+		\end{itemize}
+	\item oddělení autorů pomocí \verb!and!
+	\item kontrola \uv{legality} a určení typu publikace
+	\item výstupem pro každý řetězec je slovník s klíči dle BibTeXu
+\end{itemize}
+\end{frame}
+
+\section{Výstup do formátu BibTeXML}
+
+\begin{frame}[fragile]{Výstup do formátu BibTeXML}
+\begin{itemize}
+	\item \verb!xml.dom.minidom! \dots klasika
+	\item přiřadit každé publikaci unikátní ID
+	\item každý slovník s publikací $\rightarrow$ \verb!entry! element
+\end{itemize}
+
+\begin{verbatim}
+	<?xml version="1.0" encoding="utf-8"?>
+	<file xmlns="http://bibtexml.sf.net/">
+	    <entry id="695115626">
+            <inproceedings>
+                 <author>Miguel A. Alonso</author>
+                 ...
+            </inproceedings>
+    </entry>
+</file>
+\end{verbatim}
+\end{frame}
+
+\section{}
+
+\begin{frame}{}
+	\begin{center}
+		Díky za pozornost!
+	\end{center}
+
+\end{frame}
+
+\end{document}
+
+% End of file

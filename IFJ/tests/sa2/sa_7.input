@@ -1,0 +1,2 @@
+//Na stejne urovni nemuzou byt 2 identifikatory se stejnym nazevem (lokalni)
+int f(int id) var int id; void main(){}

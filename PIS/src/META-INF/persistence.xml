@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+	<persistence-unit name="PIS">
+		<class>pis.model.Field</class>
+		<class>pis.model.Company</class>
+		<class>pis.model.Contract</class>
+		<class>pis.model.Employee</class>
+		<class>pis.model.Exhibition</class>
+		<class>pis.model.Exposition</class>
+		<class>pis.model.Pavilion</class>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect"/>
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/PIS?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>
+			<property name="hibernate.connection.username" value="s3rvac"/>
+			<property name="hibernate.connection.password" value="Ohx1pAh9"/>
+		</properties>
+	</persistence-unit>
+</persistence>

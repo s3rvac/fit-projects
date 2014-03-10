@@ -1,0 +1,2 @@
+//Volana funkce musi byt deklarovana
+int f() {g();} void main(){}

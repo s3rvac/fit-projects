@@ -1,0 +1,52 @@
+                        PDS - Serial-TCP/IP bridge, 2009
+                       ----------------------------------
+
+Description:
+    Simple serial-TCP/IP bridge. This program starts a concurrent TCP/IP server
+    and accepts client connections. When some client sends a message to
+    the server, it redirects it to the serial port. When there is an incoming
+    message on the serial port, it resends that message to all connected clients.
+
+Extensions and restrictions:
+    - some configuration options have restricted set of possible values
+      (e.g. you cannot set 1.5 stop bits, because there seems to be no way
+       how to set 1.5 stop bits on Linux; length_field can be maximally 4;
+       see bridge.cfg for other restrictions)
+    - connection timeout is reseted not only when a message is received,
+      but also if a message is sent (to allow large data transfers)
+
+System requirements:
+    - GNU Linux, x86/x86_64, kernel >= 2.6
+
+Software needed to compile and run the serial-TCP/IP bridge:
+    Name                        Version   Purpose
+    ----------------------------------------------------------------------------
+    GNU make                     >= 3.8   Compilation and linking of the project
+    g++                          >= 4.2   C++ source files compiler and linker
+    Standard C and C++ lib (with STL)     Functions, types
+
+Optional software:
+    Name                        Version   Purpose
+    ----------------------------------------------------------------------------
+    CPPUnit                      >= 1.12  Unit testing framework to compile
+                                          the testing suite
+Compilation:
+    - simply run `make` command in the project root directory
+    - to compile the project tester, run `make test` instead
+
+Bridge startup (synopsis):
+    ./bridge -f CONF_FILE_PATH
+
+    CONF_FILE_PATH - path to the configuration file (e.g. bridge.cfg)
+
+Usage examples:
+    ./bridge -f ./bridge.cfg
+
+Project was tested on:
+    - Debian 5.0, 2.6.28, x86_64
+    - Kubuntu 8.04, 2.6.24, x86_32
+    - CentOS 5, 2.6.16, x86_64
+    - Fedora 10, 2.6.27, x86_32
+
+Author:
+    Petr Zemek, xzemek02@stud.fit.vutbr.cz, 2009

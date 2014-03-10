@@ -1,0 +1,350 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
+	<meta name="author" content="Ondřej Lengál, Libor Polčák, Boris Procházka, Petr Zemek">
+	<meta name="description" content="PDB 2008 project - help">
+	<meta name="keywords" content="PDB">
+	<link rel="icon" href="./data/icons/favicon.gif" type="image/gif">
+	<link rel="shortcut icon" href="./data/icons/favicon.gif" type="image/gif">
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="./data/styles/screen.css">
+	<link rel="stylesheet" type="text/css" media="print" href="./data/styles/print.css">
+	<script src="./data/scripts/IEmarginFix.js" type="text/javascript"></script>
+	<title>PDB 2008 - Help</title>
+</head>
+<body>
+<div id="main">
+
+<h1>PDB 2008 Help Contents</h1>
+
+<ul class="contents">
+	<li><a href="#intro" title="Introduction">Introduction</a></li>
+	<li><a href="#app_window" title="Application Window">Application Window</a></li>
+	<li><a href="#animal_management" title="Animal Management">Animal Management</a></li>
+	<li><a href="#search" title="Photo Searching">Photo Searching</a></li>
+	<li><a href="#temporal" title="Temporal Queries">Temporal Queries</a></li>
+	<li><a href="#about" title="About Authors">About Authors</a></li>
+</ul>
+
+<h2 id="intro">Introduction</h2>
+	<p>
+		This application is a Zoo management system that exploits concepts of temporal, spatial and multmedia database data storage.
+	</p>
+
+<div class="go_back_links">
+	<a href="#intro" title="Introduction">Back to Introduction</a>&nbsp;|&nbsp;<a href="#main" title="Contents">Contents</a>
+</div>
+
+<h2 id="app_window">Application Window</h2>
+	<p>
+		When you start the application, you will see the following main window:
+	</p>
+	<img class="app_screen" src="data/images/application.png" alt="Application window">
+
+	<h3>Main Menu</h3>
+	<table class="wide_table">
+		<tr>
+			<th>Item</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>File</td>
+			<td>General application functionality</td>
+		</tr>
+		<tr>
+			<td>Search</td>
+			<td>Allows to search for animal pohotos</td>
+		</tr>
+		<tr>
+			<td>Queries</td>
+			<td>Various queries for execution</td>
+		</tr>
+		<tr>
+			<td>Database</td>
+			<td>Allows to restart the database to the default state</td>
+		</tr>
+		<tr>
+			<td>Help</td>
+			<td>Provides additional information</td>
+		</tr>
+	</table>
+
+	<h3>Map modes</h3>
+	<p>
+		You can choose from three different map modes - each provides
+		a different view:
+	</p>
+	<ul>
+		<li><strong>Map</strong> - display just building outlines</li>
+		<li><strong>Building</strong> - display building outlines and photos</li>
+		<li><strong>Animal</strong> - display building outlines and animals in them</li>
+	</ul>
+	<p>
+		The last mode allows you to move animals between objects using
+		the "drag-and-drop" feature.
+	</p>
+
+	<h3>Movement and zoom</h3>
+	<p>
+		You can move with the map by using the right panel with arrows
+		and zoom by moving the slider.
+	</p>
+
+	<h3>Object properties editation</h3>
+	<p>
+		When you select some object, at the right panel you will see its
+		name, photo and description. You can change them by right mouse
+		clicking on them (note that you cannot change every property of
+		all objects).
+	</p>
+
+	<h3>Contextual popup menu</h3>
+	<p>
+		If you right click on the map (or on some object), a contextual
+		popup menu will appear. Following actions are possible:
+	</p>
+	<ul>
+		<li><strong>Insert</strong> - insert an object (pavilion, exhibit, etc.)</li>
+		<li><strong>Delete</strong> - delete the selected object</li>
+		<li><strong>Show</strong> - show the nearest object (pavilion, exhibit, etc.)</li>
+		<li><strong>Animal management</strong> - show the animal management window
+			(only on objects that can contain animals)</li>
+		<li><strong>Queries</strong> - get some information for the selected object</li>
+	</ul>
+
+	<h3>Objects insertion</h3>
+	<p>
+		You can insert the following objects:
+	</p>
+	<ul>
+		<li><strong>Pavilion</strong> - left mouse click for each of the pavilion
+			vertex, right mouse click to finish the insertion</li>
+		<li><strong>Exhibit</strong> - same way as a pavilion is inserted</li>
+		<li><strong>Refreshment</strong> - left mouse click to place the center
+			of the refreshment, then another left click to adjust the diameter
+			of it (right mouse click to cancel)</li>
+		<li><strong>Path</strong> - left mouse click for the beginning and for
+			the end of the path (right mouse click to cancel)</li>
+		<li><strong>Entrance</strong> - left mouse click on the position where
+			you want to place the entrance (right mouse click to cancel)</li>
+	</ul>
+
+<div class="go_back_links">
+	<a href="#app_window" title="Application Window">Back to Application Window</a>&nbsp;|&nbsp;<a href="#main" title="Contents">Contents</a>
+</div>
+
+<h2 id="animal_management">Animal Management</h2>
+	<p>
+		When you right click on some pavilion or exhibit and select "Animal management",
+		you will see the following window for animal management:
+	</p>
+	<img class="app_screen" src="data/images/animal_management.png" alt="Animal management window">
+
+	<p>
+		In this window you can manage animals in the selected pavilion or exhibit.
+		You can either insert a new animal (select one from the species box,
+		set both dates and press the "Insert" button) or delete the selected
+		animal by pressing the "Delete" button.
+	</p>
+	<p>
+		If you want to move animals from one location to another,
+		use the "drag-and-drop" feature.
+	</p>
+
+<div class="go_back_links">
+	<a href="#animal_management" title="Animal Management">Back to Animal Management</a>&nbsp;|&nbsp;<a href="#main" title="Contents">Contents</a>
+</div>
+
+<h2 id="search">Photo Searching</h2>
+	<p>
+		When you click open the "Search" menu and click on the "Photo" menu item,
+		you will see the following window for photo searching:
+	</p>
+	<img class="app_screen" src="data/images/search.png" alt="Searching window">
+
+	<p>
+		You can either search by image similarity (upload some photo by
+		pressing the "Select photo" button and then press the "Search" button)
+		or image description (write some description of the photo you are
+		looking for and press the "Search" button).
+	</p>
+
+<div class="go_back_links">
+	<a href="#search" title="Photo Searching">Back to Photo Searching</a>&nbsp;|&nbsp;<a href="#main" title="Contents">Contents</a>
+</div>
+
+<h2 id="temporal">Temporal Queries</h2>
+	<p>
+	</p>
+
+	<h3>Data insertion</h3>
+	<p>
+		When a piece of data is inserted, it is inserted as a single interval from the insertion time to infinity (<tt>forever</tt>). Due to this, at the time of insertion it must be checked that the data does not collide with any data which is or will be valid (i.e. with all the intervals that <em>end after</em> the insertion time).
+	</p>
+
+	<h3>Data deletion</h3>
+	<p>
+		The data deletion process deletes all instances of the data from the database from given time (passed by the user) on. All intervals of the data which start after the given time are deleted. However, the case of the interval that starts before the deletion time and ends after the deletion time must be taken care of. Two possible cases may happen:
+	</p>
+
+	<ol>
+		<li>
+			<em>The deletion time coincides with the start of the interval</em>. In this case, the interval is deleted as well.
+			<img src="data/images/delete_coincides.png" alt="Deletion when interval coincides">
+		</li>
+		<li>
+			<em>The deletion time does not coincide with the start of the interval</em>. In this case, the interval shortened by setting the end time of the interval to the deletion time.
+			<img src="data/images/delete_not_coincide.png" alt="Deletion when interval does not coincide">
+		</li>
+	</ol>
+
+	<h3>Data modification</h3>
+	<p>
+		The most difficult data manipulation operation is data modification. We will try to explain our solution of this operation in the following text.
+	</p>
+
+	<ol>
+		<li>
+			A control operation that checks that the modification is valid (there is a time interval that can be modified) and the modification makes sense (an actual change happens).
+		</li>
+		<li>
+			Now, we are modifying a time interval (the one the modification time is in) and there are two possible cases:
+			<ol>
+				<li>
+					<em>The modification time coincides with the start of the interval</em>. In this case, the modified data is changed in the interval. In this case, however, there may appear a situation that the modified interval ends up the same as the interval that directly precedes this one and they are continuous (they share one point in time). If this happens, both intervals are joined into one.
+				<img src="data/images/modify_start_coincides.png" alt="Modification when start interval coincides">
+				</li>
+				<li>
+					<em>The modification time does not coincide with the start of the interval</em>. When this happens, the original interval is shortened to the time point when the modification takes place and a copy of the interval (with the particular piece of data modified) is inserted with validity from the modification time to the end of the original interval.
+				<img src="data/images/modify_start_not_coincide.png" alt="Modification when start interval does not coincide">
+				</li>
+			</ol>
+		
+		</li>
+		<li>
+			When the first interval is taken care of, all the following intervals that are continuous (i.e. that share one time point) and have the value of modified fields in the first interval are also changed (the value must again be continuous). Two cases may again take place:
+			<ol>
+				<li>
+					<em>The last of the intervals that changed is not the same as the following interval</em>. No additional action is performed.
+					<img src="data/images/modify_end_differently.png" alt="Modification when the last interval with the same value does not equal the following interval">
+				</li>
+				<li>
+					<em>The last of the intervals that changed is the same as the following interval</em>. The intervals are the same so they are merged into one (the first interval is stretched by setting its end time to the end time of the second one and the second one is deleted.
+					<img src="data/images/modify_end_the_same.png" alt="Modification when the last interval with the same value equals the following interval">
+				</li>
+			</ol>
+	</ol>
+
+	<h3>Special queries</h3>
+	<p>
+		There are the following temporal queries in the application:
+	</p>
+
+	<ol class="examples">
+		<li>
+			The query for the count of genera in the whole Zoo at given time (<tt>&lt;date&gt;</tt>):
+			<pre class="codeblock">
+VALIDTIME DATE &lt;date&gt;
+SELECT COUNT(*)
+FROM
+  (SELECT UNIQUE genus.genus_id
+  FROM animal_pavilion_rel JOIN
+    animal ON animal_pavilion_rel.animal_id = animal.animal_id JOIN
+    genus ON animal.genus_id = genus.genus_id
+
+  UNION
+
+  SELECT UNIQUE genus.genus_id
+  FROM animal_exhibit_rel JOIN
+    animal ON animal_exhibit_rel.animal_id = animal.animal_id JOIN
+    genus ON animal.genus_id = genus.genus_id)</pre>
+		</li>
+		<li>
+			Query for the name of the pavilion with the highest number of animals at given time (<tt>&lt;date&gt;</tt>):
+
+			<pre class="codeblock">
+VALIDTIME DATE &lt;date&gt;
+SELECT name
+FROM pavilion
+WHERE pavilion_id =
+  (SELECT pavilion_id
+   FROM (
+     SELECT pavilion_id, COUNT(*) AS num
+     FROM animal_pavilion_rel
+     GROUP BY pavilion_id
+     ORDER BY num DESC)
+   WHERE ROWNUM  = 1)</pre>
+		</li>
+		<li>
+			Query for the count of genera and classes in given pavilion (<tt>&lt;pavilion-id&gt;</tt>) at given time (<tt>&lt;date&gt;</tt>):
+
+			<pre class="codeblock">
+VALIDTIME DATE &lt;date&gt;
+SELECT COUNT(DISTINCT gn), COUNT(DISTINCT cs)
+FROM
+  (SELECT genus.genus_id AS gn, genus.class_id AS cs
+  FROM animal_pavilion_rel JOIN
+    animal ON animal_pavilion_rel.animal_id = animal.animal_id JOIN
+    genus ON animal.genus_id = genus.genus_id
+  WHERE animal_pavilion_rel.pavilion_id = &lt;pavilion-id&gt;)</pre>
+		</li>
+		<li>
+			Delete query for temporal data (deletes all items from the temporal database in given table (<tt>&lt;temporal-table&gt;</tt>) the ID column (<tt>&lt;object-key&gt;</tt>) of which has given ID (&lt;id&gt;) from given date (<tt>&lt;date&gt;</tt>):
+
+			<pre class="codeblock">
+VALIDTIME PERIOD[&lt;date&gt;-forever)
+DELETE
+FROM &lt;temporal-table&gt;
+WHERE &lt;object-key&gt; = &lt;id&gt;</pre>
+		</li>
+		<li>
+			Query that gets names of all animals that are in given pavilion (<tt>&lt;pavilion-id&gt;</tt>) from given date (<tt>&lt;date&gt;</tt>) and assigns time intervals that are related to them:
+
+			<pre class="codeblock">
+VALIDTIME DATE &lt;date&gt;
+SELECT an.species, VALIDTIME(an_pav_rel)
+FROM animal_pavilion_rel an_pav_rel JOIN
+  animal an ON an_pav_rel.animal_id = an.animal_id
+WHERE an_pav_rel.pavilion_id = &lt;pavilion-id&gt;</pre>
+		</li>
+	</ol>
+
+<div class="go_back_links">
+	<a href="#temporal" title="Temporal Queries">Back to Temporal Queries</a>&nbsp;|&nbsp;<a href="#main" title="Contents">Contents</a>
+</div>
+
+<h2 id="about">About Authors</h2>
+	<table class="normal_table">
+		<tr>
+			<td>Ondřej Lengál</td>
+			<td>xlenga00@stud.fit.vutbr.cz</td>
+		</tr>
+		<tr>
+			<td>Libor Polčák</td>
+			<td>xpolca03@stud.fit.vutbr.cz</td>
+		</tr>
+		<tr>
+			<td>Boris Procházka</td>
+			<td>xproch63@stud.fit.vutbr.cz</td>
+		</tr>
+		<tr>
+			<td>Petr Zemek</td>
+			<td>xzemek02@stud.fit.vutbr.cz</td>
+		</tr>
+	</table>
+
+	<p>
+		We are students at the Faculty of Information Technology at Brno University of Technology in the
+		Czech Republic and this is our project for Advanced Database Systems.
+	</p>
+<div class="go_back_links">
+	<a href="#about" title="About Authors">Back to About Authors</a>&nbsp;|&nbsp;<a href="#main" title="Contents">Contents</a>
+</div>
+
+<p id="images_valid">
+	<img src="data/images/valid-html401.png" alt="Valid HTML 4.01 Strict">
+	<img src="data/images/valid-css.png" alt="Valid CSS!">
+</p>
+
+</div> <!-- <div id="main"> -->
+</body>
+</html>

@@ -1,0 +1,53 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Encoding: utf8
+% Project: AIS - Exhibition ground - IS analysis and design
+% Authors:
+%     Libor Polčák, xpolca03@stud.fit.vutbr.cz
+%     Boris Procházka, xproch63@stud.fit.vutbr.cz
+%     Petr Zemek, xzemek02@stud.fit.vutbr.cz
+% Description: Main project file
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Configuration
+\documentclass[10pt, notitlepage]{article}
+
+% Style
+\usepackage{ais}
+
+% landscape
+\usepackage{lscape}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Project info %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\overalltitle{Informační systém výstaviště}
+
+\overallsubtitle{Projekt do předmětu Analýza a návrh informačních systémů}
+
+\author{
+Libor Polčák, xpolca03@stud.fit.vutbr.cz \\
+Boris Procházka, xproch63@stud.fit.vutbr.cz \\
+Petr Zemek, xzemek02@stud.fit.vutbr.cz \\
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Main document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\makeprojectparttitle{Prvotní analýza a plán projektu}
+
+% Page numbering
+\setcounter{page}{2}
+
+\input{part1}
+
+\makeprojectparttitle{Modely -- 1. iterace}
+
+\input{part2}
+
+\makeprojectparttitle{Výsledné modely}
+
+\input{part3}
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vim: syntax=tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

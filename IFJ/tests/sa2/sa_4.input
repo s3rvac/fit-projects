@@ -1,0 +1,2 @@
+//Kontrola, jestli sedi deklarace s naslednou definici
+int f(int); int f(string a) {} void main(){}

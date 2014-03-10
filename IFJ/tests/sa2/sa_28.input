@@ -1,0 +1,14 @@
+//Jeden prikaz
+//Predpokladany vysledek: OK
+void main();
+
+void main()
+var int i;
+{
+;
+i := 1+1;
+navesti:
+goto navesti;
+if (i) goto navesti;
+return;
+}

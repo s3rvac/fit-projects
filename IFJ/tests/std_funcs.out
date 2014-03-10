@@ -1,0 +1,18 @@
+0 -123 123 -1234567890 1234567890 -2147483647 2147483647
+0 -123 123 -1.23457e+09 1.23457e+09 -2.14748e+09 2.14748e+09
+0 -444.444 666.666 1e+58 -1e+67 1.2222e-234 1.3333e-289
+0 -444 666 0
+abcdefghijklmnopqrstuvwxyz cukrová vata\candyfloss je "mňam" 12345 .    $!@#%^&*()_+{}:"<>?| abcd$efgh\ 
+1
+1
+aaaa
+|| je 0
+|a| je 1
+|abcdefgh| je 8
+|abcdefghijklmnopqrstuvwxyzzzzzzzzzzzzzzzzzzzzzzzzz| je 50
+|"$\"| je 4
+abcdefghijklmnopqrstuvwxyz
+aefghtsdfsdbsdfsdfscsdfsdfewdsdfsfewerwersdfsffwfwfwlfsdfsdfsdfwewefgfsfsfsdfwehwfwefwfiwwwwwwwwwjfwfwefwkfwefwfwmnopqrstuvwxyz
+rrrrsssstttwwwwxxxxyyyyzzzz
+$$zzzzrrrrsssstttwwwwxxxxyy$$yy
+Boris Prochazka Libor Polcak Lukas Marsik Martin Tomec Petr Zemek xmarsi03@stud.fit.vutbr.cz xpolca03@stud.fit.vutbr.cz xproch63@stud.fit.vutbr.cz xtomec05@stud.fit.vutbr.cz xzemek02@stud.fit.vutbr.cz 

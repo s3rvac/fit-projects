@@ -1,0 +1,79 @@
+%==============================================================================
+% Encoding: utf8
+% Project:  ITY - Project 1
+% Author:   Petr Zemek, xzemek02@stud.fit.vutbr.cz
+%==============================================================================
+
+\documentclass[12pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{times}
+\usepackage[left=2cm,text={17cm, 24cm},top=3cm]{geometry}
+
+% Commands
+\newcommand\uv[1]{\quotedblbase #1\textquotedblleft}
+
+\begin{document}
+
+% Macros
+\include{csprimes}
+
+\section{Hladká sazba}
+
+Hladká sazba je sazba z~jednoho stupně, druhu a řezu písma sázená na stanovenou šířku odstavce. Skládá se
+z~odstavců, které obvykle začínají zarážkou, ale mohou být sázeny i bez zarážky -- rozhodující je celková
+grafická úprava. Odstavce jsou ukončeny východovou řádkou.
+
+Pokud sázíme text hladkou sazbou, nelze v~textu používat různé druhy a řezy písma, zvětšovat, či zmenšovat
+velikost písma vybraných slov. Rovněž bychom neměli používat barevné zvýraznění. Hladká sazba je určena
+především pro sazbu delších textů. Typicky se používá pro sazbu beletrie. Porušení konzistence sazby působí
+v~textu rušivě a unavuje čtenářův zrak.
+
+\section{Smíšená sazba}
+
+Smíšená sazba nemá tak omezující pravidla, jako sazba hladká. Nejčastěji se klasická hladká sazba doplňuje
+o~další řezy a druhy písma z~důvodu zvýraznění důležitých pojmů. Existuje důležité pravidlo:
+
+\begin{quotation}
+	Čím \texttt{více} {\Large druhů}, \textit{řezů},
+	{\Huge v}{\LARGE e}{\Large l}{\large i}{\normalsize k}{\small o}{\footnotesize s}{\scriptsize t}{\tiny í}
+	a barev \underline{písma} \textit{použijeme}, tím se \underline{\textbf{\textit{dokument}}} stane
+	\textsl{čitelnější}. Čtenáři to \underline{vždy} \textsc{ocení}!!!
+\end{quotation}
+
+Tímto pravidlem byste se nikdy neměli řídit. Příliš časté zvýrazňování textových elementů jednak svědčí
+o~amatérismu autora (jaké štěstí, že do tištěných dokumentů nelze vkládat pohyblivé obrázky) a navíc to působí
+velmi rušivě. Dobře navržený dokument by měl obsahovat maximálně 4 řezy či druhy písma. Dobře navržený
+dokument je decentní, ne chaotický.
+
+Důležitým znakem profesionálně vysázených dokumentů je konzistence používání různých druhů zvýraznění.
+Smíšená sazba se nejčastěji používá pro sazbu technických zpráv a vědeckých článků. Konzistentní používání
+zvýrazňovačů může například znamenat, že \textbf{tučný řez} písma bude vyhrazen pouze pro klíčová slova,
+\textit{skloněný řez} pouze pro doposud neznámé pojmy, a že se to nebude míchat. Skloněný řez působí méně
+rušivě a používá se častěji. V~\LaTeX{u} pro jeho sázení používáme raději příkaz \verb!\emph{text}! než
+\verb!\textit{text}!.
+
+U~delších dokumentů technického či vědeckého charakteru bývá dobrým zvykem upozornit čtenáře na použitý styl
+v~úvodní kapitole.
+
+\section{České odlišnosti}
+
+Česká sazba se oproti okolnímu světu v~některých aspektech mírně liší. Jednou z~odlišností je sazba uvozovek.
+Uvozovky se v~češtině používají převážně pro zobrazení přímé řeči. V~menší míře se používají také pro
+zvýraznění přezdívek a ironie. V~češtině se používají dvojité \uv{uvozovky} namísto anglických dvojitých
+``uvozovek''. Ve smíšené sazbě se řez uvozovek řídí řezem prvního uvozovaného slova. Pokud je uvozována celá
+věta, sází se koncová tečka před uvozovku, pokud se uvozuje slovo nebo část věty, sází se tečka za uvozovku.
+
+V~originálním \LaTeX{u} bychom české uvozovky sázeli příliš pracně, proto je v~balíku czech k~dispozici příkaz
+\verb!\uv{text}!, který je vysází podle českých zvyklostí.
+
+Druhou odlišností je pravidlo pro sázení konců řádků. V~české sazbě by řádek neměl končit osamocenou
+jednopísmennou předložkou nebo spojkou (spojkou~a končit může při sazbě do 25~liter). Abychom cs\LaTeX{u}
+zabránili v~sázení osamocených předložek, vkládáme mezi předložku a slovo nezlomitelnou mezeru znakem \verb!~!
+(vlnka, tilda). Pro automatické doplnění nezlomitelných mezer slouží volně šiřitelný program \textit{vlna}.
+
+\end{document}
+
+% End of file

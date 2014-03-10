@@ -1,0 +1,21 @@
+//Funkce a ta ma v argumentu volani jine funkce
+//Predpokladany vysledek: OK
+void main();
+int intfce(int);
+int intfce2(int; int);
+
+void main()
+{
+}
+
+int intfce(int a)
+{
+return 1;
+}
+
+int intfce2(int a; int b)
+{
+intfce2(1+2+3, intfce2(intfce(0),intfce(intfce(intfce2(0,0)))));
+
+return 0;
+}

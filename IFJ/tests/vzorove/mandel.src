@@ -1,0 +1,146 @@
+// IFJ06 Mandel
+//
+// Autor: Martin Striz, 13.12.2006
+
+var
+	double offset_x,
+	double offset_y,
+	double aspect_x,
+	double aspect_y,
+	double bailout,
+	int width,
+	int height,
+	int iterations,
+	string author_text,
+	int author_x,
+	int author_y,
+	int author_length;
+
+int author(int; int);
+
+int compute_point(int x; int y)
+var
+	double zx, double zy,
+	double cx, double cy,
+	double tx, double ty,
+	int i;
+{
+	// z = c = pixel
+	cx := (x - offset_x) / aspect_x;
+	zx := cx;
+	cy := (y - offset_y) / aspect_y;
+	zy := cy;
+
+	i := 0;
+	for_i:
+
+		tx := zx * zx - zy * zy;
+		ty := 2 * zx * zy;
+		zx := tx + cx;
+		zy := ty + cy;
+
+		if zx * zx + zy * zy > bailout goto for_i_break;
+			
+	i := i + 1;
+	if i < iterations goto for_i;
+	for_i_break:
+
+	return i;
+}
+
+void print_char(int i)
+{
+	if i < 1 goto i1;
+	if i < 2 goto i2;
+	if i < 3 goto i3;
+	if i < 4 goto i4;
+	if i < 5 goto i5;
+	if i < 6 goto i6;
+	if i < 10 goto i10;
+	if i < 15 goto i15;
+	if i < 20 goto i20;
+	if i < 25 goto i25;
+	if i < 30 goto i30;
+	if i < 50 goto i50;
+	if i < iterations goto ifinal;
+
+	printstring(" ");
+	return;
+
+	i1: printstring("."); return;
+	i2: printstring("-"); return;
+	i3: printstring("+"); return;
+	i4: printstring("="); return;
+	i5: printstring("x"); return;
+	i6: printstring("z"); return;
+	i10: printstring("w"); return;
+	i15: printstring("a"); return;
+	i20: printstring("v"); return;
+	i25: printstring("n"); return;
+	i30: printstring("o"); return;
+	i50: printstring("i"); return;
+	ifinal: printstring("s"); return;
+}
+
+void mandel()
+var int x, int y, int i;
+{
+	y := 0;
+	for_y:
+
+		x := 0;
+		for_x:
+
+			if author(x, y) goto not_print;
+			print_char(compute_point(x, y));
+			not_print:
+
+		x := x + 1;
+		if x < width goto for_x;
+
+		printstring("\n");
+
+	y := y + 1;
+	if y < height goto for_y;
+}
+
+void main()
+{
+	// velikost okna
+	width := 120;
+	height := 51;
+	iterations := 50;
+
+	// info
+	author_text := "IFJ Mandel, UFO '06";
+	author_length := strlen(author_text);
+	author_x := (width - author_length) div 2;
+	author_y := height div 2;
+
+	// zoom
+	offset_x := 79.0;
+	offset_y := 25.0;
+	aspect_x := 39.0;
+	aspect_y := 18.15;
+
+	// bailout test
+	bailout := 4.0;
+
+	mandel();
+}
+
+int author(int x; int y) {
+	if y != author_y goto finish;
+	if x < author_x goto finish;
+	if x > author_x + author_length - 1 goto finish;
+
+	if x != author_x goto not_print;
+	printstring(author_text);
+not_print:
+	return 1;
+	
+finish:
+	return 0;
+}
+
+// vim:set ts=2 enc=utf8:

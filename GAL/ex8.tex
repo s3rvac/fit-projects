@@ -1,0 +1,74 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Project: GAL 2009
+% Authors:
+%     Radim Kapavik, xkapav01@stud.fit.vutbr.cz
+%     Ondrej Lengal, xlenga00@stud.fit.vutbr.cz
+%     Vojtech Storek, xstore02@stud.fit.vutbr.cz
+%     Vit Triska, xtrisk01@stud.fit.vutbr.cz
+%     Petr Zemek, xzemek02@stud.fit.vutbr.cz
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Exercise 8}
+\label{sec:Ex8}
+
+\subsection*{Assignment}
+
+Suppose that instead of a linked list, each array entry $Adj[u]$ is a hash
+table containing the vertices $v$ for which $(u, v) \in E$. If all edge lookups
+are equally likely, what is the expected time to determine whether an edge is
+in the graph? What disadvantages does this scheme have? Suggest an alternate
+data structure for each edge list that solves these problems. Does your
+alternative have disadvantages compared to the hash table?
+
+\subsection*{Solution}
+
+\textit{If all edge lookups are equally likely, what is the expected time to
+determine whether an edge is in the graph?}
+
+In practice, lookup time depends on the implementation of the hash table
+(number of collisions and collisions handling). In theory, $O(1)$ is considered
+as the expected time for hash table lookup.
+
+\textit{What disadvantages does this scheme have?}
+
+The hash table approach has the following disadvantages:
+
+\begin{itemize}
+	\item Discovery of all vertices $v$ which are connected to some vertex $u$
+	(adjacency vertices) --- one would need to go through the whole hash table
+	to find out this piece of information.
+
+	\item Collisions handling --- depending on the size of the hash table and
+	on the implementation of the hash function, it can happen that two vertices
+	will eventually be mapped to the same place, so one need a mechanism to
+	solve such collisions, which can degrade performance of hash table
+	operations.
+
+	\item Memory intensity --- hash tables are (in general) more memory
+	intensive than other techniques (such as lists).
+\end{itemize}
+
+\textit{Suggest an alternate data structure for each edge list that solves
+these problems.}
+
+Instead of a hash table (and other techniques presented in the lecture), one
+can use an \emph{associative array} implemented via some sort of a
+\emph{self-balancing binary search tree} (such as an AVL tree or a red-black
+tree). Using this data structure, one can easily determine all adjacent
+vertices (one pass through the tree), there is no collisions handling needed
+and the underlying tree needs space only for vertices (there is no overhead),
+thus providing a solution to the memory issue of hash tables.
+
+\textit{Does your alternative have disadvantages compared to the hash table?}
+
+An associative array (as presented above) has the following disadvantages:
+
+\begin{itemize}
+	\item Slower insertion, lookup and deletion of vertices --- in constrast to
+	hash tables, balanced binary trees need $O(log(n))$ time to perform these
+	operations.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vim: syntax=tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

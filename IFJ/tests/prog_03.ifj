@@ -1,0 +1,38 @@
+int ack(int m;int n)
+{
+  if (m==0) goto case1;
+  if (n==0) goto case2;
+  goto case3;
+  case1:
+    return n+1;
+  case2:
+    return ack(m-1,1);
+  case3:
+    return ack(m-1,ack(m,n-1));
+}
+
+
+void main() 
+var
+  int m,
+  int n,
+  int max_m,
+  int max_n;
+{
+
+
+ max_m:=4;
+ max_n:=8;
+
+ m:=0;
+ m_cycle:
+   n:=0;
+   n_cycle:
+     printstring(int2str(ack(m,n))+";");
+     n:=n+1;
+   if (n<max_n) goto n_cycle;
+   printstring("\n");
+   m:=m+1;
+ if (m<max_m) goto m_cycle;
+
+}

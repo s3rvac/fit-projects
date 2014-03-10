@@ -1,0 +1,33 @@
+/*
+	Encoding: utf8
+	Author:   Petr Zemek, http://www.stud.fit.vutbr.cz/~xzemek02/
+*/
+
+h1, h2, h3 {
+	page-break-after: avoid;
+}
+
+@media print {
+	body {
+		color: #000000;
+		background: #ffffff;
+		font-size: 10pt;
+		font-family: serif;
+	}
+
+	h1 {
+		font-size: 140%;
+	}
+
+	h2 {
+		font-size: 120%;
+	}
+
+	h3 {
+		font-size: 110%;
+	}
+
+	#language, #header-right, #menu, #column1, #footer {
+		display: none;
+	}
+}

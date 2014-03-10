@@ -1,0 +1,108 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Project: GAL 2009
+% Authors:
+%     Radim Kapavik, xkapav01@stud.fit.vutbr.cz
+%     Ondrej Lengal, xlenga00@stud.fit.vutbr.cz
+%     Vojtech Storek, xstore02@stud.fit.vutbr.cz
+%     Vit Triska, xtrisk01@stud.fit.vutbr.cz
+%     Petr Zemek, xzemek02@stud.fit.vutbr.cz
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Exercise 4}
+\label{sec:Ex4}
+
+\subsection*{Assignment}
+
+Given an adjacency-list representation of a multigraph $G = (V, E)$, describe
+an $O(|V| + |E|)$-time algorithm to compute the adjacency-list representation
+of the ``equivalent'' undirected graph $G^{'} = (V, E^{'})$, where $E^{'}$
+consists of the edges in $E$ with all multiple edges between two vertices
+replaced by a single edge and with all self-loops removed.
+
+\subsection*{Solution}
+
+For a graph $G = (V, E)$, let $n = |V|$ and $m = |E|$.
+
+\textbf{Main idea}
+
+Let $G = (V, E)$ be a multigraph and $G^{'} = (V, E^{'})$ its ``equivalent''
+undirected graph (as defined in the assignment). First, for every directed edge
+$(u, v) \in E$, there must be an undirected edge in adjacency lists for both
+vertices in $G^{'}$ ($u$ is connected to $v$ and $v$ is connected to $u$), so
+$u$ will be appended to the (temporary --- see the following step) adjacency
+list of $v$ and vice versa. While going through all edges and performing this
+``direction removal'', loops can be taken out (for each vertex $u \in V$, do
+not add $u$ to the adjacency list of $u$).
+
+However, after this is done, adjacency-lists may contain duplicates, which must
+be removed (there can be at most one edge between each two vertices). To remove
+them and preserve the time complexity of the algorithm, the following procedure
+is used. First, note that edges were stored into temporary adjacency lists in
+the previous step and these temporary adjacency lists will now be filtered into
+resulting adjacency lists. Second, initialize a temporary array $WasConnTo$ of
+length $n$ (set values on all indices to $null$). Then, when removing
+duplicities from the temporary adjacency list for vertex $u$, $WasConnTo[v] =
+u$ means that vertex $v$ was already added to the adjacency list of $u$ (is
+already connected to $u$) and $WasConnTo[v] \neq u$ means that $v$ was not
+added to the adjacency list of $u$ (is not connected to $u$). After vertex $v$
+is added to the adjacency list of $u$, set $WasConnTo[v] = u$ to assure
+uniqueness of the edge.
+
+After all duplicities are removed from the temporary adjacency-list of vertex
+$u$, continue to remove duplicities for the next vertex $w$. Note that one does
+not need to re-initialize $WasConnTo$ at this point, because one adjacency list
+for each vertex is passed at a time, so now $WasConnTo[x] \neq w$ for all $x
+\in V$ (means that $w$ is not connected to any vertex, which corresponds to the
+fact that $Adj^{'}$ is initially empty for all vertices).
+
+\textbf{Algorithm}
+
+\begin{algorithm}[H]
+	\KwIn{Adjacency-list representation of a multigraph $G = (V, E)$ ($Adj[u]$
+	for each $u \in V$).}
+	\KwOut{Adjacency-list representation of a graph $G^{'} = (V, E^{'})$, which
+	has all multiple edges between two vertices replaced by a single edge and
+	with all self-loops removed ($Adj^{'}[u]$ for each $u \in V$).}
+
+	\tcp{Initialization}
+	\ForEach{$u \in V$}{
+		$WasConnTo[u] := null$\;
+		$TmpAdj^{'}[u] := []$\;
+		$Adj^{'}[u] := []$\;
+	}
+	\tcp{Remove loops and edge orientation}
+	\tcp{(store edges into the temporary adjacency-list $TmpAdj^{'}$)}
+	\ForEach{$u \in V$}{
+		\ForEach{$v \in Adj[u]$}{
+			\If(\tcp*[h]{do not include loops}){$u \neq v$}{
+				\tcp{Create an undirected edge for both $u$ and $v$}
+				$\mathrm{append}(TmpAdj^{'}[u], v)$\;
+				$\mathrm{append}(TmpAdj^{'}[v], u)$\;
+			}
+		}
+	}
+	\tcp{Remove duplicities}
+	\tcp{(store edges into the resulting adjacency-list $Adj^{'}$)}
+	\ForEach{$u \in V$}{
+		\ForEach{$v \in TmpAdj^{'}[u]$}{
+			\If{$WasConnTo[v] \neq u$}{
+				$WasConnTo[v] := u$\;
+				$\mathrm{append}(Adj^{'}[u], v)$\;
+			}
+		}
+	}
+\end{algorithm}
+
+\textbf{Complexity analysis}
+
+The initialization part takes $n$ steps. The second part of the algorithm
+(loops and edge orientation removal) needs $m$ steps (every edge must be
+passed). Again, we assume that appending to a list is a $O(1)$ operation (see
+\nameref{sec:Ex3}). Finally, to remove duplicities from the temporary
+adjacency-list, one needs at most $2m$ steps (every edge, except loops, was
+replaced with two undirected edges). This gives us the total time complexity
+$O(n + m) + O(2m) = O(n + 3m) = O(n + m)$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vim: syntax=tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

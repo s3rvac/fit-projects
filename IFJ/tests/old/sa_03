@@ -1,0 +1,40 @@
+//
+// Testovaci program pro prediktivni SA - pouze telo funkci (bez vyrazu)
+//
+
+void func()
+{
+	// Navesti
+	label:
+
+	// Prazdny prikaz
+	;
+
+	// Podminka
+	if 1 goto label;
+
+	// Skok
+	goto label;
+
+	// Prirazeni
+	a := 1;
+
+	// Dalsi navesti
+	label2:
+	a := 2;
+
+	// Volani funkci
+	func();
+	func(1);
+	func(1,1);
+	func(1,1,1);
+	func(1,1,1,1);
+
+	return;
+}
+
+int func2()
+{
+	// Vraceni hodnoty
+	return 1;
+}

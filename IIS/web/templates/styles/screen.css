@@ -1,0 +1,393 @@
+/*
+	Encoding: utf8
+	Author:   Petr Zemek, http://www.stud.fit.vutbr.cz/~xzemek02/
+*/
+
+html, body {
+ 	height: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	font-family: verdana, arial, sans-serif;
+	font-size: 0.74em;
+	background-color: #d6d4d2;
+	color: #000000;
+}
+
+p {
+	margin: 0;
+	padding: 0 0 24px 0;
+	line-height: 20px;
+}
+
+h1 {
+	padding: 28px 0 0 19px;
+	font-family: arial, verdana, sans-serif;
+	font-size: 200%;
+	font-weight: bold;
+	margin: 0;
+	text-transform: uppercase;
+	background-color: #ffffff;
+	color: #2264b6;
+	border-color: #d6d4d2;
+}
+
+h2 {
+	font-family: tahoma, verdana, arial, sans-serif;
+	font-size: 155%;
+	font-weight: normal;
+	margin: 0;
+	text-transform: uppercase;
+	background-color: #ffffff;
+	color: #2264b6;
+	border-color: #d6d4d2;
+}
+
+h3 {
+	font-family: tahoma, verdana, arial, sans-serif;
+	font-size: 115%;
+	_font-size: 15px; /* IE Hack - display the font size correctly */
+	font-weight: normal;
+	margin: 0;
+	text-transform: uppercase;
+	background-color: #ffffff;
+	color: #2264b6;
+	border-color: #d6d4d2;
+}
+
+img {
+	border: 0;
+}
+
+blockquote {
+	margin: 20px 0 20px 0;
+	padding: 10px 20px 0 20px;
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	background-color: #f7f5ef;
+	color: #000000;
+	border-color: #93919d;
+}
+
+ul {
+	margin: 8px 0 0 14px;
+	padding: 0;
+}
+
+ul li {
+	list-style-type: square;
+	margin: 0 0 11px 0;
+	padding: 0;
+}
+
+#main {
+	width: 934px;
+	margin-left: auto;
+	margin-right: auto;
+	background: #ffffff url(../images/background.jpg) repeat-y;
+	color: #000000;
+	min-height: 100%;
+	position: relative;
+	 /* IE hack - without this it simply doesn't work properly in IE */
+	_height: 100%;
+}
+
+#header {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+	width: 910px;
+	text-align: left;
+	border-bottom: 1px solid;
+	border-color: #d6d4d2;
+}
+
+#header-left {
+	vertical-align: top;
+}
+
+#header-right {
+	width: 35%;
+}
+
+#login {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: right;
+	float: right;
+}
+
+#language {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: right;
+}
+
+#content {
+	margin-left: auto;
+	margin-right: auto;
+	width: 910px;
+	height: auto;
+	padding: 0;
+	text-align: justify;
+	overflow: visible;
+	min-height: 100%;
+}
+
+#column1 {
+	width: 242px;
+	float: left;
+	padding: 16px 0 15px 19px;
+}
+
+#column1 h2 {
+	padding: 0 0 6px 0;
+	margin: 0 0 12px 0;
+	background-color: #ffffff;
+	color: #2264b6;
+	border-color: #d6d4d2;
+}
+
+.sidebar-items {
+	position: relative;
+	text-align: left;
+	width: 180px;
+	float: left;
+	margin: 0 0 15px 0;
+	padding: 8px 0 8px 0;
+	background: #ffffff;
+	color: #000000;
+	border-color: #93919d;
+}
+
+.sidebar-item {
+	margin-bottom: -11px;
+}
+
+#column2 {
+	text-align: justify;
+	padding: 12px 22px 15px 0;
+/* 	width: 602px; */
+	width: 627px;
+	float: right;
+}
+
+#column2 h2 {
+	padding: 12px 0 6px 0;
+	margin: 0 0 12px 0;
+	background-color: #ffffff;
+	color: #2264b6;
+	border-color: #d6d4d2;
+}
+
+div.spacer {
+	clear: both;
+	width: 80px;
+	height: 32px;
+}
+
+.page-description {
+	margin-top: 10px;
+	margin-bottom: 20px;
+	width: 400px;
+}
+
+.module-actions {
+	margin-right: 10px;
+}
+
+#footer {
+	padding: 12px 0 3px 0;
+	width: 910px;
+	text-align: center;
+	border-top: 1px solid;
+	margin-left: auto;
+	margin-right: auto;
+ 	margin-bottom: 5px;
+	background-color: #ffffff;
+	color: #000000;
+	border-color: #d6d4d2;
+	/* Place footer to the page bottom */
+	position: absolute;
+	bottom: 0;
+	left: 12px;
+}
+
+#pagination {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	text-align: right;
+}
+
+/* Links */
+.sidebar-items a, #column2 a {
+	padding: 0;
+	text-decoration: underline;
+}
+
+.sidebar-items a:hover, #column2 a:hover {
+	padding: 0;
+	text-decoration: none;
+}
+
+#footer a {
+	text-decoration: underline;
+}
+
+#footer a:hover {
+	text-decoration: none;
+}
+
+#footer a, #footer a:hover {
+	background-color: #ffffff;
+	color: #000000;
+}
+
+#menu li a {
+	background: transparent;
+	color: #413e33;
+	border-color: #93919d;
+}
+
+#menu li a:hover, #menu li a#selected {
+	background: transparent;
+	color: #413e33;
+	border-color: #ffffff;
+}
+
+#content, #column1, #column2, .sidebar-items a, #column2 a, .sidebar-items a:hover, #column2 a:hover {
+	background: #ffffff;
+	color: #000000;
+}
+
+/* Horizontal alignments */
+.align-left {
+	text-align: left;
+}
+
+.align-right {
+	text-align: right;
+}
+
+.align-center {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.align-justify {
+	text-align: justify;
+}
+
+.left {
+	float: left;
+	padding: 0 8px 0 0;
+}
+
+.right {
+	float: right;
+	padding: 0 0 0 8px;
+}
+
+.center {
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+}
+
+/* Tables */
+tr.table-header {
+	font-weight: bold;
+	text-align: left;
+	vertical-align: bottom;
+}
+
+td.table-label {
+	width: 160px;
+	font-weight: bold;
+	vertical-align: top;
+	text-align: left;
+}
+
+td.table-input {
+	text-align: left;
+}
+
+td.view-small-column {
+	 width: 50px;
+	 text-align: center;
+}
+
+.main-table {
+	margin-left: 50px;
+	padding: 2px;
+	text-align: left;
+}
+
+.main-table td {
+	padding-right: 10px;
+	vertical-align: top;
+	text-align: left;
+}
+
+/* Forms */
+form {
+	margin-top: 0;
+}
+
+input, textarea {
+	font-family: verdana, arial, sans-serif;
+	font-size: 100%;
+	border: 1px solid;
+	border-color: #aaa2ae;
+	background-color: #ffffff;
+	color: #000000;
+}
+
+.checkbox {
+	border: 0;
+}
+
+.mandatory-field {
+	font-weight: bold;
+	color: #ff0000;
+}
+
+.submit {
+	font-family: verdana, arial, sans-serif;
+	font-size: 100%;
+	border: 1px solid;
+	cursor: pointer;
+}
+
+.action-buttons {
+	text-align: center;
+	margin-top: 5px;
+}
+
+/* Error/success messages */
+.message {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.message-centered {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.error-message {
+	color: #ff0000;
+}
+
+.success-message {
+	color: #07a203;
+}

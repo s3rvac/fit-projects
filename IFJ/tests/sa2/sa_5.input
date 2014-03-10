@@ -1,0 +1,2 @@
+//Na stejne urovni nemuzou byt 2 identifikatory se stejnym nazevem (globalni)
+var int id, int id; void main(){}

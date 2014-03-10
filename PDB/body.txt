@@ -1,0 +1,17 @@
+xlenga00 100%
+xpolca03 100%
+xproch63 100%
+xzemek02 100%
+
+Ondřej Lengál's specialization was the temporal part of the project, database
+connection including queries execution and special queries creation.
+Libor Polčák populated our database with basic data (like pavilions and animals),
+considered animal management and created popup menus providing variable
+operations with objects in our application.
+Boris Procházka took care of the graphical user interface related to the drawing
+of objects (different view modes, zoom) and manipulation with them (moving
+animals, creating new objects etc).
+Project team leader was Petr Zemek, who was responsible for the application
+as a whole, database scheme creation, multimedia part of the project
+(uploading images, searching by image similarity and description) and
+team work management.

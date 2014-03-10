@@ -1,0 +1,24 @@
+var int vysl;
+void main();
+
+int faktorial(int i)
+{
+	if (i > 1) goto calc;
+	if (i < 0) goto error;
+	return 1;
+calc:
+	return i*faktorial(i-1);
+error:
+	return i; //vraci zaporne cislo
+}
+
+void main()
+var int param;
+{
+	param := 5;
+	vysl := faktorial(param);
+	printstring("Vysledkem funkce faktorial("
+						+ int2str(param)
+						+ ") je "
+						+ int2str(vysl) );
+}

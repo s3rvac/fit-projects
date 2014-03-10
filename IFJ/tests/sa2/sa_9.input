@@ -1,0 +1,2 @@
+//Pouzita promenna musi byt deklarovana (zde lokalni)
+var int a; int f(int b) {return b;} void main(){}

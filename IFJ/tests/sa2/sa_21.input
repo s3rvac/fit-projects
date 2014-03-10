@@ -1,0 +1,16 @@
+//Kontrola navratovych typu fci
+//Predpokladany vysledek: Chyba, nesedi typy
+void main();
+
+double doublefce();
+
+void main()
+{
+return;
+}
+
+double doublefce()
+var int a;
+{
+return a;
+}

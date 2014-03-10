@@ -1,0 +1,165 @@
+/*
+ * File: screen.css
+ * Authors:  Ondrej Lengal,   xlenga00@stud.fit.vutbr.cz
+ *           Libor Polcak,    xpolca03@stud.fit.vutbr.cz
+ *           Boris Prochazka, xproch63@stud.fit.vutbr.cz
+ *           Petr Zemek,      xzemek02@stud.fit.vutbr.cz
+ * Date: 14.12.2008
+ * Description: CSS style for normal view via browser
+ */
+
+* {
+	padding: 0;
+	border: 0;
+}
+
+body {
+	color: #000000;
+	background: #ffffff;
+	font: 12px arial,verdana,sans-serif;
+	text-align: left;
+}
+
+#main {
+ 	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30pt;
+	margin-bottom: 60pt;
+}
+
+/* Headers */
+h1 {
+	color: #022580;
+	background: #ffffff;
+	font: 2.5em arial,verdana,sans-serif;
+}
+
+h2 {
+	color: #022580;
+	background: #ffffff;
+	font: 1.5em arial,verdana,sans-serif;
+	margin-top: 1.5em;
+	margin-bottom: 1.2em;
+}
+
+h3 {
+	color: #284aa2;
+	background: #ffffff;
+	font: 1.2em arial,verdana,sans-serif;
+	margin-top: 1.5em;
+	margin-bottom: 1.2em;
+}
+
+h4 {
+	background: #ffffff;
+	text-indent: 2em;
+}
+
+h5 {
+	background: #ffffff;
+	text-indent: 2em;
+}
+
+p {
+/* 	margin: 1em; */
+	text-align: justify;
+	text-indent: 2em;
+}
+
+.contents {
+	color: #284aa2;
+	background: #ffffff;
+	font: 1.2em arial,verdana,sans-serif;
+	margin-top: 1.5em;
+}
+
+.examples {
+	margin-top: 1.5em;
+}
+
+/* Links */
+a:link, a:visited, a:active {
+	color: #022580;
+	font-weight: normal;
+}
+
+a:hover {
+	font-weight: normal;
+}
+
+/* Link back to some element */
+.go_back_links {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	text-align: center;
+}
+
+/* Lists */
+li {
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+	margin-left: 2.5em;
+}
+
+/* Tables */
+.normal_table {
+	border-style: none;
+}
+
+.centered_table {
+	margin: auto;
+	border-style: none;
+}
+
+.wide_table {
+	width: 100%;
+	border-style: none;
+}
+
+.example {
+	display: block;
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+	white-space: pre;
+}
+
+ol {
+	list-style-type: decimal
+}
+
+ol li ol {
+	list-style-type: lower-alpha
+}
+
+.codeblock {
+	display: block;
+	margin-top: 0.8em;
+	margin-left: 0.8em;
+	margin-bottom: 0.8em;
+	white-space: pre;
+	background: #dddddd;
+}
+
+td {
+	font: 12px arial,verdana,sans-serif;
+	vertical-align: top;
+	padding: 0.2em;
+	text-align: left;
+}
+
+/* Images */
+.app_screen {
+	display: block;
+	text-align: center;
+	margin: auto;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+#images_valid {
+	display: block;
+	text-align: right;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}

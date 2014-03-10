@@ -1,0 +1,131 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Project: GAL 2009
+% Authors:
+%     Radim Kapavik, xkapav01@stud.fit.vutbr.cz
+%     Ondrej Lengal, xlenga00@stud.fit.vutbr.cz
+%     Vojtech Storek, xstore02@stud.fit.vutbr.cz
+%     Vit Triska, xtrisk01@stud.fit.vutbr.cz
+%     Petr Zemek, xzemek02@stud.fit.vutbr.cz
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Exercise 7}
+\label{sec:Ex7}
+
+\subsection*{Assignment}
+The \textit{\textbf{incidence matrix}} of a directed graph $G = (V, E)$ is
+a $|V| \times |E|$ matrix $B = (b_{ij})$ such that
+
+$$
+b_{ij} =
+  \left\{
+  \begin{array}{ll}
+    -1 & \mbox{if edge $j$ leaves vertex $i$,} \\
+     1 & \mbox{if edge $j$ enters vertex $i$,} \\
+     0 & \mbox{otherwise}.
+  \end{array}
+  \right.
+$$
+
+Describe what the entries of the matrix product $B B^{T}$ represent, where
+$B^{T}$ is the transpose of $B$.
+
+\subsection*{Solution}
+
+For a graph $G = (V, E)$, let $n = |V|$ and $m = |E|$.
+
+$$
+B =
+\left[
+\begin{array}{*{5}{c}}
+  b_{11} & b_{12} & b_{13} & \cdots & b_{1m} \\
+  b_{21} & b_{22} & b_{23} & \cdots & b_{2m} \\
+  b_{31} & b_{32} & b_{33} & \cdots & b_{3m} \\
+  \vdots & \vdots & \vdots & \ddots & \vdots \\
+  b_{n1} & b_{n2} & b_{n3} & \cdots & b_{nm} \\
+\end{array}
+\right]
+\qquad
+B^{T} =
+\left[
+\begin{array}{*{5}{c}}
+  b^{T}_{11} & b^{T}_{12} & b^{T}_{13} & \cdots & b^{T}_{1n} \\
+  b^{T}_{21} & b^{T}_{22} & b^{T}_{23} & \cdots & b^{T}_{2n} \\
+  b^{T}_{31} & b^{T}_{32} & b^{T}_{33} & \cdots & b^{T}_{3n} \\
+  \vdots & \vdots & \vdots & \ddots & \vdots \\
+  b^{T}_{m1} & b^{T}_{m2} & b^{T}_{m3} & \cdots & b^{T}_{mn} \\
+\end{array}
+\right]
+\qquad
+\mbox{where $b^{T}_{ij} = b_{ji}$}
+$$
+
+It holds that
+
+$$
+B B^{T} = C =
+\left[
+\begin{array}{*{5}{c}}
+  c_{11} & c_{12} & c_{13} & \cdots & c_{1n} \\
+  c_{21} & c_{22} & c_{23} & \cdots & c_{2n} \\
+  c_{31} & c_{32} & c_{33} & \cdots & c_{3n} \\
+  \vdots & \vdots & \vdots & \ddots & \vdots \\
+  c_{n1} & c_{n2} & c_{n3} & \cdots & c_{nn} \\
+\end{array}
+\right]
+$$
+
+where
+
+$$
+c_{ij} = b_{i1} b^{T}_{1j} + b_{i2} b^{T}_{2j} + b_{i3} b^{T}_{3j} + \dots
++ b_{im} b^{T}_{mj} =
+\sum_{k=1}^{m}(b_{ik} b^{T}_{kj})
+$$
+
+However, because $b^{T}_{ij} = b_{ji}$, this can be modified to
+
+$$
+c_{ij} = \sum_{k=1}^{m}(b_{ik} b_{jk})
+$$
+
+Let us study two distinct cases:
+
+\begin{enumerate}
+
+  \item[$i = j$:] (elements of the main diagonal) In this case
+
+  $$
+  c_{ij} = c_{ii} = \sum_{k=1}^{m}(b_{ik} b_{ik}) = \sum_{k=1}^{m} b_{ik}^{2}
+  $$
+
+  Because $b_{ik} \in \{-1, 1, 0\}$, it holds that $b_{ik}^{2} \in \{1, 0\}$
+  ($(-1)^{2} = 1$, $1^{2} = 1$, $0^{2} = 0$). Therefore,
+
+  $$
+  b_{ij}^2 =
+  \left\{
+  \begin{array}{ll}
+     1 & \mbox{if edge $j$ enters or leaves vertex $i$,} \\
+     0 & \mbox{otherwise}.
+  \end{array}
+  \right.
+  $$
+
+  This means that $c_{ii} = \sum_{k=1}^{m} b_{ik}^{2}$ is the number of edges
+  entering or leaving vertex $i$ (the degree of vertex $i$).
+
+
+  \item[$i \ne j$:] for this case, it holds that $(b_{ik} b_{jk}) \in \{-1,
+  0\}$ (it cannot happen that $b_{ik} = 1$ and $b_{jk} = 1$ for some $k \in
+  \{1, 2, \dots, m\}$, because that would mean that edge $k$ leaves two
+  distinct vertices (as $i \ne j$). $(b_{ik} b_{jk}) = -1$ iff there is an edge
+  from vertex $i$ to vertex $j$ (or vice versa), $0$ otherwise. This means that
+  $-c_{ij} = -\sum_{k=1}^{m}(b_{ik} b_{jk})$ is the total number of edges
+  between vertices $i$ and $j$.
+
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vim: syntax=tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

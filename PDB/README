@@ -1,0 +1,15 @@
+                PDB ZOO, Advanced Database Systems Project, 2008
+               --------------------------------------------------
+
+Requirements:
+ - Java >= 6
+ - Netbeans >= 6.0.1 (http://www.netbeans.org/)
+
+Usage:
+ - to start our application, open the `nbproject` project in Netbeans
+   environment and run it
+
+Important paths:
+ - project sources:          nbproject/src/
+ - program documentation:    doc/prog/html/
+ - help:                     doc/help/

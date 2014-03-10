@@ -1,0 +1,15 @@
+//Kontrola navratovych typu fci
+//Predpokladany vysledek: Chyba, nesedi typy
+void main();
+
+int intfce();
+
+void main()
+{
+return;
+}
+
+int intfce()
+{
+return 1.21e3;
+}

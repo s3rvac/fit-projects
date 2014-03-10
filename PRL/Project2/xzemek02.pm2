@@ -1,0 +1,325 @@
+//
+// Project: PRL - Carry Look Ahead Parallel Binary Adder
+// Author:  Petr Zemek, xzemek02@stud.fit.vutbr.cz
+//
+program clapba;
+
+// Debugging (0 - off, 1 - on).
+const DEBUG = 0;
+
+// Possible values for the d-array (ASCII codes for debugging purposes).
+const DP = 112; // Propagate
+const DS = 115; // Stop
+const DG = 103; // Generate
+
+// Number of bits.
+sharedvar n: word;
+// Input numbers (in bits).
+sharedvar x: array[1] of word;
+sharedvar y: array[1] of word;
+// Result (x+y in bits)
+sharedvar z: array[1] of word;
+// Carry (for each bit).
+sharedvar c: array[1] of word;
+// d-array.
+sharedvar d: array[1] of word;
+// Base in the d array (because the number of bits must not necessary be
+// a power of 2, so in this case there are going to be redundant bits in
+// the d-array just to make the algorithms work).
+sharedvar base: word;
+// Array that can processors use for storing temporary data
+sharedvar tmpArr: array[1] of word;
+
+//
+// Initialization procedure.
+//
+procedure init;
+var i, nP: word;
+begin
+	// Read the number of bits
+	read(n);
+
+	// Number of processors
+	// (becase the number of bits must not necessary be a power of 2,
+	// we have to ceil n to the nearest power of 2)
+	nP := 2;
+	while nP < n do
+		nP := 2 * nP;
+	end;
+	P := nP;
+
+	// Initialize all shared variables
+	base := P - n;
+	for i := 1 to n do
+		x[i] := 0;
+		y[i] := 0;
+		c[i] := 0;
+		z[i] := 0;
+	end;
+	for i := 1 to P do
+		d[i] := DS;
+	end;
+
+	// Read both numbers (in reverse order)
+	for i := n to 1 by -1 do
+		read(x[i]);
+	end;
+	for i := n to 1 by -1 do
+		read(y[i]);
+	end;
+end init;
+
+//
+// Finish procedure.
+//
+procedure finish;
+var i: word;
+begin
+	if (DEBUG = 1) then
+		chwrite(120); chwrite(32); chwrite(61); chwrite(32); // x =
+		for i := n to 1 by -1 do
+			write(x[i]);
+			chwrite(32); // Space
+		end;
+		writeln;
+		chwrite(121); chwrite(32); chwrite(61); chwrite(32); // y =
+		for i := n to 1 by -1 do
+			write(y[i]);
+			chwrite(32); // Space
+		end;
+		writeln;
+		chwrite(122); chwrite(32); chwrite(61); chwrite(32); // z =
+	end;
+
+	//
+	// Write the result
+ //
+	// Overflow?
+	if (d[P] = DG) then
+		chwrite(40); // (
+		write(1);
+		chwrite(41); // (
+		chwrite(32); // Space
+	end;
+	// Result
+	for i := n to 1 by -1 do
+		write(z[i]);
+		if (i <> 1) then
+			chwrite(32); // Space
+		end;
+	end;
+	writeln;
+
+	if (DEBUG = 1) then
+		chwrite(100); chwrite(32); chwrite(61); chwrite(32); // d =
+		for i := P to 1 by -1 do
+			chwrite(d[i]);
+			chwrite(32); // Space
+		end;
+		writeln;
+		chwrite(99); chwrite(32); chwrite(61); chwrite(32); // c =
+		for i := n to 1 by -1 do
+			write(c[i]);
+			chwrite(32); // Space
+		end;
+		writeln;
+	end;
+end finish;
+
+//
+// Raises the selected number n to the selected power p (i.e. returns n^p).
+// Preconditions:
+//     n > 0
+//     p >= 0
+//
+procedure pow(n, p: word): word;
+var i, r: word;
+begin
+	// To avoid useless multiplication by 1, return 1 immediately in this case
+	if (n = 1) then
+		return 1;
+	end;
+
+	// Power computation
+	r := 1;
+	for i := 1 to p do
+		r := r * n;
+	end;
+
+	return r;
+end pow;
+
+//
+// Computes a single value for the d-array for bits xb and yb.
+//
+procedure computeDValue(xb, yb: word): word;
+var res: word;
+begin
+	if (xb = 1) then
+		if (yb = 1) then
+			res := DG;
+		else
+			res := DP;
+		end;
+	else // xb = 0
+		if (yb = 0) then
+			res := DS;
+		else
+			res := DP;
+		end;
+	end;
+
+	return res;
+end computeDValue;
+
+//
+// Computes a single value for the result (bits xb, yb; cb is the carry bit).
+//
+procedure computeZValue(xb, yb, cb: word): word;
+var res: word;
+begin
+	if (((xb + yb + cb) mod 2) = 0) then
+		res := 0;
+	else
+		res := 1;
+	end;
+
+	return res;
+end computeZValue;
+
+//
+// Operation o on the d-array.
+//
+procedure dOp(a, b: word): word;
+var res: word;
+begin
+	if (a = DS) then
+		if (b = DS) then
+			res := DS;
+		elsif (b = DP) then
+			res := DS;
+		else
+			res := DG;
+		end;
+	elsif (a = DP) then
+		if (b = DS) then
+			res := DS;
+		elsif (b = DP) then
+			res := DP;
+		else
+			res := DG;
+		end;
+	else // a = DG
+		if (b = DS) then
+			res := DS;
+		elsif (b = DP) then
+			res := DG;
+		else
+			res := DG;
+		end;
+	end;
+
+	return res;
+end dOp;
+
+//
+// Main.
+//
+var i, j, step, reduceRes: word;
+begin
+	//
+	// Compute the d-array
+	//
+	par i := 1 to n do
+		d[base + i] := computeDValue(x[i], y[i]);
+	end;
+	synchronize;
+
+	//
+	// Modify the first value of the d-array (because of the additional "s")
+	//
+	par i := 1 to n do
+		if (i = 1) then
+			d[base + 1] := dOp(DS, d[base + 1]);
+		end;
+	end;
+	synchronize;
+
+	//
+	// Compute the o-scan on the d-array
+	//
+	// 1. reduce (up-sweep)
+	for j := 0 to log(P) - 1 do
+		step := pow(2, j + 1);
+		par i := 0 to P - 1 do
+			if ((i mod step) = 0) then
+				d[i + pow(2, j + 1)] := dOp(d[i + pow(2, j)],
+					d[i + pow(2, j + 1)]);
+			end;
+		end;
+		synchronize;
+	end;
+	reduceRes := d[P];
+
+	// 2. down-sweep
+	par i := 1 to P do
+		if (i = 1) then
+			d[P] := DS;
+		end;
+	end;
+	synchronize;
+	for j := log(P) - 1 to 0 by -1 do
+		step := pow(2, j + 1);
+		par i := 0 to P - 1 do
+			if ((i mod step) = 0) then
+				tmpArr[i + 1] := d[i + pow(2, j)];
+				d[i + pow(2, j)] := d[i + pow(2, j + 1)];
+				d[i + pow(2, j + 1)] := dOp(d[i + pow(2, j + 1)], tmpArr[i + 1]);
+			end;
+		end;
+		synchronize;
+	end;
+
+	// 3. Shift the d-array one item to the left
+	// (this has to be divided into two parts - the first is the reading
+	// part and the second one is the writing part)
+	par i := 1 to P do
+		tmpArr[i] := d[i];
+	end;
+	synchronize;
+	par i := 1 to P do
+		if (i > 1) then
+			d[i - 1] := tmpArr[i];
+		end;
+	end;
+	synchronize;
+
+	// 4. Add the result of the reduce operation to the end of the d-array
+	// to finish the scan operation
+	par i := 1 to n do
+		if (i = 1) then
+			d[P] := reduceRes;
+		end;
+	end;
+	synchronize;
+
+	//
+	// Compute carry
+	//
+	par i := 1 to P do
+		if (i >= base) then
+			if (d[i] = DG) then
+				c[i + 1 - base] := 1;
+			end;
+		end;
+	end;
+	synchronize;
+
+	//
+	// Compute the result
+	//
+	par i := 1 to n do
+		z[i] := computeZValue(x[i], y[i], c[i]);
+	end;
+	synchronize;
+end clapba.

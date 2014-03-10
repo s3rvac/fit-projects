@@ -1,0 +1,15 @@
+//Kontrola poctu parametru, poradi a typu deklarace<=>definice
+//Predpokladany vysledek: malo parametru
+void main();
+
+void voidfce(int;double;string;int;double;string);
+
+void main()
+{
+return;
+}
+
+void voidfce(int a; double b; string c; int d; double e)
+{
+
+}

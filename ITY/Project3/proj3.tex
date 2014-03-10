@@ -1,0 +1,209 @@
+%==============================================================================
+% Encoding: latin2
+% Project:  ITY - Project 3
+% Author:   Petr Zemek, xzemek02@stud.fit.vutbr.cz
+%==============================================================================
+
+\documentclass[czech]{fitprj}
+\usepackage[latin2]{inputenc}
+
+% Project info
+\title{Strukturování dokumentù, nadpisy kapitol, vkládání tabulek a obrázkù}
+\FITproject{ITY3}
+\setyear{2008}
+\author{Petr Zemek}
+
+% Abstract
+\fitabstractCZ{Pøíspìvek se zabývá aplikací moderních metod rozpoznávání mluvené øeèi
+v~oblasti e-vzdìlávání. Popisuje systém pro indexování a vyhledávání
+v~záznamech pøedná¹ek. Výstupem rozpoznávaèe øeèi je acyklický graf hypotéz,
+tak¾e nelze pou¾ít existující øe¹ení pro vyhledávání bì¾ného textu. Pro
+efektivní vyhledávání v~rozsáhlé datové struktuøe byl implementován a
+optimalizován speciální indexaèní systém. Jednotlivým cestám v~grafu, kterým
+odpovídají posloupnosti slov, jsou pøiøazeny váhy odpovídající
+pravdìpodobnostem výskytu daného øetìzce slov. Struènì jsou prezentovány
+výsledky systému a mo¾nosti dal¹ího pou¾ití ve vzdìlávání.}
+
+% Keywords
+\keywordsCZ{\LaTeX, technologie ve vzdìlávání}
+
+\begin{document}
+
+\maketitle
+
+\abstractkeywordsCZ
+
+\FITstart
+
+\chapter{Úvod}
+
+Záznam pøedná¹ek se pomalu stává standardní souèástí elektronické podpory
+vzdìlávání na mnoha svìtových i èeských univerzitách. V~minulé dekádì se výzkum
+v~této oblasti zamìøil pøedev¹ím na automatizaci tvorby multimediálních
+uèebních materiálù kombinujících tradièní výukové podklady (texty, obrázky,
+multimediální prezentace) se záznamy pøedná¹ek.
+
+Výzkum v~posledních letech se zamìøuje na pokroèilé metody dal¹ího zpracovávání
+záznamù, jejich indexování, vyhledávání a prezentaci u¾ivatelùm.  Vyhledávání
+v~rozsáhlých kolekcích dokumentù patøí dnes k~bì¾ným èinnostem mnoha u¾ivatelù
+Internetu. Standardní je hledání textových dokumentù, pro nì¾ byly
+implementovány velmi efektivní metody indexování. Vyhledávání obrázkù, hudby èi
+videa je èasto zalo¾eno na metadatech, doplòkových informacích, titulcích atd.,
+které mají rovnì¾ textovou podobu. Objevují se v¹ak i systémy specializované
+na konkrétní druh multimediálních materiálù. Této oblasti se vìnuje ná¹
+pøíspìvek, který pøedstavuje prototyp systému pro vyhledávání v~záznamech
+pøedná¹ek.
+
+Pøímé indexování a prohledávání obrazové informace zachycované kamerou není pro
+záznamy pøedná¹ek vhodné. Pokud v¹ak výzkum v~této oblasti pokroèí, kterého se
+ná¹ tým úèastní), je mo¾né si pøedstavit integraci technologie umo¾òující napø.
+vyhledání èásti pøedná¹ky, kdy bylo demonstrováno dýchání z~úst do úst. Zásadní
+roli, která je pøi splnìní urèitých po¾adavkù ji¾ v~souèasnosti zvládnutelná,
+dnes ale hraje prohledávání a indexování pøedná¹ek zalo¾ené na technologii
+rozpoznávání øeèi.
+
+\section{Schéma systému}
+Systém pro vyhledávání v~øeèových záznamech pøedná¹ek zahrnuje celou øadu
+procesù - moduly segmentace záznamù na ticho a øeè, segmentace øeèníkù (dotazy
+posluchaèù a diskuse), identifikace jazyka, øeèníka, pohlaví, odhad vìku,
+rozpoznávání, odhad pravdìpodobnosti rozpoznaných hypotéz,
+indexování grafu hypotéz a rozhraní pro práci s~databází a pro vyhledávání (viz
+obrázek~\ref{fig:SystemImplemented}).
+
+Indexaci rozpoznaných øeèových záznamù (grafù hypotéz) zabezpeèuje tzv.
+indexer. Z~ka¾dého grafu je vytvoøena mno¾ina výskytu hypotéz, které jsou
+ulo¾eny ve vyhledávacím indexu. Ka¾dý záznam v~této mno¾inì obsahuje slovo,
+pozici v~grafu, pravdìpodobnost a poèáteèní a koncový èas. Dále jsou záznamy ve
+vyhledávacím indexu seøazeny podle identifikátorù slov, èím¾ vznikne reverzní
+index. Je také vygenerována tabulka ukazatelù z~identifikátorù slov do
+reverzního indexu. Vyhledávaè pou¾ívá reverzní index, slovník a index dokumentù
+pro vyhledání zadaného výrazu. Pro vypsání kontextu je pou¾íván indexovaný graf
+hypotéz.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=15.2cm,keepaspectratio]{system_implemented}
+ 	\caption{Základní struktura systému pro vyhledávání v øeèových záznamech}
+ 	\label{fig:SystemImplemented}
+\end{figure}
+
+\section{Po¾adavky na vyhledávací systém a jeho rozhraní}
+Mezi standardní po¾adavky na vyhledávací systém patøí maximální relevantnost,
+rychlost hledání a jednoduchost pou¾ívání. Dùle¾itým aspektem je rovnì¾
+prezentace kontextu, v~nìm¾ se nalezený výraz nachází. Z~hlediska u¾ivatelského
+rozhraní je pro multimediální vyhledávací systém specifická potøeba pøehrávat
+konkrétní èást záznamu, v~ní¾ systém identifikoval daný výskyt zadaného slova.
+Vypsání kontextu se také li¹í od textových systémù -- je nutné vypsat slova na
+(nejpravdìpodobnìj¹í) cestì procházející vrcholem reprezentujícím nalezené
+slovo.
+
+U¾ivatelské rozhraní vyhledávacího systému musí umo¾nit snadné zadávání dotazù,
+nastavování délky po¾adovaného kontextu, poètu hledaných hypotéz atd. Grafické
+rozhraní zahrnuje pøehrávaè video- a audio-proudù, prohlí¾eè pøepisù
+pøedná¹ek, prùsvitek a posuvník èasové osy. V¹echny tyto komponenty musí být
+vzájemnì propojené a synchronizované, tedy napø. pohybem po èasové ose se
+aktualizují záznamy, je nalezena relevantní èást pøepisu a zobrazena pøíslu¹ná
+prùsvitka.
+
+\section{Rychlost vyhledávání}
+
+Pro testování indexaèního a vyhledávacího systému jsme pou¾ili rozpoznávaè øeèi
+vyvinutý v~rámci projektu AMI. Trénování probíhalo na standardní testovací sadì
+ctstrain04, která je podmno¾inou souboru h5train03, definovanou pro úèely
+testování systémù rozpoznávání na cambridgeské univerzitì. Databáze obsahuje
+okolo 300 hodin anotovaných øeèových dat.
+
+I~pøes znaèný objem dat je systém schopen najít hledané slovo velmi rychle.
+Rychlost vyhledávání je samozøejmì silnì ovlivnìna parametry, které mohou být
+u¾ivatelsky nastaveny. Omezení okolí nalezeného slova pro zji¹»ování kontextu
+udává parametr \verb!--time-delta t!, kde \verb!t! je èas v~sekundách. Uvádìný
+èas je prùmìrnou hodnotou 10 nezávislých mìøení.
+
+\chapter{Vyhledávání ve zvukových záznamech}
+
+Vyhledávání ve zvukových záznamech pøedná¹ek se potýká s~mnoha problémy. Na
+rozdíl od telefonních dialogových systémù, které jsou dnes ji¾ pomìrnì bì¾né,
+není napøíklad snadné omezit slovník pro rozpoznávání, který èasto obsahuje
+odbornou terminologii nepokrytou standardními slovníky. Také zvukové
+charakteristiky jednotlivých záznamù nebo jejich èástí se mohou znaènì li¹it,
+systémy si napø. musí poradit s~okolním hlukem, pøípadnì se vypoøádat
+s~rozpoznáváním více mluvèích (otázky studentù) atd.  Existují dva rozdílné
+pøístupy k~vyhledávání zalo¾enému na øeèových technologiích:
+
+\begin{enumerate}
+	\item Metoda LVCSR vytváøí pøibli¾ný textový pøepis záznamu na základì jazykového modelu. Pokud se
+		omezíme na nejpravdìpodobnìj¹í posloupnost slov (viz dále), dostáváme tedy
+		pøímo text a
+		mù¾eme aplikovat bì¾né zpùsoby indexování. Navíc lze pou¾ít ve¹keré
+		inteligentní techniky vyhledávání, zalo¾ené napø. na identifikaci výrazù, které
+		se èasto vyskytují spolu s~hledanými klíèovými slovy nebo frází. Nevýhodou
+		tohoto pøístupu je nemo¾nost rozpoznání slov, která nejsou obsa¾ena ve slovníku.
+		Bohu¾el právì odborná terminologie spadá èasto do této oblasti, pokud se jazykové
+		modely nepøizpùsobí konkrétní oblasti pøedná¹ky.
+	\item Indexování fonetických jednotek namísto slov umo¾òuje vyhledávání výrazù,
+		které by nebyly pomocí LVCSR rozpoznány. Vyhledávaná klíèová slova jsou
+		foneticky pøepsána a systém se sna¾í nalézt výskyty dané posloupnosti fonémù
+		v~záznamu. Nevýhodou mù¾e být nároènìj¹í algoritmus vyhledávání, èasové nároky
+		je v¹ak mo¾né redukovat vytvoøením vhodných indexovacích struktur. Cenou,
+		kterou v~tomto pøípadì platíme, je èas potøebný pro pøedzpracování záznamù. To
+		mù¾e být limitujícím faktorem napø. pøi potøebì okam¾ité indexace pøedná¹ek pro
+		on-line vysílání (streaming).
+\end{enumerate}
+
+Na rozdíl od systémù pracujících s~bì¾nými textovými dokumenty je u~vyhledávání
+ve zvukových záznamech èasto problematické rozhodnout, zda se hledaný výraz
+v~záznamu skuteènì vyskytl. Oba pøístupy uvedené vý¹e obecnì produkují sí»
+(orientovaný acyklický graf) hypotéz, udávající, jaké kombinace slov, resp.
+kombinace fonémù se s~danou pravdìpodobností v~záznamu nacházejí. Klasické
+rozpoznávání mluvené øeèi øe¹í tuto situaci výbìrem nejpravdìpodobnìj¹í
+posloupnosti slov. Takový pøístup postaèuje pro vyhledávání ve velmi kvalitních
+øeèových záznamech (viz napø. systém HP Speech Bot popsaný ní¾e). V~pøípadì
+ménì kvalitní nahrávky nastávají v¹ak situace, kdy se hledané klíèové slovo
+v~nahrávce skuteènì vyskytuje, av¹ak je ohodnoceno jako (v~daném kontextu) ménì
+pravdìpodobné. Na nejlep¹í cestì se tedy vyskytuje nesprávnì rozpoznané slovo.
+Vhodnìj¹í je potom implementovat vyhledávání pøímo nad grafem hypotéz. Ka¾dé
+slovo se tak v~daném místì vyskytuje s~urèitou pravdìpodobností, kterou je
+potøeba vypoèítat a setøídìní výskytù provést na základì tohoto ohodnocení. Je
+samozøejmì také nutné optimalizovat indexy pro vyhledávání. Tento pøístup jsme
+zvolili i pøi implementaci na¹eho systému.
+Tabulka \ref{table:Results} shrnuje výsledky pøedchozích experimentù.
+
+\begin{table}[t]
+	\centering
+	\begin{tabular}{|c||r||r|r||r|r|}
+		\hline
+		Gramatika & HD & iHD & \% HD & sHD & \% HD \\
+		\hline
+		ATIS & 882\,673 & 793\,370 & 89.8\,\% & 390\,860 & 44.2\,\% \\
+		ATIS (H) & 401\,782 & 362\,568 & 90.2\,\% & 139\,935 & 34.8\,\% \\
+		PT & 1\,227\,500 & 510\,175 & 41.5\,\% & 456\,736 & 37.2\,\% \\
+		CT & 638\,276 & 606\,591 & 95.0\,\% & 381\,115 & 59.7\,\% \\
+		CZ & 994\,402 & 915\,004 & 92.0\,\% & 496\,129 & 49.8\,\% \\
+		\hline
+	\end{tabular}
+	\caption{Výsledky vyhledávání pro rùzné implementované metody}
+	\label{table:Results}
+\end{table}
+
+\chapter{Závìr a smìry dal¹ího vývoje}
+
+Prototyp systému pro indexování a prohledávání záznamù pøedná¹ek bude
+v~nejbli¾¹í dobì vyu¾it pro procházení videozáznamù FIT VUT v~Brnì. Souèasnì
+pøedpokládáme vznik metodologie pro pøípravu vzdìlávacích materiálù, vytváøení
+a dal¹í zpracovávání záznamù a jejich provazování s~prùsvitkami, pøípadnì
+studijními texty.
+
+Pro plné nasazení systému bude potøeba dokonèit integraci s~u¾ivatelským
+rozhraním pro interaktivní pøehrávání záznamù Jferret, vytvoøený v~rámci
+projektu AMI. Zamìøíme se rovnì¾ na lep¹í integraci systému KWS pro detekci
+terminologie, která se nenachází ve slovníku, a na optimalizaci velikosti
+ukládaných záznamù pomocí bitových polí. Pro reálný provoz bude dùle¾ité rovnì¾
+asynchronní indexování, kdy nejprve vznikne dopøedný index, na jeho¾ bázi jiný
+proces vytvoøí slovník a reverzní index. Bude také testována mo¾nost pøímé
+indexace obrazového záznamu, metody zpracování videa by ji¾ nyní mìli
+poskytnout napø. mo¾nost výbìru nejlep¹ího pohledu, pokud je pøedná¹ka snímána
+více kamerami.
+
+\end{document}
+
+% End of file

@@ -1,0 +1,132 @@
+/*
+ * Petr Zemek, xzemek02@stud.fit.vutbr.cz
+ * ITW - project 1
+ */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	background-color: #40331c;
+	background-image: url('back1.jpg');
+	background-repeat: no-repeat;
+	background-position: 50px 0px;
+}
+
+#content {
+	margin-left: 50px;
+}
+
+/* Logo */
+h1 {
+	width: 200px;
+	height: 249px;
+ 	margin-top: 10px;
+	margin-left: -43px;
+	background-image: url('fit_trans_small.png');
+	background-repeat: no-repeat;
+}
+
+h1 span {
+	width: 200px;
+	height: 249px;
+	display: block;
+	visibility: hidden;
+}
+
+/* Menu */
+#menu {
+	width: 100px;
+	float: left;
+}
+
+#menu ul {
+	list-style-image: url('bullet.png');
+}
+
+#menu ul li a {
+	font-size: 1em;
+	color: #83b5d0;
+	text-decoration: none;
+}
+
+#menu ul li a:hover {
+	text-decoration: underline;
+}
+
+.deni {
+	margin-top: 58px;
+	margin-left: -45px;
+	direction: rtl;
+}
+
+.inst {
+	margin-top: 35px;
+	margin-left: -14px;
+	direction: ltr;
+}
+
+/* Actualities */
+#aktual {
+ 	margin-top: 30px;
+ 	margin-left: 210px;
+ 	margin-right: 50px;
+ 	padding-top: 1px;
+ 	padding-left: 1px;
+	background-color: #908f8d;
+	background-image: url('back2.jpg');
+	background-repeat: no-repeat;
+	background-position: -210px -289px;
+}
+
+#aktual h2 {
+	margin: 10px 0px 0px 2px;
+	padding: 8px 0px 8px 20px;
+	width: 52%;
+	background-color: #ccc;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+#aktual dl {
+	padding: 18px;
+}
+
+#aktual dl dt {
+	float: left;
+	font-weight: bold;
+}
+
+#aktual dl dd {
+	padding-bottom: 5px;
+	text-align: right;
+}
+
+#aktual dl dd a {
+	color: #000000;
+}
+
+/* Address */
+address {
+	position: relative;
+	top: 80px;
+	width: 95%;
+	padding-bottom: 100px;
+	clear: both;
+	text-align: right;
+	font-size: 0.8em;
+	color: white;
+}
+
+address p a {
+	font-size: 1em;
+	color: #0b9ce7;
+	text-decoration: none;
+}
+
+address p a:hover {
+	text-decoration: underline;
+}

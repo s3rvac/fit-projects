@@ -1,0 +1,104 @@
+% Now, switch on what is appropriate for czech:
+
+% czech quotation marks
+% \bq - begin quotation, \eq - end quotation
+\def\bq{\mbox{\kern.1ex\protect\raisebox{-1.3ex}[0pt][0pt]{''}\kern-.1ex}}
+\def\eq{\mbox{\kern-.1ex``\kern.1ex}}
+%\setlanguage{\czech}
+
+{%                                      % Begin a group for which " is active
+\catcode`\"=\active                     % Make " an active character
+\catcode`\@=11                          % Make @ an active character
+%
+%  \csdoublequoteson
+%
+%       This macro makes " an active character, resets the control sequence
+%       \dblqu@te to L (left), and defines \dq as a replacement for ".
+%
+\gdef\csdoublequoteson{%                % \csdoublequoteson enables "
+    \gdef"{\czechquotes}%               % Define " as \czechquotes
+    \global\catcode`\"=\active%         % Make " an active character
+    \global\chardef\dq=`\"%             % Double-quote char. via \dq
+    \global\let\dblqu@te=L%             % Always start with a left double-quote
+    }                                   % End of macro
+%
+%  \bq, \eq
+%
+%      These macros define default characters for czech left and right
+%      double quotes. Czech opening quote is created from two commas with
+%      kerning depending on fontdimen four parameter of current font.
+%      Better solution should be specially designed character with
+%      proper kernings; if you have such characters in fonts
+%      (e.g. in DC-fonts), use it instead. (e.g. define
+%      macros \bq and \eq e.g. \def\bq{\char"130 }
+%      in your document/style file-- not in csquote.sty!)
+%      Similar solution is used for czech right quote.
+%
+%      \cs existence test, stolen from TeXbook exercise 7.7
+\def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax }%
+%
+%      another macro to be more efficient in time and space
+\global\chardef\f@@r=4
+%
+\ifundefined{bq}%
+\gdef\bq{\kern-.25\fontdimen\f@@r\font,\kern-.8\fontdimen\f@@r\font,%
+                \kern-.35\fontdimen\f@@r\font}%
+\fi
+\ifundefined{eq}%
+\gdef\eq{\kern-.35\fontdimen\f@@r\font`\kern-.8\fontdimen\f@@r\font`%
+                \kern-.25\fontdimen\f@@r\font}
+\fi
+%
+% Macro \uv for other usage of \bq and \eq.
+%
+\ifundefined{uv}%
+        \gdef\uv#1{\bq #1\eq}
+\fi
+%
+% \testquotes macro gives warning if citation span this place
+%
+\gdef\testquotes{\if R\dblqu@te
+        \message{Warning: You forgot right double quote!}%
+        \let\dblqu@te=L\fi}
+%
+%  Define the macro that will be executed whenever " is encountered.
+%
+\gdef\czechquotes{\protect\czechqu@tes}
+\gdef\czechqu@tes{%
+        %  If the double-quote is the first character in a new paragraph,
+        %  make sure it becomes a left double-quote.  This case can be
+        %  detected by checking to see if TeX is currently in vertical mode.
+        %  If so, the double-quote is at the beginning of the paragraph
+        %  (since " hasn't actually generated any horizontal mode tokens
+        %  yet, TeX is still in vertical mode).  If the mode is vertical,
+        %  set \dblqu@te equal to L.
+        %
+        \ifinner\else\ifvmode\testquotes\fi\fi%
+        %
+        %  Now insert the appropriate left or right double-quote.
+        %
+        %  If \dblqu@te is L, insert an opening quote and set \dblqu@te to R.
+        %
+        \if L\dblqu@te\bq\global\let\dblqu@te=R%
+        %
+        %  Otherwise, save the current \spacefactor, insert '', set \dblqu@te
+        %  to L, and reset the original \spacefactor.
+        %
+        \else%
+           \let\xxx=\spacefactor%               % Save the \spacefactor
+           \eq%                                 % Insert ending quote
+           \global\let\dblqu@te=L%              % and reset \dblqu@te
+           \spacefactor\xxx%                    % Reset the \spacefactor
+        \fi%                                    % End of \if L\dblqu@te...
+        }                                       % End of " macro
+}                                               % End of group
+
+\gdef\csdoublequotesoff{%
+        \catcode`\"=12%                         % Set " back to other
+        }
+%
+% Czech quotes are default
+%
+\csdoublequoteson
+
+

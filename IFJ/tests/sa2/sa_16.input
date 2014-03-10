@@ -1,0 +1,27 @@
+//Deklarace slouzi pri krizovem rekurzivnim volani dvou ci vice fci navzajem
+//Predpokladany vysledek: OK
+int f1(int);
+int f2(int; int);
+int f3(int; int; int);
+
+int f3(int a; int b; int c)
+{
+b := f2(a,f1(c));
+return a + b - c;
+} 
+
+int f2(int a; int b)
+{
+return a+b;
+}
+
+int f1(int a)
+{
+return a;
+}
+
+void main()
+{
+f3(1,2,3);
+return;
+}

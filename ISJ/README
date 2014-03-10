@@ -1,0 +1,24 @@
+             HTML pages with publications to BibTeXML convertor
+
+                Petr Zemek, xzemek02@stud.fit.vutbr.cz, 2008
+
+Description:
+  Script converts passed HTML page (specififed by its URL, local file or data
+  from standard input) with publications in a standard format into
+  BibTeXML (resulting XML is printed on standard output).
+
+Requirements:
+  - python >= 2.5.1 (http://www.python.org/)
+
+Usage:
+  ./xzemek02 [SOURCE...]
+
+  SOURCE can be either page URL, local file or (if omitted) standard input.
+  If more sources are given, resulting XML will be a union of all publications
+  from all the sources.
+
+Extra features:
+ - script can convert standard LaTeX *.bib files into BibTeXML (however,
+   all keys will be changed if present)
+ - script can convert also plain texts with publications (blank line
+   is considered a delimiter between two publications) into BibTeXML

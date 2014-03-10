@@ -1,0 +1,35 @@
+/*
+ * Project:  Dynamic table - WAP 2009 project
+ * Author:   Petr Zemek, xzemek02@stud.fit.vutbr.cz
+ * Encoding: iso8859-2
+ */
+
+/* Filtering input field */
+.DTFilterField {
+	border: 1px solid #000000;
+	margin: 2px;
+}
+
+/* Common properties for sorting icons */
+.DTSortSymbol {
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	padding: 2px;
+}
+
+/* Hides the "/\" string which appears when CSS is not used */
+.DTSortSymbol span {
+	visibility: hidden; /* Only set to visible when not using images instead */
+}
+
+/* Sort in ascending order icon */
+.DTSortSymbolAsc {
+	background-image: url('icon_sort_asc.gif');
+}
+
+/* Sort in descending order icon */
+.DTSortSymbolDesc {
+	background-image: url('icon_sort_desc.gif');
+}
+
+/* End of file */

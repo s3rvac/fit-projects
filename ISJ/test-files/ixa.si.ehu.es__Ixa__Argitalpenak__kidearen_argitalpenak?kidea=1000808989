@@ -1,0 +1,931 @@
+<html>
+<head>
+<base href="http://ixa.si.ehu.es/Ixa/Argitalpenak/">
+<title>Ixa Taldea - Argitalpenak</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">body, td{
+        font-size : 80%;
+	font-family : Verdana,Arial,Utopia;
+}
+h1{
+	text-align : center;
+}
+h3{
+	text-align : center;
+}
+h2{
+	text-align : center;
+}
+a {
+        color : #CC0000;
+	text-decoration: underline
+}
+a:hover {
+        color : #000000;
+}
+.aldatu{
+	color : #112233;
+	text-align : right;
+}
+.bidea{
+	font-size : 12px;
+	color : White;
+}
+.bidea:hover{
+	color : #999999;
+
+}
+
+.lengoaia{
+	font-size : 100%;
+	color : #CC0000;
+	text-align : right;
+}
+.ixa{
+	font-size : 20px;
+	color : White;
+	text-align : right;
+	font-weight : bold;
+        text-decoration: none
+
+}
+
+.ehu{
+	font-size : 9px;
+	text-align : center;
+	color : rgb(00,00,00);
+}
+
+.kontaktua{
+	font-size : 9px;
+	text-align : right;
+	color : rgb(00,00,00);
+}
+
+.etzana{
+	font-style: italic
+}</style>
+
+<SCRIPT LANGUAGE="JavaScript">
+        function posta_helbidea(user,site) {
+           document.write('<a href=\"mailto:' + user + '@' + site + '\">');
+           document.write(user + '@' + site + '</a>');
+        }
+   </SCRIPT>
+
+
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="129" rowspan="3" align="center"><a href="http://ixa.si.ehu.es/Ixa"><img src="http://ixa.si.ehu.es/Ixa/irudiak/Ixa_logoa.gif" alt="" title="Ixa_logoa.gif" height="132" width="109" /></a></td>
+    <td width="55" bgcolor="#000000"><img src="http://ixa.si.ehu.es/Ixa/irudiak/pixela.gif" width="55" height="1"></td>
+    <td width="23" bgcolor="#FFFFFF"><img src="http://ixa.si.ehu.es/Ixa/irudiak/pixela.gif" width="23" height="1"></td>
+    <td width="96%" bgcolor="#FFFFFF" class="lengoaia">Lengoaia Naturalaren Prozesamendurako&nbsp;&nbsp;</td>
+    <td width="155" bgcolor="#CC0000" nowrap>&nbsp; <a href="http://ixa.si.ehu.es/login" class="ixa">IXA Taldea</a></td>
+  </tr>
+  <tr>
+
+   <td bgcolor="#000000">&nbsp;</td>
+    <td colspan="3" bgcolor="#000000" class="bidea">&nbsp;
+
+
+
+
+      <a href="http://ixa.si.ehu.es/Ixa" class="bidea">Ixa</a> &gt;
+
+
+
+
+
+
+
+      <a href="http://ixa.si.ehu.es/Ixa/Argitalpenak" class="bidea">Publications</a> &gt;
+
+
+
+
+
+
+          Member's publications
+
+
+
+</td>
+    <td colspan="3" bgcolor="#000000" class="bidea">
+  </tr>
+  <tr>
+    <td bgcolor="#CCCCCC">&nbsp;</td>
+    <td colspan="2"><table>
+ <tr>
+  <form action="http://ixa.si.ehu.es/Ixa/bilatu" method="get">
+  <td valign="bottom">&nbsp;&nbsp;<input type="text" name="testua" size="15"></td>
+  <td valign="middle">
+    <input type=submit value="Search"></td>
+  </form>
+ </tr>
+</table>
+</td>
+    <td bgcolor="#FFFFFF" align=right><form name="idioma" action="http://ixa.si.ehu.es/Ixa/Localizer/changeLanguage"
+      method="post">
+  <select name="lang" onchange="idioma.submit()">
+          <option value="eu">Basque</option>
+          <option value="en" selected>English</option>
+      </select>
+  </form></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="164" bgcolor="#CCCCCC" valign="top" align="center">
+	  <table width="164" cellpadding="0" cellspacing="0" border=0">
+            <tr><td width="*" colspan="2"><img src="http://ixa.si.ehu.es/Ixa/irudiak/pixela.gif" height="20"></td></tr>
+            <tr><td valign="top"><img src="http://ixa.si.ehu.es/Ixa/irudiak/item_txuri.gif" alt="" title="" height="20" width="25" /></td>
+<td width="99%" valign="top"><a href="http://ixa.si.ehu.es/Ixa">Home</a></td></tr>
+
+<tr><td valign="top"><img src="http://ixa.si.ehu.es/Ixa/irudiak/item_txuri.gif" alt="" title="" height="20" width="25" /></td>
+<td valign="top" width="99%"><a href="http://ixa.si.ehu.es/Ixa/Aurkezpena">About us</a></td></tr>
+
+<tr><td valign="top"><img src="http://ixa.si.ehu.es/Ixa/irudiak/item_txuri.gif" alt="" title="" height="20" width="25" /></td>
+<td valign="top" width="99%"><a href="http://ixa.si.ehu.es/Ixa/Kideak">Members</a></td></tr>
+
+<tr><td valign="top"><img src="http://ixa.si.ehu.es/Ixa/irudiak/item_txuri.gif" alt="" title="" height="20" width="25" /></td>
+<td valign="top" width="99%"><a href="http://ixa.si.ehu.es/Ixa/Ikerlerroak">Research lines</a></td></tr>
+
+<tr><td valign="top"><img src="http://ixa.si.ehu.es/Ixa/irudiak/item_txuri.gif" alt="" title="" height="20" width="25" /></td>
+<td valign="top" width="99%"><a href="http://ixa.si.ehu.es/Ixa/Argitalpenak">Publications</a></td></tr>
+
+<tr><td valign="top"><img src="http://ixa.si.ehu.es/Ixa/irudiak/item_txuri.gif" alt="" title="" height="20" width="25" /></td>
+<td valign="top" width="99%"><a href="http://ixa.si.ehu.es/Ixa/Produktuak">Products</a></td></tr>
+
+<tr><td valign="top"><img src="http://ixa.si.ehu.es/Ixa/irudiak/item_txuri.gif" alt="" title="" height="20" width="25" /></td>
+<td valign="top" width="99%"><a href="http://ixa.si.ehu.es/Ixa/Proiektuak">Projects</a></td></tr>
+
+<tr><td valign="top"><img src="http://ixa.si.ehu.es/Ixa/irudiak/item_txuri.gif" alt="" title="" height="20" width="25" /></td>
+<td valign="top" width="99%"><a href="http://ixa.si.ehu.es/Ixa/Estekak">Links</a></td></tr>
+
+<tr><td valign="top"><img src="http://ixa.si.ehu.es/Ixa/irudiak/item_txuri.gif" alt="" title="" height="20" width="25" /></td>
+<td valign="top" width="99%"><a href="http://ixa.si.ehu.es/Ixa/PilPilean">Highlights</a></td></tr>
+
+<tr><td valign="top"><img src="http://ixa.si.ehu.es/Ixa/irudiak/item_txuri.gif" alt="" title="" height="20" width="25" /></td>
+<td valign="top" width="99%"><a href="http://ixa.si.ehu.es/Ixa/Demoak">Demos</a></td></tr>
+
+<tr><td valign="top"><img src="http://ixa.si.ehu.es/Ixa/irudiak/item_txuri.gif" alt="" title="" height="20" width="25" /></td>
+<td valign="top" width="99%"><a href="http://ixa.si.ehu.es/Ixa/Bestelakoak">Others</a></td></tr>
+
+
+
+<tr><td valign="top"><img src="http://ixa.si.ehu.es/Ixa/irudiak/item_txuri.gif" alt="" title="" height="20" width="25" /></td>
+<td valign="top" width="99%">
+
+<a href="http://ixa.si.ehu.es/login">Private
+</a>
+</td></tr>
+
+
+          </table>
+          <table width="164" cellpadding="0" cellspacing="0" border=0" bgcolor="#EEEEEE">
+            <tr>               <tr><td width="23" valign="top"><img src="http://ixa.si.ehu.es/Ixa/irudiak/item_beltz.gif" alt="" title="" height="20" width="25" /></td>
+<td valign="top"><a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak">Papers</a></td></tr>
+
+<tr><td width="23" valign="top"><img src="http://ixa.si.ehu.es/Ixa/irudiak/item_beltz.gif" alt="" title="" height="20" width="25" /></td>
+<td valign="top"><a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Barne_txostenak">Internal reports</a></td></tr>
+
+<tr><td width="23" valign="top"><img src="http://ixa.si.ehu.es/Ixa/irudiak/item_beltz.gif" alt="" title="" height="20" width="25" /></td>
+<td valign="top"><a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Tesiak">Thesis</a></td></tr>
+            </tr>
+                      </table>
+<br><br><br>
+
+<span class="kontaktua">
+Ixa Group<br>
+649 Posta kutxa<br>
+20080 Donostia (Basque Country)<br>
+Contact:&nbsp;
+<a href="mailto:acpalloi@si.ehu.es">acpalloi@si.ehu.es</a><br><br>
+</span>
+
+<span class="ehu">
+Euskal Herriko Unibertsitatea<br>
+<img class=ehu_logo src="irudiak/ehu.gif"><br>
+Informatika Fakultatea<br>
+Lengoaia eta Sistema Informatikoak Saila<br><br><br>
+</span>
+    </td>
+    <td width="10"><img src="http://ixa.si.ehu.es/Ixa/irudiak/pixela.gif" width="10" height="1"></td>
+    <td width="*" valign="top">
+
+<h1>Iñaki Alegria:&nbsp;argitalpenak</h1>
+<h2>Papers</h2>
+
+       <H3>Book chapter</h3><br>
+
+                    Ixa taldea, Elhuyar Fundazioa&nbsp;2007<br>
+        	<b>Testu-corpusak: ezaugarriak, eraketa eta tresnak</b><br>
+	<i>Hizkuntza, komunikazioaren eta teknologiaren garaian. IVAP aldizkaria. ISBN 978-84-7777-316-0</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1173895772/publikoak/pdf">pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Urkia M.&nbsp;2002<br>
+        	<b>Morfologia Konputazionala. Euskararen morfologiaren deskribapena.</b><br>
+	<i>UEU. ISBN: 84-8438-034-3</i><br>
+	get:
+	<br>
+                <br><br>
+        <H3>Conference with ISBN</h3><br>
+
+                    Iñaki Alegria, Lluís Màrquez, Kepa Sarasola (ed.)&nbsp;2008<br>
+        	<b>Mixing Approaches to Machine Translation. MATMT2008. Proceedings.</b><br>
+	<i>Euskal Herriko Unibertsitatea (ISBN 978-612-2224-7)</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1202831327/publikoak/pdf">pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Díaz de Ilarraza A.,&nbsp;Igartua J.,&nbsp;Labaka G.,&nbsp;Laskurain B.,&nbsp;Lersundi M.,&nbsp;Mayor A.,&nbsp;Sarasola K.,&nbsp;A. Casillas,&nbsp; X. Saralegi&nbsp;2008<br>
+        	<b>Mixing Approaches to MT for Basque: Selecting the best output from RBMT, EBMT and SMT</b><br>
+	<i>MATMT2008 workshop: Mixing Approaches to Machine Translation. ISBN 978-612-2224-7</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1200656503/publikoak/pdf">pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Ceberio  K.,&nbsp;Ezeiza N.,&nbsp;Hernández G.,&nbsp;Soroa A.&nbsp;2007<br>
+        	<b>euspell: corrección ortográfica del euskera en software libre</b><br>
+	<i>FLOSSIC-2007. pp 213-220. Jerez. Arg. digitala. ISBN 978-84-9828-124-8</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1173274332/publikoak/pdf">pdf</a>
+	<br>
+                <br><br>
+                   Areta N., Gurrutxaga A., Leturia I., Alegria I., Artola X., Díaz de Ilarraza A., Ezeiza N., Sologaistoa A.&nbsp;2007<br>
+        	<b>ZT Corpus: Annotation and tools for Basque corpora</b><br>
+	<i>Copus Linguistics. Birminghan.</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1183368317/publikoak/pdf-format">pdf-format</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Díaz de Ilarraza A.,&nbsp;Labaka G.,&nbsp;Lersundi M.,&nbsp;Mayor A.,&nbsp;Sarasola K.&nbsp;2007<br>
+        	<b>Transfer-based MT from Spanish into Basque: reusability, standardization and open source</b><br>
+	<i>LNCS 4394. 374-384. Cicling 2007. ISBN-10: 3-540-70938-X ISSN 0302-9734</i><br>
+	get:
+	<br>
+                <br><br>
+                   Leturia I., Gurrutxaga A., Areta N., Alegria I., Ezeiza A.&nbsp;2007<br>
+        	<b>EusBila, a search service designed for the agglutinative nature of Basque</b><br>
+	<i>SIGIR2007- iNEWS'07 workshop. ISBN 978-84-690-6978-3</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1190627800/publikoak/pdf">pdf</a>
+	<br>
+                <br><br>
+                   Leturia I., Gurrutxaga A., Alegria I., Ezeiza A.&nbsp;2007<br>
+        	<b>CorpEus, a ‘web as corpus’ tool designed for the agglutinative nature of Basque</b><br>
+	<i>WAC3 2007 (Web as a Corpus) workshop ISBN 978-2-8746-3082-8 ISSN 1783-2845</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1190627973/publikoak/pdf">pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Arrieta B.,&nbsp;Díaz de Ilarraza A.,&nbsp;Izagirre E.,&nbsp;Maritxalar M.&nbsp;2006<br>
+        	<b>Using Machine Learning Techniques to Build a Comma Checker for
+Basque</b><br>
+	<i>Coling-ACL. Sydney. Australia.ISBN: 1-932432-69-8 pp.1-8</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1150185248/publikoak/komak-ML.pdf">komak-ML.pdf</a>
+	<br>
+                <br><br>
+                   N. Areta, A. Gurrutxaga, I. Leturia, Z. Polin, R. Saiz, I. Alegria, X. Artola, A. Diaz de Ilarraza, N. Ezeiza, A. Sologaistoa, A. Soroa, A. Valverde&nbsp;2006<br>
+        	<b>Structure, Annotation and Tools in the Basque ZT Corpus</b><br>
+	<i>LREC-2006. ISBN 2-9517408-2-4</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1141404023/publikoak/pdf">pdf</a>
+	<br>
+                <br><br>
+                   IXA taldea&nbsp;2006<br>
+        	<b>OpenTrad: Itzulpen automatiko librea</b><br>
+	<i>erabili.com: http://www.erabili.com/zer_berri/berriak/1157962226</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1158674231/publikoak/OOficerako">OOficerako</a>
+	<br>
+                <br><br>
+                   Vossen P., Rigau G., Alegria I., Agirre E., Farwell D., Fuentes M.&nbsp;2006<br>
+        	<b>Meaningful results for Information Retrieval in the MEANING project</b><br>
+	<i>Proceedings of Third International WordNet Conference. Jeju Island (Korea).</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1130161980/publikoak/gwn-clir.pdf">gwn-clir.pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Arregi X.,&nbsp;Artola  X.,&nbsp;Astiz M.&nbsp;2006<br>
+        	<b>IXA-CLA lankidetza Kuban (hitzaldia, Zientzia Fakultatean)</b><br>
+	<i>Jornadas en la Universidad del País Vasco. “Cuba: cooperación y desarrollo sostenible”</i><br>
+	get:
+	<br>
+                <br><br>
+                   Alegria I., Gurrutxaga A., Saralegi X., Ugartetxea S. &nbsp;2006<br>
+        	<b>ELeXBI, A Basic Tool for Bilingual Term Extraction from Spanish-Basque Parallel Corpora.</b><br>
+	<i>12th EURALEX International Congress. ISBN 88-7694-918-6. pp 159-165</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1177085533/publikoak/pdf">pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Arregi X.,&nbsp;Artola  X.,&nbsp;Astiz M.,&nbsp;Ruiz Miyares L.&nbsp;2006<br>
+        	<b>Different issues in the design and development of the electronic Cuban Basic School Dictionary</b><br>
+	<i>E. Miyares, L. Ruiz arg., Linguistics in the Twenty First Century, 273-288. Cambridge Scholars Press,  UK. ISBN: 1904303862</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1163782882/publikoak/DBE_Cambridge.pdf">DBE_Cambridge.pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Arregi X.,&nbsp;Artola  X.,&nbsp;Astiz M.,&nbsp;L. Ruiz Miyares&nbsp;2006<br>
+        	<b>Building an Electronic Version of the Cuban Basic School Dictionary</b><br>
+	<i>Proceedings EURALEX 2006 (Turin, Italy).</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1150789369/publikoak/building.pdf">building.pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Arregi X.,&nbsp;Artola  X.,&nbsp;Astiz M.,&nbsp;L. Ruiz Miyares&nbsp;2006<br>
+        	<b>A Dictionary Content Management System</b><br>
+	<i>Proceedings EURALEX 2006 (Turin, Italy).</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1150789608/publikoak/dictionary_content.pdf">dictionary_content.pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Ezeiza N.,&nbsp;Sologaistoa A.,&nbsp;Soroa A.,&nbsp;Valverde A.,&nbsp;N. Arteta,&nbsp; A. Gurrutxaga,&nbsp; I. Leturia,&nbsp; R. Saiz&nbsp;2005<br>
+        	<b>Zientzia eta teknologiaren corpusa</b><br>
+	<i>Euskera zientifiko-teknikoa: Normalizaziotik homologazinora. Mendebalde Kultura Alkartea. ISBN: 84-931882-5-5. Bilbao.</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1113384045/publikoak/ZT_Corpusa_Mendebalde.pdf">ZT_Corpusa_Mendebalde.pdf</a>
+	<br>
+                <br><br>
+                   Ixa taldea&nbsp;2005<br>
+        	<b>Itzultzaile automatiko bat software librean</b><br>
+	<i>Erabili.com: www.erabili.com/zer_berri/berriak/1111148758/</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1111409774/publikoak/Miramar2005">Miramar2005</a>
+	<br>
+                <br><br>
+                   Gurrutxaga A., Saralegi X., Ugartetxea S., Alegria I.&nbsp;2005<br>
+        	<b>Erauzterm: euskarazko terminoak erauzteko tresna erdiautomatikoa</b><br>
+	<i>Mendebalde Kultur Alkartea, IX. Jardunaldiak: Euskera zientifiko-teknikoa. ISBN 84-931882-5-5</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1113822112/publikoak/pdf">pdf</a>
+	<br>
+                <br><br>
+                   Ana Zelaia, Iñaki Alegria, Olatz Arregi, Basilio Sierra&nbsp;2005<br>
+        	<b>Analyzing the effect of dimensionality reduction in document categorization for Basque</b><br>
+	<i>Archives of Control Sciences. ISNN: 0004-072X</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1190710589/publikoak/ltc_057_zelaia_1.pdf">ltc_057_zelaia_1.pdf</a>
+	<br>
+                <br><br>
+                   Antonio M. Corbí-Bellot, Mikel L. Forcada, Sergio Ortiz-Rojas, Juan Antonio Pérez-Ortiz, Gema Ramírez-Sánchez, Felipe Sánchez-Martínez, Iñaki Alegria, Aingeru Mayor, Kepa Sarasola&nbsp;2005<br>
+        	<b>An Open-Source Shallow-Transfer Machine Translation Engine for the Romance Languages of Spain</b><br>
+	<i>Proceedings of the EAMT2005 (poster session)</i><br>
+	get:
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Díaz de Ilarraza A.,&nbsp;Labaka G.,&nbsp;Lersundi M.,&nbsp;Mayor A.,&nbsp;Sarasola K.,&nbsp;M. Forcada,&nbsp; S. Ortiz,&nbsp; L. Padró&nbsp;2005<br>
+        	<b>An Open Architecture for Transfer-based Machine Translation between Spanish and Basque</b><br>
+	<i>MT Summit X Workshop. Workshop on Open-Source Machine Traslation. ISBN: 974-7431-35-1. Argitaletxea: Asia-Pacific Association for Machine Translation (AAMT). pp: 7-14.  Phuket, Thailand</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1117456805/publikoak/es-eu-diseinua.pdf">es-eu-diseinua.pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Díaz de Ilarraza A.,&nbsp;Labaka G.,&nbsp;Lersundi M.,&nbsp;Mayor A.,&nbsp;Sarasola K.&nbsp;2005<br>
+        	<b>An FST grammar for verb chain transfer in a Spanish-Basque MT System</b><br>
+	<i>FSMNLP Finite-State Methods and  Natural Language Processing (poster session). ISBN: 9783540354673</i><br>
+	get:
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Ansa O.,&nbsp;Artola  X.,&nbsp;Ezeiza N.,&nbsp;Gojenola K.,&nbsp;Urizar R.&nbsp;2004<br>
+        	<b>Representation and Treatment of Multiword Expressions in Basque</b><br>
+	<i>ACL workshop on Multiword Expressions. ISBN: 1-932432-40-X</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1084865372/publikoak/acl2004.pdf">acl2004.pdf</a>
+	<br>
+                <br><br>
+                    Alegria I., Gurrutxaga A., Lizaso P., Saralegi X., Ugartetxea S., Urizar R.&nbsp;2004<br>
+        	<b>Linguistic and Statistical Approaches to Basque Term Extraction</b><br>
+	<i>GLAT-2004: THE PRODUCTION OF SPECIALIZED TEXTS. ISBN: 2-908849-14-3</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1079630425/publikoak/Term_Erauzketa.pdf">Term_Erauzketa.pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.&nbsp;2004<br>
+        	<b>Euskarazko softwarea: errepide-mapa</b><br>
+	<i>2004ko ikastearen nazioarteko egunean EHUko Informatika Fakulatean emandako hitzaldia</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1100709406/publikoak/eu_soft">eu_soft</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Aranzabe M.,&nbsp;Ezeiza A.,&nbsp;Ezeiza N.,&nbsp;Urizar R.&nbsp;2003<br>
+        	<b>Robustez y flexibilidad de un lematizador/etiquetador</b><br>
+	<i>VIII Simposio Internacional de Comunicación Social. ISBN 959-7174-01-4</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1046877142/publikoak/2003Simposio.pdf">2003Simposio.pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Ezeiza N.,&nbsp;Fernandez I.,&nbsp;Urizar R.&nbsp;2003<br>
+        	<b>Named Entity Recognition and Classification for texts in Basque</b><br>
+	<i>II Jornadas de Tratamiento y Recuperación de Información, JOTRI, Madrid. 2003. ISBN 84-89315-33-7</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1061807449/publikoak/JotriII">JotriII</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;M. Jesus Rodriguez&nbsp;2003<br>
+        	<b>Euskararen presentzia Interneten neurtu nahian</b><br>
+	<i>BAT soziolinguistika aldizkaria, 48, 89-100</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1070449758/publikoak/BAT.pdf">BAT.pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Aranzabe M.,&nbsp;Ezeiza A.,&nbsp;Ezeiza N.,&nbsp;Urizar R.&nbsp;2002<br>
+        	<b>Using Finite State Technology in Natural Language Processing of Basque</b><br>
+	<i>LNCS: Implementation and Application of Automata.  Publisher: Springer Berlin/Heidelberg. Vol. 2494/2002
+Watson, Bruce; Wood, Derick (Eds.)
+2002. ISSN: 0302-9743 ISBN: 3-540-00400-9. pp: 1-11</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1010603800/publikoak/hegoafrika.pdf">hegoafrika.pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Aranzabe M.,&nbsp;Arregi O.,&nbsp;Ezeiza A.,&nbsp;Ezeiza N.,&nbsp;Urizar R.,&nbsp;Casillas,&nbsp; A.&nbsp;2002<br>
+        	<b>Trabajos en el área de Recuperación de la Información del grupo IXA de la Universidad del País Vasco</b><br>
+	<i>I Jornadas de Tratamiento y Recuperación de Información, JOTRI, Valencia. 2002. ISBN 2-9517408-0-8</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1022753985/publikoak/valencia2002.pdf">valencia2002.pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Artola  X.,&nbsp;Sarasola K.&nbsp;2002<br>
+        	<b>"Hizkuntzaren tratamendu automatikoa: aplikazioak, tresnak, baliabideak eta oinarriak</b><br>
+	<i>Euskalingua: www.mendebalde.com/euskalingua/1/aurkibidea.html (ISSN: ?). 1, 5.	Mendebalde Kultur Alkartea, Deustua.</i><br>
+	get:
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Artola  X.,&nbsp;Sarasola K.&nbsp;2001<br>
+        	<b>Hizkuntzaren tratamendu automatikoa: aplikazioak, tresnak, baliabideak eta oinarriak</b><br>
+	<i>Euskonews,  http://suse00.su.ehu.es/euskonews/0110zbk/frgaia.htm</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1020189973/publikoak/euskonews2001.pdf">euskonews2001.pdf</a>
+	<br>
+                <br><br>
+                   Urizar R., Ezeiza N., Alegria I.&nbsp;2000<br>
+        	<b>Morphosyntactic structure of terms in Basque for automatic terminology extraction</b><br>
+	<i>The ninth EURALEX International congress 2000. Stuttgart (Germany). ISBN 3-00-006574-1</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1012399093/publikoak/euralex2000.pdf">euralex2000.pdf</a>
+	<br>
+                <br><br>
+                   Arrieta B., Arregi X., Alegria I.&nbsp;2000<br>
+        	<b>An Assistant Tool For Verse-Making In Basque Based On Two-Level Morphology</b><br>
+	<i>Proceedings of ALLC/ACH 2000 . Glasgow, UK. 21-26 July 2000.</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911633/publikoak/00ALLC_ACH.ps">00ALLC_ACH.ps</a>
+	<br>
+                <br><br>
+
+         Aduriz I.,&nbsp;Agirre E.,&nbsp;Aldezabal I.,&nbsp;Alegria I.,&nbsp;Arregi X.,&nbsp;Arriola J.,&nbsp;Artola  X.,&nbsp;Gojenola K.,&nbsp;Sarasola K.&nbsp;2000<br>
+        	<b>A Word-grammar based morphological analyzer for agglutinative languages</b><br>
+	<i>Proceedings of the International Conference on Computational Linguistics. COLING 2000. ISBN: 1-55860-717-X .  Vol. 1. Pgs 1-7. Saarbrucken, Germany. August, 2000</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1014385332/publikoak/coling.pdf">coling.pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Ezeiza N.,&nbsp;Oronoz M.,&nbsp;Urizar R.&nbsp;1999<br>
+        	<b>Extracción Automática de Terminología a partir de Etiquetado y Lematización</b><br>
+	<i>ISBN: 959-11-0250-X. VI Simposio Internacional de Comunicación Social. Santiago de Cuba, 25-28 de Enero de 1999.</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911715/publikoak/99Kuba_term.ps">99Kuba_term.ps</a>
+	<br>
+                <br><br>
+
+         Aldezabal I.,&nbsp;Alegria I.,&nbsp;Ansa O.,&nbsp;Arriola J.,&nbsp;Ezeiza N.&nbsp;1999<br>
+        	<b>Designing spelling correctors for inflected languages using lexical transducers</b><br>
+	<i>Proceedings of EACL'99.  pg. 265-266.  Bergen, Norway. 8-12 June 1999. ISBN 1-55860-652-1</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911634/publikoak/99EACL.ps">99EACL.ps</a>
+	<br>
+                <br><br>
+
+         Aldezabal I.,&nbsp;Alegria I.,&nbsp;Artola  X.,&nbsp;Ezeiza N.,&nbsp;Urizar R.&nbsp;1997<br>
+        	<b>Terminologiaren erauzketa automatikoa eta bere aplikazioa euskararako</b><br>
+	<i>Nazioarteko Terminologia biltzarra, 495-508 orr. Donostia. Azaroaren 12-13-14, 1997. ISBN 84- 89135-04-5</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911716/publikoak/97TERMIN.ps">97TERMIN.ps</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Artola  X.,&nbsp;Sarasola K.&nbsp;1997<br>
+        	<b>Improving a Robust Morphological Analyser using Lexical Transducers</b><br>
+	<i>Recent Advances in Natural Language Processing. Current Issues in Linguistic Theory (CILT) series. John Benjamins publisher company. Ruslan Mitkov and Nicolas Nicolov editors. Vol. 136. pp 97-110. 1997. ISBN-902723640-2</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911635/publikoak/95RANLP_XU.ps">95RANLP_XU.ps</a>
+	<br>
+                <br><br>
+
+         Aduriz I.,&nbsp;Aldezabal I.,&nbsp;Alegria I.,&nbsp;Artola  X.,&nbsp;Ezeiza N.,&nbsp;Urizar R.&nbsp;1996<br>
+        	<b>EUSLEM: A Lemmatiser / Tagger for Basque</b><br>
+	<i>Proc. EURALEX'96, Part 1, 17-26. Góuml;teborg (Sweden). 1996. ISBN 91-87850-14-1</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911639/publikoak/96EUSLEM.ps">96EUSLEM.ps</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Artola  X.,&nbsp;Sarasola K.&nbsp;1995<br>
+        	<b>Improving a Robust Morphological Analyser using Lexical Transducers</b><br>
+	<i>Proc. Recent Advances in NLP (RANLP95), 199-203. Tzigov Chark (Bulgary). 1995.</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911645/publikoak/95RANLP_XU.ps">95RANLP_XU.ps</a>
+	<br>
+                <br><br>
+
+         Aduriz I.,&nbsp;Agirre E.,&nbsp;Alegria I.,&nbsp;Arregi X.,&nbsp;Arriola J.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Ezeiza N.,&nbsp;Maritxalar M.,&nbsp;Sarasola K.&nbsp;1993<br>
+        	<b>A Morphological Analysis Based Method for Spelling Correction</b><br>
+	<i>Proceedings of the European assotiation for computacional linguistics, (EACL 93). Utretch (Holanda). 1993.</i><br>
+	get:
+	<br>
+                <br><br>
+
+         Agirre E.,&nbsp;Alegria I.,&nbsp;Arregi X.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Maritxalar M.,&nbsp;Sarasola K.&nbsp;1992<br>
+        	<b>Xuxen: A Spelling Checker/Corrector for Basque based in Two-Level Morphology</b><br>
+	<i>Proceedings of ANLP'92, 119-125. Povo Trento. 1992.</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911650/publikoak/92ANLP.ps">92ANLP.ps</a>
+	<br>
+                <br><br>
+
+         Agirre E.,&nbsp;Alegria I.,&nbsp;Arregi X.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Sarasola K.,&nbsp;J.R. Zubizarreta&nbsp;1988<br>
+        	<b>Lengoaia naturalaren ordenadore bidezko aplikazioak</b><br>
+	<i>Actas del Congreso sobre la Planificación Lingüística en la Administración Pública, 341-349, IVAP/HAEE. Oñati. 1988.</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911726/publikoak/88IVAP.ps">88IVAP.ps</a>
+	<br>
+                <br><br>
+        <H3>Conference with no ISBN</h3><br>
+
+
+         Alegria I.,&nbsp;Arregi X.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Labaka G.,&nbsp;Lersundi M.,&nbsp;Mayor A.,&nbsp;Sarasola K.&nbsp;2008<br>
+        	<b>Strategies for sustainable MT for Basque: incremental design, reusability, standardization and open-source</b><br>
+	<i>Proceedings of the IJCNLP-08 Workshop on NLP for Less Privileged Languages. pages 59-64. Asian Federation of Natural Language Processing, Hyderabad, India,</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1196788005/publikoak/IJCNLP-08.PDF">IJCNLP-08.PDF</a>
+	<br>
+                <br><br>
+
+         Aldezabal I.,&nbsp;Alegria I.,&nbsp;Arriola J.,&nbsp;Díaz de Ilarraza A.,&nbsp;Lersundi M.,&nbsp;Sarasola K.&nbsp;2008<br>
+        	<b>Language Technology is an effective tool to promote use of Basque</b><br>
+	<i>AILA 2008, Multilinguism:Challenges & Opportunities. Essen Germany.</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1197641377/publikoak/Aila2008.rtf">Aila2008.rtf</a>
+	<br>
+                <br><br>
+                    Díaz de Ilarraza A., Gojenola K., Oronoz M., Otaegi M., I. Alegria&nbsp;2007<br>
+        	<b>Syntactic Error Detection and Correction in Date Expressions using Finite-State Transducers</b><br>
+	<i>Workshop on Finite State Methods in Natural Language Processing, Postdam</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1184848110/publikoak/fsmnlp07-8.pdf">fsmnlp07-8.pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Ezeiza N.,&nbsp;Fernandez I.&nbsp;2006<br>
+        	<b>Named Entities Translation Based on Comparable Corpora</b><br>
+	<i>Multi-Word-Expressions in a Multilingual Context Workshop on EACL06</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1139581750/publikoak/NET-based-on-Comparable-Corpora">NET-based-on-Comparable-Corpora</a>
+	<br>
+                <br><br>
+                   Ana Zelaia, Iñaki Alegria, Olatz Arregi, Basilio Sierra&nbsp;2006<br>
+        	<b>A Multiclassifier based Document Categorization System: profiting from the Singular Value Decomposition Dimensionality Reduction Technique</b><br>
+	<i>Learning Structured Information in Natural Language Applications Workshop on EACL-06, Trento</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1140706180/publikoak/eacl2006">eacl2006</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Ezeiza N.,&nbsp;Fernandez K.,&nbsp;Sologaistoa A.,&nbsp;Soroa A.,&nbsp;Valverde A.,&nbsp;N. Areta,&nbsp; A. Gurrutxaga,&nbsp; I. Leturia,&nbsp; Z. Polin,&nbsp; R. Saiz&nbsp;2005<br>
+        	<b>Zientzia eta Teknologiaren corpusa. Diseinua eta metodologia.</b><br>
+	<i>EHUko Euskara Institutua. Espezialitateko Hizkerak eta Terminologia. Euskara Estandarra eta Espezialitate Hizkerak. Leioa (Basque Country).</i><br>
+	get:
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Díaz de Ilarraza A.,&nbsp;Labaka G.,&nbsp;Lersundi M.,&nbsp;Mayor A.,&nbsp;Sarasola K.&nbsp;2005<br>
+        	<b>Itzulpen automatikoa IXA taldean </b><br>
+	<i>Ordenagailuz Lagundutako itzulpena. EHUko Udako Ikastaroak 2005</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1120202008/publikoak/MTMiramar2005">MTMiramar2005</a>
+	<br>
+                <br><br>
+                   A. Gurrutxaga, A. Pagoaga, X. Saralegi, S. Ugartetxea, I. Alegria&nbsp;2005<br>
+        	<b>Euskara-gaztelania terminologia Elebidunaren Erauzle Automatikoa.</b><br>
+	<i></i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1134740519/publikoak/laburra">laburra</a>
+	<br>
+                <br><br>
+                   Ana Zelaia, Iñaki Alegria, Olatz Arregi, Basilio Sierra&nbsp;2005<br>
+        	<b>Analizing the effect of dimensionality reduction in document categorization for Basque</b><br>
+	<i>2nd Language & Technology Conference: Human Language Technologies as a Challenge for Computer Science and Linguistics</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1110471633/publikoak/pdf">pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Arregi O.,&nbsp;Ezeiza N.,&nbsp;Fernandez I.,&nbsp;Urizar R.&nbsp;2004<br>
+        	<b>Design and Development of a Named Entity Recognizer for an Agglutinative Language. </b><br>
+	<i>First International Joint Conference on NLP (IJCNLP-04). Workshop on Named Entity Recognition.</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1076696580/publikoak/IJCNLP04">IJCNLP04</a>
+	<br>
+                <br><br>
+                    Alegria I., Gurrutxaga A.,  Lizaso P.,  Saralegi X.,  Ugartetxea S., Urizar R.&nbsp;2004<br>
+        	<b>An Xml-Based Term Extraction Tool for Basque</b><br>
+	<i>LREC2004: 4 th INTERNATIONAL CONFERENCE ON LANGUAGE RESOURCES AND EVALUATION</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1078851980/publikoak/Erauzterm_LREC">Erauzterm_LREC</a>
+	<br>
+                <br><br>
+
+         Aduriz I.,&nbsp;Aldezabal I.,&nbsp;Alegria I.,&nbsp;Arriola J.,&nbsp;Díaz de Ilarraza A.,&nbsp;Ezeiza N.,&nbsp;Gojenola K.&nbsp;2003<br>
+        	<b>Finite State Applications for Basque</b><br>
+	<i>EACL'2003 Workshop on Finite-State Methods in Natural Language Processing</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1044982346/publikoak/fs-eacl-aduriz.pdf">fs-eacl-aduriz.pdf</a>
+	<br>
+                <br><br>
+
+         Agirre E.,&nbsp;Aldezabal I.,&nbsp;Alegria I.,&nbsp;Arregi X.,&nbsp;Arriola J.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Ezeiza N.,&nbsp;Gojenola K.,&nbsp;Sarasola K.,&nbsp;Soroa A.&nbsp;2002<br>
+        	<b>Towards the definition of a basic toolkit for HLT</b><br>
+	<i>LREC 2002.Workshop on Portability Issues in HLT. LAS PALMAS, CANARY ISLANDS - SPAIN </i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1019840566/publikoak/02LRECBasicToolkit.pdf">02LRECBasicToolkit.pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Aranzabe M.,&nbsp;Ezeiza A.,&nbsp;Ezeiza N.,&nbsp;Urizar R.&nbsp;2002<br>
+        	<b>Robustness and customisation in an analyser/lemmatiser for Basque</b><br>
+	<i>LREC-2002 Customizing knowledge in NLP applications workshop</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1019570039/publikoak/robust2.pdf">robust2.pdf</a>
+	<br>
+                <br><br>
+                   Ezeiza N., Aduriz I., Alegria I., Arriola J.M., Urizar R.&nbsp;1998<br>
+        	<b>Combining Stochastic and Rule-Based Methods for Disambiguation in Agglutinative Languages</b><br>
+	<i>COLING-ACL'98.  Pgs. 380 - 384. Vol 1.  Montreal (Canada). August 10-14, 1998</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911659/publikoak/98ACLdesanb.ps">98ACLdesanb.ps</a>
+	<br>
+                <br><br>
+
+         Aduriz I.,&nbsp;Agirre E.,&nbsp;Aldezabal I.,&nbsp;Alegria I.,&nbsp;Ansa O.,&nbsp;Arregi X.,&nbsp;Arriola J.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Ezeiza N.,&nbsp;Gojenola K.,&nbsp;Maritxalar M.,&nbsp;Oronoz M.,&nbsp;Sarasola K.,&nbsp;Soroa A.,&nbsp;Urizar R.&nbsp;1998<br>
+        	<b>A framework for the automatic processing of Basque</b><br>
+	<i>Proceedings of Workshop on Lexical Resources for Minority Languages. Granada. 1998.</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911719/publikoak/98LRML.ps">98LRML.ps</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Artola  X.,&nbsp;Ezeiza N.,&nbsp;Gojenola K.,&nbsp;Sarasola K.&nbsp;1996<br>
+        	<b>A trade-off between robustness and overgeneration in morphology</b><br>
+	<i>Le traitement automatique du langage et les applications industrielles/Natural Language Processing and Industrial Applications. Volume I. pp 6-10. Moncton, Canada. 1996.</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911642/publikoak/96NLP_IA.ps">96NLP_IA.ps</a>
+	<br>
+                <br><br>
+
+         Aduriz I.,&nbsp;Alegria I.,&nbsp;Arriola J.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Ezeiza N.,&nbsp;Gojenola K.,&nbsp;Maritxalar M.&nbsp;1995<br>
+        	<b>Different Issues in the Design of a Lemmatizer/Tagger for Basque</b><br>
+	<i>EACL-SIGDAT Workshop 'From texts to tags: issues in multilingual text analysis', 18-23. Dublin. 1995. </i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911644/publikoak/95DUBLIN.ps">95DUBLIN.ps</a>
+	<br>
+                <br><br>
+
+         Aduriz I.,&nbsp;Agirre E.,&nbsp;Alegria I.,&nbsp;Arregi X.,&nbsp;Arriola J.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Ezeiza N.,&nbsp;Maritxalar M.,&nbsp;Sarasola K.,&nbsp;A. DaCosta,&nbsp;A.Agirre&nbsp;1994<br>
+        	<b>XUXEN-Mac Corrector ortográfico para textos en euskera</b><br>
+	<i>UNIMAC'94- I Congreso Universidad Macintosh, Volumen II, 305-310. Madrid. Septiembre 1994.</i><br>
+	get:
+	<br>
+                <br><br>
+
+         Aduriz I.,&nbsp;Agirre E.,&nbsp;Alegria I.,&nbsp;Arregi X.,&nbsp;Arriola J.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Ezeiza N.,&nbsp;Maritxalar M.,&nbsp;Sarasola K.&nbsp;1992<br>
+        	<b>A Morphological Analyzer for Basque based on Two-level Morphology</b><br>
+	<i>Proceedings of the 5th Int. Morphology Meeting. Krems (Austria). 1992.</i><br>
+	get:
+	<br>
+                <br><br>
+        <H3>Journal</h3><br>
+
+                    Saralegi X., Alegria I.&nbsp;2007<br>
+        	<b>Similitud entre documentos multilingües de carácter técnico en un entorno Web</b><br>
+	<i>SEPLN 2007. Sevilla. ISSN 1135-5948</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1184248312/publikoak/pdf">pdf</a>
+	<br>
+                <br><br>
+
+         Agirre E.,&nbsp;Alegria I.,&nbsp;Rigau  G.,&nbsp;Vossen P.&nbsp;2007<br>
+        	<b>MCR for CLIR</b><br>
+	<i>SEPLN aldizkaria, monografia TIIMM. vol 38, 3-16. ISSN 1135-5948</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1174895701/publikoak/pdf">pdf</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Arregi O.,&nbsp;Ezeiza N.,&nbsp;Fernandez I.&nbsp;2006<br>
+        	<b>Lessons from the Development of a Named Entity Recognizer</b><br>
+	<i>Procesamiento del Lenguaje Natural, ISSN 1135-5948  Revista nº 36, pag. 25-37</i><br>
+	get:
+	<br>
+                <br><br>
+
+         Agirre E.,&nbsp;Aldezabal I.,&nbsp;Alegria I.,&nbsp;Arregi X.,&nbsp;Arriola J.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Ezeiza N.,&nbsp;Gojenola K.,&nbsp;Sarasola K.,&nbsp;Soroa A.&nbsp;2001<br>
+        	<b>Hizkuntza-Teknologiak: I+Grako garrantzia, emaitzak, eta beharrak</b><br>
+	<i>Hermes aldizkaria, 2001-XII. ISSN: 1578-0058</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1019841064/publikoak/HT_Hermes_2002">HT_Hermes_2002</a>
+	<br>
+                <br><br>
+
+         Agirre E.,&nbsp;Aldezabal I.,&nbsp;Alegria I.,&nbsp;Arregi X.,&nbsp;Arriola J.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Ezeiza N.,&nbsp;Gojenola K.,&nbsp;Sarasola K.,&nbsp;Soroa A.&nbsp;2001<br>
+        	<b>Developing Language Technology for a Minority Language: Progress and Strategy</b><br>
+	<i>ELSNews. 10.1  ISSN 1350-990X  www.elsnet.org/publications/elsnews/10.1.pdf</i><br>
+	get:
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Arregi X.,&nbsp;Arrieta B.&nbsp;2001<br>
+        	<b>Bertsolaritzarako errima-aurkitzaile informatikoa</b><br>
+	<i>Elhuyar Zientzia eta Teknika. ISSN 0213-3687. zenb. 162; or. 20-25</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1011886644/publikoak/elhuyar2001.pdf">elhuyar2001.pdf</a>
+	<br>
+                <br><br>
+                   Arrieta B., Alegria I., Arregi X.&nbsp;2001<br>
+        	<b>An assistant tool for Verse-Making in Basque based on Two-Level Morphology</b><br>
+	<i>Literary and Linguistic Computing. Online ISSN 1477-4615 - Print ISSN 0268-1145 . Vol. 16, No. 1; pag 29-43;  2001  (Oxford University press)</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1011886986/publikoak/LLC-2001.pdf">LLC-2001.pdf</a>
+	<br>
+                <br><br>
+                   Aizpurua I., Alegria I., Ezeiza N.&nbsp;2000<br>
+        	<b>GaIn: un buscador Internet/Intranet avanzado para textos en euskera</b><br>
+	<i>Actas del XVI Congreso de la SEPLN. ISSN 1135-5948. Nº 26, pgs. 253-255.  Universidade de Vigo, 26-28 septiembre de 2000.</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911714/publikoak/00SEPLN-IRIE.ps">00SEPLN-IRIE.ps</a>
+	<br>
+                <br><br>
+
+         Agirre E.,&nbsp;Aldezabal I.,&nbsp;Alegria I.,&nbsp;Ansa O.,&nbsp;Arregi X.,&nbsp;Arriola J.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Ezeiza N.,&nbsp;Gojenola K.,&nbsp;Lersundi M.,&nbsp;Maritxalar M.,&nbsp;Oronoz M.,&nbsp;Sarasola K.,&nbsp;Soroa A.,&nbsp;Urizar R.&nbsp;1998<br>
+        	<b>Hizkuntza baliabideak Interneten</b><br>
+	<i>Elhuyar. Zientzia eta Teknika, 138, 8-9. (ISSN: 213-3687)</i><br>
+	get:
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Artola  X.,&nbsp;Sarasola K.&nbsp;1997<br>
+        	<b>Hizkuntzaren tratamendu automatikoa: helburuak eta abiaburuak</b><br>
+	<i>Jakin, ISSN:0211/495X   102. zk., 61-82 orr.. 1997.</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911721/publikoak/97JAKIN.ps">97JAKIN.ps</a>
+	<br>
+                <br><br>
+
+         Aduriz I.,&nbsp;Alegria I.,&nbsp;Artola  X.,&nbsp;Ezeiza N.,&nbsp;Sarasola K.&nbsp;1997<br>
+        	<b>A spelling corrector for Basque based on morphology</b><br>
+	<i>Literary & Linguistic Computing, Vol. 12, No. 1. 31-38. Oxford University Press. Oxford. 1997.ISSN 0268-1145</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911636/publikoak/97LITER_Z.ps">97LITER_Z.ps</a>
+	<br>
+                <br><br>
+
+         Alegria I.&nbsp;1996<br>
+        	<b>Morfología de estados finitos</b><br>
+	<i>Procesamiento del Lenguaje Natural (SEPLN) Revista no. 18, 1-26. Donostia. 1996.. ISSN-1135-5948</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911643/publikoak/morfologia.pdf">morfologia.pdf</a>
+	<br>
+                <br><br>
+                   Maritxalar M., Díaz de Ilarraza A., Alegria I., Ezeiza N.&nbsp;1996<br>
+        	<b>Modelización de la competencia gramatical en la interlingua basada en el análisis de corpus</b><br>
+	<i>Procesamiento del Lenguaje Natural (SEPLN), Revista no. 19, 166-178. Sevilla. 1996. ISSN 1135-5948</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911704/publikoak/96SEPLN_ID.ps">96SEPLN_ID.ps</a>
+	<br>
+                <br><br>
+
+         Aduriz I.,&nbsp;Aldezabal I.,&nbsp;Alegria I.,&nbsp;Ezeiza N.,&nbsp;Urizar R.&nbsp;1996<br>
+        	<b>Del analizador morfológico al etiquetador /lematizador: unidades léxicas complejas y desambiguación</b><br>
+	<i>Procesamiento del Lenguaje Natural (SEPLN) , Revista no. 19, 90-100. Sevilla. 1996. ISSN: 1135-5948</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911638/publikoak/96SEPLN_EU.ps">96SEPLN_EU.ps</a>
+	<br>
+                <br><br>
+
+         Alegria I.,&nbsp;Artola  X.,&nbsp;Sarasola K.&nbsp;1996<br>
+        	<b>Automatic morphological analysis of Basque</b><br>
+	<i>Literary & Linguistic Computing Vol. 11, No. 4, 193-203. Oxford University Press. Oxford. 1996. ISSN 0268-1145</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911641/publikoak/96LITER_M.ps">96LITER_M.ps</a>
+	<br>
+                <br><br>
+
+         Aduriz I.,&nbsp;Alegria I.,&nbsp;Arriola J.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Gojenola K.,&nbsp;Maritxalar M.&nbsp;1996<br>
+        	<b>A corpus based morphological disambiguation tool for Basque</b><br>
+	<i>Procesamiento del Lenguaje Natural (SEPLN). ISSN 1135-5948. Revista no. 19; pgs. 41-50; Sevilla. 1996.</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911637/publikoak/96SEPLN_MG.ps">96SEPLN_MG.ps</a>
+	<br>
+                <br><br>
+
+         Aduriz I.,&nbsp;Alegria I.,&nbsp;Arriola J.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Ezeiza N.&nbsp;1994<br>
+        	<b>EUSLEM: un lematizador/etiquetador de textos en euskera</b><br>
+	<i>Actas del X congreso de la Sociedad Española para el Procesamiento del Lenguaje Natural (SEPLN), grupo: 6 Análisis de corpus. Córdoba. 1994. ISSN 1135-5948</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911646/publikoak/94SPLN_EU.ps">94SPLN_EU.ps</a>
+	<br>
+                <br><br>
+
+         Agirre E.,&nbsp;Alegria I.,&nbsp;Arregi X.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Maritxalar M.,&nbsp;Sarasola K.,&nbsp;A. Agirre,&nbsp;P. Goenaga&nbsp;1991<br>
+        	<b>Bi mailatako morfologiaren euskararako egokitzapena</b><br>
+	<i>Elhuyar 17, 1-2 & 7-14. 1991.</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911651/publikoak/91ELHUYAR.ps">91ELHUYAR.ps</a>
+	<br>
+                <br><br>
+
+         Agirre E.,&nbsp;Alegria I.,&nbsp;Arregi X.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Sarasola K.&nbsp;1989<br>
+        	<b>Aplicación de la morfología de dos niveles al Euskara</b><br>
+	<i>Sociedad Española para el Procesamiento del Lenguaje Natural, (SEPLN). ISSN: ISSN 1135-5948.  Boletín no. 8, 87-102. Barcelona. 1989.</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Artikuluak/1000911652/publikoak/89SPLN.ps">89SPLN.ps</a>
+	<br>
+                <br><br>
+
+<h2>Internal reports</h2>
+
+         Aldezabal I.,&nbsp;Alegria I.,&nbsp;Ansa O.,&nbsp;Arregi X.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Ezeiza N.,&nbsp;Gojenola K.,&nbsp;Hernández G.,&nbsp;Mayor A.,&nbsp;Oronoz M.,&nbsp;Soroa A.<br>
+	<b>Hizkuntza  prozesatzeko tresnen integrazioa, SGML erabiliz</b><br>
+	<i>UPV/EHU/LSI/TR 2-2002</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Barne_txostenak/1023890498/publikoak/integrazioa-abstract.doc">integrazioa-abstract.doc</a>
+	<br>
+         <br><br>
+
+         Alegria I.<br>
+	<b>Morfologia de los estados finitos</b><br>
+	<i>UPV/EHU-LSI TR 10-95.</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Barne_txostenak/1001000792/publikoak/TR-10-95.ps">TR-10-95.ps</a>
+	<br>
+         <br><br>
+
+         Aduriz I.,&nbsp;Agirre E.,&nbsp;Alegria I.,&nbsp;Arregi X.,&nbsp;Arriola J.,&nbsp;Artola  X.,&nbsp;Díaz de Ilarraza A.,&nbsp;Ezeiza N.,&nbsp;Gojenola K.,&nbsp;Maritxalar M.,&nbsp;Sarasola K.,&nbsp;J. Abaitua<br>
+	<b>Estudio comparativo de diferentes formalismos sintácticos para su aplicación al euskera</b><br>
+	<i>UPV-EHU/ LSI/ TR-1-93. 1993ko otsaila</i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Barne_txostenak/1001000795/publikoak/92%20barne%20txostena%20sintaxia.pdf">92 barne txostena sintaxia.pdf</a>
+	<br>
+         <br><br>
+
+         Alegria I.,&nbsp;J. Bastarrika<br>
+	<b>Unix hizkuntz erabilpenetarako</b><br>
+	<i>FISS-D-48.1-ATC-91. 1991ko urria</i><br>
+	get:
+	<br>
+         <br><br>
+
+<h2>Thesis</h2>
+
+         Alegria I.<br>
+	<b>Euskal  morfologiaren tratamendu automatikorako tresnak</b><br>
+	<i>Informatika Fakultatea, UPV-EHU, 1995eko uztaila </i><br>
+	get:
+			<a href="http://ixa.si.ehu.es/Ixa/Argitalpenak/Tesiak/1001066269/publikoak/tesia-pdf-karpeta-zip">tesia-pdf-karpeta-zip</a>
+	<br>
+        <br><br>
+
+    <font color="white">O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O </font>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
