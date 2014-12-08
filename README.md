@@ -7,7 +7,7 @@ the following URL:
 ```
 http://www.fit.vutbr.cz/study/courses/$COURSE
 ```
-For example, the the URL for the IJC course is
+For example, the URL for the IJC course is
 ```
 http://www.fit.vutbr.cz/study/courses/IJC/
 ```
