@@ -1,0 +1,151 @@
+; ========================================================================
+;                           Projekt do predmetu HSC
+;                           -----------------------
+;
+; Jmeno a Prijmeni: Petr Zemek
+; Login:            xzemek02
+; Datum:            28.12.2008
+;
+; ========================================================================
+
+; --------------------------- Mapovani portu ---------------------------
+; Registry 9-okoli
+CONSTANT PORT_REG_R0,      00            ; Registr R0
+CONSTANT PORT_REG_R1,      01            ; Registr R1
+CONSTANT PORT_REG_R2,      02            ; Registr R2
+CONSTANT PORT_REG_R3,      03            ; Registr R3
+CONSTANT PORT_REG_R4,      04            ; Registr R4
+CONSTANT PORT_REG_R5,      05            ; Registr R5
+CONSTANT PORT_REG_R6,      06            ; Registr R6
+CONSTANT PORT_REG_R7,      07            ; Registr R7
+CONSTANT PORT_REG_R8,      08            ; Registr R8
+
+; Vystupni registr
+CONSTANT PORT_REG_Rout,    20
+
+; Ridici a stavovy registr
+CONSTANT PORT_REG_STATUS,  FE            ; Stavovy registr
+CONSTANT PORT_REG_CONTROL, FF            ; Ridici registr
+
+; --------------------------- Inicializace ------------------------------
+start:
+    ; "Konstanty" ulozene v registrech
+    LOAD       sD, 01
+
+    ; Registry potrebne pro RLE kompresi
+    LOAD       sE, 00          ; posledni prijaty byte
+    LOAD       sF, 00          ; pocet poslednich bajtu
+
+; ---------------------- Hlavni smycka programu -------------------------
+next_pixel:
+    ; Cekani, dokud neprijde z kamery pixel - indikovano neprazdnou frontou na
+    ; vstupu
+    INPUT      s0, PORT_REG_STATUS
+    AND        s0, 01
+    JUMP       Z , next_pixel
+
+    ; Posun 9-okoli o jeden pixel
+    OUTPUT     sD, PORT_REG_CONTROL
+
+    ; Vypocet medianu
+compute_median:
+    ; Nahrani obsahu registru z FPGA do registru procesoru
+    INPUT       s0, PORT_REG_R0
+    INPUT       s1, PORT_REG_R1
+    INPUT       s2, PORT_REG_R2
+    INPUT       s3, PORT_REG_R3
+    INPUT       s4, PORT_REG_R4
+    INPUT       s5, PORT_REG_R5
+    INPUT       s6, PORT_REG_R6
+    INPUT       s7, PORT_REG_R7
+    INPUT       s8, PORT_REG_R8
+
+bs_loop:
+    LOAD        sB, 00  ; Pocet vymen
+
+    ; Bloky porovnani a vymeny prvku
+    COMPARE     s0, s1  ; Porovnej prvky
+    JUMP        NC, a   ; Pokud je s0 mensi nez nebo rovno s1, nic neprovadej
+    LOAD        sA, s0  ; Prohod s0 a s1
+    LOAD        s0, s1
+    LOAD        s1, sA
+    ADD         sB, 01  ; Doslo k vymene
+a:
+    COMPARE     s1, s2
+    JUMP        NC, b
+    LOAD        sA, s1
+    LOAD        s1, s2
+    LOAD        s2, sA
+    ADD         sB, 01
+b:
+    COMPARE     s2, s3
+    JUMP        NC, c
+    LOAD        sA, s2
+    LOAD        s2, s3
+    LOAD        s3, sA
+    ADD         sB, 01
+c:
+    COMPARE     s3, s4
+    JUMP        NC, d
+    LOAD        sA, s3
+    LOAD        s3, s4
+    LOAD        s4, sA
+    ADD         sB, 01
+d:
+    COMPARE     s4, s5
+    JUMP        NC, e
+    LOAD        sA, s4
+    LOAD        s4, s5
+    LOAD        s5, sA
+    ADD         sB, 01
+e:
+    COMPARE     s5, s6
+    JUMP        NC, f
+    LOAD        sA, s5
+    LOAD        s5, s6
+    LOAD        s6, sA
+    ADD         sB, 01
+f:
+    COMPARE     s6, s7
+    JUMP        NC, g
+    LOAD        sA, s6
+    LOAD        s6, s7
+    LOAD        s7, sA
+    ADD         sB, 01
+g:
+    COMPARE     s7, s8
+    JUMP        NC, h
+    LOAD        sA, s7
+    LOAD        s7, s8
+    LOAD        s8, sA
+    ADD         sB, 01
+h:
+    ; Pokud nedoslo k zadne vymene, ukonci razeni, jinak pokracuj
+    COMPARE     sB, 00
+    JUMP        Z, bs_loop_end
+    JUMP        bs_loop
+
+bs_loop_end:
+    ; Vysledek uloz do registru s0
+    LOAD        s0, s4
+
+    ; RLE komprese
+rle_compression:
+    COMPARE    sE, s0
+    JUMP       NZ, rle_gen_output
+    COMPARE    sF, FF
+    JUMP       NC, rle_gen_output
+
+    ; Stejny pixel jako predchazejici, negeneruj vystup
+    ADD        sF, 01
+
+    JUMP       next_pixel
+
+rle_gen_output:
+    ; Prisel jiny pixel, generujeme vystup
+    OUTPUT     sF, PORT_REG_Rout
+    OUTPUT     sE, PORT_REG_Rout
+    LOAD       sE, s0
+    LOAD       sF, 01
+
+    JUMP       next_pixel

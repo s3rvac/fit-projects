@@ -1,0 +1,78 @@
+; ========================================================================
+;                           Projekt do predmetu HSC
+;                           -----------------------
+;
+; Jmeno a Prijmeni: Petr Zemek
+; Login:            xzemek02
+; Datum:            28.12.2008
+;
+; ========================================================================
+
+; --------------------------- Mapovani portu ---------------------------
+
+; Vystupni registr
+CONSTANT PORT_REG_Rout,    20
+
+; Registr obsahujici vypocteny medianu z HW
+CONSTANT PORT_REG_MEDIAN,  21
+
+; Ridici a stavovy registr
+CONSTANT PORT_REG_STATUS,  FE            ; Stavovy registr
+CONSTANT PORT_REG_CONTROL, FF            ; Ridici registr
+
+; --------------------------- Inicializace ------------------------------
+start:
+    ; "Konstanty" ulozene v registrech
+    LOAD       sD, 01
+
+    ; Registry potrebne pro RLE kompresi
+    LOAD       sE, 00          ; posledni prijaty byte
+    LOAD       sF, 00          ; pocet poslednich bajtu
+
+; ---------------------- Hlavni smycka programu -------------------------
+next_pixel:
+    ; Cekani, dokud neprijde z kamery pixel - indikovano neprazdnou frontou na
+    ; vstupu
+    INPUT      s0, PORT_REG_STATUS
+    AND        s0, 01
+    JUMP       Z , next_pixel
+
+    ; Posun 9-okoli o jeden pixel
+    OUTPUT     sD, PORT_REG_CONTROL
+
+    ; Vypocet medianu
+    CALL       compute_median
+
+    ; RLE komprese
+rle_compression:
+    COMPARE    sE, s0
+    JUMP       NZ, rle_gen_output
+    COMPARE    sF, FF
+    JUMP       NC, rle_gen_output
+
+    ; Stejny pixel jako predchazejici, negeneruj vystup
+    ADD        sF, 01
+
+    JUMP       next_pixel
+
+rle_gen_output:
+    ; Prisel jiny pixel, generujeme vystup
+    OUTPUT     sF, PORT_REG_Rout
+    OUTPUT     sE, PORT_REG_Rout
+    LOAD       sE, s0
+    LOAD       sF, 01
+
+    JUMP       next_pixel
+
+;-------------------------------------------------------------------------------
+; Vypocet medianu.
+;
+; Vstup:  -
+; Vystup: s0 (median)
+; Vyuzivane registry: s0
+;-------------------------------------------------------------------------------
+compute_median:
+    ; Uloz median do registru s0
+    INPUT      s0, PORT_REG_MEDIAN
+
+    RETURN
