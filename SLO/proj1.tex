@@ -1,0 +1,123 @@
+%
+% Encoding: utf-8
+% Author:   Petr Zemek, 2010
+%
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper, top=2.0cm, bottom=2.0cm, right=2.0cm, left=2.0cm, nohead]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{graphicx}
+
+% Paragraph formatting - no indents
+\setlength{\parskip}{1.3ex plus 0.2ex minus 0.2ex}
+\setlength{\parindent}{0pt}
+
+% Commands
+\newcommand{\st}[0]{\,|\,} % So that...
+\newcommand{\ua}[0]{\uparrow} % Up arrow
+
+\begin{document}
+
+% Date
+\begin{flushright}
+	\today
+\end{flushright}
+
+% Title
+\begin{center}
+	\begin{large}\textbf{1. úkol z~předmětu Složitost}\end{large} \\
+	\vspace{0.4cm}
+	Petr Zemek \\
+	\textit{xzemek02@stud.fit.vutbr.cz} \\
+	\textit{Fakulta Informačních Technologií, Brno} \\
+\end{center}
+
+\section*{Příklad 1}
+
+Následující TS $M$, reprezentovaný kompozitním diagramem\footnote{Použitá notace je podle předmětu TIN; \emph{accept} značí přijetí vstupu, \emph{reject} značí zamítnutí vstupu.}, rozhoduje jazyk $L = \{a^{i}b^{i}c^{i} \st i \geq 0\}$.
+
+\vfill
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width=10cm,keepaspectratio]{ts.pdf}
+	\end{center}
+\end{figure}
+
+\vfill
+
+$M$ funguje následujícím způsobem. Pokud se na pásce nenachází žádný vstup (resp. vstup nulové délky), tak $M$ přijímá. V opačném případě postupuje iteračně, a to tak, že v každé iteraci přepíše nejlevější symbol $a$ na velké $A$, nejlevější $b$ na $B$ a nejlevější $c$ na $C$. V případě, že stroj při této činnosti narazí na nesrovnalost (symboly nejsou v pořadí $a\dots ab\dots bc\dots c$ či počet symbolů $a$ je větší než počet $b$ či $c$), tak zamítne. Jakmile takto přepíše nejpravější symbol $a$, tak projde páskou až nakonec, přičemž kontroluje, zda byly přepsány všechny symboly na jejich velké verze (počet symbolů $a$ není menší než počet symbolů $b$ či $c$). Pokud tomu tak je, stroj přijímá, jinak zamítá.
+
+Pro potřebu analýzy složitosti, nechť $n$ značí délku vstupního řetězce.
+
+\subsection*{Analýza časové složitosti}
+
+$M$ provede $O(n)$ iterací (za každý symbol $a$ se provede jedna iterace), kde časová složitost každé iterace je $O(n)$ (prochází se všechny nezpracované symboly $a$, poté všechny symboly $b$ či $B$ a všechny symboly $C$). Nakonec dojde k ověření, že ve vstupním řetězci už nezbyly žádné symboly $a$, $b$, či $c$, což má časovou složitost $O(n)$ (prochází ve vstupní řetězec až po první prázdné políčko). Celková časová složitost je tedy $O(n)O(n) + O(n) = O(n^{2})$.
+
+\subsection*{Analýza prostorové složitosti}
+
+Jelikož $M$ během své činnosti nic nezapisuje mimo oblast, na které se nachází vstupní řetězec, je jeho prostorová složitost $O(n)$.
+
+\pagebreak
+\section*{Příklad 2}
+
+Následující RAM program\footnote{Používám mírně pozměněnou notaci, kdy místo explicitních čísel řádků uvažuji návěští, aby to bylo přehlednější a udržovatelné. Znak ';' uvozuje komentář.} provádí násobení $n$ čísel $x_{1}, x_{2}, \dots, x_{n}$, kde $n > 0$, reprezentovaných vstupním vektorem $I = (n, x_{1}, x_{2}, \dots, x_{n})$. Výsledek je na konci uložen v registru $r_{0}$.
+
+\vspace{0.5cm}
+\begin{tabular}{llllll}
+	\texttt{1}  &       & \texttt{READ}  & \texttt{1}      & \qquad & ; $r_{0} := n$ \\
+	\texttt{2}  &       & \texttt{STORE} & \texttt{1}      &        & ; $r_{1} := r_{0}$ \\
+	\texttt{3}  &       & \texttt{READ}  & \texttt{2}      &        & ; $r_{0} := x_{1}$ \\
+	\texttt{4}  &       & \texttt{JZERO} & \texttt{end0}   &        & ; pokud je na vstupu 0, pak je výsledek 0 \\
+	\texttt{5}  &       & \texttt{STORE} & \texttt{2}      &        & ; $r_{2} := r_{0}$ \\
+	\texttt{6}  & \texttt{next:} &       &                 &        & ; zpracování následujícího čísla \\
+	\texttt{7}  &       & \texttt{LOAD}  & \texttt{1}      &        & ; $r_{0} := r_{1}$ \\
+	\texttt{8}  &       & \texttt{SUB}   & \texttt{=1}     &        & ; $r_{0} := r_{0} - 1$ \\
+	\texttt{9}  &       & \texttt{JZERO} & \texttt{end}    &        & ; žádná další čísla k násobení \\
+	\texttt{10} &       & \texttt{STORE} & \texttt{1}      &        & ; $r_{1} := r_{0}$ \\
+	\texttt{11} &       & \texttt{ADD}   & \texttt{=2}     &        & ; $r_{0} := r_{0} + 2$ (kvůli indexaci vstupu) \\
+	\texttt{12} &       & \texttt{READ}  & \texttt{$\ua$0} &        & ; $r_{0} := I_{r_{0}}$ (načtení dalšího čísla ze vstupu) \\
+	\texttt{13} &       & \texttt{JZERO} & \texttt{end0}   &        & ; pokud je na vstupu 0, pak je výsledek 0 \\
+	\texttt{14} &       & \texttt{STORE} & \texttt{4}      &        & ; $r_{4} := r_{0}$ (následující 4 instrukce slouží k $r_{3} := r_{2}$) \\
+	\texttt{15} &       & \texttt{LOAD}  & \texttt{2}      &        & ; $r_{0} := r_{2}$ \\
+	\texttt{16} &       & \texttt{STORE} & \texttt{3}      &        & ; $r_{3} := r_{0}$ \\
+	\texttt{17} &       & \texttt{LOAD}  & \texttt{4}      &        & ; $r_{0} := r_{4}$ \\
+	\texttt{18} & \texttt{mult2:} &      &                 &        & ; vynásobení dvou čísel pomocí sčítání \\
+	\texttt{19} &       & \texttt{SUB}   & \texttt{=1}     &        & ; $r_{0} := r_{0} - 1$ \\
+	\texttt{20} &       & \texttt{JZERO} & \texttt{next}   &	       & ; násobení bylo dokončeno, jdeme na další číslo \\
+	\texttt{21} &       & \texttt{STORE} & \texttt{4}      &        & ; $r_{4} := r_{0}$ \\
+	\texttt{22} &       & \texttt{LOAD}  & \texttt{2}      &        & ; $r_{0} := r_{2}$ \\
+	\texttt{23} &       & \texttt{ADD}   & \texttt{3}      &        & ; $r_{0} := r_{0} + r_{3}$ \\
+	\texttt{24} &       & \texttt{STORE} & \texttt{2}      &        & ; $r_{2} := r_{0}$ \\
+	\texttt{25} &       & \texttt{LOAD}  & \texttt{4}      &        & ; $r_{0} := r_{4}$ \\
+	\texttt{26} &       & \texttt{JPOS}  & \texttt{mult2}  &        & \\
+	\texttt{27} & \texttt{end0:} &       &                 &        & ; konec násobení (výsledkem je 0) \\
+	\texttt{28} &       & \texttt{LOAD}  & \texttt{=0}     &        & ; $r_{0} := 0$ \\
+	\texttt{29} &       & \texttt{HALT}  &                 &        & \\
+	\texttt{30} & \texttt{end:} &        &                 &        & ; konec násobení (výsledek může být nenulový) \\
+	\texttt{31} &       & \texttt{LOAD}  & \texttt{2}      &        & ; $r_{0} := r_{2}$ \\
+	\texttt{32} &       & \texttt{HALT}  &                 &        &
+\end{tabular}
+\vspace{0.5cm}
+
+Program používá registr $r_{1}$ pro uložení počtu čísel, která je ještě třeba vynásobit (vždy před zahájením násobení dvou čísel se dekrementuje a pokud je jeho obsah nulový, tak se program ukončí). Průběžný výsledek násobení je uložen v registru $r_{2}$. Registry $r_{3}$ a $r_{4}$ slouží jako pracovní registry při násobení dvou čísel. Dokud je co násobit, tak program postupně násobí vždy dvě čísla (aktuální výsledek uložený v registru $r_{2}$ s dalším číslem na vstupu) pomocí opakovaného sčítání (přičítání obsahu registru $r_{3}$ k $r_{2}$).
+
+Pro potřebu analýzy složitosti, nechť:
+\begin{itemize}
+	\item $l(x)$ značí délku zápisu čísla $x$ v binárním zápise,
+	\item $n$ je počet čísel, které se násobí (první hodnota vstupu),
+	\item $w = l(n)l(x_{1})l(x_{2})\dots l(x_{n})$ je délka vstupního vektoru v binárním zápise,
+	\item $k = max(\{x_{1}\cdot x_{2}\cdot$ \dots $\cdot x_{n}, n, 4\})$ je největší číslo, se kterým se v programu pracuje,
+	\item $m = max(\{x_{i} \st 2 \leq i \leq n\} \cup \{0\})$ je maximální hodnota násobitele (0, pokud $n = 1$).
+\end{itemize}
+
+\subsection*{Analýza časové složitosti}
+
+Řádky 1--5 mají konstantní složitost $O(1)$. Na řádcích 7--26 se nachází vnější cyklus, který pro každé číslo na vstupu (kromě prvního) provede vynásobení tohoto čísla s mezivýsledkem násobení. Tento cyklus se tedy provede $O(n)$ krát. Dále se v tomto cyklu na řádcích 19--26 provádí vnitřní cyklus násobení dvou čísel, jehož složitost je $O(2^{m})$ (v každém cyklu se sníží hodnota násobitele, což je počet sčítání, které se mají provést, o 1). Řádky 28--29 a 31--32 mají opět konstantní složitost $O(1)$. Celková jednotková časová složitost programu je tedy $O(1) + O(n)O(2^{m}) + O(1) = O(n\cdot 2^{m})$. Logaritmická časová složitost je pak $O(n\cdot 2^{m}\cdot l(k))$.
+
+\subsection*{Analýza prostorové složitosti}
+
+Program využívá registry $r_{0}$ až $r_{4}$, čili jednotková prostorová složitost je $O(5 + w) = O(w)$. Logaritmická prostorová složitost je pak $O(5\cdot l(k) + w) = O(l(k) + w)$.
+
+\end{document}

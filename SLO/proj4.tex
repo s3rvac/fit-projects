@@ -1,0 +1,71 @@
+%
+% Encoding: utf-8
+% Author:   Petr Zemek, 2010
+%
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper, top=1.5cm, bottom=1.5cm, right=1.5cm, left=1.5cm, nohead]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+
+% Paragraph formatting - no indents
+\setlength{\parskip}{1.3ex plus 0.2ex minus 0.2ex}
+\setlength{\parindent}{0pt}
+
+% Theorems
+\newtheorem{theorem}{Věta}
+
+% Commands
+\newcommand{\st}[0]{\,|\,} % So that...
+\newcommand{\eps}{\varepsilon} % Epsilon
+
+\begin{document}
+
+% Disable numbering
+\thispagestyle{empty}
+\pagestyle{empty}
+
+% Date
+\begin{flushright}
+	30.~dubna~2010
+\end{flushright}
+
+% Title
+\begin{center}
+	\begin{large}\textbf{4. úkol z~předmětu Složitost}\end{large} \\
+	\vspace{0.4cm}
+	Petr Zemek \\
+	\textit{xzemek02@stud.fit.vutbr.cz} \\
+	\textit{Fakulta Informačních Technologií, Brno} \\
+\end{center}
+
+\section*{Příklad 1}
+
+Bez újmy na obecnosti lze předpokládat, že velikost formule je dána počtem proměnných (pro $n$ proměnných nedává od určité hranice, závislé pouze na $n$, smysl formuli dále zvětšovat).
+
+\begin{enumerate}
+	\item[(a)] Nechť $n$ označuje počet proměnných v předané formuli. Vygenerování náhodného čísla lze udělat v $O(1)$ (složitost nezávisí na délce formule), takže cyklus \emph{for} má časovou složitost $\Theta(n)$. Otestování pravdivosti zabere $O(n)$. Celková časová složitost funkce \emph{SAT} je tedy $O(n)$.
+
+	\item[(b)] Ano, lze. Libovolný NTS lze převést na NTS, který má v každém okamžiku přesně dvě nedeterministické volby. To, aby každý výpočet skončil po přesně daném počtu kroků, který je závislý jen od velikosti vstupu, lze u implementace funkce \emph{SAT} na NTS zřejmě také docílit.
+
+	\item[(c)] Ne, nemůžeme. NTS z bodu (b) není Monte Carlo TS, protože počet přijímajících výpočtů je závislý na velikosti a tvaru formule (přesněji: neexistuje konstanta $0 < k \leq 1$ taková, že pokud $w \in SAT$, tak poměr mezi počtem zamítajících a akceptujících výpočtů NTS z bodu (b) na $w$ je alespoň $k$, a to nezávisle na velikosti a tvaru formule). Nicméně, pouze na základě této konkrétní funkce ještě nelze říci, že problém SAT nepatří do \textbf{RP} -- čistě teoreticky totiž může existovat Monte Carlo TS, který rozhoduje SAT.
+\end{enumerate}
+
+\section*{Příklad 2}
+
+\begin{theorem}
+\label{theorem:Ex2}
+	Algoritmus popsaný funkcí \emph{klika} ze zadání není $\eps$-aproximační pro žádné $0 \leq \eps < 1$.
+\end{theorem}
+
+\begin{proof}
+	Sporem. Předpokládejme, že algoritmus je $\eps$-aproximační pro nějaké $0 \leq \eps < 1$.
+
+	Nechť $G_{k}$, kde $k \geq 4$, označuje neorientovaný graf daný následovně. $G_{k}$ je sám o sobě nesouvislý a obsahuje dva souvislé grafy, $G_{k}^{1}$ a $G_{k}^{2}$. $G_{k}^{1}$ je graf ve tvaru hvězdy o $k + 1$ vrcholech (obsahuje tedy jeden vrchol stupně $k$ a $k$ vrcholů stupně 1). $G_{k}^{2}$ je úplný graf o $k - 1$ vrcholech, tedy tvoří kliku o velikosti $k - 1$. Všimněte si, že maximální stupeň vrcholu v $G_{k}^{2}$ je $k - 1$, tedy méně, než v $G_{k}^{1}$.
+
+	Pokud dáme $G_{k}$ na vstup funkci \emph{klika}, dostaneme vždy jako výsledek kliku o velikosti 2, nezávisle na hodnotě $k$ (v inicializaci se do \emph{max} se přiřadí uzel s největším stupněm, tj. $k$, který je z $G_{k}^{1}$, a po jednom kroku cyklu se funkce ukončí). Optimální velikost kliky v $G_{k}$ je ale $k - 1$, kterou dává $G_{k}^{2}$. Jelikož předpokládáme $k \geq 4$, tak optimální řešení se od nalezeného liší vždy o $k - 3$.
+
+	Pokud tedy budeme zvyšovat $k$, tak nám bude růst relativní chyba, což je spor s předpokladem, že algoritmus je $\eps$-aproximační pro nějaké $0 \leq \eps < 1$ (pokud je algoritmus $\eps$-aproximační, tak nesmí růst relativní chyba při zvyšování velikosti vstupu). Tudíž, algoritmus není $\eps$-aproximační pro žádné $0 \leq \eps < 1$.
+\end{proof}
+
+\end{document}

@@ -1,0 +1,86 @@
+%
+% Encoding: utf-8
+% Author:   Petr Zemek, 2010
+%
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper, top=1.5cm, bottom=1.5cm, right=1.5cm, left=1.5cm, nohead]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+
+% Paragraph formatting - no indents
+\setlength{\parskip}{1.3ex plus 0.2ex minus 0.2ex}
+\setlength{\parindent}{0pt}
+
+% Theorems
+\newtheorem{theorem}{Věta}
+
+% Commands
+\newcommand{\st}[0]{\,|\,} % So that...
+\newcommand{\bs}{\char`\\} % \
+
+\begin{document}
+
+% Date
+\begin{flushright}
+	3.~dubna~2010
+\end{flushright}
+
+% Title
+\begin{center}
+	\begin{large}\textbf{3. úkol z~předmětu Složitost}\end{large} \\
+	\vspace{0.4cm}
+	Petr Zemek \\
+	\textit{xzemek02@stud.fit.vutbr.cz} \\
+	\textit{Fakulta Informačních Technologií, Brno} \\
+\end{center}
+
+\section*{Příklad 1}
+
+\begin{theorem}
+\label{theorem:Ex1}
+	Problém PARTITION\footnote{Zadání problémů PARTITION a SUBSET-SUM mám dle 6. přednášky, 11. a 12. slajd, respektive. Předpokládám, že funkce $v$ je totální a její vyčíslení lze provést v polynomiálním čase.} je $\textbf{NP}$-úplný.
+\end{theorem}
+
+\begin{proof} Redukcí problému SUBSET-SUM, který je $\textbf{NP}$-úplný, a ukázáním, že PARTITION $\in \textbf{NP}$.
+	\begin{enumerate}
+		\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+		\item SUBSET-SUM $\leq$ PARTITION: Nechť je problém SUBSET-SUM dán trojicí $\langle S_{s}, v_{s}, V\rangle$, kde $S_{s}$ je konečná množina položek, $v_{s}\colon S_{s} \rightarrow \mathbb{N}$ je totální váhovací funkce a $V$ je hledaná suma. Bez újmy na obecnosti lze předpokládat, že $U = \sum_{a \in S_{s}} v_{s}(a) > 2V$ (pokud tomu tak není, tak lze do $S_{s}$ přidat novou položku s váhou $2V + 1$, která na náležitost instance $\langle S_{s}, v_{s}, V\rangle$ do problému SUBSET-SUM do nemá vliv, protože $v(a) \in \mathbb{N}$, pro všechna $a \in S_{s}$). Redukujeme jej na problém PARTITION se vstupem $\langle S_{p}, v_{p}\rangle$, kde $S_{p} = S_{s} \cup \{z\}$, $z \notin S_{s}$ je nová položka, $v_{p} = v_{s} \cup \{(z, U - 2V)\}$. Tato redukce je zjevně polynomiální.
+
+		Zbývá dokázat, že tato redukce zachovává příslušnost, to jest $\langle S_{s}, v_{s}, V\rangle \in$ SUBSET-SUM tehdy a jen tehdy, když $\langle S_{p}, v_{p}\rangle \in$ PARTITION.
+			\begin{itemize}
+				\item[] ``$\Rightarrow$'': Nechť $\langle S_{s}, v_{s}, V\rangle \in$ SUBSET-SUM, tudíž v $S_{s}$ existuje množina položek $A \subseteq S_{s}$ taková, že $\sum_{a \in A} v_{s}(a)$ $= V$. Pak $\sum_{a \in S_{s}\bs A} v_{s}(a) = U - V$. Rozdělme množinu $S_{p}$ na $S_{p_{1}}, S_{p_{2}} \subseteq S_{p}$ takové, že $S_{p_{1}} = S_{s}\bs A$, $S_{p_{2}} = \{z\} \cup A$. Pro tyto množiny platí, že $S_{p_{1}} \cup S_{p_{2}} = S_{p}$, $S_{p_{1}} \cap S_{p_{2}} = \emptyset$, a $\sum_{a \in S_{p_{1}}} v_{p}(a) = \sum_{a \in S_{p_{2}}} v_{p}(a) = U - V$, tudíž $\langle S_{p}, v_{v}\rangle \in$ PARTITION.
+
+				\vspace{0.2cm}
+				\item[] ``$\Leftarrow$'': Nechť $\langle S_{p}, v_{p}\rangle \in$ PARTITION, tudíž existuje rozdělení množiny $S_{p}$ na $S_{p_{1}}, S_{p_{2}} \subseteq S_{p}$ takové, že $S_{p_{1}} \cup S_{p_{2}} = S_{p}$, $S_{p_{1}} \cap S_{p_{2}} = \emptyset$, a $\sum_{a \in S_{p_{1}}} v_{p}(a) = \sum_{a \in S_{p_{2}}} v_{p}(a) = W$. Potom $W = (\sum_{a \in S_{p}} v_{p}(a))/2 = U - V$. Dále platí, že $z \in S_{p_{i}}$ pro nějaké $1 \leq i \leq 2$. Zvolme množinu $A \subseteq S_{p_{i}}$ tak, že $z \notin A$, a tudíž $\sum_{a \in A} v_{s}(a) = V$. Jelikož $A \subseteq S_{s}$, tak $\langle S_{s}, v_{s}, V\rangle \in$ SUBSET-SUM.
+			\end{itemize}
+
+		\item PARTITION $\in \textbf{NP}$: Nechť je problém PARTITION dán dvojicí $\langle S, v\rangle$. Sestrojíme NTS, který nedeterministicky zvolí množinu $S^{\prime} \subseteq S$ a v polynomiálním čase ověří, že $\sum_{a \in S^{\prime}} v(a) = \sum_{a \in S\bs S^{\prime}} v(a)$.
+	\end{enumerate}
+\end{proof}
+
+\vspace{-1cm}
+\section*{Příklad 2}
+
+\begin{theorem}
+\label{theorem:Ex2}
+	Nechť $L_{t} = \{true\}$ je jazyk nad abecedou $\{true, false\}$. Pak platí $\textbf{P} = \textbf{NP} \Rightarrow L_{t}$ je $\textbf{NP}$-úplný.
+\end{theorem}
+
+\begin{proof}
+	Nechť $\textbf{P} = \textbf{NP}$. Zjevně $L_{t} \in \textbf{NP}$. $\textbf{NP}$-těžkost jazyka $L_{t}$ ukážeme redukcí problému SAT, který je $\textbf{NP}$-úplný. Nechť $\Sigma$ označuje abecedu, nad níž je SAT definován. Z předpokladu, že $\textbf{P} = \textbf{NP}$ a z faktu, že třída \textbf{P} je uzavřena vůči doplňku, plyne, že existuje DTS $M_{SAT}$, který rozhoduje SAT v polynomiálním čase. Redukci $R$ problému SAT na $L_{t}$ definujeme tak, že pro $x \in \Sigma^{*}$, $R(x) = true$ pokud $M_{SAT}$ akceptuje $x$ a $R(x) = false$ pokud $M_{SAT}$ zamítne $x$. Jelikož $M_{SAT}$ rozhoduje SAT v polynomiálním čase, $R$ je polynomiální redukce. To, že $R$ zachovává příslušnost, plyne přímo z popisu této redukce.
+\end{proof}
+
+\section*{Příklad 3}
+
+\begin{theorem}
+\label{theorem:Ex3}
+	$\textbf{P} = \textbf{NP} \Rightarrow$ každý jazyk $L \in \textbf{NP}$ je $\textbf{NP}$-úplný.
+\end{theorem}
+
+\begin{proof}
+	Vyplývá z Věty \ref{theorem:Ex2} ($L_{t}$ je $\textbf{NP}$-úplný $\Rightarrow$ lze jej triviálně použít k dokázání $\textbf{NP}$-těžkosti libovolného $L \in \textbf{NP}$ ukázáním $L_{t} \leq_{R} L$; stačí, když si zvolíme libovolné $x \in L$ a $y \notin L$ a položíme $R(true) = x$ a $R(w) = y$, pro všechny $w \in \{true, false\}^{*}\bs\{true\}$.
+\end{proof}
+
+\end{document}
